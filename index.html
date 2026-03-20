@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiyaraHub Technologies LLC</title>
+    <meta name="description" content="MiyaraHub Technologies LLC — Home Automation, Audio Integration, and Intelligent App Development.">
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="MiyaraHub Technologies LLC">
+    <meta property="og:description" content="Home Automation, Audio Integration, and Intelligent App Development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miyarahub.com">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #06b6d4;
+            --accent-glow: rgba(6, 182, 212, 0.15);
+            --accent-hover: #22d3ee;
+            --border: rgba(148, 163, 184, 0.1);
+            --gradient-start: #06b6d4;
+            --gradient-end: #8b5cf6;
+        }
+        html{scroll-behavior:smooth}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: ambientShift 20s ease-in-out infinite alternate;
+        }
+        @keyframes ambientShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 3%); }
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-brand {
+            font-size: 1.15rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: var(--accent-glow);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4);
+        }
+
+        /* SECTIONS */
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 600px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.08);
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+        .portfolio-card .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-glow);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        .portfolio-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .portfolio-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+        }
+        .tech-stack span {
+            padding: 0.2rem 0.6rem;
+            background: rgba(148, 163, 184, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* ABOUT */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            text-align: center;
+        }
+        .contact-section .section-desc {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .contact-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+        .contact-card .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .contact-card .info { text-align: left; }
+        .contact-card .info .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .contact-card .info .value {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.8rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .hero { padding: 5rem 1.5rem 3rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .nav-brand { font-size: 0.95rem; }
+            .nav-links { gap: 0.75rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">MiyaraHub Technologies</div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">⚡ Software Engineering Studio</div>
+        <h1>
+            Building <span class="gradient">Intelligent</span><br>
+            Software Solutions
+        </h1>
+        <p>
+            MiyaraHub Technologies LLC specializes in home automation, 
+            audio integration, and cross-platform app development — turning 
+            complex systems into elegant, reliable experiences.
+        </p>
+        <a href="#contact" class="hero-cta">
+            Get in Touch →
+        </a>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container fade-in">
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title">Services & Expertise</h2>
+            <p class="section-desc">
+                End-to-end software development with deep expertise in connected 
+                devices, smart home ecosystems, and media technologies.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Home Automation</h3>
+                    <p>Custom integrations for smart home platforms, IoT device management, and intelligent control systems that work seamlessly together.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎵</div>
+                    <h3>Audio Integration</h3>
+                    <p>Professional audio product platforms, e-commerce solutions, and digital storefronts for the music and audio technology industry.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Cross-Platform Apps</h3>
+                    <p>Native-quality mobile and web applications built with Flutter, delivering consistent experiences across iOS, Android, and the web.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Systems Management</h3>
+                    <p>Network-attached storage, server monitoring, container orchestration, and infrastructure management tools for power users.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <h3>API & Integration</h3>
+                    <p>RESTful API development, third-party service integration, payment processing, and cloud backend architecture using modern serverless platforms.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>DevOps & CI/CD</h3>
+                    <p>Automated build pipelines, multi-platform deployment workflows, testing frameworks, and infrastructure-as-code for reliable software delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Our Work</div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-desc">
+                A selection of production applications built and maintained by MiyaraHub Technologies.
+            </p>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <span class="tag">E-Commerce • Audio</span>
+                    <h3>Elan Audio Lab</h3>
+                    <p>Full-stack e-commerce platform for premium audio products. Features product catalog, Square &amp; PayPal payment processing, quote system, blog, and artist showcases.</p>
+                    <div class="tech-stack">
+                        <span>Flutter</span>
+                        <span>Supabase</span>
+                        <span>Square SDK</span>
+                        <span>PayPal</span>
+                        <span>Web + Android + iOS</span>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <span class="tag">Home Automation</span>
+                    <h3>UC-Remote Integration Hub</h3>
+                    <p>40+ custom integrations for the Unfolded Circle Remote Two and Remote 3 smart home controllers. Device drivers for AV receivers, media players, lighting, and more.</p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>WebSocket</span>
+                        <span>REST API</span>
+                        <span>IoT</span>
+                        <span>asyncio</span>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <span class="tag">Infrastructure</span>
+                    <h3>Synology Manager</h3>
+                    <p>Mobile management app for Synology NAS systems. Real-time monitoring of CPU, memory, storage, Docker containers, network, surveillance cameras, and backup tasks.</p>
+                    <div class="tech-stack">
+                        <span>Flutter</span>
+                        <span>Synology DSM API</span>
+                        <span>Docker</span>
+                        <span>iOS + Android</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container fade-in">
+            <div class="section-label">About</div>
+            <h2 class="section-title">Who We Are</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        MiyaraHub Technologies LLC is a Dallas, Texas-based software engineering 
+                        studio founded by <strong>Meir Miyara</strong>, a Director of Software Development 
+                        with deep expertise in full-stack application development, smart home technology, 
+                        and audio integration systems.
+                    </p>
+                    <p>
+                        We build software that bridges the gap between complex hardware ecosystems 
+                        and intuitive user experiences — from IoT device integrations to cross-platform 
+                        mobile applications and cloud-powered backends.
+                    </p>
+                    <p>
+                        Our philosophy is simple: ship reliable software, automate everything possible, 
+                        and never compromise on quality. Every line of code is tested, every deployment 
+                        is validated, and every product is built to last.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Integrations Built</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Platforms Shipped</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">CI/CD Pipelines</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Monitoring Active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Get in Touch</div>
+            <h2 class="section-title">Let's Build Something</h2>
+            <p class="section-desc">
+                Have a project in mind? Need a custom integration or app? 
+                We'd love to hear from you.
+            </p>
+            <a href="mailto:admin@miyarahub.com" class="contact-card">
+                <div class="icon">✉️</div>
+                <div class="info">
+                    <div class="label">Email Us</div>
+                    <div class="value">admin@miyarahub.com</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-copy">
+                &copy; 2026 MiyaraHub Technologies LLC. All rights reserved.
+            </div>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="mailto:admin@miyarahub.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scroll animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
