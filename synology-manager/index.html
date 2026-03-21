@@ -87,6 +87,27 @@
             transition: color 0.3s;
         }
         .nav-links a:hover { color: var(--accent); }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 101;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-secondary);
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* HERO */
         .hero {
@@ -561,18 +582,32 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav { padding: 1rem; }
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.8rem; }
+            .nav-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(10, 14, 26, 0.97);
+                backdrop-filter: blur(20px);
+                padding: 1rem 2rem;
+                gap: 0;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { font-size: 1rem; }
             .hero { padding: 5rem 1.5rem 2rem; min-height: auto; }
             .hero-phones { gap: 1rem; }
             .phone-frame { width: 160px; }
-
             .footer-content { flex-direction: column; text-align: center; }
             .legal-banner { padding: 1.5rem; }
         }
         @media (max-width: 480px) {
             .nav-brand { font-size: 0.95rem; }
-            .nav-links { gap: 0.75rem; }
             .phone-frame { width: 140px; }
             .hero-cta-group { flex-direction: column; align-items: center; }
         }
@@ -619,12 +654,15 @@
     <!-- Navigation -->
     <nav>
         <a href="/" class="nav-brand">MiyaraHub Technologies</a>
-        <ul class="nav-links">
-            <li><a href="/">← Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#screenshots">Screenshots</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#faq">FAQ</a></li>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="#features" onclick="closeNav()">Features</a></li>
+            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
+            <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
+            <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
         </ul>
     </nav>
 
@@ -635,8 +673,8 @@
             <span class="gradient">Syno Manager</span>
         </h1>
         <p>
-            A powerful, independent mobile app for monitoring and managing your 
-            Synology NAS - real-time dashboards, Docker containers, surveillance cameras, 
+            A powerful, independent mobile app for monitoring and managing your
+            Synology NAS - real-time dashboards, Docker containers, surveillance cameras,
             storage health, and more. All from your pocket.
         </p>
         <div class="hero-cta-group">
@@ -663,7 +701,7 @@
             <div class="section-label">Features</div>
             <h2 class="section-title">Everything You Need at a Glance</h2>
             <p class="section-desc">
-                Syno Manager connects directly to your Synology DSM API to deliver 
+                Syno Manager connects directly to your Synology DSM API to deliver
                 real-time monitoring and management - no cloud middleman, no account required.
             </p>
             <div class="features-grid">
@@ -742,7 +780,7 @@
             <div class="section-label">Screenshots</div>
             <h2 class="section-title">See It in Action</h2>
             <p class="section-desc">
-                Every screen designed for clarity and speed. Dark theme, real-time data, 
+                Every screen designed for clarity and speed. Dark theme, real-time data,
                 intuitive navigation.
             </p>
         </div>
@@ -811,7 +849,7 @@
             <div class="section-label">How It Works</div>
             <h2 class="section-title">Direct API Connection. No Cloud Required.</h2>
             <p class="section-desc">
-                Syno Manager communicates directly with your Synology NAS using the 
+                Syno Manager communicates directly with your Synology NAS using the
                 official DSM API. Your data never passes through third-party servers.
             </p>
             <div class="how-cards">
@@ -840,7 +878,7 @@
             <div class="section-label">Security &amp; Privacy</div>
             <h2 class="section-title">Your NAS, Your Data, Your Control</h2>
             <p class="section-desc">
-                Syno Manager is designed with a privacy-first architecture. No analytics, 
+                Syno Manager is designed with a privacy-first architecture. No analytics,
                 no tracking, no cloud dependency.
             </p>
             <div class="permissions-grid">
@@ -906,9 +944,9 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            <strong>No.</strong> Syno Manager is an independent, third-party application developed by MiyaraHub Technologies LLC. 
-                            It is not created, endorsed, sponsored, or affiliated with Synology Inc. in any way. 
-                            "Synology" and "DiskStation Manager" (DSM) are registered trademarks of Synology Inc. 
+                            <strong>No.</strong> Syno Manager is an independent, third-party application developed by MiyaraHub Technologies LLC.
+                            It is not created, endorsed, sponsored, or affiliated with Synology Inc. in any way.
+                            "Synology" and "DiskStation Manager" (DSM) are registered trademarks of Synology Inc.
                             Our use of these names is purely for descriptive purposes to indicate compatibility (nominative fair use).
                         </div>
                     </div>
@@ -920,8 +958,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Syno Manager uses the documented Synology DSM API endpoints to communicate with your NAS over your local network. 
-                            The app sends requests directly to your NAS - there are no intermediary servers, proxies, or cloud relays involved. 
+                            Syno Manager uses the documented Synology DSM API endpoints to communicate with your NAS over your local network.
+                            The app sends requests directly to your NAS - there are no intermediary servers, proxies, or cloud relays involved.
                             You provide the NAS IP/hostname and port, authenticate with your DSM credentials, and the app communicates directly with DSM.
                         </div>
                     </div>
@@ -933,9 +971,9 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            The app operates within whatever permissions your DSM user account has. For full dashboard functionality, 
-                            an administrator account is recommended. However, the app will gracefully degrade - if your account doesn't 
-                            have Docker permissions, the Docker section simply won't show data. Same for Surveillance Station, shared folders, etc. 
+                            The app operates within whatever permissions your DSM user account has. For full dashboard functionality,
+                            an administrator account is recommended. However, the app will gracefully degrade - if your account doesn't
+                            have Docker permissions, the Docker section simply won't show data. Same for Surveillance Station, shared folders, etc.
                             No special DSM packages need to be installed.
                         </div>
                     </div>
@@ -947,8 +985,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Connection details are stored locally on your device using platform-secure storage 
-                            (iOS Keychain / Android Keystore). Credentials are never transmitted to MiyaraHub Technologies 
+                            Connection details are stored locally on your device using platform-secure storage
+                            (iOS Keychain / Android Keystore). Credentials are never transmitted to MiyaraHub Technologies
                             or any third party. They are used exclusively to authenticate with your NAS.
                         </div>
                     </div>
@@ -960,8 +998,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Syno Manager works with any Synology NAS running DSM 7.0 or later. This includes all current 
-                            DiskStation (DS), RackStation (RS), and FlashStation (FS) models. Older models running DSM 6.x 
+                            Syno Manager works with any Synology NAS running DSM 7.0 or later. This includes all current
+                            DiskStation (DS), RackStation (RS), and FlashStation (FS) models. Older models running DSM 6.x
                             may have limited functionality due to API differences.
                         </div>
                     </div>
@@ -973,8 +1011,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes. You can view container status, CPU/memory usage, access logs, and perform stop/restart operations 
-                            directly from the app. Container creation and configuration changes are not currently supported - 
+                            Yes. You can view container status, CPU/memory usage, access logs, and perform stop/restart operations
+                            directly from the app. Container creation and configuration changes are not currently supported -
                             the focus is on monitoring and quick management actions.
                         </div>
                     </div>
@@ -986,7 +1024,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Pricing will be announced closer to launch. Our goal is to keep it accessible while 
+                            Pricing will be announced closer to launch. Our goal is to keep it accessible while
                             sustaining ongoing development and support.
                         </div>
                     </div>
@@ -998,8 +1036,8 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Syno Manager connects to whatever IP/hostname you configure. If your NAS is accessible via 
-                            VPN, Tailscale, or a forwarded port, the app will work remotely. We recommend using a VPN 
+                            Syno Manager connects to whatever IP/hostname you configure. If your NAS is accessible via
+                            VPN, Tailscale, or a forwarded port, the app will work remotely. We recommend using a VPN
                             or Tailscale rather than exposing DSM directly to the internet.
                         </div>
                     </div>
@@ -1014,25 +1052,25 @@
             <div class="legal-banner">
                 <h3>⚖️ Legal Disclaimer &amp; Trademark Notice</h3>
                 <p>
-                    Syno Manager is an <strong>independent, third-party application</strong> developed and published by 
-                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by, 
+                    Syno Manager is an <strong>independent, third-party application</strong> developed and published by
+                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by,
                     sponsored by, or in any way officially connected with Synology Inc.</strong> or any of its subsidiaries or affiliates.
                 </p>
                 <p style="margin-top: 0.75rem;">
-                    The names "Synology," "DiskStation," "DiskStation Manager," "DSM," "RackStation," "FlashStation," 
-                    and "Surveillance Station" are registered trademarks of <strong>Synology Inc.</strong>, registered in 
-                    the United States and other countries. All other trademarks, service marks, and trade names referenced 
+                    The names "Synology," "DiskStation," "DiskStation Manager," "DSM," "RackStation," "FlashStation,"
+                    and "Surveillance Station" are registered trademarks of <strong>Synology Inc.</strong>, registered in
+                    the United States and other countries. All other trademarks, service marks, and trade names referenced
                     herein are the property of their respective owners.
                 </p>
                 <p style="margin-top: 0.75rem;">
-                    References to Synology products and trademarks on this page and within the app are made solely for the 
-                    purpose of identifying compatibility and describing the app's functionality (nominative fair use). 
+                    References to Synology products and trademarks on this page and within the app are made solely for the
+                    purpose of identifying compatibility and describing the app's functionality (nominative fair use).
                     The trademark holders are not affiliated with MiyaraHub Technologies LLC and do not endorse this product.
                 </p>
                 <p style="margin-top: 0.75rem;">
-                    Syno Manager utilizes the publicly available Synology DSM API. Use of this app is at your own risk. 
-                    MiyaraHub Technologies LLC is not responsible for any data loss, unauthorized access, or damages 
-                    arising from the use of this application. Always ensure your NAS firmware is up to date and follow 
+                    Syno Manager utilizes the publicly available Synology DSM API. Use of this app is at your own risk.
+                    MiyaraHub Technologies LLC is not responsible for any data loss, unauthorized access, or damages
+                    arising from the use of this application. Always ensure your NAS firmware is up to date and follow
                     Synology's security best practices.
                 </p>
             </div>
@@ -1079,6 +1117,12 @@
         // FAQ toggle
         function toggleFaq(el) {
             el.parentElement.classList.toggle('open');
+        }
+
+        // Close mobile nav
+        function closeNav() {
+            document.getElementById('nav-menu').classList.remove('open');
+            document.getElementById('nav-toggle').classList.remove('open');
         }
 
         // Lightbox
