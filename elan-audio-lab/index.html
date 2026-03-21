@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elan Audio Lab - Boutique Tube Amp E-Commerce | MiyaraHub Technologies</title>
+    <meta name="description" content="Full-stack e-commerce platform for Elan Audio Lab - boutique hand-soldered tube amplifiers. Product catalog, amp customization builder, Square &amp; PayPal payments, artist showcases, and 20+ admin screens.">
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="Elan Audio Lab - Boutique Tube Amp E-Commerce">
+    <meta property="og:description" content="Full-stack e-commerce platform for boutique hand-soldered tube amplifiers. Built with Flutter, Supabase, Square, and PayPal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miyarahub.com/elan-audio-lab">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #06b6d4;
+            --accent-glow: rgba(6, 182, 212, 0.15);
+            --border: rgba(148, 163, 184, 0.1);
+            --gradient-start: #06b6d4;
+            --gradient-end: #8b5cf6;
+            --orange: #F5A623;
+            --orange-glow: rgba(245, 166, 35, 0.15);
+        }
+        html{scroll-behavior:smooth}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(245, 166, 35, 0.03) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: ambientShift 20s ease-in-out infinite alternate;
+        }
+        @keyframes ambientShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 3%); }
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+        }
+        .nav-brand {
+            font-size: 1.15rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; letter-spacing: -0.02em; text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-toggle {
+            display: none; background: none; border: none; cursor: pointer;
+            padding: 0.5rem; z-index: 101; flex-direction: column; gap: 5px;
+        }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* HERO */
+        .hero {
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 5rem 2rem 2rem; position: relative;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem;
+            background: var(--orange-glow); border: 1px solid rgba(245, 166, 35, 0.25);
+            border-radius: 100px; font-size: 0.8rem; color: var(--orange);
+            margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800;
+            line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--orange), #e8593a);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 1.25rem; line-height: 1.6; }
+        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
+            background: linear-gradient(135deg, var(--orange), #e8593a); color: #fff;
+            text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
+        }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245, 166, 35, 0.4); }
+        .hero-cta-secondary {
+            background: transparent; border: 1px solid var(--border); box-shadow: none; color: var(--text-secondary);
+        }
+        .hero-cta-secondary:hover { border-color: rgba(245, 166, 35, 0.3); color: var(--orange); box-shadow: 0 4px 20px rgba(245, 166, 35, 0.1); }
+
+        .hero-phones {
+            display: flex; gap: 1.25rem; margin-top: 2rem; justify-content: center;
+            flex-wrap: wrap; perspective: 1000px;
+        }
+        .phone-frame {
+            width: 180px; border-radius: 24px; overflow: hidden;
+            border: 2px solid rgba(148, 163, 184, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 166, 35, 0.06);
+            transition: transform 0.4s ease, box-shadow 0.4s ease; flex-shrink: 0;
+        }
+        .phone-frame:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(245, 166, 35, 0.12);
+        }
+        .phone-frame img { width: 100%; display: block; }
+
+        /* SECTIONS */
+        section { padding: 3rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .section-desc { color: var(--text-secondary); max-width: 600px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
+        .section-center { text-align: center; }
+        .section-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        /* FEATURES GRID */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .feature-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 2rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(245, 166, 35, 0.3); box-shadow: 0 8px 30px rgba(245, 166, 35, 0.08); }
+        .feature-icon {
+            width: 52px; height: 52px; border-radius: 14px; background: var(--orange-glow);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;
+        }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .feature-card .tech-tag {
+            display: inline-block; padding: 0.15rem 0.5rem; background: rgba(148, 163, 184, 0.08);
+            border: 1px solid var(--border); border-radius: 6px; font-size: 0.72rem;
+            color: var(--text-secondary); margin-top: 0.75rem; margin-right: 0.3rem;
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem; max-width: 800px; margin: 2rem auto 0;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-size: 2rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--orange), #e8593a);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .stat-label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+        /* CAROUSEL */
+        .carousel-container { position: relative; max-width: 1100px; margin: 0 auto; padding: 2rem 0; }
+        .carousel-viewport { overflow: hidden; border-radius: 8px; }
+        .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .carousel-slide { flex: 0 0 auto; padding: 0 0.75rem; text-align: center; }
+        .carousel-slide img {
+            width: 100%; border-radius: 20px; border: 2px solid var(--border);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer;
+        }
+        .carousel-slide img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 166, 35, 0.1);
+            border-color: rgba(245, 166, 35, 0.3);
+        }
+        .carousel-slide .caption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card);
+            border: 1px solid var(--border); color: var(--text-primary); font-size: 1.3rem;
+            cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
+            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .carousel-btn:hover { background: rgba(245, 166, 35, 0.15); border-color: rgba(245, 166, 35, 0.4); box-shadow: 0 4px 20px rgba(245, 166, 35, 0.2); }
+        .carousel-btn:disabled { opacity: 0.3; cursor: default; }
+        .carousel-btn.prev { left: -24px; }
+        .carousel-btn.next { right: -24px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+        .carousel-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: var(--border);
+            border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0;
+        }
+        .carousel-dot.active { background: var(--orange); transform: scale(1.3); }
+
+        /* TECH STACK */
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .tech-item {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1.25rem 1.5rem; display: flex; gap: 0.75rem; align-items: center;
+        }
+        .tech-item .icon {
+            width: 40px; height: 40px; border-radius: 10px; background: var(--orange-glow);
+            display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+        }
+        .tech-item h4 { font-size: 0.9rem; font-weight: 600; }
+        .tech-item p { font-size: 0.78rem; color: var(--text-secondary); }
+
+        /* ADMIN SECTION */
+        .admin-features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;
+        }
+        .admin-item {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1.25rem 1.5rem; display: flex; gap: 0.75rem; align-items: flex-start;
+        }
+        .admin-item .icon {
+            width: 36px; height: 36px; border-radius: 8px; background: rgba(139, 92, 246, 0.15);
+            display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+        }
+        .admin-item h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .admin-item p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+        /* CTA */
+        .cta-section { text-align: center; padding: 4rem 2rem; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2rem; }
+
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-copy { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-toggle { display: flex; }
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                flex-direction: column; background: rgba(10, 14, 26, 0.97);
+                backdrop-filter: blur(20px); padding: 1rem 2rem; gap: 0;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { font-size: 1rem; }
+            .hero { padding: 4.5rem 1.5rem 1.5rem; }
+            .hero-phones { gap: 1rem; }
+            .phone-frame { width: 160px; }
+            .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+            .carousel-btn.prev { left: 4px; }
+            .carousel-btn.next { right: 4px; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .nav-brand { font-size: 0.95rem; }
+            .phone-frame { width: 140px; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+        }
+
+        /* Fade-in */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in.no-delay { opacity: 1; transform: none; }
+
+        /* Lightbox */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(10px); }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body>
+
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="Screenshot">
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-brand">MiyaraHub Technologies</a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="#features" onclick="closeNav()">Features</a></li>
+            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
+            <li><a href="#tech" onclick="closeNav()">Tech Stack</a></li>
+            <li><a href="#admin" onclick="closeNav()">Admin Portal</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">🎵 Boutique E-Commerce Platform</div>
+        <h1><span class="gradient">Elan Audio Lab</span></h1>
+        <p>
+            Full-stack e-commerce platform for a boutique tube amplifier brand with 35+ years of history.
+            Product catalog, custom amp builder, dual payment processing, artist showcases,
+            and a complete 20+ screen admin portal.
+        </p>
+        <div class="hero-cta-group">
+            <a href="https://elanaudiolab.com" target="_blank" rel="noopener" class="hero-cta">🌐 Visit Live Site</a>
+            <a href="https://play.google.com/store/apps/details?id=com.elanaudiolab.app" target="_blank" rel="noopener" class="hero-cta hero-cta-secondary">▶ Google Play</a>
+            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
+        </div>
+
+        <div class="hero-phones">
+            <div class="phone-frame">
+                <img src="screenshots/home-page.png" alt="Elan Audio Lab Home" loading="lazy">
+            </div>
+            <div class="phone-frame">
+                <img src="screenshots/catalog.png" alt="Product Catalog" loading="lazy">
+            </div>
+            <div class="phone-frame">
+                <img src="screenshots/customize-your-amp.png" alt="Amp Customization" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section style="background: var(--bg-secondary); padding: 2rem;">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Platforms (Web, iOS, Android)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">652</div>
+                <div class="stat-label">Tests Passing</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Admin Screens</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">6</div>
+                <div class="stat-label">CI/CD Pipelines</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+        <div class="container fade-in">
+            <div class="section-label">Storefront Features</div>
+            <h2 class="section-title">A Complete E-Commerce Experience</h2>
+            <p class="section-desc">
+                Every feature a boutique brand needs - from browsing products to custom amp builds,
+                dual payment processing, and artist community.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛍️</div>
+                    <h3>Product Catalog</h3>
+                    <p>Heads, combos, cabinets, accessories, merch, and parts with filtering, search, product badges (new, sale, limited), and discount pricing.</p>
+                    <span class="tech-tag">Filtering</span>
+                    <span class="tech-tag">Search</span>
+                    <span class="tech-tag">Badges</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Amp Customization Builder</h3>
+                    <p>Configure custom amplifier modifications with real-time pricing. Select add-ons, see running totals, save builds for later, and share configurations.</p>
+                    <span class="tech-tag">Real-time Pricing</span>
+                    <span class="tech-tag">Save Builds</span>
+                    <span class="tech-tag">Share</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Dual Payment Processing</h3>
+                    <p>Square Web Payments SDK for credit cards plus PayPal integration. Tax calculation, address verification via USPS, and order tracking.</p>
+                    <span class="tech-tag">Square</span>
+                    <span class="tech-tag">PayPal</span>
+                    <span class="tech-tag">USPS</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎸</div>
+                    <h3>Artist Showcases</h3>
+                    <p>Wall of Fame featuring artists and players who use Elan products. Testimonials, quotes, and YouTube video links for social proof.</p>
+                    <span class="tech-tag">Testimonials</span>
+                    <span class="tech-tag">YouTube</span>
+                    <span class="tech-tag">Social Proof</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Product Bundles</h3>
+                    <p>Curated bundle deals with automatic savings calculation. Shows individual vs. bundle pricing, included items, and one-click add to cart.</p>
+                    <span class="tech-tag">Savings Calc</span>
+                    <span class="tech-tag">Bundle Deals</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Brand Story & Content</h3>
+                    <p>Rich "Our Story" page with the 35+ year history of MetalHead Electronics. Blog with CMS-driven content, media gallery, and newsletter sign-up.</p>
+                    <span class="tech-tag">Blog</span>
+                    <span class="tech-tag">Gallery</span>
+                    <span class="tech-tag">CMS</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Warranty Registration</h3>
+                    <p>Product registration form with serial number lookup, purchase date, and warranty activation. Feeds directly into admin panel for tracking.</p>
+                    <span class="tech-tag">Serial Lookup</span>
+                    <span class="tech-tag">Registration</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Quiz Recommender</h3>
+                    <p>Interactive quiz to help customers find the right amplifier based on their playing style, genre, and needs. Personalized product recommendations.</p>
+                    <span class="tech-tag">Interactive</span>
+                    <span class="tech-tag">Personalized</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screenshots" style="background: var(--bg-secondary);">
+        <div class="container fade-in section-center">
+            <div class="section-label">Screenshots</div>
+            <h2 class="section-title">See It in Action</h2>
+            <p class="section-desc">
+                Dark-mode-first design with warm orange accents - built to match the
+                atmosphere of a tube amp workshop.
+            </p>
+        </div>
+        <div class="carousel-container" id="carousel">
+            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
+            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">›</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="screenshots/home-page.png" alt="Home Page" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Home Page</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/catalog.png" alt="Product Catalog" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Product Catalog</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/customize-your-amp.png" alt="Amp Customization" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Amp Customization Builder</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/bundles.png" alt="Product Bundles" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Product Bundles</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/artists.png" alt="Artists & Players" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Artists &amp; Players</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/our-story.png" alt="Our Story" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Our Story</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/menu.png" alt="Navigation Menu" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Navigation Menu</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/register-your-product.png" alt="Warranty Registration" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Warranty Registration</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="tech">
+        <div class="container fade-in">
+            <div class="section-label">Tech Stack</div>
+            <h2 class="section-title">Built With Modern Tools</h2>
+            <p class="section-desc">
+                Cross-platform Flutter app backed by Supabase serverless infrastructure,
+                with dual payment SDKs and comprehensive CI/CD.
+            </p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="icon">📱</div>
+                    <div>
+                        <h4>Flutter + Dart</h4>
+                        <p>Single codebase for Web, iOS, Android</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">⚡</div>
+                    <div>
+                        <h4>Supabase</h4>
+                        <p>Auth, database, storage, edge functions</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">💳</div>
+                    <div>
+                        <h4>Square SDK</h4>
+                        <p>Credit card processing (Web Payments)</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🅿️</div>
+                    <div>
+                        <h4>PayPal</h4>
+                        <p>Alternative payment method</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🏗️</div>
+                    <div>
+                        <h4>Riverpod + MVVM</h4>
+                        <p>State management &amp; architecture</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🧊</div>
+                    <div>
+                        <h4>Freezed + GoRouter</h4>
+                        <p>Immutable models &amp; path-based navigation</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🔒</div>
+                    <div>
+                        <h4>Row-Level Security</h4>
+                        <p>Database-level access control</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🚀</div>
+                    <div>
+                        <h4>6 CI/CD Pipelines</h4>
+                        <p>Web + Android + iOS x Staging + Prod</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Portal -->
+    <section id="admin" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Admin Portal</div>
+            <h2 class="section-title">20+ Management Screens</h2>
+            <p class="section-desc">
+                A complete back-office for managing every aspect of the storefront -
+                products, orders, customers, content, and system settings.
+            </p>
+            <div class="admin-features">
+                <div class="admin-item">
+                    <div class="icon">📊</div>
+                    <div><h4>Dashboard</h4><p>Sales overview, recent orders, activity log</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">📦</div>
+                    <div><h4>Products & Categories</h4><p>Full CRUD with images, pricing, badges</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">🛒</div>
+                    <div><h4>Orders & Customers</h4><p>Order management, customer profiles</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">🔧</div>
+                    <div><h4>Customizations</h4><p>Components, options, pricing rules</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">🎁</div>
+                    <div><h4>Bundles & Badges</h4><p>Bundle deals, product badge management</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">📝</div>
+                    <div><h4>Blog & Gallery</h4><p>CMS content, media management</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">🎯</div>
+                    <div><h4>Quiz & Waitlist</h4><p>Recommender quiz config, waitlist signups</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">✉️</div>
+                    <div><h4>Email & Newsletter</h4><p>Templates, messaging, subscriber management</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">⚙️</div>
+                    <div><h4>Site & System Settings</h4><p>Feature flags, SEO, content pages</p></div>
+                </div>
+                <div class="admin-item">
+                    <div class="icon">👤</div>
+                    <div><h4>User Management</h4><p>Roles, permissions, account settings</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>See It Live</h2>
+        <p>Elan Audio Lab is live on the web, Google Play, and the App Store.</p>
+        <div class="hero-cta-group" style="justify-content:center">
+            <a href="https://elanaudiolab.com" target="_blank" rel="noopener" class="hero-cta">🌐 elanaudiolab.com</a>
+            <a href="https://play.google.com/store/apps/details?id=com.elanaudiolab.app" target="_blank" rel="noopener" class="hero-cta hero-cta-secondary">▶ Google Play</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-copy">&copy; 2026 MiyaraHub Technologies LLC. All rights reserved.</div>
+            <ul class="footer-links">
+                <li><a href="/">MiyaraHub Home</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="mailto:admin@miyarahub.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in - instantly show elements already in viewport
+        document.querySelectorAll('.fade-in').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('no-delay');
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
+
+        function closeNav() {
+            document.getElementById('nav-menu').classList.remove('open');
+            document.getElementById('nav-toggle').classList.remove('open');
+        }
+
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        // Carousel
+        (function() {
+            const track = document.getElementById('carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const totalSlides = slides.length;
+            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
+
+            function calcDimensions() {
+                const vw = track.parentElement.clientWidth;
+                if (vw < 480) slidesPerView = 2;
+                else if (vw < 768) slidesPerView = 3;
+                else if (vw < 1024) slidesPerView = 4;
+                else slidesPerView = 4;
+                slideWidth = vw / slidesPerView;
+                slides.forEach(s => s.style.width = slideWidth + 'px');
+            }
+            function maxIdx() { return Math.max(0, totalSlides - slidesPerView); }
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i <= maxIdx(); i++) {
+                    const d = document.createElement('button');
+                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                    d.onclick = () => goTo(i);
+                    dotsContainer.appendChild(d);
+                }
+            }
+            function goTo(i) {
+                currentIndex = Math.max(0, Math.min(i, maxIdx()));
+                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+                document.getElementById('carousel-prev').disabled = currentIndex <= 0;
+                document.getElementById('carousel-next').disabled = currentIndex >= maxIdx();
+                dotsContainer.querySelectorAll('.carousel-dot').forEach((d, j) => d.classList.toggle('active', j === currentIndex));
+            }
+            window.carouselPrev = () => goTo(currentIndex - 1);
+            window.carouselNext = () => goTo(currentIndex + 1);
+            function init() { calcDimensions(); if (currentIndex > maxIdx()) currentIndex = maxIdx(); buildDots(); goTo(currentIndex); }
+            init();
+            window.addEventListener('resize', init);
+            let startX = 0, drag = false;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; drag = true; }, {passive:true});
+            track.addEventListener('touchend', e => { if (!drag) return; drag = false; const d = startX - e.changedTouches[0].clientX; if (Math.abs(d) > 50) { d > 0 ? carouselNext() : carouselPrev(); }}, {passive:true});
+        })();
+    </script>
+</body>
+</html>
