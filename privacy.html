@@ -104,103 +104,124 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="terms.html">Terms</a></li>
-            <li><a href="mailto:admin@miyarahub.com">Contact</a></li>
+            <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
         </ul>
     </nav>
 
     <div class="content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: March 20, 2026</p>
+        <p class="last-updated">Last updated: March 23, 2026</p>
 
-        <p>MiyaraHub Technologies LLC ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our applications and services, including but not limited to <strong>Elan Audio Lab</strong>, <strong>UC-Remote Integration Hub</strong>, and <strong>Synology Manager</strong> (collectively, the "Services").</p>
+        <p>MiyaraHub Technologies LLC ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our applications and services, including but not limited to <strong>Elan Audio Lab</strong>, <strong>UC-Remote Integration Hub</strong>, <strong>Synology Manager</strong>, and <strong>UPSight</strong> (collectively, the "Services").</p>
 
-        <h2>1. Information We Collect</h2>
+        <h2>1. Data Minimization Principle</h2>
+        <p><strong>MiyaraHub Technologies LLC adheres to the principle of data minimization.</strong> We collect only the minimum amount of personal data strictly necessary for the functionality of our applications and services. We do not collect data beyond what is required to provide the features you use.</p>
+        <p>Many of our applications (Synology Manager, UPSight, UC-Remote) operate entirely on your local network and do not transmit any device data, credentials, or usage information to our servers. Data stays on your device.</p>
+
+        <h2>2. Information We Collect</h2>
         <p><strong>Information You Provide:</strong></p>
         <ul>
-            <li><strong>Account Information:</strong> Name, email address, and contact details when you create an account or contact us.</li>
-            <li><strong>Transaction Data:</strong> Payment information processed through third-party payment providers (Square, PayPal). We do not store full credit card numbers on our servers.</li>
-            <li><strong>Communications:</strong> Information you provide when contacting our support team.</li>
+            <li><strong>Contact Information:</strong> Name and email address when you contact our support team.</li>
+            <li><strong>Transaction Data:</strong> Payment information processed through third-party payment providers (Square, PayPal, Apple App Store, Google Play Store). We do not store full credit card numbers on our servers.</li>
+            <li><strong>Communications:</strong> Information you provide when contacting us for support.</li>
             <li><strong>User Content:</strong> Any content you submit through our applications, such as product reviews, quotes, or configuration data.</li>
         </ul>
 
         <p><strong>Information Collected Automatically:</strong></p>
         <ul>
-            <li><strong>Device Information:</strong> Device type, operating system, unique device identifiers, and mobile network information.</li>
-            <li><strong>Usage Data:</strong> App usage patterns, features accessed, and interaction data to improve our services.</li>
-            <li><strong>Log Data:</strong> IP address, browser type, access times, pages viewed, and referring URLs.</li>
-            <li><strong>Local Network Data:</strong> For applications that interact with local network devices (e.g., smart home controllers, NAS systems), we may collect device identifiers, IP addresses, and configuration data on your local network. This data remains on your device and is not transmitted to our servers unless explicitly required for functionality.</li>
+            <li><strong>Crash Reports:</strong> We use Firebase Crashlytics to collect anonymous crash reports and diagnostic data to improve app stability. These reports do not contain personal information, credentials, or device-specific data from your network.</li>
+            <li><strong>Device Information:</strong> Basic device type and operating system version, collected only through crash reports for debugging purposes.</li>
+            <li><strong>Local Network Data:</strong> For applications that interact with local network devices (e.g., smart home controllers, NAS systems, UPS devices), device identifiers, IP addresses, and configuration data are collected and stored <strong>only on your device</strong>. This data is never transmitted to our servers.</li>
         </ul>
 
-        <h2>2. How We Use Your Information</h2>
+        <p><strong>Information We Do NOT Collect:</strong></p>
+        <ul>
+            <li>We do not collect browsing history, location data, or usage analytics</li>
+            <li>We do not track which features you use or how often you use the app</li>
+            <li>We do not collect network device credentials, configurations, or monitoring data</li>
+            <li>We do not use advertising trackers, third-party analytics SDKs, or user profiling</li>
+        </ul>
+
+        <h2>3. How We Use Your Information</h2>
         <ul>
             <li>Provide, maintain, and improve our Services</li>
             <li>Process transactions and send related information</li>
-            <li>Send technical notices, updates, and support messages</li>
-            <li>Respond to your comments, questions, and customer service requests</li>
-            <li>Monitor and analyze trends, usage, and activities</li>
-            <li>Detect, investigate, and prevent fraudulent transactions and abuse</li>
+            <li>Respond to your support requests and communications</li>
+            <li>Diagnose and fix software bugs via crash reports</li>
             <li>Comply with legal obligations</li>
         </ul>
 
-        <h2>3. Information Sharing</h2>
-        <p>We do not sell your personal information. We may share information in the following situations:</p>
+        <h2>4. Information Sharing</h2>
+        <p>We do not sell, rent, or trade your personal information. We may share information only in the following limited situations:</p>
         <ul>
-            <li><strong>Service Providers:</strong> Third-party vendors who perform services on our behalf (payment processing, analytics, hosting).</li>
-            <li><strong>Payment Processors:</strong> Square and PayPal process payments according to their own privacy policies.</li>
+            <li><strong>Payment Processors:</strong> Square, PayPal, Apple, and Google process payments according to their own privacy policies.</li>
+            <li><strong>Crash Reporting:</strong> Firebase Crashlytics (Google) receives anonymous crash data to help us fix bugs.</li>
             <li><strong>Legal Requirements:</strong> When required by law, subpoena, or other legal process.</li>
             <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets.</li>
-            <li><strong>With Your Consent:</strong> When you explicitly authorize us to share information.</li>
         </ul>
 
-        <h2>4. Data Storage & Security</h2>
-        <p>We use industry-standard security measures to protect your information, including encryption in transit (TLS/SSL) and at rest. Our backend services are hosted on <strong>Supabase</strong>, which provides enterprise-grade security with Row Level Security (RLS) policies to protect your data.</p>
-        <p>For applications that connect to local network devices, connection credentials and device data are stored securely on your device using platform-native secure storage (Keychain on iOS, Keystore on Android) and are never transmitted to our servers.</p>
-
-        <h2>5. Third-Party Services</h2>
-        <p>Our applications may integrate with third-party services. Each has its own privacy policy:</p>
+        <h2>5. Third-Party Services &amp; Hardware</h2>
+        <p>Our applications interact with third-party hardware and services. <strong>We are not responsible for the data practices of third-party manufacturers or service providers.</strong> Your use of third-party products is governed by their respective privacy policies:</p>
         <ul>
-            <li><strong>Supabase:</strong> <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></li>
-            <li><strong>Square:</strong> <a href="https://squareup.com/legal/privacy" target="_blank" rel="noopener">squareup.com/legal/privacy</a></li>
-            <li><strong>PayPal:</strong> <a href="https://www.paypal.com/privacy" target="_blank" rel="noopener">paypal.com/privacy</a></li>
+            <li><strong>Supabase:</strong> <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a> (backend for Elan Audio Lab)</li>
+            <li><strong>Square:</strong> <a href="https://squareup.com/legal/privacy" target="_blank" rel="noopener">squareup.com/legal/privacy</a> (payment processing)</li>
+            <li><strong>PayPal:</strong> <a href="https://www.paypal.com/privacy" target="_blank" rel="noopener">paypal.com/privacy</a> (payment processing)</li>
+            <li><strong>Firebase (Google):</strong> <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a> (crash reporting)</li>
             <li><strong>Apple App Store:</strong> <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></li>
             <li><strong>Google Play:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
-            <li><strong>Firebase (Google):</strong> Crashlytics for crash reporting and app stability. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></li>
         </ul>
+        <p>Hardware products such as Synology NAS systems, Unfolded Circle remotes, and UPS devices from various manufacturers have their own data handling practices. Our applications communicate with these devices on your local network but do not control, access, or transmit data on behalf of these manufacturers.</p>
 
-        <h2>6. Your Rights & Choices</h2>
-        <p>Depending on your location, you may have the following rights:</p>
+        <h2>6. Data Storage &amp; Security</h2>
+        <p>We use industry-standard security measures to protect your information, including encryption in transit (TLS/SSL) and at rest. Our backend services (where applicable) are hosted on <strong>Supabase</strong>, which provides enterprise-grade security with Row Level Security (RLS) policies.</p>
+        <p>For applications that connect to local network devices, connection credentials and device data are stored securely on your device using platform-native secure storage (Keychain on iOS, Keystore on Android) and are <strong>never transmitted to our servers</strong>.</p>
+
+        <h2>7. Children's Privacy</h2>
+        <p>Our Services are not directed to children. <strong>We do not knowingly collect personal information from anyone under the age of 13</strong> (or under 16 in the European Economic Area, or under the applicable minimum age in your jurisdiction).</p>
+        <p>If we learn that we have inadvertently collected personal information from a child under the applicable minimum age, we will delete it promptly. If you believe a child has provided us with personal information, please contact us at <a href="mailto:admin@miyarahub.com">admin@miyarahub.com</a>.</p>
+
+        <h2>8. Your Rights &amp; Choices</h2>
+        <p>Depending on your location, you may have the following rights regarding your personal information:</p>
         <ul>
             <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
             <li><strong>Correction:</strong> Request correction of inaccurate personal information.</li>
             <li><strong>Deletion:</strong> Request deletion of your personal information.</li>
             <li><strong>Portability:</strong> Request a portable copy of your data.</li>
-            <li><strong>Opt-Out:</strong> Opt out of certain data collection and marketing communications.</li>
+            <li><strong>Opt-Out:</strong> Opt out of certain data collection (e.g., crash reporting can be disabled in app settings where available).</li>
+            <li><strong>Do Not Sell:</strong> We do not sell personal information. No opt-out is necessary, but you may contact us to confirm.</li>
         </ul>
         <p>To exercise any of these rights, contact us at <a href="mailto:admin@miyarahub.com">admin@miyarahub.com</a>.</p>
 
-        <h2>7. Children's Privacy</h2>
-        <p>Our Services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If we learn we have collected information from a child under 13, we will delete it promptly.</p>
+        <h2>9. Data Retention</h2>
+        <p>We retain your information only for as long as necessary to fulfill the purposes described in this policy. Specifically:</p>
+        <ul>
+            <li><strong>Support communications:</strong> Retained for up to 2 years after your last interaction.</li>
+            <li><strong>Transaction data:</strong> Retained as required by applicable tax and financial regulations.</li>
+            <li><strong>Crash reports:</strong> Retained for up to 90 days by Firebase Crashlytics.</li>
+            <li><strong>Local device data:</strong> Stored on your device only; deleted when you uninstall the app or clear app data.</li>
+        </ul>
 
-        <h2>8. Data Retention</h2>
-        <p>We retain your information for as long as your account is active or as needed to provide Services. We will retain and use information as necessary to comply with legal obligations, resolve disputes, and enforce agreements.</p>
+        <h2>10. International Users</h2>
+        <p>If you access our Services from outside the United States, your information may be transferred to, stored, and processed in the United States. By using our Services, you consent to such transfer. We process data in compliance with applicable data protection laws.</p>
 
-        <h2>9. International Users</h2>
-        <p>If you access our Services from outside the United States, your information may be transferred to, stored, and processed in the United States. By using our Services, you consent to such transfer.</p>
+        <h2>11. Texas Data Privacy and Security Act</h2>
+        <p>For residents of Texas: MiyaraHub Technologies LLC complies with the Texas Data Privacy and Security Act (TDPSA). You have the right to access, correct, delete, and obtain a portable copy of your personal data. To exercise these rights or to appeal a decision regarding your request, contact us at <a href="mailto:admin@miyarahub.com">admin@miyarahub.com</a>.</p>
 
-        <h2>10. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the new policy on this page and updating the "Last updated" date.</p>
+        <h2>12. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the new policy on this page and updating the "Last updated" date. We encourage you to review this page periodically.</p>
 
-        <h2>11. Contact Us</h2>
-        <p>If you have questions about this Privacy Policy, please contact us:</p>
+        <h2>13. Support &amp; Contact</h2>
+        <p>For privacy questions, data requests, technical support, or any other inquiries, please contact us:</p>
         <p>
             <strong>MiyaraHub Technologies LLC</strong><br>
+            Van Alstyne, Texas<br>
             Email: <a href="mailto:admin@miyarahub.com">admin@miyarahub.com</a><br>
             Website: <a href="https://miyarahub.com">miyarahub.com</a>
         </p>
     </div>
 
     <footer>
-        &copy; 2026 MiyaraHub Technologies LLC. All rights reserved. &nbsp;|&nbsp;
+        &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved. &nbsp;|&nbsp;
         <a href="index.html">Home</a> &nbsp;|&nbsp;
         <a href="terms.html">Terms of Service</a>
     </footer>
