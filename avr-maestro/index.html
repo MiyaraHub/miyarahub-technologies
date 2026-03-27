@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVR Maestro - Denon &amp; Marantz Receiver Controller | MiyaraHub Technologies</title>
+    <meta name="description" content="AVR Maestro is a premium mobile controller for Denon and Marantz AV receivers. Volume, input, surround modes, multi-zone, Audyssey, Dirac Live, IMAX Enhanced, and more, all from your phone.">
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="AVR Maestro - Denon &amp; Marantz Receiver Controller">
+    <meta property="og:description" content="Full control of your Denon or Marantz AV receiver from your phone. Volume, input, surround modes, multi-zone, Audyssey, Dirac Live, IMAX Enhanced, all over Wi-Fi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.miyarahub.com/avr-maestro">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎛️</text></svg>">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #a78bfa;
+            --accent-glow: rgba(167, 139, 250, 0.15);
+            --accent-hover: #c4b5fd;
+            --border: rgba(148, 163, 184, 0.1);
+            --gradient-start: #a78bfa;
+            --gradient-end: #6d28d9;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.15);
+        }
+        html{scroll-behavior:smooth}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(167, 139, 250, 0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(109, 40, 217, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: ambientShift 20s ease-in-out infinite alternate;
+        }
+        @keyframes ambientShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 3%); }
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+        }
+        .nav-brand {
+            font-size: 1.15rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; letter-spacing: -0.02em; text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 101; flex-direction: column; gap: 5px; }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5rem 2rem 2rem; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: var(--accent-glow); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 100px; font-size: 0.8rem; color: var(--accent); margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 1.25rem; line-height: 1.6; }
+        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(167, 139, 250, 0.3); }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(167, 139, 250, 0.4); }
+        .hero-cta-secondary { background: transparent; border: 1px solid var(--border); box-shadow: none; color: var(--text-secondary); }
+        .hero-cta-secondary:hover { border-color: rgba(167, 139, 250, 0.3); color: var(--accent); box-shadow: 0 4px 20px rgba(167, 139, 250, 0.1); }
+
+        .hero-phones { display: flex; gap: 1.25rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap; perspective: 1000px; }
+        .phone-frame { width: 180px; border-radius: 24px; overflow: hidden; border: 2px solid rgba(148, 163, 184, 0.15); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(167, 139, 250, 0.08); transition: transform 0.4s ease, box-shadow 0.4s ease; flex-shrink: 0; }
+        .phone-frame:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(167, 139, 250, 0.15); }
+        .phone-frame img { width: 100%; display: block; }
+
+        section { padding: 3rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .section-desc { color: var(--text-secondary); max-width: 600px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
+        .section-center { text-align: center; }
+        .section-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(167, 139, 250, 0.3); box-shadow: 0 8px 30px rgba(167, 139, 250, 0.08); }
+        .feature-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .feature-card .tech-tag { display: inline-block; padding: 0.15rem 0.5rem; background: rgba(148, 163, 184, 0.08); border: 1px solid var(--border); border-radius: 6px; font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.75rem; margin-right: 0.3rem; }
+
+        .carousel-container { position: relative; max-width: 1100px; margin: 0 auto; padding: 2rem 0; }
+        .carousel-viewport { overflow: hidden; border-radius: 8px; }
+        .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .carousel-slide { flex: 0 0 auto; padding: 0 0.75rem; text-align: center; }
+        .carousel-slide img { width: 100%; border-radius: 20px; border: 2px solid var(--border); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; }
+        .carousel-slide img:hover { transform: scale(1.03); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(167, 139, 250, 0.1); border-color: rgba(167, 139, 250, 0.3); }
+        .carousel-slide .caption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); font-size: 1.3rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.3s, border-color 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
+        .carousel-btn:hover { background: rgba(167, 139, 250, 0.15); border-color: rgba(167, 139, 250, 0.4); box-shadow: 0 4px 20px rgba(167, 139, 250, 0.2); }
+        .carousel-btn:disabled { opacity: 0.3; cursor: default; }
+        .carousel-btn.prev { left: -24px; }
+        .carousel-btn.next { right: -24px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0; }
+        .carousel-dot.active { background: var(--accent); transform: scale(1.3); }
+        @media (max-width: 768px) { .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; } .carousel-btn.prev { left: 4px; } .carousel-btn.next { right: 4px; } }
+
+        .how-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .how-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; position: relative; }
+        .how-card .step-number { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; font-weight: 700; font-size: 0.95rem; margin-bottom: 1rem; }
+        .how-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .how-card p { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6; }
+
+        .permissions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .permission-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .permission-card .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-glow); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .permission-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .permission-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; }
+        .faq-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; transition: color 0.3s; user-select: none; }
+        .faq-question:hover { color: var(--accent); }
+        .faq-question .arrow { transition: transform 0.3s; font-size: 0.85rem; color: var(--text-secondary); }
+        .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.open .faq-answer { max-height: 500px; }
+        .faq-answer-inner { padding: 0 1.5rem 1.25rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+        .legal-banner { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 2rem; }
+        .legal-banner h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .legal-banner p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+
+        .cta-section { text-align: center; padding: 5rem 2rem; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2rem; }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-copy { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-toggle { display: flex; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(10, 14, 26, 0.97); backdrop-filter: blur(20px); padding: 1rem 2rem; gap: 0; border-bottom: 1px solid var(--border); }
+            .nav-links.open { display: flex; }
+            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { font-size: 1rem; }
+            .hero { padding: 4.5rem 1.5rem 1.5rem; }
+            .hero-phones { gap: 1rem; }
+            .phone-frame { width: 160px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .legal-banner { padding: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-brand { font-size: 0.95rem; }
+            .phone-frame { width: 140px; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+        }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in.no-delay { opacity: 1; transform: none; }
+
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(10px); }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); }
+    </style>
+</head>
+<body>
+
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="Screenshot">
+    </div>
+
+    <nav>
+        <a href="/" class="nav-brand">MiyaraHub Technologies</a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="#features" onclick="closeNav()">Features</a></li>
+            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
+            <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
+            <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">🎛️ Premium AVR Control</div>
+        <h1>
+            <span class="gradient">AVR Maestro</span>
+        </h1>
+        <p>
+            A premium mobile controller for Denon and Marantz AV receivers. Full volume, input, and surround mode control.
+            Multi-zone management, Audyssey, Dirac Live, IMAX Enhanced, Auro-3D, now playing with album art,
+            and a beautiful virtual remote, all from your phone over Wi-Fi.
+        </p>
+        <div class="hero-cta-group">
+            <span class="hero-cta" style="opacity:0.7; cursor: default;">🚧 Coming Soon to Google Play</span>
+            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
+        </div>
+
+        <div class="hero-phones">
+            <div class="phone-frame">
+                <img src="screenshots/Screenshot_20260327-145900.png" alt="AVR Maestro Dashboard" loading="lazy">
+            </div>
+            <div class="phone-frame">
+                <img src="screenshots/Screenshot_20260327-145912.png" alt="Virtual Remote" loading="lazy">
+            </div>
+            <div class="phone-frame">
+                <img src="screenshots/Screenshot_20260327-145907.png" alt="Full Dashboard" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Complete Receiver Control In Your Hand</h2>
+            <p class="section-desc">
+                AVR Maestro connects to your Denon or Marantz receiver over Wi-Fi and gives you
+                full control of every setting, from volume to room correction, without touching the receiver.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔊</div>
+                    <h3>Volume, Input &amp; Surround</h3>
+                    <p>Precise volume control with dB readout, one-tap input source switching with a visual grid, and a full surround mode selector with every mode your receiver supports.</p>
+                    <span class="tech-tag">Volume</span>
+                    <span class="tech-tag">Input Grid</span>
+                    <span class="tech-tag">Surround Modes</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Virtual Remote</h3>
+                    <p>A premium virtual remote with navigation D-pad, playback transport controls, mute, and quick volume adjustment. Everything you need, without hunting for the physical remote.</p>
+                    <span class="tech-tag">D-Pad</span>
+                    <span class="tech-tag">Transport</span>
+                    <span class="tech-tag">Quick Access</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Multi-Zone Control</h3>
+                    <p>Independent control for Zone 2 and Zone 3. Dedicated power, volume, input source, and quick volume presets for each zone, all from a single screen.</p>
+                    <span class="tech-tag">Zone 2</span>
+                    <span class="tech-tag">Zone 3</span>
+                    <span class="tech-tag">Per-Zone Input</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Audyssey &amp; Room Correction</h3>
+                    <p>Full control over Audyssey MultEQ, Dynamic EQ, Dynamic Volume, LFC, and Containment Amount. Fine-tune your room correction without navigating receiver menus.</p>
+                    <span class="tech-tag">MultEQ</span>
+                    <span class="tech-tag">Dynamic EQ</span>
+                    <span class="tech-tag">Dynamic Volume</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Dirac Live &amp; IMAX Enhanced</h3>
+                    <p>Switch between Dirac Live filter slots, configure IMAX mode with crossover settings, and adjust Auro-3D presets and processing strength, all from your phone.</p>
+                    <span class="tech-tag">Dirac Live</span>
+                    <span class="tech-tag">IMAX</span>
+                    <span class="tech-tag">Auro-3D</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎚️</div>
+                    <h3>Per-Channel Levels</h3>
+                    <p>Independently adjust volume for every speaker in your system, from front left/right to overhead height channels. Perfect for fine-tuning after room correction.</p>
+                    <span class="tech-tag">Channel Levels</span>
+                    <span class="tech-tag">All Speakers</span>
+                    <span class="tech-tag">Height Channels</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>System Configuration</h3>
+                    <p>HDMI output settings, front-panel dimmer, 12V trigger outputs, eco mode, auto-standby timers, HDMI CEC, Bluetooth transmitter, audio restorer, and video processing mode.</p>
+                    <span class="tech-tag">HDMI</span>
+                    <span class="tech-tag">Triggers</span>
+                    <span class="tech-tag">Eco Mode</span>
+                    <span class="tech-tag">CEC</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Quick Selects, Themes &amp; Custom Nav</h3>
+                    <p>Recall your favorite input/volume/mode combos with one tap. Choose Light, Dark (AMOLED), or Device theme. Drag to reorder, show, or hide navigation tabs to match your workflow.</p>
+                    <span class="tech-tag">Quick Select</span>
+                    <span class="tech-tag">Themes</span>
+                    <span class="tech-tag">Custom Nav</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Video -->
+    <section id="promo">
+        <div class="container fade-in section-center">
+            <div class="section-label">Preview</div>
+            <h2 class="section-title">Watch It in Action</h2>
+            <p class="section-desc">See AVR Maestro controlling a real Marantz Cinema 30: volume, input switching, surround modes, multi-zone, Audyssey, Dirac, and more.</p>
+            <div style="max-width:400px;margin:2rem auto 0;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4);border:1px solid var(--border)">
+                <video autoplay muted loop playsinline controls style="width:100%;display:block;background:#000">
+                    <source src="promo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section id="screenshots" style="background: var(--bg-secondary);">
+        <div class="container fade-in section-center">
+            <div class="section-label">Screenshots</div>
+            <h2 class="section-title">See Every Screen</h2>
+            <p class="section-desc">
+                A premium, purpose-built interface for AV enthusiasts. Dark theme,
+                real-time data, intuitive navigation.
+            </p>
+        </div>
+        <div class="carousel-container" id="carousel">
+            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
+            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">›</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145900.png" alt="Dashboard: Power, Volume, Source" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Dashboard: Power, Volume, Source</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145907.png" alt="Dashboard: Full View" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Sources, Surround, Now Playing, Zones</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145912.png" alt="Virtual Remote" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Virtual Remote</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145919.png" alt="Input Selection" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Input Selection Grid</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145922.png" alt="Quick Select Presets" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Quick Select Presets</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145936.png" alt="Surround Modes" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Surround Mode Selection</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145939.png" alt="Audio Features" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Audio Features and Toggles</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145943.png" alt="Dialog and Dynamic Range" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Dialog and Dynamic Range Control</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145946.png" alt="Audyssey Room Correction" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Audyssey Room Correction</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145949.png" alt="Dirac Live Filters" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Dirac Live Filter Selection</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145952.png" alt="Per-Channel Levels" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Per-Channel Volume Levels</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145956.png" alt="IMAX Enhanced" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">IMAX Enhanced Settings</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145959.png" alt="Auro-3D Configuration" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Auro-3D Configuration</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145925.png" alt="System Controls: HDMI, Dimmer, Triggers" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">System: HDMI, Dimmer, Triggers</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145929.png" alt="System Controls: Standby, CEC" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">System: Standby, CEC, Presets</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145933.png" alt="System Controls: Bluetooth, Video" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">System: BT, Audio Restorer, Video</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-150005.png" alt="Multi-Zone Control" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Multi-Zone Control</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-150008.png" alt="App Settings" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">App Settings and Themes</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-150012.png" alt="Customize Navigation" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Customize Navigation Tabs</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145852.png" alt="Easy Setup" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Easy Setup and Connection Test</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260327-145840.png" alt="Welcome Screen" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Welcome Screen</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container fade-in">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Direct Network Connection. No Cloud Required.</h2>
+            <p class="section-desc">
+                AVR Maestro communicates directly with your receiver over Wi-Fi using the same
+                network protocols your receiver already supports. Your data never touches an external server.
+            </p>
+            <div class="how-cards">
+                <div class="how-card">
+                    <div class="step-number">1</div>
+                    <h3>Add Your Receiver</h3>
+                    <p>Enter the IP address of your Denon or Marantz receiver. AVR Maestro instantly tests HTTP, Telnet, and HEOS connectivity and detects available features.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">2</div>
+                    <h3>Connect Over Wi-Fi</h3>
+                    <p>AVR Maestro communicates via HTTP for reliable status polling and Telnet for real-time event streaming. HEOS provides now-playing info with album art.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">3</div>
+                    <h3>Take Full Control</h3>
+                    <p>Adjust volume, switch inputs, select surround modes, manage zones, fine-tune Audyssey/Dirac/IMAX settings, and control your entire system from one app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Privacy -->
+    <section id="security" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Security &amp; Privacy</div>
+            <h2 class="section-title">Local Only. No Account. No Cloud.</h2>
+            <p class="section-desc">
+                AVR Maestro is designed with a privacy-first, local-only architecture.
+                No cloud dependency, no user account, no data collection beyond crash reporting.
+            </p>
+            <div class="permissions-grid">
+                <div class="permission-card">
+                    <div class="icon">🔒</div>
+                    <div>
+                        <h4>No Cloud Relay</h4>
+                        <p>All commands and status polling happen directly between your phone and your receiver over your local Wi-Fi. Nothing leaves your network.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">👤</div>
+                    <div>
+                        <h4>No Account Required</h4>
+                        <p>No sign-up, no email, no MiyaraHub account needed. Open the app, enter your receiver's IP, and you're in control.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">📡</div>
+                    <div>
+                        <h4>Minimal Analytics</h4>
+                        <p>Firebase Crashlytics for bug reports only. No personal data, no usage tracking, no ads. Your receiver data never leaves your phone.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">💾</div>
+                    <div>
+                        <h4>Local Storage Only</h4>
+                        <p>Device IP addresses and app preferences are stored locally on your device using SharedPreferences. Nothing is synced to a server.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">🛡️</div>
+                    <div>
+                        <h4>User-Initiated Actions Only</h4>
+                        <p>The app sends commands to your receiver only on your explicit action. Nothing happens automatically or in the background without your knowledge.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">📶</div>
+                    <div>
+                        <h4>Network Permission Only</h4>
+                        <p>The only device permission AVR Maestro requires is internet/network access, used exclusively to connect to your receiver on your local Wi-Fi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container fade-in section-center">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Everything you need to know about AVR Maestro.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Is AVR Maestro affiliated with Denon or Marantz?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No.</strong> AVR Maestro is an independent, third-party application developed by MiyaraHub Technologies LLC.
+                            It is not created, endorsed, sponsored, or affiliated with Denon, Marantz, or their parent company Sound United / Masimo
+                            in any way. "Denon," "Marantz," "Audyssey," "Dirac Live," "IMAX Enhanced," and "Auro-3D" are trademarks of their respective owners.
+                            Our use of these names is purely to describe compatibility.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which receivers are supported?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            AVR Maestro works with all networked Denon and Marantz AV receivers that support IP control (HTTP and/or Telnet).
+                            This includes most models from the last 10+ years. The app auto-detects available features on connection.
+                            If your receiver has a network/Wi-Fi port and can be controlled via IP, it should work.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How does AVR Maestro communicate with my receiver?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            AVR Maestro uses three protocols: HTTP for reliable status polling and commands,
+                            Telnet for real-time event streaming (volume changes, input switches), and
+                            HEOS for now-playing information with album art. All communication happens directly
+                            on your local Wi-Fi network.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Does it support Audyssey, Dirac Live, and IMAX Enhanced?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. AVR Maestro provides full control over Audyssey MultEQ, Dynamic EQ, Dynamic Volume, LFC, and Containment.
+                            It also supports Dirac Live filter slot switching, IMAX Enhanced mode with crossover settings, and Auro-3D configuration.
+                            Available features depend on what your specific receiver model supports.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Can I control multiple zones?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. AVR Maestro supports Zone 2 and Zone 3 with independent power, volume, input source, and quick presets.
+                            Each zone can be controlled from a dedicated section, and zone status is visible at a glance from the main dashboard.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How much does AVR Maestro cost?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            AVR Maestro is a <strong>one-time purchase at $4.99</strong>. No subscription, no ads, no in-app purchases.
+                            You buy it once and own it. Pricing may change before launch.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Can I control my receiver remotely from outside my home?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            AVR Maestro connects to whatever IP address you configure. If your receiver is accessible via VPN or Tailscale,
+                            the app will work remotely. We recommend using a VPN or Tailscale rather than exposing your receiver directly to the internet.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which Android version is required?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            AVR Maestro requires Android 5.0 (API 21) or higher. It is an Android-only app for now.
+                            iOS support may be added in a future release.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Disclaimer -->
+    <section id="legal" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="legal-banner">
+                <h3>⚖️ Legal Disclaimer &amp; Trademark Notice</h3>
+                <p>
+                    AVR Maestro is an <strong>independent, third-party application</strong> developed and published by
+                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by,
+                    sponsored by, or in any way officially connected with Denon, Marantz, Sound United, Masimo Corporation,</strong>
+                    or any of their subsidiaries or affiliates.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    "Denon," "Marantz," "HEOS," "Audyssey," "MultEQ," "Dirac Live," "IMAX Enhanced," "Auro-3D," and all
+                    related product names and logos are trademarks or registered trademarks of their respective owners.
+                    All other trademarks referenced herein are the property of their respective owners.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    References to these products on this page and within the app are made solely for the purpose of
+                    identifying compatibility and describing the app's functionality (nominative fair use).
+                    The trademark holders are not affiliated with MiyaraHub Technologies LLC and do not endorse this product.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    AVR Maestro communicates with Denon/Marantz receivers using their network control interfaces (HTTP, Telnet, HEOS).
+                    Use of this app is at your own risk. MiyaraHub Technologies LLC is not responsible for any
+                    misconfiguration, audio issues, or other problems arising from the use of this application.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready to Master Your Receiver?</h2>
+        <p>AVR Maestro is coming soon to Google Play. Get notified at launch.</p>
+        <a href="mailto:admin@miyarahub.com" class="hero-cta">
+            Get Notified at Launch →
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-copy">
+                &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.<br>
+                <span style="font-size: 0.75rem; color: var(--text-secondary);">
+                    "Denon," "Marantz," and related product names are trademarks of their respective owners. This product is not affiliated with or endorsed by Denon or Marantz.
+                </span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">MiyaraHub Home</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) el.classList.add('no-delay');
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
+
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+        function closeNav() {
+            document.getElementById('nav-menu').classList.remove('open');
+            document.getElementById('nav-toggle').classList.remove('open');
+        }
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        (function() {
+            const track = document.getElementById('carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            const totalSlides = slides.length;
+            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
+
+            function calcDimensions() {
+                const vp = track.parentElement.clientWidth;
+                if (vp < 480) slidesPerView = 2;
+                else if (vp < 768) slidesPerView = 3;
+                else if (vp < 1024) slidesPerView = 4;
+                else slidesPerView = 5;
+                slideWidth = vp / slidesPerView;
+                slides.forEach(s => s.style.width = slideWidth + 'px');
+            }
+            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i <= getMaxIndex(); i++) {
+                    const d = document.createElement('button');
+                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                    d.onclick = () => goTo(i);
+                    dotsContainer.appendChild(d);
+                }
+            }
+            function updateButtons() { prevBtn.disabled = currentIndex <= 0; nextBtn.disabled = currentIndex >= getMaxIndex(); }
+            function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex)); }
+            function goTo(index) {
+                currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+                updateButtons(); updateDots();
+            }
+            window.carouselPrev = () => goTo(currentIndex - 1);
+            window.carouselNext = () => goTo(currentIndex + 1);
+            function init() { calcDimensions(); if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex(); buildDots(); goTo(currentIndex); }
+            init(); window.addEventListener('resize', init);
+
+            let startX = 0, isDragging = false;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
+            track.addEventListener('touchend', e => {
+                if (!isDragging) return; isDragging = false;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) { if (diff > 0) carouselNext(); else carouselPrev(); }
+            }, {passive: true});
+        })();
+    </script>
+</body>
+</html>
