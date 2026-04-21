@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - MiyaraHub Technologies LLC</title>
+    <meta name="description" content="Get help with MiyaraHub Technologies applications — contact information, FAQ, and support resources.">
+    <link rel="canonical" href="https://miyarahub.com/support/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root {
+            --bg-primary: #0a0c14;
+            --bg-secondary: #0f1219;
+            --bg-card: #151a28;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #e63946;
+            --accent-bright: #ff1a2e;
+            --accent-hover: #ff4757;
+            --border: rgba(230, 57, 70, 0.1);
+            --border-subtle: rgba(148, 163, 184, 0.08);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .nav-brand img {
+            height: 36px;
+            width: 36px;
+            border-radius: 8px;
+        }
+        .nav-brand-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .nav-brand-text .brand-m {
+            color: var(--accent);
+        }
+        .nav-brand-text .brand-rest {
+            color: var(--text-primary);
+        }
+        .nav-brand-text .brand-tech {
+            display: block;
+            font-size: 0.55rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: -2px;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+        .content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .intro {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .content p, .content li {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .content li { margin-bottom: 0.5rem; }
+        .content a { color: var(--accent); text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        .content strong { color: var(--text-primary); }
+        .content code {
+            font-family: 'SF Mono', Menlo, Consolas, monospace;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .contact-card h2 {
+            margin-top: 0;
+        }
+        .contact-email {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none !important;
+            transition: background 0.2s;
+        }
+        .contact-email:hover {
+            background: var(--accent-hover);
+            text-decoration: none !important;
+        }
+        .sla {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-brand img {
+            height: 24px;
+            width: 24px;
+            border-radius: 4px;
+        }
+        .footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="nav-brand">
+            <img src="/assets/logo-square.jpg" alt="MiyaraHub Logo">
+            <span class="nav-brand-text">
+                <span><span class="brand-m">M</span><span class="brand-rest">iyaraHub</span></span>
+                <span class="brand-tech">Technologies</span>
+            </span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/support/" class="active">Support</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Support</h1>
+        <p class="intro">Need help with one of our apps? You're in the right place. We read every message and respond as fast as we can.</p>
+
+        <div class="contact-card">
+            <h2>Contact Us</h2>
+            <p>The fastest way to reach the team is by email. Include the information listed below and we'll get back to you with a real answer, not a canned response.</p>
+            <a href="mailto:admin@miyarahub.com?subject=Support%20Request" class="contact-email">admin@miyarahub.com</a>
+            <p class="sla">We typically respond within 1–2 business days. Urgent issues affecting production use are prioritized.</p>
+        </div>
+
+        <h2>What to Include in Your Message</h2>
+        <p>Giving us these details up front saves a round trip and gets you a fix faster:</p>
+        <ul>
+            <li><strong>App name and version</strong> — visible in the app's Settings or About screen (e.g., "AVR Maestro v2.9.6+131")</li>
+            <li><strong>Device and OS</strong> — phone/tablet model and operating system version (e.g., "iPhone 15 Pro, iOS 18.2" or "Samsung Galaxy S24, Android 15")</li>
+            <li><strong>What you expected to happen</strong> vs. <strong>what actually happened</strong></li>
+            <li><strong>Steps to reproduce</strong> — how we can see the same issue on our side</li>
+            <li><strong>Screenshots or a short screen recording</strong> if the issue is visual</li>
+            <li><strong>Hardware context</strong> for device-control apps — receiver/NAS/UPS/projector model and firmware version if known</li>
+        </ul>
+        <p>Most of our apps have a built-in "Send feedback" option that pre-fills this info for you — look for it on the About or Settings screen.</p>
+
+        <h2>Apps We Support</h2>
+        <p>This channel handles support for <strong>all MiyaraHub Technologies applications</strong> across iOS, Android, and desktop — whether you're using one of our device controllers, a monitoring tool, or an audio/video utility. For the current app lineup, see the <a href="/">home page</a>.</p>
+
+        <h2>Common Questions</h2>
+
+        <h3>The app can't connect to my device on the local network</h3>
+        <p>Our device-control apps (AVR Maestro, UPSight, Synology Manager, FuryPath, Projector Pilot) need to reach your hardware over Wi-Fi or Ethernet. If a device isn't appearing:</p>
+        <ul>
+            <li>Confirm your phone and the target device are on the same network (same SSID, same VLAN)</li>
+            <li>Check that the device's network-control or API feature is enabled in its own settings menu</li>
+            <li>On iOS, accept the "find and connect to devices on your local network" permission prompt the first time you run the app — if you denied it, re-enable in <strong>Settings → [App Name] → Local Network</strong></li>
+            <li>On Android, the app needs Wi-Fi + Internet permissions (granted on install by default)</li>
+            <li>Some routers isolate devices from each other ("AP isolation" or "guest network") — disable isolation for the subnet your devices live on</li>
+        </ul>
+
+        <h3>The in-app rating prompt appeared — is it mandatory?</h3>
+        <p>No. You can dismiss it, pick "Later" to defer, or tap "Never ask again" for a permanent lock. Choosing to rate us or send feedback is entirely optional and does not affect app functionality.</p>
+
+        <h3>I bought the app — how do I get a refund?</h3>
+        <p>All paid apps are purchased through the Apple App Store or Google Play Store. Refund requests are handled by those platforms directly:</p>
+        <ul>
+            <li><strong>Apple</strong>: <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a></li>
+            <li><strong>Google</strong>: <a href="https://play.google.com/store/account/orderhistory" target="_blank" rel="noopener">Order history in Google Play</a></li>
+        </ul>
+        <p>If you run into friction with either platform, email us and we'll help advocate for the refund.</p>
+
+        <h3>My hardware changed behavior after a firmware update</h3>
+        <p>Third-party manufacturers sometimes alter their network APIs between firmware versions. If the app suddenly behaves differently after you updated a device, email us the device model, previous firmware, current firmware, and what changed — we'll investigate and ship a fix if it's something we can adapt to.</p>
+
+        <h3>Where can I see what changed in the latest version?</h3>
+        <p>Open the app's About or Settings screen — most of our apps include a built-in changelog. Release notes also appear on the respective store listing.</p>
+
+        <h3>Do you have a public roadmap?</h3>
+        <p>We don't publish a fixed roadmap because we ship when the code is ready, not on a calendar. That said, if there's a feature you'd like to see, email us — user feedback directly influences what we build next.</p>
+
+        <h2>Privacy, Terms, and Legal</h2>
+        <p>For how we handle your data, see our <a href="/privacy.html">Privacy Policy</a>. For general terms of use, see our <a href="/terms.html">Terms of Service</a>. For questions specifically about privacy or terms, email us at the address above with "Privacy" or "Terms" in the subject line and we'll route it accordingly.</p>
+
+        <h2>Mailing Address</h2>
+        <p>
+            <strong>MiyaraHub Technologies LLC</strong><br>
+            Van Alstyne, Texas<br>
+            United States<br>
+            Email: <a href="mailto:admin@miyarahub.com">admin@miyarahub.com</a>
+        </p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="/assets/logo-square.jpg" alt="MiyaraHub">
+                <span class="footer-copy">&copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
+                <li><a href="/support/">Support</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
