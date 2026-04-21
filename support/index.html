@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - MiyaraHub Technologies LLC</title>
-    <meta name="description" content="Get help with MiyaraHub Technologies applications — contact information, FAQ, and support resources.">
+    <meta name="description" content="Get help with MiyaraHub Technologies applications - contact information, FAQ, and support resources.">
     <link rel="canonical" href="https://miyarahub.com/support/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <style>
@@ -140,21 +140,45 @@
         .contact-card h2 {
             margin-top: 0;
         }
-        .contact-email {
-            display: inline-block;
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
             margin-top: 0.5rem;
-            font-size: 1.1rem;
+        }
+        /* Higher specificity than `.content a` so the button text
+           doesn't inherit the accent-colored link rule and disappear
+           on the matching red button background. */
+        .content a.contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
             font-weight: 600;
             padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .content a.contact-btn:hover {
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+        .content a.contact-btn-email {
             background: var(--accent);
             color: #fff;
-            border-radius: 8px;
-            text-decoration: none !important;
-            transition: background 0.2s;
         }
-        .contact-email:hover {
+        .content a.contact-btn-email:hover {
             background: var(--accent-hover);
-            text-decoration: none !important;
+            color: #fff;
+        }
+        .content a.contact-btn-discord {
+            background: #5865F2;
+            color: #fff;
+        }
+        .content a.contact-btn-discord:hover {
+            background: #4752c4;
+            color: #fff;
         }
         .sla {
             color: var(--text-secondary);
@@ -226,25 +250,28 @@
 
         <div class="contact-card">
             <h2>Contact Us</h2>
-            <p>The fastest way to reach the team is by email. Include the information listed below and we'll get back to you with a real answer, not a canned response.</p>
-            <a href="mailto:admin@miyarahub.com?subject=Support%20Request" class="contact-email">admin@miyarahub.com</a>
-            <p class="sla">We typically respond within 1–2 business days. Urgent issues affecting production use are prioritized.</p>
+            <p>Two ways to reach us. Email gets a written reply within a couple of business days; Discord is where we hang out and where quick questions often get answered faster by us or the community.</p>
+            <div class="contact-actions">
+                <a href="mailto:admin@miyarahub.com?subject=Support%20Request" class="contact-btn contact-btn-email">admin@miyarahub.com</a>
+                <a href="https://discord.gg/AFrwXDgE" target="_blank" rel="noopener" class="contact-btn contact-btn-discord">Join our Discord</a>
+            </div>
+            <p class="sla">We typically respond to email within 1-2 business days. Urgent issues affecting production use are prioritized.</p>
         </div>
 
         <h2>What to Include in Your Message</h2>
         <p>Giving us these details up front saves a round trip and gets you a fix faster:</p>
         <ul>
-            <li><strong>App name and version</strong> — visible in the app's Settings or About screen (e.g., "AVR Maestro v2.9.6+131")</li>
-            <li><strong>Device and OS</strong> — phone/tablet model and operating system version (e.g., "iPhone 15 Pro, iOS 18.2" or "Samsung Galaxy S24, Android 15")</li>
+            <li><strong>App name and version</strong> - visible in the app's Settings or About screen (e.g., "AVR Maestro v2.9.6+131")</li>
+            <li><strong>Device and OS</strong> - phone/tablet model and operating system version (e.g., "iPhone 15 Pro, iOS 18.2" or "Samsung Galaxy S24, Android 15")</li>
             <li><strong>What you expected to happen</strong> vs. <strong>what actually happened</strong></li>
-            <li><strong>Steps to reproduce</strong> — how we can see the same issue on our side</li>
+            <li><strong>Steps to reproduce</strong> - how we can see the same issue on our side</li>
             <li><strong>Screenshots or a short screen recording</strong> if the issue is visual</li>
-            <li><strong>Hardware context</strong> for device-control apps — receiver/NAS/UPS/projector model and firmware version if known</li>
+            <li><strong>Hardware context</strong> for device-control apps - receiver/NAS/UPS/projector model and firmware version if known</li>
         </ul>
-        <p>Most of our apps have a built-in "Send feedback" option that pre-fills this info for you — look for it on the About or Settings screen.</p>
+        <p>Most of our apps have a built-in "Send feedback" option that pre-fills this info for you - look for it on the About or Settings screen.</p>
 
         <h2>Apps We Support</h2>
-        <p>This channel handles support for <strong>all MiyaraHub Technologies applications</strong> across iOS, Android, and desktop — whether you're using one of our device controllers, a monitoring tool, or an audio/video utility. For the current app lineup, see the <a href="/">home page</a>.</p>
+        <p>This channel handles support for <strong>all MiyaraHub Technologies applications</strong> across iOS, Android, and desktop - whether you're using one of our device controllers, a monitoring tool, or an audio/video utility. For the current app lineup, see the <a href="/">home page</a>.</p>
 
         <h2>Common Questions</h2>
 
@@ -253,15 +280,15 @@
         <ul>
             <li>Confirm your phone and the target device are on the same network (same SSID, same VLAN)</li>
             <li>Check that the device's network-control or API feature is enabled in its own settings menu</li>
-            <li>On iOS, accept the "find and connect to devices on your local network" permission prompt the first time you run the app — if you denied it, re-enable in <strong>Settings → [App Name] → Local Network</strong></li>
+            <li>On iOS, accept the "find and connect to devices on your local network" permission prompt the first time you run the app - if you denied it, re-enable in <strong>Settings → [App Name] → Local Network</strong></li>
             <li>On Android, the app needs Wi-Fi + Internet permissions (granted on install by default)</li>
-            <li>Some routers isolate devices from each other ("AP isolation" or "guest network") — disable isolation for the subnet your devices live on</li>
+            <li>Some routers isolate devices from each other ("AP isolation" or "guest network") - disable isolation for the subnet your devices live on</li>
         </ul>
 
-        <h3>The in-app rating prompt appeared — is it mandatory?</h3>
+        <h3>The in-app rating prompt appeared - is it mandatory?</h3>
         <p>No. You can dismiss it, pick "Later" to defer, or tap "Never ask again" for a permanent lock. Choosing to rate us or send feedback is entirely optional and does not affect app functionality.</p>
 
-        <h3>I bought the app — how do I get a refund?</h3>
+        <h3>I bought the app - how do I get a refund?</h3>
         <p>All paid apps are purchased through the Apple App Store or Google Play Store. Refund requests are handled by those platforms directly:</p>
         <ul>
             <li><strong>Apple</strong>: <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a></li>
@@ -270,13 +297,13 @@
         <p>If you run into friction with either platform, email us and we'll help advocate for the refund.</p>
 
         <h3>My hardware changed behavior after a firmware update</h3>
-        <p>Third-party manufacturers sometimes alter their network APIs between firmware versions. If the app suddenly behaves differently after you updated a device, email us the device model, previous firmware, current firmware, and what changed — we'll investigate and ship a fix if it's something we can adapt to.</p>
+        <p>Third-party manufacturers sometimes alter their network APIs between firmware versions. If the app suddenly behaves differently after you updated a device, email us the device model, previous firmware, current firmware, and what changed - we'll investigate and ship a fix if it's something we can adapt to.</p>
 
         <h3>Where can I see what changed in the latest version?</h3>
-        <p>Open the app's About or Settings screen — most of our apps include a built-in changelog. Release notes also appear on the respective store listing.</p>
+        <p>Open the app's About or Settings screen - most of our apps include a built-in changelog. Release notes also appear on the respective store listing.</p>
 
         <h3>Do you have a public roadmap?</h3>
-        <p>We don't publish a fixed roadmap because we ship when the code is ready, not on a calendar. That said, if there's a feature you'd like to see, email us — user feedback directly influences what we build next.</p>
+        <p>We don't publish a fixed roadmap because we ship when the code is ready, not on a calendar. That said, if there's a feature you'd like to see, email us - user feedback directly influences what we build next.</p>
 
         <h2>Privacy, Terms, and Legal</h2>
         <p>For how we handle your data, see our <a href="/privacy.html">Privacy Policy</a>. For general terms of use, see our <a href="/terms.html">Terms of Service</a>. For questions specifically about privacy or terms, email us at the address above with "Privacy" or "Terms" in the subject line and we'll route it accordingly.</p>
