@@ -241,7 +241,6 @@
         <ul class="nav-links" id="nav-menu">
             <li><a href="/" onclick="closeNav()">← Home</a></li>
             <li><a href="#features" onclick="closeNav()">Features</a></li>
-            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
             <li><a href="#compatibility" onclick="closeNav()">Compatibility</a></li>
             <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
@@ -262,19 +261,7 @@
         </p>
         <div class="hero-cta-group">
             <span class="hero-cta" style="opacity:0.7; cursor: default;">🚧 Coming Soon to App Store &amp; Google Play</span>
-            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
-        </div>
-
-        <div class="hero-phones">
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260418-070547.png" alt="Network Deck Dashboard" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260418-070602.png" alt="Clients and Devices" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260418-070615.png" alt="Firewall Control" loading="lazy">
-            </div>
+            <a href="#features" class="hero-cta hero-cta-secondary">See Features ↓</a>
         </div>
     </section>
 
@@ -361,63 +348,6 @@
                     <span class="tech-tag">Backups</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Screenshots Gallery -->
-    <section id="screenshots">
-        <div class="container fade-in section-center">
-            <div class="section-label">Screenshots</div>
-            <h2 class="section-title">See Every Screen</h2>
-            <p class="section-desc">
-                A premium, purpose-built interface for UniFi administrators. Dark theme, live data,
-                intuitive navigation — no browser tabs required.
-            </p>
-        </div>
-        <div class="carousel-container" id="carousel">
-            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
-            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">›</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070547.png" alt="Dashboard" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dashboard</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070550.png" alt="ISP Health &amp; Bandwidth" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">ISP Health &amp; Bandwidth</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070556.png" alt="Clients" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Clients</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070559.png" alt="Client Detail" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Client Detail</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070602.png" alt="Devices" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Devices &amp; Ports</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070607.png" alt="WiFi Networks" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">WiFi Networks</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070615.png" alt="Firewall Policies" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Firewall Policies</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070636.png" alt="Security &amp; Threat Management" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Security &amp; Threats</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260418-070644.png" alt="Settings &amp; Multi-Site" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Settings &amp; Multi-Site</div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots"></div>
         </div>
     </section>
 
@@ -764,59 +694,6 @@
             document.getElementById('nav-menu').classList.remove('open');
             document.getElementById('nav-toggle').classList.remove('open');
         }
-        function openLightbox(img) {
-            document.getElementById('lightbox-img').src = img.src;
-            document.getElementById('lightbox').classList.add('active');
-        }
-
-        (function() {
-            const track = document.getElementById('carousel-track');
-            const slides = track.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.getElementById('carousel-dots');
-            const prevBtn = document.getElementById('carousel-prev');
-            const nextBtn = document.getElementById('carousel-next');
-            const totalSlides = slides.length;
-            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
-
-            function calcDimensions() {
-                const vp = track.parentElement.clientWidth;
-                if (vp < 480) slidesPerView = 2;
-                else if (vp < 768) slidesPerView = 3;
-                else if (vp < 1024) slidesPerView = 4;
-                else slidesPerView = 5;
-                slideWidth = vp / slidesPerView;
-                slides.forEach(s => s.style.width = slideWidth + 'px');
-            }
-            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
-            function buildDots() {
-                dotsContainer.innerHTML = '';
-                for (let i = 0; i <= getMaxIndex(); i++) {
-                    const d = document.createElement('button');
-                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-                    d.onclick = () => goTo(i);
-                    dotsContainer.appendChild(d);
-                }
-            }
-            function updateButtons() { prevBtn.disabled = currentIndex <= 0; nextBtn.disabled = currentIndex >= getMaxIndex(); }
-            function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex)); }
-            function goTo(index) {
-                currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
-                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-                updateButtons(); updateDots();
-            }
-            window.carouselPrev = () => goTo(currentIndex - 1);
-            window.carouselNext = () => goTo(currentIndex + 1);
-            function init() { calcDimensions(); if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex(); buildDots(); goTo(currentIndex); }
-            init(); window.addEventListener('resize', init);
-
-            let startX = 0, isDragging = false;
-            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
-            track.addEventListener('touchend', e => {
-                if (!isDragging) return; isDragging = false;
-                const diff = startX - e.changedTouches[0].clientX;
-                if (Math.abs(diff) > 50) { if (diff > 0) carouselNext(); else carouselPrev(); }
-            }, {passive: true});
-        })();
     </script>
 </body>
 </html>
