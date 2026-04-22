@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Deck - UniFi Network Management App | MiyaraHub Technologies</title>
+    <meta name="description" content="Network Deck - the premium third-party mobile app for Ubiquiti UniFi network controllers. Live dashboards, clients, WiFi networks, firewall, port control, VPN, speed test, and multi-site management. Works with UniFi OS (UDM Pro SE, Cloud Gateway, Dream Machine) and standalone UniFi Network Controllers.">
+    <meta name="keywords" content="UniFi app, UniFi mobile app, UniFi Network mobile, UniFi controller app, Ubiquiti UniFi controller remote, UDM Pro app, UDM Pro SE app, UDM SE app, UniFi Cloud Gateway app, UniFi Dream Machine app, UDR app, UniFi OS app, UniFi Network 10 app, UniFi Controller v10 mobile, UniFi firewall mobile app, UniFi port control mobile, UniFi VLAN management app, UniFi WiFi management app, UniFi SSID mobile, UniFi client blocker app, UniFi PoE control app, UniFi switch port control, UniFi traffic rules mobile, UniFi port forward app, UniFi Teleport mobile, UniFi site-to-site VPN mobile, UniFi WireGuard app, UniFi IPsec mobile, UniFi IDS IPS mobile, UniFi DPI app, UniFi threat management mobile, UniFi content filter app, UniFi speed test mobile, UniFi site survey, UniFi topology app, UniFi alarms mobile, UniFi multi-site app, third party UniFi app, best UniFi mobile app, UniFi replacement app, UniFi OS local controller mobile, Network Deck, MiyaraHub">
+    <link rel="canonical" href="https://miyarahub.com/network-deck/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Network Deck - UniFi Network Management App">
+    <meta name="twitter:description" content="Full control of your UniFi network from your phone. Clients, WiFi, firewall, ports, VPN, and multi-site management over Wi-Fi.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Network Deck",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "Premium mobile app for Ubiquiti UniFi network controllers. Live dashboards, client and device management, WiFi and VLAN control, firewall and security policies, port management, speed test, and multi-site switcher.",
+      "url": "https://miyarahub.com/network-deck/",
+      "author": {
+        "@type": "Organization",
+        "name": "MiyaraHub Technologies LLC",
+        "url": "https://miyarahub.com"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "4.99",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="Network Deck - UniFi Network Management App">
+    <meta property="og:description" content="Full control of your UniFi network from your phone. Clients, WiFi, firewall, ports, VPN, speed test, and multi-site management over Wi-Fi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miyarahub.com/network-deck">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --accent-hover: #7dd3fc;
+            --border: rgba(148, 163, 184, 0.1);
+            --gradient-start: #38bdf8;
+            --gradient-end: #1d4ed8;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.15);
+        }
+        html{scroll-behavior:smooth}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(29, 78, 216, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: ambientShift 20s ease-in-out infinite alternate;
+        }
+        @keyframes ambientShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 3%); }
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+        }
+        .nav-brand-text {
+            font-size: 1.15rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 101; flex-direction: column; gap: 5px; }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5rem 2rem 2rem; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: var(--accent-glow); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 100px; font-size: 0.8rem; color: var(--accent); margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 1.25rem; line-height: 1.6; }
+        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3); }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(56, 189, 248, 0.4); }
+        .hero-cta-secondary { background: transparent; border: 1px solid var(--border); box-shadow: none; color: var(--text-secondary); }
+        .hero-cta-secondary:hover { border-color: rgba(56, 189, 248, 0.3); color: var(--accent); box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1); }
+
+        .hero-phones { display: flex; gap: 1.25rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap; perspective: 1000px; }
+        .phone-frame { width: 180px; border-radius: 24px; overflow: hidden; border: 2px solid rgba(148, 163, 184, 0.15); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(56, 189, 248, 0.08); transition: transform 0.4s ease, box-shadow 0.4s ease; flex-shrink: 0; }
+        .phone-frame:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(56, 189, 248, 0.15); }
+        .phone-frame img { width: 100%; display: block; }
+
+        section { padding: 3rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .section-desc { color: var(--text-secondary); max-width: 600px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
+        .section-center { text-align: center; }
+        .section-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(56, 189, 248, 0.3); box-shadow: 0 8px 30px rgba(56, 189, 248, 0.08); }
+        .feature-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .feature-card .tech-tag { display: inline-block; padding: 0.15rem 0.5rem; background: rgba(148, 163, 184, 0.08); border: 1px solid var(--border); border-radius: 6px; font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.75rem; margin-right: 0.3rem; }
+
+        .carousel-container { position: relative; max-width: 1100px; margin: 0 auto; padding: 2rem 0; }
+        .carousel-viewport { overflow: hidden; border-radius: 8px; }
+        .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .carousel-slide { flex: 0 0 auto; padding: 0 0.75rem; text-align: center; }
+        .carousel-slide img { width: 100%; border-radius: 20px; border: 2px solid var(--border); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; }
+        .carousel-slide img:hover { transform: scale(1.03); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); }
+        .carousel-slide .caption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); font-size: 1.3rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.3s, border-color 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
+        .carousel-btn:hover { background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.4); box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2); }
+        .carousel-btn:disabled { opacity: 0.3; cursor: default; }
+        .carousel-btn.prev { left: -24px; }
+        .carousel-btn.next { right: -24px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0; }
+        .carousel-dot.active { background: var(--accent); transform: scale(1.3); }
+        @media (max-width: 768px) { .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; } .carousel-btn.prev { left: 4px; } .carousel-btn.next { right: 4px; } }
+
+        .how-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .how-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; position: relative; }
+        .how-card .step-number { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; font-weight: 700; font-size: 0.95rem; margin-bottom: 1rem; }
+        .how-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .how-card p { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6; }
+
+        .compat-section { margin-top: 2rem; }
+        .compat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .compat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; }
+        .compat-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .compat-card ul { list-style: none; padding: 0; }
+        .compat-card li { color: var(--text-secondary); font-size: 0.9rem; padding: 0.3rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .compat-card li::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 0.8rem; }
+
+        .permissions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .permission-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .permission-card .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-glow); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .permission-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .permission-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; }
+        .faq-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; transition: color 0.3s; user-select: none; }
+        .faq-question:hover { color: var(--accent); }
+        .faq-question .arrow { transition: transform 0.3s; font-size: 0.85rem; color: var(--text-secondary); }
+        .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.open .faq-answer { max-height: 600px; }
+        .faq-answer-inner { padding: 0 1.5rem 1.25rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+        .legal-banner { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 2rem; }
+        .legal-banner h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .legal-banner p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+
+        .cta-section { text-align: center; padding: 5rem 2rem; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2rem; }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-copy { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-toggle { display: flex; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(10, 14, 26, 0.97); backdrop-filter: blur(20px); padding: 1rem 2rem; gap: 0; border-bottom: 1px solid var(--border); }
+            .nav-links.open { display: flex; }
+            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { font-size: 1rem; }
+            .hero { padding: 4.5rem 1.5rem 1.5rem; }
+            .hero-phones { gap: 1rem; }
+            .phone-frame { width: 160px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .legal-banner { padding: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-brand-text { font-size: 0.95rem; }
+            .phone-frame { width: 140px; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+        }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in.no-delay { opacity: 1; transform: none; }
+
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(10px); }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); }
+    </style>
+</head>
+<body>
+
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="Screenshot">
+    </div>
+
+    <nav>
+        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub Logo" style="height:32px;width:32px;border-radius:6px;"><span class="nav-brand-text">MiyaraHub</span></a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="#features" onclick="closeNav()">Features</a></li>
+            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
+            <li><a href="#compatibility" onclick="closeNav()">Compatibility</a></li>
+            <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
+            <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">🌐 UniFi Network Management</div>
+        <h1>
+            <span class="gradient">Network Deck</span>
+        </h1>
+        <p>
+            A premium mobile app for Ubiquiti UniFi network controllers.
+            Live dashboards, client and device management, WiFi and VLAN control,
+            firewall policies, port control, VPN, speed test, and multi-site switching —
+            all from your phone, direct to your controller.
+        </p>
+        <div class="hero-cta-group">
+            <span class="hero-cta" style="opacity:0.7; cursor: default;">🚧 Coming Soon to App Store &amp; Google Play</span>
+            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
+        </div>
+
+        <div class="hero-phones">
+            <div class="phone-frame">
+                <img src="screenshots/Screenshot_20260418-070547.png" alt="Network Deck Dashboard" loading="lazy">
+            </div>
+            <div class="phone-frame">
+                <img src="screenshots/Screenshot_20260418-070602.png" alt="Clients and Devices" loading="lazy">
+            </div>
+            <div class="phone-frame">
+                <img src="screenshots/Screenshot_20260418-070615.png" alt="Firewall Control" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Your UniFi Controller, In Your Pocket</h2>
+            <p class="section-desc">
+                Network Deck talks directly to your UniFi controller's local API — whether UniFi OS (UDM Pro, Cloud Gateway,
+                Dream Machine) or a standalone UniFi Network controller. Clients, WiFi, firewall, ports, VPN, and insights,
+                without opening a browser.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Live Dashboard</h3>
+                    <p>ISP health, real-time bandwidth chart with rolling 60-sample window, and customizable cards — system info, DPI traffic, alarms, events, top clients, speed-test history, and quick shortcuts. Tabbed layout you can re-order.</p>
+                    <span class="tech-tag">Bandwidth</span>
+                    <span class="tech-tag">ISP Health</span>
+                    <span class="tech-tag">DPI Traffic</span>
+                    <span class="tech-tag">Top Clients</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Clients &amp; Devices</h3>
+                    <p>Full client list with WiFi / wired / all filters and signal dBm at a glance. Block, unblock, kick, or forget in bulk. Per-client detail with history, DPI breakdown, fixed IP, user group, and guest auth.</p>
+                    <span class="tech-tag">Block / Kick</span>
+                    <span class="tech-tag">Signal dBm</span>
+                    <span class="tech-tag">Fixed IP</span>
+                    <span class="tech-tag">Bulk Actions</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📡</div>
+                    <h3>WiFi, VLANs &amp; Port Control</h3>
+                    <p>Create, edit, and delete SSIDs (security, band, guest, VLAN, PMF, fast roaming). Manage VLANs with DHCP, IPv6, mDNS, multicast, and isolation toggles. Per-port PoE control and AP radio configuration (channel, TX power, width, band steering, min RSSI).</p>
+                    <span class="tech-tag">SSID CRUD</span>
+                    <span class="tech-tag">VLANs</span>
+                    <span class="tech-tag">PoE Control</span>
+                    <span class="tech-tag">AP Radios</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Firewall &amp; Traffic Rules</h3>
+                    <p>Policies (allow / block / inspect), port forwards, traffic rules and routes, firewall groups, firewall zones with the v2 policy matrix, and DPI app / group controls — all with inline enable / disable toggles. No browser required.</p>
+                    <span class="tech-tag">Policies</span>
+                    <span class="tech-tag">Port Forwards</span>
+                    <span class="tech-tag">Zones v2</span>
+                    <span class="tech-tag">DPI</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security &amp; Insights</h3>
+                    <p>Toggle IPS / IDS and pick the mode, content filter per network (work / family / custom), SSL inspection, geo-IP blocking with country whitelist / blacklist, rogue AP scan, and threat history pulled from your controller's alarms.</p>
+                    <span class="tech-tag">IPS / IDS</span>
+                    <span class="tech-tag">Geo-IP</span>
+                    <span class="tech-tag">Content Filter</span>
+                    <span class="tech-tag">SSL Inspection</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>VPN &amp; Teleport</h3>
+                    <p>Generate Teleport guest invites with 24-hour expiry. Create site-to-site tunnels with IPsec, OpenVPN, or WireGuard using a pre-shared key. Toggle peer-to-peer and device discovery with a tap.</p>
+                    <span class="tech-tag">Teleport</span>
+                    <span class="tech-tag">WireGuard</span>
+                    <span class="tech-tag">IPsec</span>
+                    <span class="tech-tag">OpenVPN</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏎️</div>
+                    <h3>Speed Test &amp; Site Survey</h3>
+                    <p>Run the controller's built-in speed test with 2-second polling and full history. Local WiFi site survey (Android): channel, signal, security, plus ping, jitter, and packet-loss measurement against Cloudflare endpoints.</p>
+                    <span class="tech-tag">Speed Test</span>
+                    <span class="tech-tag">Site Survey</span>
+                    <span class="tech-tag">Jitter / Loss</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Multi-Site &amp; Live Events</h3>
+                    <p>Switch between sites in one tap. Live WebSocket event stream with a rolling 200-entry buffer so you can watch the network react in real time. Topology, alarms, backups, admins, and DNS all in reach.</p>
+                    <span class="tech-tag">Multi-Site</span>
+                    <span class="tech-tag">Live Events</span>
+                    <span class="tech-tag">Topology</span>
+                    <span class="tech-tag">Backups</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section id="screenshots">
+        <div class="container fade-in section-center">
+            <div class="section-label">Screenshots</div>
+            <h2 class="section-title">See Every Screen</h2>
+            <p class="section-desc">
+                A premium, purpose-built interface for UniFi administrators. Dark theme, live data,
+                intuitive navigation — no browser tabs required.
+            </p>
+        </div>
+        <div class="carousel-container" id="carousel">
+            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
+            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">›</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070547.png" alt="Dashboard" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Dashboard</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070550.png" alt="ISP Health &amp; Bandwidth" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">ISP Health &amp; Bandwidth</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070556.png" alt="Clients" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Clients</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070559.png" alt="Client Detail" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Client Detail</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070602.png" alt="Devices" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Devices &amp; Ports</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070607.png" alt="WiFi Networks" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">WiFi Networks</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070615.png" alt="Firewall Policies" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Firewall Policies</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070636.png" alt="Security &amp; Threat Management" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Security &amp; Threats</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/Screenshot_20260418-070644.png" alt="Settings &amp; Multi-Site" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Settings &amp; Multi-Site</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- Compatibility -->
+    <section id="compatibility" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Compatibility</div>
+            <h2 class="section-title">Works With Your UniFi Controller</h2>
+            <p class="section-desc">
+                Network Deck supports both UniFi OS consoles and standalone UniFi Network controllers.
+                It auto-detects which endpoints your firmware exposes and adapts the UI to match —
+                features you don't have simply don't appear.
+            </p>
+            <div class="compat-grid">
+                <div class="compat-card">
+                    <h4>🖥️ UniFi OS Consoles</h4>
+                    <ul>
+                        <li>UDM Pro SE (verified)</li>
+                        <li>UDM Pro</li>
+                        <li>UDM / UDR</li>
+                        <li>UniFi Cloud Gateway (UCG)</li>
+                        <li>UniFi Dream Machine</li>
+                    </ul>
+                </div>
+                <div class="compat-card">
+                    <h4>🧰 Standalone Controllers</h4>
+                    <ul>
+                        <li>UniFi Network 10.x (verified)</li>
+                        <li>Self-hosted on Linux / Docker</li>
+                        <li>Cloud Key Gen2 / Plus</li>
+                        <li>UniFi Network Server (Windows)</li>
+                    </ul>
+                </div>
+                <div class="compat-card">
+                    <h4>🔐 Authentication</h4>
+                    <ul>
+                        <li>Local admin username + password</li>
+                        <li>Two-factor authentication (TOTP)</li>
+                        <li>X-API-KEY for programmatic access</li>
+                        <li>No UniFi Cloud account required</li>
+                    </ul>
+                </div>
+                <div class="compat-card">
+                    <h4>📱 Mobile Platforms</h4>
+                    <ul>
+                        <li>iOS 13 and up</li>
+                        <li>Android 5.0 (API 21) and up</li>
+                        <li>Phone and tablet layouts</li>
+                        <li>Light and dark themes</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 1.5rem; line-height: 1.6;">
+                <strong>Firmware tolerance:</strong> Network Deck auto-detects the endpoints your controller exposes and adapts
+                to firmware-specific JSON variants (field-name drift, type coercion, multiple shapes for the integration API).
+                Sub-admin accounts may see some endpoints return 401 — that's a controller permissions limit, not an app limitation.
+            </p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container fade-in">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Direct to Your Controller. No Cloud Relay.</h2>
+            <p class="section-desc">
+                Network Deck talks directly to your UniFi controller over your local network (or your VPN).
+                Your credentials and network data never touch a MiyaraHub server.
+            </p>
+            <div class="how-cards">
+                <div class="how-card">
+                    <div class="step-number">1</div>
+                    <h3>Add Your Controller</h3>
+                    <p>Enter your controller's hostname or IP, port (default 443 for UniFi OS, 8443 for standalone), and your local admin credentials. Network Deck auto-detects whether you're on UniFi OS or a standalone controller.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">2</div>
+                    <h3>Authenticate Locally</h3>
+                    <p>Sign in with your local admin username and password. Two-factor authentication is supported end-to-end. Prefer API keys? Use X-API-KEY for programmatic access and skip the cookie flow entirely.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">3</div>
+                    <h3>Manage at a Glance</h3>
+                    <p>Watch the live bandwidth chart, kick a misbehaving client, toggle a firewall rule, bounce a PoE port, invite a Teleport guest, or switch to another site — every action round-trips to the controller and updates the live event stream.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Privacy -->
+    <section id="security" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Security &amp; Privacy</div>
+            <h2 class="section-title">Local Only. No Account. No Cloud Relay.</h2>
+            <p class="section-desc">
+                Network Deck is designed with a privacy-first, local-only architecture.
+                No MiyaraHub account, no cloud relay, no data collection beyond crash reporting.
+            </p>
+            <div class="permissions-grid">
+                <div class="permission-card">
+                    <div class="icon">🔒</div>
+                    <div>
+                        <h4>No Cloud Relay</h4>
+                        <p>All commands and live streams happen directly between your phone and your controller over your local Wi-Fi or VPN. Nothing is routed through external servers.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">🔑</div>
+                    <div>
+                        <h4>Standard UniFi Auth</h4>
+                        <p>Uses the same local admin credentials (or API key) as your UniFi Network web UI. Credentials are stored in iOS Keychain / Android Keystore on device and never transmitted off-device except to your controller.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">👤</div>
+                    <div>
+                        <h4>No MiyaraHub Account</h4>
+                        <p>No sign-up, no email, no MiyaraHub account needed. Install, point it at your controller, and you're in.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">📡</div>
+                    <div>
+                        <h4>Minimal Analytics</h4>
+                        <p>Firebase Crashlytics for bug reports only. No usage tracking, no ads, no data sales. Network errors are logged as non-fatal to help us improve firmware compatibility without collecting your network layout.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">🛡️</div>
+                    <div>
+                        <h4>Permissions Respected</h4>
+                        <p>The app operates within whatever permissions your UniFi admin account has. Sub-admins see only what the controller allows them to see. No privilege escalation, no backdoor.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">📶</div>
+                    <div>
+                        <h4>Network Permission Only</h4>
+                        <p>The only device permission Network Deck requires is network access, used exclusively to connect to your UniFi controller on your local network (or via VPN).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container fade-in section-center">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Everything you need to know about Network Deck.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Is Network Deck affiliated with Ubiquiti or UniFi?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No.</strong> Network Deck is an independent, third-party application developed by MiyaraHub Technologies LLC.
+                            It is not created, endorsed, sponsored, or affiliated with Ubiquiti Inc. in any way.
+                            "Ubiquiti," "UniFi," "UniFi OS," "UniFi Network," "UDM," "UDR," "UCG," "Teleport," and all related product
+                            names are trademarks of Ubiquiti Inc. Our use of these names is purely to describe compatibility (nominative fair use).
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which UniFi controllers are supported?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Network Deck supports both UniFi OS consoles (UDM Pro / Pro SE, UCG, Dream Machine, UDR, Cloud Key Gen2 / Plus)
+                            and standalone UniFi Network controllers running v10.x on Linux, Docker, or Windows. The app auto-detects your
+                            platform on connection and adapts the UI to the endpoints your firmware actually exposes — features you don't
+                            have simply don't appear. Tested live against UDM Pro SE (UniFi OS 5.0.16) and standalone Network 10.2.105.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How does Network Deck communicate with my controller?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Network Deck uses the same local API that the UniFi Network web UI uses — a combination of the classic
+                            <code>/rest</code> and <code>/cmd</code> endpoints (with cookie-based session authentication) plus the newer
+                            v2 integration API. It also opens a WebSocket to your controller to stream live events. All communication
+                            happens directly between your phone and your controller over your local network or VPN.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Do I need a UniFi cloud account?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            No. Network Deck uses <strong>local authentication only</strong>. Sign in with your UniFi local admin
+                            username and password (or an API key). If your controller is only reachable via ui.com cloud login today,
+                            you'll want to enable a local admin account in Settings → Admins to use Network Deck. The controller
+                            never talks to us, and we never talk to Ubiquiti's cloud on your behalf.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Can I manage firewall rules and port forwards?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. Network Deck has a full firewall stack: policies (allow / block / inspect), port forwards with CRUD,
+                            traffic rules and routes, firewall groups, firewall zones (v2 policy matrix), and DPI apps / groups.
+                            Everything inline-toggles from the list view — no dialog-tap-dialog flow.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Does it support multi-site?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. If your controller manages multiple sites, Network Deck shows a site switcher at the top. Every feature
+                            — dashboard, clients, firewall, VPN — is scoped to the currently selected site. Switch with one tap.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How much will Network Deck cost?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Network Deck will be a <strong>one-time purchase at $4.99</strong> on both the App Store and Google Play.
+                            No subscription, no ads, no in-app purchases. Pricing may change before public launch.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Can I use it remotely (outside my home / office)?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Network Deck connects to whatever hostname or IP you configure. If your controller is reachable via VPN,
+                            Tailscale, WireGuard, or a forwarded port, the app will work remotely. We recommend using a VPN or Tailscale
+                            rather than exposing your UniFi controller directly to the internet.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which platforms are supported?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Network Deck runs on both <strong>iOS (13 and up)</strong> and <strong>Android (5.0 / API 21 and up)</strong>.
+                            Phone and tablet layouts are both supported. The app will launch simultaneously on the App Store and Google Play.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Disclaimer -->
+    <section id="legal" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="legal-banner">
+                <h3>⚖️ Legal Disclaimer &amp; Trademark Notice</h3>
+                <p>
+                    Network Deck is an <strong>independent, third-party application</strong> developed and published by
+                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by,
+                    sponsored by, or in any way officially connected with Ubiquiti Inc.</strong> or any of its subsidiaries or affiliates.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    "Ubiquiti," "UniFi," "UniFi OS," "UniFi Network," "UDM," "UDM Pro," "UCG," "UDR," "Dream Machine,"
+                    "Cloud Key," "Teleport," and all related product names and logos are trademarks or registered trademarks
+                    of Ubiquiti Inc., registered in the United States and other countries. All other trademarks referenced
+                    herein are the property of their respective owners.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    References to these products on this page and within the app are made solely for the purpose of
+                    identifying compatibility and describing the app's functionality (nominative fair use).
+                    The trademark holders are not affiliated with MiyaraHub Technologies LLC and do not endorse this product.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    Network Deck communicates with UniFi controllers using their documented local network APIs (REST, integration API, WebSocket).
+                    Use of this app is at your own risk. MiyaraHub Technologies LLC is not responsible for any network misconfiguration,
+                    outages, or other issues arising from the use of this application. Always follow Ubiquiti's firmware and security best practices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready for a Better UniFi Mobile Experience?</h2>
+        <p>Network Deck is in active development and will launch on both the App Store and Google Play. Get notified at launch.</p>
+        <a href="mailto:admin@miyarahub.com" class="hero-cta">
+            Get Notified at Launch →
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-copy">
+                &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.<br>
+                <span style="font-size: 0.75rem; color: var(--text-secondary);">
+                    "Ubiquiti" and "UniFi" are registered trademarks of Ubiquiti Inc. This product is not affiliated with or endorsed by Ubiquiti.
+                </span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">MiyaraHub Home</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) el.classList.add('no-delay');
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
+
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+        function closeNav() {
+            document.getElementById('nav-menu').classList.remove('open');
+            document.getElementById('nav-toggle').classList.remove('open');
+        }
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        (function() {
+            const track = document.getElementById('carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            const totalSlides = slides.length;
+            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
+
+            function calcDimensions() {
+                const vp = track.parentElement.clientWidth;
+                if (vp < 480) slidesPerView = 2;
+                else if (vp < 768) slidesPerView = 3;
+                else if (vp < 1024) slidesPerView = 4;
+                else slidesPerView = 5;
+                slideWidth = vp / slidesPerView;
+                slides.forEach(s => s.style.width = slideWidth + 'px');
+            }
+            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i <= getMaxIndex(); i++) {
+                    const d = document.createElement('button');
+                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                    d.onclick = () => goTo(i);
+                    dotsContainer.appendChild(d);
+                }
+            }
+            function updateButtons() { prevBtn.disabled = currentIndex <= 0; nextBtn.disabled = currentIndex >= getMaxIndex(); }
+            function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex)); }
+            function goTo(index) {
+                currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+                updateButtons(); updateDots();
+            }
+            window.carouselPrev = () => goTo(currentIndex - 1);
+            window.carouselNext = () => goTo(currentIndex + 1);
+            function init() { calcDimensions(); if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex(); buildDots(); goTo(currentIndex); }
+            init(); window.addEventListener('resize', init);
+
+            let startX = 0, isDragging = false;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
+            track.addEventListener('touchend', e => {
+                if (!isDragging) return; isDragging = false;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) { if (diff > 0) carouselNext(); else carouselPrev(); }
+            }, {passive: true});
+        })();
+    </script>
+</body>
+</html>
