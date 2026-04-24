@@ -8,6 +8,9 @@ All notable changes to the MiyaraHub Technologies website.
 - App Store CTA on the FuryPath portfolio card (main page)
 - App Store hero CTA on the FuryPath landing page
 - App Store CTA on the FuryPath bottom CTA section
+- iPhone screenshots gallery on the FuryPath landing page ("On iPhone"
+  carousel above the existing "On Android" carousel — 10 screenshots
+  copied from `fury_path/store_assets/apple/iphone_6.9/`)
 - FuryPath URL: `https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302`
 
 ### Changed
@@ -16,6 +19,9 @@ All notable changes to the MiyaraHub Technologies website.
 - FuryPath meta description, Twitter title, and keywords expanded to include iOS
 - Schema.org `operatingSystem` field updated from `Android` to `iOS, Android`
 - FAQ "Which Android version is required?" rewritten to cover both iOS 16.0+ and Android 5.0+
+- FuryPath carousel JS refactored from a single IIFE to a `setupCarousel()`
+  factory so the iPhone and Android galleries track their own
+  `currentIndex` (matches the pattern used on AVR Maestro + Syno Manager)
 
 ## [2026-03-21] - Portfolio Sub-Pages
 
