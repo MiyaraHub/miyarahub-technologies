@@ -2,6 +2,21 @@
 
 All notable changes to the MiyaraHub Technologies website.
 
+## [2026-04-23] - FuryPath App Store approval
+
+### Added
+- App Store CTA on the FuryPath portfolio card (main page)
+- App Store hero CTA on the FuryPath landing page
+- App Store CTA on the FuryPath bottom CTA section
+- FuryPath URL: `https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302`
+
+### Changed
+- FuryPath tech-stack badge updated from `Android` to `iOS + Android`
+- FuryPath page title updated to reference both platforms
+- FuryPath meta description, Twitter title, and keywords expanded to include iOS
+- Schema.org `operatingSystem` field updated from `Android` to `iOS, Android`
+- FAQ "Which Android version is required?" rewritten to cover both iOS 16.0+ and Android 5.0+
+
 ## [2026-03-21] - Portfolio Sub-Pages
 
 ### Added
