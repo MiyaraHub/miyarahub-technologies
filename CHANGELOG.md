@@ -2,6 +2,22 @@
 
 All notable changes to the MiyaraHub Technologies website.
 
+## [2026-04-26] - UPSight App Store approval
+
+UPSight cleared Apple review on 2026-04-26 with the same listing
+metadata the Android build uses (UPSight - for CyberPower / Eaton).
+Brings the MiyaraHub lineup to 4-out-of-4 apps on both stores.
+
+### Added
+- App Store CTA on the UPSight portfolio card (main page)
+- App Store hero CTA on the UPSight landing page
+- UPSight URL: `https://apps.apple.com/us/app/upsight-for-cyberpower-eaton/id6762854779`
+
+### Changed
+- UPSight meta description, Twitter title rewritten to reference iOS + Android
+- Schema.org `operatingSystem` field on the UPSight page updated from
+  `Android` to `iOS, Android`
+
 ## [2026-04-23] - FuryPath App Store approval
 
 ### Added
