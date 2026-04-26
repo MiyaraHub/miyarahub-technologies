@@ -11,12 +11,19 @@ Brings the MiyaraHub lineup to 4-out-of-4 apps on both stores.
 ### Added
 - App Store CTA on the UPSight portfolio card (main page)
 - App Store hero CTA on the UPSight landing page
+- iPhone screenshots gallery on the UPSight landing page ("On iPhone"
+  carousel above the existing "On Android" carousel - 10 screenshots
+  copied from `upsight/store_assets/ios_iphone_6.9/`)
 - UPSight URL: `https://apps.apple.com/us/app/upsight-for-cyberpower-eaton/id6762854779`
 
 ### Changed
 - UPSight meta description, Twitter title rewritten to reference iOS + Android
 - Schema.org `operatingSystem` field on the UPSight page updated from
   `Android` to `iOS, Android`
+- UPSight carousel JS refactored from a single IIFE to a `setupCarousel()`
+  factory so the iPhone and Android galleries track their own
+  `currentIndex` (matches the pattern used on AVR Maestro + FuryPath +
+  Syno Manager)
 
 ## [2026-04-23] - FuryPath App Store approval
 

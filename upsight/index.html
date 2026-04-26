@@ -868,8 +868,67 @@
             <h2 class="section-title">See Every Screen</h2>
             <p class="section-desc">
                 Clean, data-rich interfaces designed for clarity. Dark and light themes,
-                real-time data, intuitive navigation.
+                real-time data, intuitive navigation - now on both iPhone and Android.
             </p>
+        </div>
+
+        <!-- iPhone carousel -->
+        <div class="container fade-in section-center" style="margin-top: 2rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On iPhone</h3>
+        </div>
+        <div class="carousel-container" id="carousel-ios">
+            <button class="carousel-btn prev" onclick="carouselIosPrev()" id="carousel-prev-ios">‹</button>
+            <button class="carousel-btn next" onclick="carouselIosNext()" id="carousel-next-ios">›</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carousel-track-ios">
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/01_dashboard.png" alt="UPSight on iPhone - Dashboard" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Dashboard: All Devices</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/02_device_overview.png" alt="UPSight on iPhone - Device Overview" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Device Overview: Power Flow</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/03_power.png" alt="UPSight on iPhone - Power Metrics" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Input &amp; Output Power</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/04_battery.png" alt="UPSight on iPhone - Battery Status" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Battery Health &amp; Self-Test</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/05_outlets.png" alt="UPSight on iPhone - Outlets" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Outlet Control</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/06_events.png" alt="UPSight on iPhone - Events" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Event History</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/07_info.png" alt="UPSight on iPhone - Info" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Device Information</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/08_settings.png" alt="UPSight on iPhone - Settings" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Settings</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/09_notifications.png" alt="UPSight on iPhone - Notifications" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Notification Settings</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshots/apple/10_overview_light.png" alt="UPSight on iPhone - Overview Light" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Overview: Light Theme</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots-ios"></div>
+        </div>
+
+        <!-- Android carousel -->
+        <div class="container fade-in section-center" style="margin-top: 3rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On Android</h3>
         </div>
         <div class="carousel-container" id="carousel">
             <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
@@ -1261,13 +1320,14 @@
             lb.classList.add('active');
         }
 
-        // Carousel
-        (function() {
-            const track = document.getElementById('carousel-track');
+        // Carousel factory — instantiated once per carousel section so
+        // the iPhone and Android galleries don't collide on currentIndex.
+        function setupCarousel({ trackId, dotsId, prevBtnId, nextBtnId }) {
+            const track = document.getElementById(trackId);
             const slides = track.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.getElementById('carousel-dots');
-            const prevBtn = document.getElementById('carousel-prev');
-            const nextBtn = document.getElementById('carousel-next');
+            const dotsContainer = document.getElementById(dotsId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
             const totalSlides = slides.length;
             let currentIndex = 0;
             let slidesPerView = 4;
@@ -1283,9 +1343,7 @@
                 slides.forEach(s => s.style.width = slideWidth + 'px');
             }
 
-            function getMaxIndex() {
-                return Math.max(0, totalSlides - slidesPerView);
-            }
+            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
 
             function buildDots() {
                 dotsContainer.innerHTML = '';
@@ -1316,8 +1374,8 @@
                 updateDots();
             }
 
-            window.carouselPrev = () => goTo(currentIndex - 1);
-            window.carouselNext = () => goTo(currentIndex + 1);
+            const prev = () => goTo(currentIndex - 1);
+            const next = () => goTo(currentIndex + 1);
 
             function init() {
                 calcDimensions();
@@ -1336,11 +1394,33 @@
                 isDragging = false;
                 const diff = startX - e.changedTouches[0].clientX;
                 if (Math.abs(diff) > 50) {
-                    if (diff > 0) carouselNext();
-                    else carouselPrev();
+                    if (diff > 0) next();
+                    else prev();
                 }
             }, {passive: true});
-        })();
+
+            return { prev, next };
+        }
+
+        // Android carousel (primary gallery — keeps the stock element IDs)
+        const androidCarousel = setupCarousel({
+            trackId: 'carousel-track',
+            dotsId: 'carousel-dots',
+            prevBtnId: 'carousel-prev',
+            nextBtnId: 'carousel-next',
+        });
+        window.carouselPrev = androidCarousel.prev;
+        window.carouselNext = androidCarousel.next;
+
+        // iPhone carousel (added 2026-04-26 after App Store approval)
+        const iosCarousel = setupCarousel({
+            trackId: 'carousel-track-ios',
+            dotsId: 'carousel-dots-ios',
+            prevBtnId: 'carousel-prev-ios',
+            nextBtnId: 'carousel-next-ios',
+        });
+        window.carouselIosPrev = iosCarousel.prev;
+        window.carouselIosNext = iosCarousel.next;
     </script>
 </body>
 </html>
