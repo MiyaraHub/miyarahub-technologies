@@ -1320,7 +1320,7 @@
             lb.classList.add('active');
         }
 
-        // Carousel factory — instantiated once per carousel section so
+        // Carousel factory - instantiated once per carousel section so
         // the iPhone and Android galleries don't collide on currentIndex.
         function setupCarousel({ trackId, dotsId, prevBtnId, nextBtnId }) {
             const track = document.getElementById(trackId);
@@ -1402,7 +1402,7 @@
             return { prev, next };
         }
 
-        // Android carousel (primary gallery — keeps the stock element IDs)
+        // Android carousel (primary gallery - keeps the stock element IDs)
         const androidCarousel = setupCarousel({
             trackId: 'carousel-track',
             dotsId: 'carousel-dots',

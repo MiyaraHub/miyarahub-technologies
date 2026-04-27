@@ -50,7 +50,7 @@ Brings the MiyaraHub lineup to 4-out-of-4 apps on both stores.
 - App Store hero CTA on the FuryPath landing page
 - App Store CTA on the FuryPath bottom CTA section
 - iPhone screenshots gallery on the FuryPath landing page ("On iPhone"
-  carousel above the existing "On Android" carousel — 10 screenshots
+  carousel above the existing "On Android" carousel - 10 screenshots
   copied from `fury_path/store_assets/apple/iphone_6.9/`)
 - FuryPath URL: `https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302`
 
