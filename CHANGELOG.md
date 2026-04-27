@@ -2,6 +2,24 @@
 
 All notable changes to the MiyaraHub Technologies website.
 
+## [2026-04-27] - AVR Maestro icon refresh + AVR Maestro MC in-development card
+
+### Added
+
+- **AVR Maestro MC portfolio card** on the main page, mirroring the
+  Network Deck / ProjectorPilot "🚧 In Development" pattern. Yamaha
+  MusicCast sibling to AVR Maestro - YXC protocol, all the same
+  premium-controller features.
+- New asset: `assets/avr-maestro-mc-icon.png` - the AVR Maestro
+  brighter base with the orange "MC" badge in the bottom-right.
+
+### Changed
+
+- **`assets/avr-maestro-icon.png` refreshed** to the brighter
+  variant Meir shipped with the AVR Maestro app refresh. The old
+  asset was the pre-brightening version - dark dial knobs, pre-2.x
+  era. New asset is the canonical 1024 reduced to 512 for web.
+
 ## [2026-04-26] - UPSight App Store approval
 
 UPSight cleared Apple review on 2026-04-26 with the same listing
