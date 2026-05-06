@@ -2,7 +2,7 @@
 
 All notable changes to the MiyaraHub Technologies website.
 
-## [2026-05-06] - Syno Manager icon refresh
+## [2026-05-06] - Syno Manager icon refresh + per-subpage favicon and social meta polish
 
 ### Changed
 
@@ -14,6 +14,26 @@ All notable changes to the MiyaraHub Technologies website.
   consistency. Referenced from the main-page portfolio card
   (`index.html` line 771); rendered at 56x56 with CSS `border-radius:
   14px`.
+- **Per-app subpage branding gap closed** across all 7 product
+  subpages (avr-maestro, elan-audio-lab, fury-path, network-deck,
+  projector-pilot, synology-manager, upsight). Every subpage was
+  using an inline-SVG emoji as its favicon and had no `og:image` or
+  `twitter:image` social meta tags - which meant social-share unfurls
+  on X/Facebook/Slack/Discord rendered with no preview image, and
+  browser tabs showed inconsistent emoji glyphs across platforms.
+
+### Added (per subpage)
+
+- `<link rel="icon" type="image/png">` pointing to the per-app icon
+  in `../assets/<app>-icon.png`.
+- `<link rel="apple-touch-icon">` pointing to the same per-app icon
+  for proper iOS Home Screen / Safari pinned-tab rendering.
+- `<meta property="og:image">` (absolute URL) so Open Graph
+  consumers (Facebook, LinkedIn, Slack, Discord, iMessage) get a
+  proper preview image.
+- `<meta property="og:image:alt">` for accessibility.
+- `<meta name="twitter:image">` so X/Twitter cards render with
+  the per-app icon.
 
 ## [2026-04-27] - AVR Maestro icon refresh + AVR Maestro MC in-development card
 
