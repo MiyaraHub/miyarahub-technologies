@@ -2,6 +2,19 @@
 
 All notable changes to the MiyaraHub Technologies website.
 
+## [2026-05-06] - Syno Manager icon refresh
+
+### Changed
+
+- **`assets/syno-manager-icon.png` refreshed** to the new launcher icon
+  shipped with Syno Manager 1.1.7+17 on 2026-05-06 (Google Play + Apple
+  App Store). New asset is a full-bleed 1024x1024 squircle with a
+  blue-to-teal gradient, 5-bay NAS silhouette, and bright green LED
+  accents - matches the in-app launcher icon for cross-surface brand
+  consistency. Referenced from the main-page portfolio card
+  (`index.html` line 771); rendered at 56x56 with CSS `border-radius:
+  14px`.
+
 ## [2026-04-27] - AVR Maestro icon refresh + AVR Maestro MC in-development card
 
 ### Added
