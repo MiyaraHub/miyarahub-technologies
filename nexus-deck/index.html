@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusDeck - Audyssey &amp; Dirac Calibration File Manager for Denon &amp; Marantz | MiyaraHub Technologies</title>
+    <meta name="description" content="NexusDeck - the dedicated calibration file manager and curve uploader for Denon and Marantz AV receivers. Import .ady, .oca, .mdat, .frd, and REW PEQ exports. Browse, compare, and upload calibration curves directly to your receiver over Wi-Fi. Works with Cinema 30, Cinema 40, Cinema 50, AV10, X3800H, X4800H, X6800H, and all networked Denon/Marantz receivers. Companion to AVR Maestro.">
+    <meta name="keywords" content="Audyssey calibration manager, Dirac Live file manager, .ady file viewer, .oca file viewer, .mdat file viewer, REW measurement viewer, Audyssey curve upload, Audyssey file Android, Audyssey file iPhone, MultEQ Editor alternative, A1 Evo Acoustix alternative, ratbuddyssey alternative, Denon calibration upload app, Marantz calibration upload app, room correction file manager, AVR curve uploader, Cinema 30 calibration upload, Cinema 40 calibration upload, Cinema 50 calibration upload, X3800H calibration upload, X4800H calibration upload, X6800H calibration upload, Denon Speaker Preset upload, Marantz Speaker Preset upload, SPP1 SPP2 upload, Audyssey backup restore, Dirac Live curve compare, .ady iPhone, .ady Android, .oca iPhone, .oca Android, REW MEQX import, FilterSet biquad coefficients, NexusDeck, MiyaraHub">
+    <link rel="canonical" href="https://miyarahub.com/nexus-deck/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NexusDeck - Calibration File Manager for Denon &amp; Marantz">
+    <meta name="twitter:description" content="Import, browse, compare, and upload Audyssey + Dirac calibration files directly to your Denon/Marantz receiver from your phone.">
+    <meta name="twitter:image" content="https://miyarahub.com/assets/nexusdeck-icon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "NexusDeck",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "MultimediaApplication",
+      "description": "Mobile calibration file manager and curve uploader for Denon and Marantz AV receivers. Import .ady, .oca, .mdat, .frd, and REW exports. Browse, compare, and upload curves directly to the receiver over Wi-Fi.",
+      "url": "https://miyarahub.com/nexus-deck/",
+      "author": {
+        "@type": "Organization",
+        "name": "MiyaraHub Technologies LLC",
+        "url": "https://miyarahub.com"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "12.99",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="NexusDeck - Audyssey &amp; Dirac Calibration File Manager">
+    <meta property="og:description" content="Import, browse, compare, and upload Audyssey + Dirac calibration files directly to your Denon/Marantz receiver from your phone.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miyarahub.com/nexus-deck">
+    <meta property="og:image" content="https://miyarahub.com/assets/nexusdeck-icon.png">
+    <meta property="og:image:alt" content="App icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/nexusdeck-icon.png">
+    <link rel="apple-touch-icon" href="../assets/nexusdeck-icon.png">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #a78bfa;
+            --accent-glow: rgba(167, 139, 250, 0.15);
+            --accent-hover: #c4b5fd;
+            --border: rgba(148, 163, 184, 0.1);
+            --gradient-start: #a78bfa;
+            --gradient-end: #6d28d9;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.15);
+        }
+        html{scroll-behavior:smooth}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(167, 139, 250, 0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(109, 40, 217, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: ambientShift 20s ease-in-out infinite alternate;
+        }
+        @keyframes ambientShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 3%); }
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+        }
+        .nav-brand-text {
+            font-size: 1.15rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 101; flex-direction: column; gap: 5px; }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5rem 2rem 2rem; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: var(--accent-glow); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 100px; font-size: 0.8rem; color: var(--accent); margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 1.25rem; line-height: 1.6; }
+        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(167, 139, 250, 0.3); }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(167, 139, 250, 0.4); }
+        .hero-cta-secondary { background: transparent; border: 1px solid var(--border); box-shadow: none; color: var(--text-secondary); }
+        .hero-cta-secondary:hover { border-color: rgba(167, 139, 250, 0.3); color: var(--accent); box-shadow: 0 4px 20px rgba(167, 139, 250, 0.1); }
+        .hero-cta-disabled { opacity: 0.55; cursor: default; box-shadow: none; }
+        .hero-cta-disabled:hover { transform: none; box-shadow: none; }
+
+        section { padding: 3rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .section-desc { color: var(--text-secondary); max-width: 600px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
+        .section-center { text-align: center; }
+        .section-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(167, 139, 250, 0.3); box-shadow: 0 8px 30px rgba(167, 139, 250, 0.08); }
+        .feature-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .feature-card .tech-tag { display: inline-block; padding: 0.15rem 0.5rem; background: rgba(148, 163, 184, 0.08); border: 1px solid var(--border); border-radius: 6px; font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.75rem; margin-right: 0.3rem; }
+
+        .how-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .how-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; position: relative; }
+        .how-card .step-number { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; font-weight: 700; font-size: 0.95rem; margin-bottom: 1rem; }
+        .how-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .how-card p { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6; }
+
+        .permissions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .permission-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .permission-card .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-glow); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .permission-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .permission-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; }
+        .faq-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; transition: color 0.3s; user-select: none; }
+        .faq-question:hover { color: var(--accent); }
+        .faq-question .arrow { transition: transform 0.3s; font-size: 0.85rem; color: var(--text-secondary); }
+        .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.open .faq-answer { max-height: 500px; }
+        .faq-answer-inner { padding: 0 1.5rem 1.25rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+        .legal-banner { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 2rem; }
+        .legal-banner h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .legal-banner p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+
+        .cta-section { text-align: center; padding: 5rem 2rem; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2rem; }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-copy { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        .coming-soon-hero {
+            display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+            margin-top: 2rem; padding: 2.5rem 2rem;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+            max-width: 520px; width: 100%;
+        }
+        .coming-soon-hero img { width: 120px; height: 120px; border-radius: 28px; box-shadow: 0 12px 40px rgba(167, 139, 250, 0.25); }
+        .coming-soon-hero .label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+        .coming-soon-hero .tagline { color: var(--text-secondary); font-size: 0.95rem; text-align: center; }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-toggle { display: flex; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(10, 14, 26, 0.97); backdrop-filter: blur(20px); padding: 1rem 2rem; gap: 0; border-bottom: 1px solid var(--border); }
+            .nav-links.open { display: flex; }
+            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { font-size: 1rem; }
+            .hero { padding: 4.5rem 1.5rem 1.5rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .legal-banner { padding: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-brand-text { font-size: 0.95rem; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+        }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in.no-delay { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub Logo" style="height:32px;width:32px;border-radius:6px;"><span class="nav-brand-text">MiyaraHub</span></a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="#features" onclick="closeNav()">Features</a></li>
+            <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
+            <li><a href="#security" onclick="closeNav()">Privacy</a></li>
+            <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">📐 Calibration File Manager</div>
+        <h1>
+            <span class="gradient">NexusDeck</span>
+        </h1>
+        <p>
+            The dedicated calibration file manager and curve uploader for Denon and Marantz AV receivers.
+            Import Audyssey (.ady), Dirac Live (.oca), REW (.mdat, .frd), and PEQ exports. Browse, compare,
+            and upload curves directly to your receiver's Speaker Preset slots over Wi-Fi - the companion
+            piece to AVR Maestro.
+        </p>
+        <div class="hero-cta-group">
+            <a href="#" class="hero-cta hero-cta-disabled" onclick="event.preventDefault()" aria-disabled="true">Google Play - Coming Soon</a>
+            <a href="#" class="hero-cta hero-cta-disabled" onclick="event.preventDefault()" aria-disabled="true">App Store - Coming Soon</a>
+            <a href="#features" class="hero-cta hero-cta-secondary">See Features ↓</a>
+        </div>
+        <div class="coming-soon-hero">
+            <img src="../assets/nexusdeck-icon.png" alt="NexusDeck app icon">
+            <span class="label">Launching 2026</span>
+            <p class="tagline">
+                NexusDeck is in final testing against real Denon and Marantz chassis.
+                Submission to Google Play and the App Store is in progress; this page will
+                update with store links when the build is approved.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Every Calibration File Format In One App</h2>
+            <p class="section-desc">
+                NexusDeck reads the calibration files your existing tools already produce, lets you
+                browse your library on the phone, and uploads them directly to your receiver - no laptop,
+                no MultEQ Editor required for the upload step.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📥</div>
+                    <h3>Import Every Common Format</h3>
+                    <p>Native parsers for Audyssey .ady, Dirac Live .oca, REW .mdat (MEQX export), .frd response curves, and REW PEQ .txt exports. Files imported once are cached in your local library forever.</p>
+                    <span class="tech-tag">.ady</span>
+                    <span class="tech-tag">.oca</span>
+                    <span class="tech-tag">.mdat</span>
+                    <span class="tech-tag">.frd</span>
+                    <span class="tech-tag">PEQ .txt</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Local Curve Library</h3>
+                    <p>Everything you've ever imported, on-device. Rename measurements, group multi-position .mdat siblings, refcount shared file bytes so deletes free disk only when no entries reference them. Survives reboots and reinstalls (with iCloud / Drive backup).</p>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">Refcount</span>
+                    <span class="tech-tag">Rename</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Compare Curves Side By Side</h3>
+                    <p>Overlay frequency response curves from any combination of Audyssey, Dirac, and REW imports. Log-frequency X-axis, magnitude in dB Y-axis, multi-position averaging, smoothing controls. See exactly what changed between calibrations.</p>
+                    <span class="tech-tag">Overlay</span>
+                    <span class="tech-tag">Log-Freq</span>
+                    <span class="tech-tag">Smoothing</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Upload Direct To Receiver</h3>
+                    <p>Send .ady or .oca files straight to Speaker Preset slot 1 or slot 2 on your Denon / Marantz receiver. The full Audyssey upload sequence - ENTER_AUDY, SET_SETDAT, SET_DISFIL, SET_COEFDT blocks, FINZ_COEFS, EXIT_AUDMD - implemented byte-for-byte against verified protocol captures.</p>
+                    <span class="tech-tag">Port 1256</span>
+                    <span class="tech-tag">SPP1 / SPP2</span>
+                    <span class="tech-tag">Byte-Verified</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Slot Backup &amp; Restore</h3>
+                    <p>Before any upload, NexusDeck reads back what's currently on the chassis and stores it as a backup entry in your library. One-tap restore returns any slot to a previous calibration. Never lose a working configuration to a botched upload.</p>
+                    <span class="tech-tag">Pre-Upload Backup</span>
+                    <span class="tech-tag">One-Tap Restore</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎚️</div>
+                    <h3>Guided Walkthrough</h3>
+                    <p>Step through every channel of an imported measurement, see the per-channel response, target curve, applied filter set, and the resulting corrected response. Built for the calibration-obsessed audience that wants to understand what the numbers mean.</p>
+                    <span class="tech-tag">Per-Channel</span>
+                    <span class="tech-tag">Target Curve</span>
+                    <span class="tech-tag">FilterSet</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Pairs With AVR Maestro</h3>
+                    <p>If you have AVR Maestro installed, NexusDeck automatically reads its paired-receiver list via the platform's shared container - no re-pairing, no second IP entry, no duplicate device setup. The two apps work as one ecosystem.</p>
+                    <span class="tech-tag">App Group (iOS)</span>
+                    <span class="tech-tag">Content Provider (Android)</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multi-Format Sharing</h3>
+                    <p>Receive .ady / .oca / .mdat files via iOS Share Sheet, Android intents, or direct file picker. Export a calibration entry back out to share with friends, post on AVS Forum, or back up off-device.</p>
+                    <span class="tech-tag">Share Extension</span>
+                    <span class="tech-tag">File Picker</span>
+                    <span class="tech-tag">Export</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container fade-in">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">From Measurement File To Receiver In Three Steps.</h2>
+            <p class="section-desc">
+                NexusDeck targets the exact place existing tools leave you stuck: you have a calibration file
+                on your laptop, and no easy way to get it onto the receiver without re-running the desktop app.
+                NexusDeck closes that gap.
+            </p>
+            <div class="how-cards">
+                <div class="how-card">
+                    <div class="step-number">1</div>
+                    <h3>Import Your File</h3>
+                    <p>Open a .ady from MultEQ Editor, a .oca from A1 Evo Acoustix, a .mdat from REW, or any other supported file. NexusDeck parses it, extracts the response curves, and adds it to your library.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">2</div>
+                    <h3>Browse And Compare</h3>
+                    <p>Open any library entry to see channel-by-channel frequency response. Overlay two or more curves to see what room correction changed. Rename, group, or delete entries as your library grows.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">3</div>
+                    <h3>Upload To The Receiver</h3>
+                    <p>Pick a Speaker Preset slot (1 or 2), confirm, and watch NexusDeck stream the calibration to your Denon or Marantz receiver over Wi-Fi. The chassis verifies the upload; NexusDeck reports back whether it stuck.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Privacy -->
+    <section id="security" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Security &amp; Privacy</div>
+            <h2 class="section-title">Local Only. No Account. No Cloud.</h2>
+            <p class="section-desc">
+                NexusDeck is built around the same privacy-first architecture as AVR Maestro.
+                Your calibration files stay on your device, your receiver stays on your local network,
+                and nothing about your setup is sent to MiyaraHub.
+            </p>
+            <div class="permissions-grid">
+                <div class="permission-card">
+                    <div class="icon">🔒</div>
+                    <div>
+                        <h4>No Cloud Relay</h4>
+                        <p>Calibration uploads happen directly between your phone and your receiver over local Wi-Fi (TCP port 1256). Files never traverse a MiyaraHub server.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">👤</div>
+                    <div>
+                        <h4>No Account Required</h4>
+                        <p>No sign-up, no email, no MiyaraHub login. Open the app, drop in your first calibration file, and you're in the library.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">📡</div>
+                    <div>
+                        <h4>Minimal Diagnostics</h4>
+                        <p>Firebase Crashlytics for crash reports and diagnostic data only - so we can fix bugs you hit. No usage tracking, no ads, no personalization. Opt-out toggle in Settings.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">💾</div>
+                    <div>
+                        <h4>Library Lives Locally</h4>
+                        <p>Your calibration library is a local SQLite database plus on-device file storage. iCloud / Google Drive backup follows your phone's normal app-data backup policy - nothing extra is uploaded.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">🛡️</div>
+                    <div>
+                        <h4>User-Initiated Uploads Only</h4>
+                        <p>A curve only reaches the receiver when you explicitly tap Upload and confirm the slot. Nothing happens automatically, and the chassis is read back to verify what was actually written.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">📶</div>
+                    <div>
+                        <h4>Network Permission Only</h4>
+                        <p>The only system permission NexusDeck requires is network access, used exclusively to reach your receiver on your local Wi-Fi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container fade-in section-center">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Everything you need to know about NexusDeck.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Is NexusDeck affiliated with Audyssey, Dirac, Denon, or Marantz?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No.</strong> NexusDeck is an independent, third-party application developed by MiyaraHub Technologies LLC.
+                            It is not created, endorsed, sponsored, or affiliated with Audyssey Laboratories, Dirac Research, Denon, Marantz,
+                            Sound United, Masimo Corporation, or any of their subsidiaries. "Audyssey," "MultEQ," "Dirac Live," "Denon,"
+                            "Marantz," and "REW" / "Room EQ Wizard" are trademarks of their respective owners. Our use of these names is
+                            purely to describe compatibility.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which receivers can NexusDeck upload to?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            NexusDeck uploads to networked Denon and Marantz AV receivers that support the binary calibration upload protocol
+                            on TCP port 1256. This covers the Cinema 30 / 40 / 50, AV10, X3800H, X4800H, X6800H, and other Audyssey MultEQ XT32
+                            chassis from the last several years. NexusDeck auto-detects the chassis model and channel layout from the receiver
+                            and from the calibration file you're uploading.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What file formats does NexusDeck import?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>Audyssey .ady</strong> (MultEQ Editor exports), <strong>Dirac Live .oca</strong> (A1 Evo Acoustix and similar),
+                            <strong>REW .mdat</strong> (Room EQ Wizard's MEQX measurement export, multi-position aware),
+                            <strong>.frd</strong> response curves, and REW <strong>PEQ .txt</strong> exports. Only .ady and .oca can be uploaded to
+                            the receiver; .mdat / .frd / .txt are library-and-comparison-only because the chassis upload protocol does not accept them.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Does NexusDeck generate calibration curves on its own?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No - and this is intentional.</strong> NexusDeck stores, browses, compares, and uploads calibration files
+                            produced by other tools (MultEQ Editor, A1 Evo Acoustix, REW, ratbuddyssey, etc). The actual measurement and
+                            curve-generation step happens in those tools; NexusDeck is the manager and the on-device upload pipeline.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Will my existing Speaker Preset be safe?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. Before any upload, NexusDeck reads back what's currently in the target Speaker Preset slot and saves it as a
+                            backup entry in your library. One tap restores any slot to a previous calibration. NexusDeck also verifies the
+                            upload landed cleanly by re-reading the slot after the transfer completes.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How does NexusDeck pair with my receiver?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            If you have AVR Maestro installed and paired with your receivers, NexusDeck reads the paired-device list
+                            automatically through the shared cross-app container - no second pairing, no duplicate IP entry. If you
+                            don't have AVR Maestro, NexusDeck's pairing flow walks you through entering the receiver's IP directly.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How much does NexusDeck cost?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            NexusDeck is a <strong>one-time purchase at $12.99</strong>. A bundle with AVR Maestro is also available at <strong>$19.99</strong>
+                            for users who want the controller and the calibration manager together. No subscription, no ads, no in-app purchases.
+                            Pricing may change before launch.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which Android and iOS versions are required?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            NexusDeck requires Android 7.0 (API 24) or higher, and iOS 14 or higher. Both platforms ship at launch.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Disclaimer -->
+    <section id="legal" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="legal-banner">
+                <h3>⚖️ Legal Disclaimer &amp; Trademark Notice</h3>
+                <p>
+                    NexusDeck is an <strong>independent, third-party application</strong> developed and published by
+                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by,
+                    sponsored by, or in any way officially connected with Audyssey Laboratories, Dirac Research, Denon, Marantz,
+                    Sound United, Masimo Corporation, REW (Room EQ Wizard) / John Mulcahy,</strong> or any of their subsidiaries
+                    or affiliates.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    "Audyssey," "MultEQ," "Dirac Live," "Denon," "Marantz," "HEOS," "Room EQ Wizard," "REW," "MEQX," and all
+                    related product names and logos are trademarks or registered trademarks of their respective owners.
+                    All other trademarks referenced herein are the property of their respective owners.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    References to these products on this page and within the app are made solely for the purpose of
+                    identifying file format compatibility and describing the app's functionality (nominative fair use).
+                    The trademark holders are not affiliated with MiyaraHub Technologies LLC and do not endorse this product.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    NexusDeck communicates with Denon/Marantz receivers using their network control interfaces (HTTP, Telnet,
+                    and the binary calibration upload protocol on TCP port 1256). Use of this app is at your own risk.
+                    MiyaraHub Technologies LLC is not responsible for any misconfiguration, audio issues, lost calibrations,
+                    or other problems arising from the use of this application. Always confirm a backup of your existing
+                    Speaker Preset before applying a new calibration.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Get Ready For Launch</h2>
+        <p>NexusDeck is in final pre-release testing. The page will update with Google Play and App Store links the moment the build is approved.</p>
+        <div class="hero-cta-group">
+            <a href="/avr-maestro/" class="hero-cta">Try AVR Maestro While You Wait →</a>
+            <a href="mailto:admin@miyarahub.com" class="hero-cta hero-cta-secondary">Get Launch Notification</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-copy">
+                &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.<br>
+                <span style="font-size: 0.75rem; color: var(--text-secondary);">
+                    "Audyssey," "Dirac Live," "Denon," "Marantz," "REW," and related product names are trademarks of their respective owners. This product is not affiliated with or endorsed by any of them.
+                </span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">MiyaraHub Home</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) el.classList.add('no-delay');
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
+
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+        function closeNav() {
+            document.getElementById('nav-menu').classList.remove('open');
+            document.getElementById('nav-toggle').classList.remove('open');
+        }
+    </script>
+</body>
+</html>
