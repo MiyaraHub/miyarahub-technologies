@@ -49,12 +49,12 @@
             --bg-card: #1a2035;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
-            --accent: #a78bfa;
-            --accent-glow: rgba(167, 139, 250, 0.15);
-            --accent-hover: #c4b5fd;
+            --accent: #ff6e40;
+            --accent-glow: rgba(255, 110, 64, 0.15);
+            --accent-hover: #ff8a63;
             --border: rgba(148, 163, 184, 0.1);
-            --gradient-start: #a78bfa;
-            --gradient-end: #6d28d9;
+            --gradient-start: #ff6e40;
+            --gradient-end: #f4511e;
             --green: #22c55e;
             --green-glow: rgba(34, 197, 94, 0.15);
         }
@@ -74,8 +74,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(167, 139, 250, 0.04) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 20%, rgba(109, 40, 217, 0.03) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 20% 50%, rgba(255, 110, 64, 0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(244, 81, 30, 0.03) 0%, transparent 50%);
             z-index: -1;
             animation: ambientShift 20s ease-in-out infinite alternate;
         }
@@ -109,19 +109,19 @@
         .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5rem 2rem 2rem; position: relative; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: var(--accent-glow); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 100px; font-size: 0.8rem; color: var(--accent); margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: var(--accent-glow); border: 1px solid rgba(255, 110, 64, 0.2); border-radius: 100px; font-size: 0.8rem; color: var(--accent); margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
         .hero h1 .gradient { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 1.25rem; line-height: 1.6; }
         .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-        .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(167, 139, 250, 0.3); }
-        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(167, 139, 250, 0.4); }
+        .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(255, 110, 64, 0.3); }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 110, 64, 0.4); }
         .hero-cta-secondary { background: transparent; border: 1px solid var(--border); box-shadow: none; color: var(--text-secondary); }
-        .hero-cta-secondary:hover { border-color: rgba(167, 139, 250, 0.3); color: var(--accent); box-shadow: 0 4px 20px rgba(167, 139, 250, 0.1); }
+        .hero-cta-secondary:hover { border-color: rgba(255, 110, 64, 0.3); color: var(--accent); box-shadow: 0 4px 20px rgba(255, 110, 64, 0.1); }
 
         .hero-phones { display: flex; gap: 1.25rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap; perspective: 1000px; }
-        .phone-frame { width: 180px; border-radius: 24px; overflow: hidden; border: 2px solid rgba(148, 163, 184, 0.15); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(167, 139, 250, 0.08); transition: transform 0.4s ease, box-shadow 0.4s ease; flex-shrink: 0; }
-        .phone-frame:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(167, 139, 250, 0.15); }
+        .phone-frame { width: 180px; border-radius: 24px; overflow: hidden; border: 2px solid rgba(148, 163, 184, 0.15); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 110, 64, 0.08); transition: transform 0.4s ease, box-shadow 0.4s ease; flex-shrink: 0; }
+        .phone-frame:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 110, 64, 0.15); }
         .phone-frame img { width: 100%; display: block; }
 
         section { padding: 3rem 2rem; }
@@ -134,7 +134,7 @@
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
-        .feature-card:hover { transform: translateY(-4px); border-color: rgba(167, 139, 250, 0.3); box-shadow: 0 8px 30px rgba(167, 139, 250, 0.08); }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(255, 110, 64, 0.3); box-shadow: 0 8px 30px rgba(255, 110, 64, 0.08); }
         .feature-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
         .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
         .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
@@ -145,10 +145,10 @@
         .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .carousel-slide { flex: 0 0 auto; padding: 0 0.75rem; text-align: center; }
         .carousel-slide img { width: 100%; border-radius: 20px; border: 2px solid var(--border); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; }
-        .carousel-slide img:hover { transform: scale(1.03); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(167, 139, 250, 0.1); border-color: rgba(167, 139, 250, 0.3); }
+        .carousel-slide img:hover { transform: scale(1.03); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 110, 64, 0.1); border-color: rgba(255, 110, 64, 0.3); }
         .carousel-slide .caption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
         .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); font-size: 1.3rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.3s, border-color 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
-        .carousel-btn:hover { background: rgba(167, 139, 250, 0.15); border-color: rgba(167, 139, 250, 0.4); box-shadow: 0 4px 20px rgba(167, 139, 250, 0.2); }
+        .carousel-btn:hover { background: rgba(255, 110, 64, 0.15); border-color: rgba(255, 110, 64, 0.4); box-shadow: 0 4px 20px rgba(255, 110, 64, 0.2); }
         .carousel-btn:disabled { opacity: 0.3; cursor: default; }
         .carousel-btn.prev { left: -24px; }
         .carousel-btn.next { right: -24px; }
@@ -221,6 +221,16 @@
         .lightbox { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(10px); }
         .lightbox.active { display: flex; }
         .lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); }
+
+        .carousel-slide img.framed { border: none; box-shadow: none; background: none; border-radius: 0; }
+        .carousel-slide img.framed:hover { border: none; box-shadow: none; transform: scale(1.04); }
+        .phone-frame.bare { width: 215px; border: none; box-shadow: none; overflow: visible; background: none; border-radius: 0; }
+        .phone-frame.bare:hover { transform: translateY(-8px) scale(1.03); box-shadow: none; }
+        .phone-frame.bare img { width: 100%; }
+
+        .manual-banner { max-width: 1100px; margin: 0 auto; background: linear-gradient(135deg, rgba(255,110,64,0.12), rgba(244,81,30,0.06)); border: 1px solid rgba(255,110,64,0.25); border-radius: 20px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+        .manual-banner h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .manual-banner p { color: var(--text-secondary); font-size: 0.98rem; max-width: 540px; }
     </style>
 </head>
 <body>
@@ -240,35 +250,36 @@
             <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
             <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+            <li><a href="https://avrmaestro.com" target="_blank" onclick="closeNav()">Full Manual ↗</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">🎛️ Premium AVR Control</div>
+        <div class="hero-badge">🎛️ Premium Denon &amp; Marantz Control</div>
         <h1>
             <span class="gradient">AVR Maestro</span>
         </h1>
         <p>
-            A premium mobile controller for Denon and Marantz AV receivers. Full volume, input, and surround mode control.
-            Multi-zone management, Audyssey, Dirac Live, IMAX Enhanced, Auro-3D, now playing with album art,
-            and a beautiful virtual remote, all from your phone over Wi-Fi.
+            The premium network controller for Denon and Marantz AV receivers. Capture your whole setup as a one-tap
+            Scene, command every sound mode, Audyssey and Dirac Live, full speaker calibration, multi-zone, an FM/AM
+            tuner and a live now-playing display - all from your phone. No ads. No subscriptions. No data leaves your network.
         </p>
         <div class="hero-cta-group">
             <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro" class="hero-cta" target="_blank">Get it on Google Play</a>
             <a href="https://apps.apple.com/us/app/avr-maestro/id6762881597" class="hero-cta" target="_blank">Download on App Store</a>
-            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
+            <a href="https://avrmaestro.com" class="hero-cta hero-cta-secondary" target="_blank">Read the full manual ↗</a>
         </div>
 
         <div class="hero-phones">
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260327-145900.png" alt="AVR Maestro Dashboard" loading="lazy">
+            <div class="phone-frame bare">
+                <img src="screenshots/dashboard.png" alt="AVR Maestro dashboard" loading="lazy">
             </div>
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260327-145912.png" alt="Virtual Remote" loading="lazy">
+            <div class="phone-frame bare">
+                <img src="screenshots/scenes-list.png" alt="One-tap Scenes" loading="lazy">
             </div>
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260327-145907.png" alt="Full Dashboard" loading="lazy">
+            <div class="phone-frame bare">
+                <img src="screenshots/remote-main.png" alt="Virtual remote" loading="lazy">
             </div>
         </div>
     </section>
@@ -283,6 +294,14 @@
                 full control of every setting, from volume to room correction, without touching the receiver.
             </p>
             <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>One-Tap Scenes</h3>
+                    <p>Capture your entire setup - input, volume, sound mode, Audyssey/Dirac, speaker preset, channel levels, zones, even the tuner - and recall all of it with a single tap. Movie night, gaming, late-night listening: each its own Scene.</p>
+                    <span class="tech-tag">Capture</span>
+                    <span class="tech-tag">One-Tap Recall</span>
+                    <span class="tech-tag">Unlimited Scenes</span>
+                </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔊</div>
                     <h3>Volume, Input &amp; Surround</h3>
@@ -343,10 +362,18 @@
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
                     <h3>Quick Selects, Themes &amp; Custom Nav</h3>
-                    <p>Recall your favorite input/volume/mode combos with one tap. Choose Light, Dark (AMOLED), or Device theme. Drag to reorder, show, or hide navigation tabs to match your workflow.</p>
+                    <p>Recall your favorite input/volume/mode combos with one tap. Choose Light, Dark (AMOLED), or Device theme, set a custom TJ Mode accent color, and drag to reorder, show, or hide navigation tabs to match your workflow.</p>
                     <span class="tech-tag">Quick Select</span>
-                    <span class="tech-tag">Themes</span>
+                    <span class="tech-tag">TJ Mode Color</span>
                     <span class="tech-tag">Custom Nav</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📻</div>
+                    <h3>FM/AM Tuner &amp; Now Playing</h3>
+                    <p>Tune FM/AM by frequency or stored preset right from the app, and watch a live now-playing display with album art for HEOS sources. Reorder and rename your inputs so the grid reads the way you think.</p>
+                    <span class="tech-tag">FM/AM Presets</span>
+                    <span class="tech-tag">Now Playing</span>
+                    <span class="tech-tag">Rename Inputs</span>
                 </div>
             </div>
         </div>
@@ -434,92 +461,100 @@
             <div class="carousel-viewport">
                 <div class="carousel-track" id="carousel-track">
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145900.png" alt="Dashboard: Power, Volume, Source" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dashboard: Power, Volume, Source</div>
+                        <img class="framed" src="screenshots/dashboard.png" alt="Dashboard: power, volume, source" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Dashboard: power, volume, source</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145907.png" alt="Dashboard: Full View" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Sources, Surround, Now Playing, Zones</div>
+                        <img class="framed" src="screenshots/dashboard-customize.png" alt="Customize your dashboard" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Customize your dashboard</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145912.png" alt="Virtual Remote" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Virtual Remote</div>
+                        <img class="framed" src="screenshots/scenes-list.png" alt="One-tap Scenes" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">One-tap Scenes</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145919.png" alt="Input Selection" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Input Selection Grid</div>
+                        <img class="framed" src="screenshots/scenes-save-dialog.png" alt="Capture a Scene" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Capture a Scene</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145922.png" alt="Quick Select Presets" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Quick Select Presets</div>
+                        <img class="framed" src="screenshots/sound-main.png" alt="Surround &amp; sound modes" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Surround &amp; sound modes</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145936.png" alt="Surround Modes" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Surround Mode Selection</div>
+                        <img class="framed" src="screenshots/sound-scroll.png" alt="Audio features &amp; toggles" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Audio features &amp; toggles</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145939.png" alt="Audio Features" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Audio Features and Toggles</div>
+                        <img class="framed" src="screenshots/sound-audyssey.png" alt="Audyssey room correction" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Audyssey room correction</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145943.png" alt="Dialog and Dynamic Range" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dialog and Dynamic Range Control</div>
+                        <img class="framed" src="screenshots/sound-dirac.png" alt="Dirac Live filter slots" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Dirac Live filter slots</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145946.png" alt="Audyssey Room Correction" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Audyssey Room Correction</div>
+                        <img class="framed" src="screenshots/speakers-layout.png" alt="Speaker layout" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Speaker layout</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145949.png" alt="Dirac Live Filters" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dirac Live Filter Selection</div>
+                        <img class="framed" src="screenshots/speakers-distances.png" alt="Speaker distances" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Speaker distances</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145952.png" alt="Per-Channel Levels" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Per-Channel Volume Levels</div>
+                        <img class="framed" src="screenshots/speakers-levels.png" alt="Per-channel levels" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Per-channel levels</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145956.png" alt="IMAX Enhanced" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">IMAX Enhanced Settings</div>
+                        <img class="framed" src="screenshots/speakers-preset.png" alt="Speaker presets" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Speaker presets</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145959.png" alt="Auro-3D Configuration" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Auro-3D Configuration</div>
+                        <img class="framed" src="screenshots/zones.png" alt="Multi-zone control" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Multi-zone control</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145925.png" alt="System Controls: HDMI, Dimmer, Triggers" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">System: HDMI, Dimmer, Triggers</div>
+                        <img class="framed" src="screenshots/remote-main.png" alt="Virtual remote" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Virtual remote</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145929.png" alt="System Controls: Standby, CEC" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">System: Standby, CEC, Presets</div>
+                        <img class="framed" src="screenshots/remote-inputs.png" alt="Input selection grid" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Input selection grid</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145933.png" alt="System Controls: Bluetooth, Video" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">System: BT, Audio Restorer, Video</div>
+                        <img class="framed" src="screenshots/remote-quickselect.png" alt="Quick Select presets" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Quick Select presets</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-150005.png" alt="Multi-Zone Control" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Multi-Zone Control</div>
+                        <img class="framed" src="screenshots/radio.png" alt="FM/AM tuner" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">FM/AM tuner</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-150008.png" alt="App Settings" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">App Settings and Themes</div>
+                        <img class="framed" src="screenshots/settings-main.png" alt="App settings" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">App settings</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-150012.png" alt="Customize Navigation" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Customize Navigation Tabs</div>
+                        <img class="framed" src="screenshots/settings-tjmode.png" alt="TJ Mode accent color" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">TJ Mode accent color</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145852.png" alt="Easy Setup" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Easy Setup and Connection Test</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-145840.png" alt="Welcome Screen" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Welcome Screen</div>
+                        <img class="framed" src="screenshots/settings-customize-nav.png" alt="Customize navigation" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Customize navigation</div>
                     </div>
                 </div>
             </div>
             <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <section id="manual-cta" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="manual-banner">
+                <div>
+                    <h3>📖 The full step-by-step manual</h3>
+                    <p>Every screen explained, from first-time setup to power-user tricks - Scenes, Sound, Speakers, Zones, the Remote, the Radio and the hidden gems. Beautifully illustrated, and always up to date.</p>
+                </div>
+                <a href="https://avrmaestro.com" class="hero-cta" target="_blank">Open the manual ↗</a>
+            </div>
         </div>
     </section>
 
@@ -636,9 +671,10 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            AVR Maestro works with all networked Denon and Marantz AV receivers that support IP control (HTTP and/or Telnet).
-                            This includes most models from the last 10+ years. The app auto-detects available features on connection.
-                            If your receiver has a network/Wi-Fi port and can be controlled via IP, it should work.
+                            AVR Maestro works with networked Denon and Marantz AV receivers that support IP control (HTTP and/or Telnet) -
+                            most models from 2014 onward. The app auto-detects available features on connection. Reachability comes down to your
+                            network, not just the model: if the receiver's own web portal, the HEOS app, and the official Denon or Marantz app can
+                            all reach it on the same network - and its network ports aren't blocked - AVR Maestro should see it too.
                         </div>
                     </div>
                 </div>
@@ -683,13 +719,27 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
+                        What are Scenes?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            A Scene is a one-tap snapshot of your whole setup - input, volume, sound mode, Audyssey/Dirac selection,
+                            speaker preset, channel levels, zones, and even the tuner. Save as many as you like (movie night, gaming,
+                            late-night listening) and recall any of them instantly. It's the fastest way to jump between the ways you
+                            actually use your system.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
                         How much does AVR Maestro cost?
                         <span class="arrow">▼</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
                             AVR Maestro is a <strong>one-time purchase at $6.99</strong>. No subscription, no ads, no in-app purchases.
-                            You buy it once and own it. Pricing may change before launch.
+                            You buy it once and own it.
                         </div>
                     </div>
                 </div>
@@ -707,13 +757,13 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Which Android version is required?
+                        Which platforms and versions are supported?
                         <span class="arrow">▼</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            AVR Maestro requires Android 5.0 (API 21) or higher. It is an Android-only app for now.
-                            iOS support may be added in a future release.
+                            AVR Maestro is available on both iPhone (App Store) and Android (Google Play). On Android it requires
+                            Android 5.0 (API 21) or higher; on iPhone, a recent device on a current iOS release.
                         </div>
                     </div>
                 </div>
