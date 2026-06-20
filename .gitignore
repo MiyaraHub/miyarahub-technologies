@@ -1,0 +1,19 @@
+# PUBLIC GitHub Pages repo (miyarahub.com). Everything here is meant to be
+# public, so this is a defensive guard: never let a stray secret or local
+# artifact get committed and published.
+.env
+.env.*
+*.pem
+*.key
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+.secrets/
+secrets/
+service-account*.json
+*credentials*.json
+*-key.json
+.DS_Store
+Thumbs.db
+node_modules/
