@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UC Remote - Unfolded Circle Remote Two &amp; Remote 3 Controller App | MiyaraHub Technologies</title>
+    <meta name="description" content="UC Remote - a premium native Android controller and companion app for the Unfolded Circle Remote Two and Remote 3. Run activities, swipe custom activity pages, control lights, climate, covers, switches and media players, watch live now-playing with album art, place home-screen widgets, and manage multiple remotes - all over your local network. No cloud, no account.">
+    <meta name="keywords" content="UC Remote, Unfolded Circle, Unfolded Circle Remote Two, Unfolded Circle Remote 3, Unfolded Circle app, Unfolded Circle controller, Unfolded Circle companion app, Unfolded Circle Android app, Remote Two controller, Remote 3 controller, smart home remote app, home theater remote app, activities controller, home automation controller Android, UC Remote widgets, Unfolded Circle home screen widget, media player controller, smart home controller app, MiyaraHub, MiyaraHub Technologies">
+    <link rel="canonical" href="https://miyarahub.com/uc-remote/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UC Remote - Unfolded Circle Remote Two &amp; Remote 3 Controller">
+    <meta name="twitter:description" content="A premium native Android companion for the Unfolded Circle Remote Two and Remote 3. Activities, entities, media, widgets - all local, no cloud.">
+    <meta name="twitter:image" content="https://miyarahub.com/assets/uc-remote-icon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "UC Remote",
+      "operatingSystem": "Android",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "Premium native Android companion for the Unfolded Circle Remote Two and Remote 3. Run activities, control every entity type, watch live now-playing, place home-screen widgets, and manage multiple remotes over your local network.",
+      "url": "https://miyarahub.com/uc-remote/",
+      "author": {
+        "@type": "Organization",
+        "name": "MiyaraHub Technologies LLC",
+        "url": "https://miyarahub.com"
+      }
+    }
+    </script>
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="UC Remote - Unfolded Circle Remote Two &amp; Remote 3 Controller">
+    <meta property="og:description" content="A premium native Android companion for the Unfolded Circle Remote Two and Remote 3. Activities, entities, media, widgets - all local, no cloud.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miyarahub.com/uc-remote">
+    <meta property="og:image" content="https://miyarahub.com/assets/uc-remote-icon.png">
+    <meta property="og:image:alt" content="UC Remote app icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/uc-remote-icon.png">
+    <link rel="apple-touch-icon" href="../assets/uc-remote-icon.png">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #ff6e40;
+            --accent-glow: rgba(255, 110, 64, 0.15);
+            --accent-hover: #ff8a63;
+            --border: rgba(148, 163, 184, 0.1);
+            --gradient-start: #ff6e40;
+            --gradient-end: #f4511e;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.15);
+        }
+        html{scroll-behavior:smooth}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(255, 110, 64, 0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(244, 81, 30, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: ambientShift 20s ease-in-out infinite alternate;
+        }
+        @keyframes ambientShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 3%); }
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+        }
+        .nav-brand-text {
+            font-size: 1.15rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 101; flex-direction: column; gap: 5px; }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5rem 2rem 2rem; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: var(--accent-glow); border: 1px solid rgba(255, 110, 64, 0.2); border-radius: 100px; font-size: 0.8rem; color: var(--accent); margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 1.25rem; line-height: 1.6; }
+        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(255, 110, 64, 0.3); }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 110, 64, 0.4); }
+        .hero-cta-secondary { background: transparent; border: 1px solid var(--border); box-shadow: none; color: var(--text-secondary); }
+        .hero-cta-secondary:hover { border-color: rgba(255, 110, 64, 0.3); color: var(--accent); box-shadow: 0 4px 20px rgba(255, 110, 64, 0.1); }
+
+        .hero-phones { display: flex; gap: 1.25rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap; perspective: 1000px; }
+        .phone-frame { width: 180px; border-radius: 24px; overflow: hidden; border: 2px solid rgba(148, 163, 184, 0.15); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 110, 64, 0.08); transition: transform 0.4s ease, box-shadow 0.4s ease; flex-shrink: 0; }
+        .phone-frame:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 110, 64, 0.15); }
+        .phone-frame img { width: 100%; display: block; }
+
+        section { padding: 3rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .section-desc { color: var(--text-secondary); max-width: 600px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
+        .section-center { text-align: center; }
+        .section-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(255, 110, 64, 0.3); box-shadow: 0 8px 30px rgba(255, 110, 64, 0.08); }
+        .feature-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .feature-card .tech-tag { display: inline-block; padding: 0.15rem 0.5rem; background: rgba(148, 163, 184, 0.08); border: 1px solid var(--border); border-radius: 6px; font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.75rem; margin-right: 0.3rem; }
+
+        .carousel-container { position: relative; max-width: 1100px; margin: 0 auto; padding: 2rem 0; }
+        .carousel-viewport { overflow: hidden; border-radius: 8px; }
+        .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .carousel-slide { flex: 0 0 auto; padding: 0 0.75rem; text-align: center; }
+        .carousel-slide img { width: 100%; border-radius: 20px; border: 2px solid var(--border); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; }
+        .carousel-slide img:hover { transform: scale(1.03); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 110, 64, 0.1); border-color: rgba(255, 110, 64, 0.3); }
+        .carousel-slide .caption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); font-size: 1.3rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.3s, border-color 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
+        .carousel-btn:hover { background: rgba(255, 110, 64, 0.15); border-color: rgba(255, 110, 64, 0.4); box-shadow: 0 4px 20px rgba(255, 110, 64, 0.2); }
+        .carousel-btn:disabled { opacity: 0.3; cursor: default; }
+        .carousel-btn.prev { left: -24px; }
+        .carousel-btn.next { right: -24px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0; }
+        .carousel-dot.active { background: var(--accent); transform: scale(1.3); }
+        @media (max-width: 768px) { .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; } .carousel-btn.prev { left: 4px; } .carousel-btn.next { right: 4px; } }
+
+        .how-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .how-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; position: relative; }
+        .how-card .step-number { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; font-weight: 700; font-size: 0.95rem; margin-bottom: 1rem; }
+        .how-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .how-card p { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6; }
+
+        .permissions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .permission-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .permission-card .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-glow); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .permission-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .permission-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; }
+        .faq-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; transition: color 0.3s; user-select: none; }
+        .faq-question:hover { color: var(--accent); }
+        .faq-question .arrow { transition: transform 0.3s; font-size: 0.85rem; color: var(--text-secondary); }
+        .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.open .faq-answer { max-height: 500px; }
+        .faq-answer-inner { padding: 0 1.5rem 1.25rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+        .legal-banner { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 2rem; }
+        .legal-banner h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .legal-banner p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+
+        .cta-section { text-align: center; padding: 5rem 2rem; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2rem; }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-copy { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-toggle { display: flex; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(10, 14, 26, 0.97); backdrop-filter: blur(20px); padding: 1rem 2rem; gap: 0; border-bottom: 1px solid var(--border); }
+            .nav-links.open { display: flex; }
+            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { font-size: 1rem; }
+            .hero { padding: 4.5rem 1.5rem 1.5rem; }
+            .hero-phones { gap: 1rem; }
+            .phone-frame { width: 160px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .legal-banner { padding: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-brand-text { font-size: 0.95rem; }
+            .phone-frame { width: 140px; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+        }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in.no-delay { opacity: 1; transform: none; }
+
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(10px); }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); }
+
+        .carousel-slide img.framed { border: none; box-shadow: none; background: none; border-radius: 0; }
+        .carousel-slide img.framed:hover { border: none; box-shadow: none; transform: scale(1.04); }
+        .phone-frame.bare { width: 215px; border: none; box-shadow: none; overflow: visible; background: none; border-radius: 0; }
+        .phone-frame.bare:hover { transform: translateY(-8px) scale(1.03); box-shadow: none; }
+        .phone-frame.bare img { width: 100%; }
+
+        .manual-banner { max-width: 1100px; margin: 0 auto; background: linear-gradient(135deg, rgba(255,110,64,0.12), rgba(244,81,30,0.06)); border: 1px solid rgba(255,110,64,0.25); border-radius: 20px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+        .manual-banner h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .manual-banner p { color: var(--text-secondary); font-size: 0.98rem; max-width: 540px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub Logo" style="height:32px;width:32px;border-radius:6px;"><span class="nav-brand-text">MiyaraHub</span></a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/" onclick="closeNav()">&larr; Home</a></li>
+            <li><a href="#features" onclick="closeNav()">Features</a></li>
+            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
+            <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
+            <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">🎛️ Built for Unfolded Circle Remote Two &amp; Remote 3</div>
+        <h1>
+            <span class="gradient">UC Remote</span>
+        </h1>
+        <p>
+            A premium native companion for the Unfolded Circle Remote Two and Remote 3. Run your activities,
+            swipe through their custom pages, control every light, climate, cover, switch and media player,
+            watch live now-playing with album art, and pin home-screen widgets - all over your own network.
+            No ads. No subscriptions. No cloud.
+        </p>
+        <div class="hero-cta-group">
+            <a href="#" class="hero-cta">Coming soon to Google Play</a>
+            <a href="https://github.com/stars/mase1981/lists/unfolded-circle-integrations" class="hero-cta hero-cta-secondary" target="_blank" rel="noopener">Browse UC integrations ↗</a>
+        </div>
+
+        <div class="hero-phones">
+            <div class="phone-frame bare">
+                <img src="screenshots/activity-page-1.png" alt="UC Remote - a custom activity page" loading="lazy">
+            </div>
+            <div class="phone-frame bare">
+                <img src="screenshots/now-playing.png" alt="UC Remote - live now playing" loading="lazy">
+            </div>
+            <div class="phone-frame bare">
+                <img src="screenshots/activities.png" alt="UC Remote - activities" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Your Whole Remote, In Your Hand</h2>
+            <p class="section-desc">
+                UC Remote connects to your Unfolded Circle Remote Two or Remote 3 over Wi-Fi and mirrors everything
+                it can do - activities, pages, entities and media - in a fast, native interface designed for the phone.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Activities, One Tap</h3>
+                    <p>Start and stop full activities - Watch Shield TV, Xbox, PS5 - from a clean list. Your remote powers on the right gear and switches inputs; the app drops you straight into the controls for that activity.</p>
+                    <span class="tech-tag">Start / Stop</span>
+                    <span class="tech-tag">Activity Groups</span>
+                    <span class="tech-tag">One-Tap</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📺</div>
+                    <h3>Beautiful Activity Pages</h3>
+                    <p>Every activity carries its own custom pages. Swipe between a media now-playing view, a button remote, and tailored control tiles - laid out exactly as configured on your remote.</p>
+                    <span class="tech-tag">Swipeable Pages</span>
+                    <span class="tech-tag">Custom Layouts</span>
+                    <span class="tech-tag">Button Tiles</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Live Now-Playing</h3>
+                    <p>Album art, title and artist, transport controls (previous, play / pause, next), plus source and sound-mode selectors for your media players - all updating live as things change.</p>
+                    <span class="tech-tag">Album Art</span>
+                    <span class="tech-tag">Transport</span>
+                    <span class="tech-tag">Live State</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Every Entity, Purpose-Built</h3>
+                    <p>Lights with brightness and color, climate with setpoints, covers, switches, sensors and media players - each gets a control screen designed for it, with the right glyphs and actions, not a generic toggle.</p>
+                    <span class="tech-tag">Lights</span>
+                    <span class="tech-tag">Climate</span>
+                    <span class="tech-tag">Covers</span>
+                    <span class="tech-tag">Sensors</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗂️</div>
+                    <h3>Full Entity Browser</h3>
+                    <p>Search and filter your entire setup - hundreds of entities - by type, whether lights, media players, switches or climate, and jump straight into any one of them.</p>
+                    <span class="tech-tag">Search</span>
+                    <span class="tech-tag">Filter by Type</span>
+                    <span class="tech-tag">Quick Open</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎛️</div>
+                    <h3>Multiple Remotes</h3>
+                    <p>Pair more than one Unfolded Circle remote and switch between them instantly. Each remembers its own profiles, pages and entities, so a Theater remote and an Office remote stay completely separate.</p>
+                    <span class="tech-tag">Multi-Remote</span>
+                    <span class="tech-tag">Fast Switch</span>
+                    <span class="tech-tag">Per-Remote Profiles</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Home-Screen Widgets</h3>
+                    <p>Drop Activities, Media Players, or Devices widgets right on your home screen, each pointed at a chosen remote, for one-tap control and live now-playing without even opening the app.</p>
+                    <span class="tech-tag">Activities</span>
+                    <span class="tech-tag">Media</span>
+                    <span class="tech-tag">Devices</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Themes Built In</h3>
+                    <p>Light, Dark, and true-black AMOLED surfaces, plus a signature accent or your own custom color. Pick a look and the whole app repaints to match - on every screen.</p>
+                    <span class="tech-tag">Light</span>
+                    <span class="tech-tag">Dark</span>
+                    <span class="tech-tag">AMOLED</span>
+                    <span class="tech-tag">Custom Accent</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Local &amp; Direct</h3>
+                    <p>UC Remote talks straight to your remote over your own Wi-Fi. A live event stream keeps state in sync and your commands go direct - PIN-paired, with no cloud relay and no account.</p>
+                    <span class="tech-tag">Local Network</span>
+                    <span class="tech-tag">PIN-Paired</span>
+                    <span class="tech-tag">No Cloud</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section id="screenshots" style="background: var(--bg-secondary);">
+        <div class="container fade-in section-center">
+            <div class="section-label">Screenshots</div>
+            <h2 class="section-title">See Every Screen</h2>
+            <p class="section-desc">
+                A premium, purpose-built interface for your Unfolded Circle remote - dark by default, live data,
+                and a layout designed for one-handed control. Tap any screen to enlarge.
+            </p>
+        </div>
+
+        <div class="container fade-in section-center" style="margin-top: 2rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On Android</h3>
+        </div>
+        <div class="carousel-container" id="carousel">
+            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
+            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">›</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/remotes.png" alt="UC Remote - your paired remotes" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Your paired remotes</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/activities.png" alt="UC Remote - activities list" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Activities: start &amp; stop</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/activity-page-1.png" alt="UC Remote - custom activity page" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Custom activity page</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/activity-page-2.png" alt="UC Remote - activity button page" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Swipe between pages</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/activity-page-3.png" alt="UC Remote - activity control tiles" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Tailored control tiles</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/now-playing.png" alt="UC Remote - live now playing" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Live now-playing</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/light-control.png" alt="UC Remote - light control" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Light: brightness &amp; color</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/entities.png" alt="UC Remote - entity browser" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Entity browser</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="framed" src="screenshots/settings.png" alt="UC Remote - themes &amp; settings" onclick="openLightbox(this)" loading="lazy">
+                        <div class="caption">Themes &amp; settings</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+
+        <div class="container fade-in section-center" style="margin-top: 3rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">Home-Screen Widgets</h3>
+            <p class="section-desc">One-tap control and live now-playing, right on your home screen.</p>
+            <div class="hero-phones" style="margin-top: 1.5rem;">
+                <div class="phone-frame bare"><img src="screenshots/widget-1.png" alt="UC Remote - home screen widget" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="phone-frame bare"><img src="screenshots/widget-2.png" alt="UC Remote - home screen widgets" loading="lazy" onclick="openLightbox(this)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container fade-in">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Direct To Your Remote. No Cloud Required.</h2>
+            <p class="section-desc">
+                UC Remote pairs with your Unfolded Circle remote on your own Wi-Fi and talks to it directly,
+                using the remote's own integration interface. Your setup never touches an external server.
+            </p>
+            <div class="how-cards">
+                <div class="how-card">
+                    <div class="step-number">1</div>
+                    <h3>Pair Your Remote</h3>
+                    <p>Enter your Unfolded Circle Remote Two or Remote 3's IP address and the PIN it shows. UC Remote pairs securely and pulls in your profiles, pages, activities and entities.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">2</div>
+                    <h3>Stay In Sync</h3>
+                    <p>A live two-way connection streams state from the remote - what's on, what's playing - while your taps go straight back as commands. No polling lag, no cloud round-trip.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">3</div>
+                    <h3>Control Everything</h3>
+                    <p>Run activities, work the custom pages, drive every entity and media player, switch between multiple remotes, and pin widgets to your home screen - all from one app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Privacy -->
+    <section id="security" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="section-label">Security &amp; Privacy</div>
+            <h2 class="section-title">Local Only. No Account. No Cloud.</h2>
+            <p class="section-desc">
+                UC Remote is built privacy-first and local-only: no cloud dependency, no user account,
+                and no data collection beyond crash reporting.
+            </p>
+            <div class="permissions-grid">
+                <div class="permission-card">
+                    <div class="icon">🔒</div>
+                    <div>
+                        <h4>No Cloud Relay</h4>
+                        <p>Every command and the live state stream happen directly between your phone and your remote over your local Wi-Fi. Nothing leaves your network.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">👤</div>
+                    <div>
+                        <h4>No Account Required</h4>
+                        <p>No sign-up, no email, no MiyaraHub account. Pair with your remote's PIN and you're in control.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">🔑</div>
+                    <div>
+                        <h4>PIN-Paired Access</h4>
+                        <p>Pairing exchanges a secure access token that is stored locally on your device and used only to talk to your remote.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">💾</div>
+                    <div>
+                        <h4>Local Storage Only</h4>
+                        <p>Remote addresses and app preferences are stored on your device. Nothing is synced to a server.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">🛡️</div>
+                    <div>
+                        <h4>Your Actions Only</h4>
+                        <p>Commands are sent only when you act. Nothing fires automatically or in the background without your knowledge.</p>
+                    </div>
+                </div>
+                <div class="permission-card">
+                    <div class="icon">📶</div>
+                    <div>
+                        <h4>Network Permission Only</h4>
+                        <p>The only permission UC Remote needs is local network access, used solely to reach your remote on your Wi-Fi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container fade-in section-center">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Everything you need to know about UC Remote.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Is UC Remote affiliated with Unfolded Circle?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <strong>No.</strong> UC Remote is an independent, third-party companion app developed by MiyaraHub Technologies LLC.
+                        It is not created, endorsed, sponsored, or affiliated with Unfolded Circle in any way. "Unfolded Circle," "Remote Two,"
+                        and "Remote 3" are trademarks of their respective owners; our use of these names is solely to describe compatibility.
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which devices does it work with?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        UC Remote works with the Unfolded Circle <strong>Remote Two</strong> and <strong>Remote 3</strong> on your local network.
+                        If your remote is reachable on the same Wi-Fi as your phone, UC Remote can pair with it and mirror its activities, pages and entities.
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How does it connect to my remote?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        Over your local Wi-Fi. After a one-time PIN pairing, UC Remote keeps a live event channel open to stay in sync with your
+                        remote's state and sends your commands directly. There is no cloud relay and no account - everything stays on your network.
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Do I need an account or an internet connection?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        No account, ever. UC Remote only needs your local network to reach your remote - nothing leaves your Wi-Fi, and there is no cloud service to sign up for.
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Can I control more than one remote?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        Yes. Pair as many Unfolded Circle remotes as you like and switch between them in a tap. Each remote keeps its own profiles, pages and entities.
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What platforms is UC Remote available on?
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        UC Remote is a native app for <strong>Android</strong> phones and tablets, coming soon to Google Play.
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal -->
+    <section id="legal" style="background: var(--bg-secondary);">
+        <div class="container fade-in">
+            <div class="legal-banner">
+                <h3>⚖️ Legal Disclaimer &amp; Trademark Notice</h3>
+                <p>
+                    UC Remote is an <strong>independent, third-party application</strong> developed and published by
+                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by,
+                    sponsored by, or in any way officially connected with Unfolded Circle ApS</strong> or any of its subsidiaries or affiliates.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    "Unfolded Circle," "Remote Two," "Remote 3," and all related product names and logos are trademarks or registered
+                    trademarks of their respective owners. All other trademarks referenced herein are the property of their respective owners.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    References to these products on this page and within the app are made solely to identify compatibility and describe the
+                    app's functionality (nominative fair use). The trademark holders are not affiliated with MiyaraHub Technologies LLC and do not endorse this product.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    UC Remote communicates with Unfolded Circle remotes using their local network integration interface. Use of this app is at
+                    your own risk. MiyaraHub Technologies LLC is not responsible for any misconfiguration or other problems arising from its use.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Built for the Unfolded Circle Remote Two &amp; Remote 3</h2>
+        <p>UC Remote is launching soon on Google Play. Premium, native, local-only control of your Unfolded Circle remote - activities, entities, media and widgets, all in one app.</p>
+        <div class="hero-cta-group">
+            <a href="#" class="hero-cta">Coming soon to Google Play</a>
+            <a href="https://github.com/stars/mase1981/lists/unfolded-circle-integrations" class="hero-cta hero-cta-secondary" target="_blank" rel="noopener">Browse UC integrations ↗</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-copy">
+                &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.<br>
+                <span style="font-size: 0.75rem; color: var(--text-secondary);">
+                    "Unfolded Circle," "Remote Two," and "Remote 3" are trademarks of their respective owners. This product is not affiliated with or endorsed by Unfolded Circle.
+                </span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/">MiyaraHub Home</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="Screenshot">
+    </div>
+
+    <script>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) el.classList.add('no-delay');
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
+
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+        function closeNav() {
+            document.getElementById('nav-menu').classList.remove('open');
+            document.getElementById('nav-toggle').classList.remove('open');
+        }
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        // Parameterized so we can mount the same behavior on multiple
+        // carousels (Android + iPhone) without duplicating code. Returns
+        // { prev, next } handlers for the caller to wire onto window.
+        function setupCarousel({trackId, dotsId, prevBtnId, nextBtnId}) {
+            const track = document.getElementById(trackId);
+            if (!track) return { prev: () => {}, next: () => {} };
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.getElementById(dotsId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+            const totalSlides = slides.length;
+            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
+
+            function calcDimensions() {
+                const vp = track.parentElement.clientWidth;
+                if (vp < 480) slidesPerView = 2;
+                else if (vp < 768) slidesPerView = 3;
+                else if (vp < 1024) slidesPerView = 4;
+                else slidesPerView = 5;
+                slideWidth = vp / slidesPerView;
+                slides.forEach(s => s.style.width = slideWidth + 'px');
+            }
+            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i <= getMaxIndex(); i++) {
+                    const d = document.createElement('button');
+                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                    d.onclick = () => goTo(i);
+                    dotsContainer.appendChild(d);
+                }
+            }
+            function updateButtons() { prevBtn.disabled = currentIndex <= 0; nextBtn.disabled = currentIndex >= getMaxIndex(); }
+            function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex)); }
+            function goTo(index) {
+                currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+                updateButtons(); updateDots();
+            }
+            const prev = () => goTo(currentIndex - 1);
+            const next = () => goTo(currentIndex + 1);
+            function init() { calcDimensions(); if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex(); buildDots(); goTo(currentIndex); }
+            init(); window.addEventListener('resize', init);
+
+            let startX = 0, isDragging = false;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
+            track.addEventListener('touchend', e => {
+                if (!isDragging) return; isDragging = false;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) { if (diff > 0) next(); else prev(); }
+            }, {passive: true});
+
+            return { prev, next };
+        }
+
+        // Android carousel (primary screenshots carousel)
+        const androidCarousel = setupCarousel({
+            trackId: 'carousel-track',
+            dotsId: 'carousel-dots',
+            prevBtnId: 'carousel-prev',
+            nextBtnId: 'carousel-next',
+        });
+        window.carouselPrev = androidCarousel.prev;
+        window.carouselNext = androidCarousel.next;
+
+        // iPhone carousel (mirrors Android behavior on separate DOM nodes)
+        const iosCarousel = setupCarousel({
+            trackId: 'carousel-track-ios',
+            dotsId: 'carousel-dots-ios',
+            prevBtnId: 'carousel-prev-ios',
+            nextBtnId: 'carousel-next-ios',
+        });
+        window.carouselIosPrev = iosCarousel.prev;
+        window.carouselIosNext = iosCarousel.next;
+    </script>
+</body>
+</html>
