@@ -41,644 +41,400 @@
     <meta property="og:image:alt" content="Almanox app icon">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/almanox-icon.png">
     <link rel="apple-touch-icon" href="../assets/almanox-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root {
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #111827;
-            --bg-card: #1a2035;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --accent: #8b7cf6;
-            --accent-glow: rgba(139, 124, 246, 0.16);
-            --accent-hover: #a78bfa;
-            --border: rgba(148, 163, 184, 0.1);
-            --gradient-start: #8b7cf6;
-            --gradient-end: #2ec4b6;
-            --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.15);
+            --ink: #070c16;
+            --ink-2: #0b1322;
+            --ink-3: #0f1a2c;
+            --star: #eef2f8;
+            --muted: #8fa0b8;
+            --faint: #607089;
+            --brass: #e6a552;
+            --brass-deep: #c9863a;
+            --brass-soft: rgba(230,165,82,0.12);
+            --line: rgba(176,198,232,0.11);
+            --line-strong: rgba(176,198,232,0.2);
+            /* twilight ladder - semantic, not the accent */
+            --tw-day: #f3b64d;
+            --tw-civil: #d98b46;
+            --tw-nautical: #3f6ea6;
+            --tw-astro: #26305a;
+            --tw-night: #0a1120;
         }
-        html{scroll-behavior:smooth}
+        html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
+            font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: var(--ink);
+            color: var(--star);
+            line-height: 1.62;
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
+        /* faint fixed star-field - no animated blobs */
         body::before {
             content: '';
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            animation: ambientShift 20s ease-in-out infinite alternate;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(1.2px 1.2px at 12% 22%, rgba(238,242,248,.35), transparent),
+                radial-gradient(1.2px 1.2px at 78% 14%, rgba(238,242,248,.28), transparent),
+                radial-gradient(1px 1px at 34% 62%, rgba(238,242,248,.22), transparent),
+                radial-gradient(1px 1px at 62% 78%, rgba(238,242,248,.20), transparent),
+                radial-gradient(1.4px 1.4px at 88% 54%, rgba(230,165,82,.30), transparent),
+                radial-gradient(1px 1px at 22% 84%, rgba(238,242,248,.18), transparent),
+                radial-gradient(1.1px 1.1px at 50% 8%, rgba(238,242,248,.24), transparent);
+            background-repeat: no-repeat;
         }
-        @keyframes ambientShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-5%, 3%); }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                radial-gradient(120% 80% at 50% -10%, rgba(63,110,166,.10) 0%, transparent 55%),
+                radial-gradient(90% 60% at 84% 8%, rgba(230,165,82,.05) 0%, transparent 50%);
+        }
+        a { color: inherit; }
+        ::selection { background: var(--brass-soft); color: var(--star); }
+
+        .mono { font-family: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace; }
+        .kicker {
+            font-family: 'IBM Plex Mono', ui-monospace, monospace;
+            font-size: .72rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--brass);
+        }
+        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.75rem; }
+
+        /* rule */
+        .hr {
+            height: 1px;
+            background: var(--line);
+            border: 0;
+            width: 100%;
         }
 
         /* NAV */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
-            background: rgba(10, 14, 26, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            padding: .85rem 1.75rem;
+            background: rgba(7,12,22,.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
         }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
+        .nav-brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+        .nav-brand img { height: 30px; width: 30px; border-radius: 5px; }
         .nav-brand-text {
-            font-size: 1.15rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.12rem;
+            font-weight: 600;
+            letter-spacing: .01em;
+            color: var(--star);
         }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links { display: flex; gap: 1.9rem; list-style: none; align-items: center; }
         .nav-links a {
-            color: var(--text-secondary);
+            font-family: 'IBM Plex Mono', ui-monospace, monospace;
+            font-size: .74rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
+            transition: color .25s;
         }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: var(--brass); }
         .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 101;
-            flex-direction: column;
-            gap: 5px;
+            display: none; background: none; border: none; cursor: pointer;
+            padding: .4rem; z-index: 101; flex-direction: column; gap: 5px;
         }
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-secondary);
-            border-radius: 2px;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--muted); transition: transform .3s, opacity .3s; }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
         .nav-toggle.open span:nth-child(2) { opacity: 0; }
-        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
         /* HERO */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .hero { padding: 8.5rem 0 3.5rem; position: relative; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 3.5rem;
             align-items: center;
-            text-align: center;
-            padding: 5rem 2rem 2rem;
-            position: relative;
         }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 600;
+        .hero-coord {
+            margin-bottom: 1.5rem;
+            display: flex; gap: 1.2rem; flex-wrap: wrap;
         }
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
+            font-family: 'Fraunces', Georgia, serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-size: clamp(3.4rem, 8vw, 6rem);
+            line-height: .95;
+            letter-spacing: -.02em;
+            margin: .4rem 0 .1rem;
+            display: flex; align-items: flex-start; gap: .1em;
         }
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 .stargl { color: var(--brass); font-size: .34em; margin-top: .15em; line-height: 1; }
+        .hero-sub {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+            color: var(--star);
+            opacity: .92;
+            margin: .1rem 0 1.4rem;
+            max-width: 30ch;
         }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
+        .hero-lede {
+            color: var(--muted);
+            font-size: 1.02rem;
+            max-width: 46ch;
+            margin-bottom: 1.8rem;
         }
-        .hero-cta-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: #fff;
+        .cta-row { display: flex; gap: .9rem; flex-wrap: wrap; align-items: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: .5rem;
+            font-family: 'IBM Plex Mono', ui-monospace, monospace;
+            font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+            padding: .8rem 1.3rem;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
-        }
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4);
-        }
-        .hero-cta-secondary {
+            border: 1px solid var(--line-strong);
+            border-radius: 3px;
+            color: var(--muted);
             background: transparent;
-            border: 1px solid var(--border);
-            box-shadow: none;
-            color: var(--text-secondary);
+            transition: border-color .25s, color .25s, background .25s;
         }
-        .hero-cta-secondary:hover {
-            border-color: rgba(6, 182, 212, 0.3);
-            color: var(--accent);
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.1);
+        .btn.store { color: var(--star); border-color: rgba(230,165,82,.35); }
+        .btn.store svg { fill: var(--brass); }
+        .btn:hover { border-color: var(--brass); color: var(--brass); }
+        .btn.primary {
+            border-color: var(--brass);
+            color: var(--ink);
+            background: var(--brass);
         }
+        .btn.primary:hover { background: var(--brass-deep); border-color: var(--brass-deep); color: var(--ink); }
+        .coming {
+            font-family: 'IBM Plex Mono', ui-monospace, monospace;
+            font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+            color: var(--faint); margin-top: 1.5rem;
+        }
+        .coming .dot { color: var(--brass); }
 
-        /* HERO PHONE MOCKUP */
-        .hero-phones {
-            display: flex;
-            gap: 1.25rem;
-            margin-top: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            perspective: 1000px;
-        }
-        .phone-frame {
-            width: 180px;
-            border-radius: 24px;
+        /* EPHEMERIS PANEL - the data-as-decoration anchor */
+        .ephem {
+            border: 1px solid var(--line-strong);
+            border-radius: 5px;
+            background: linear-gradient(180deg, rgba(15,26,44,.85), rgba(11,19,34,.85));
+            box-shadow: 0 24px 70px rgba(0,0,0,.45);
             overflow: hidden;
-            border: 2px solid rgba(148, 163, 184, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(6, 182, 212, 0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            flex-shrink: 0;
         }
-        .phone-frame:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(6, 182, 212, 0.15);
+        .ephem-head {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            background: rgba(230,165,82,.05);
         }
-        .phone-frame img {
-            width: 100%;
-            display: block;
+        .ephem-head .t { font-family:'IBM Plex Mono',monospace; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); }
+        .ephem-head .d { font-family:'IBM Plex Mono',monospace; font-size: .68rem; color: var(--faint); }
+        .ephem-body { display: grid; grid-template-columns: 1fr auto; }
+        .ephem-rows { padding: 1.1rem 1rem; display: flex; flex-direction: column; gap: .62rem; }
+        .erow { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-family:'IBM Plex Mono',monospace; }
+        .erow .lbl { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+        .erow .val { font-size: .86rem; color: var(--star); white-space: nowrap; }
+        .erow .val b { color: var(--brass); font-weight: 500; }
+        .erow.verdict { margin-top: .3rem; padding-top: .7rem; border-top: 1px solid var(--line); }
+        .erow.verdict .lbl { color: var(--brass); }
+        .erow.verdict .score { font-family:'Fraunces',serif; font-size: 1.7rem; font-weight: 600; color: var(--star); line-height: 1; }
+        .erow.verdict .grade { font-size: .68rem; letter-spacing: .18em; color: var(--brass); }
+
+        /* twilight ladder */
+        .ladder { width: 74px; border-left: 1px solid var(--line); display: flex; flex-direction: column; }
+        .ladder .seg { flex: 1; position: relative; display: flex; align-items: center; padding-left: .55rem; }
+        .ladder .seg span { font-family:'IBM Plex Mono',monospace; font-size: .56rem; letter-spacing: .06em; color: rgba(255,255,255,.82); text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+        .ladder .day { background: var(--tw-day); }
+        .ladder .civil { background: var(--tw-civil); }
+        .ladder .nautical { background: var(--tw-nautical); }
+        .ladder .astro { background: var(--tw-astro); }
+        .ladder .night { background: var(--tw-night); }
+        .ladder .night span, .ladder .nautical span, .ladder .astro span { color: rgba(238,242,248,.9); }
+
+        /* PLATES (screenshots) */
+        .plates {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+            margin-top: 3.5rem;
         }
+        .plate { text-align: center; }
+        .plate .frame {
+            border: 1px solid var(--line-strong);
+            border-radius: 6px;
+            padding: 5px;
+            background: rgba(15,26,44,.5);
+            transition: border-color .3s, transform .3s;
+        }
+        .plate .frame:hover { border-color: rgba(230,165,82,.5); transform: translateY(-4px); }
+        .plate img { width: 100%; display: block; border-radius: 3px; cursor: zoom-in; }
+        .plate .cap {
+            font-family:'IBM Plex Mono',monospace; font-size: .66rem; letter-spacing: .14em;
+            text-transform: uppercase; color: var(--faint); margin-top: .7rem;
+        }
+        .plate .cap b { color: var(--brass); font-weight: 500; }
 
         /* SECTIONS */
-        section { padding: 3rem 2rem; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .section-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-        .section-desc {
-            color: var(--text-secondary);
-            max-width: 600px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-        .section-center { text-align: center; }
-        .section-center .section-desc { margin-left: auto; margin-right: auto; }
-
-        /* FEATURES GRID */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(6, 182, 212, 0.3);
-            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.08);
-        }
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: var(--accent-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-        .feature-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        .feature-card .tech-tag {
-            display: inline-block;
-            padding: 0.15rem 0.5rem;
-            background: rgba(148, 163, 184, 0.08);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.72rem;
-            color: var(--text-secondary);
-            margin-top: 0.75rem;
-            margin-right: 0.3rem;
-        }
-
-        /* SCREENSHOT CAROUSEL */
-        .carousel-container {
-            position: relative;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        .carousel-viewport {
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .carousel-slide {
-            flex: 0 0 auto;
-            padding: 0 0.75rem;
-            text-align: center;
-        }
-        .carousel-slide img {
-            width: 100%;
-            border-radius: 20px;
-            border: 2px solid var(--border);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            cursor: pointer;
-        }
-        .carousel-slide img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.1);
-            border-color: rgba(6, 182, 212, 0.3);
-        }
-        .carousel-slide .caption {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        section { padding: 4.5rem 0; }
+        .sec-head { margin-bottom: 2.6rem; max-width: 40ch; }
+        .sec-title {
+            font-family: 'Fraunces', Georgia, serif;
             font-weight: 500;
+            font-size: clamp(1.9rem, 4vw, 2.7rem);
+            line-height: 1.05;
+            letter-spacing: -.015em;
+            margin: .55rem 0 .8rem;
+            text-wrap: balance;
         }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        .sec-desc { color: var(--muted); font-size: 1.02rem; }
+        .sec-band { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+        /* FEATURES - ledger entries */
+        .ledger { border-top: 1px solid var(--line); }
+        .entry {
+            display: grid;
+            grid-template-columns: 4.5rem 1fr;
+            gap: 1.5rem;
+            padding: 1.9rem 0;
+            border-bottom: 1px solid var(--line);
+            align-items: start;
         }
-        .carousel-btn:hover {
-            background: rgba(6, 182, 212, 0.15);
-            border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.2);
+        .entry .no {
+            font-family:'IBM Plex Mono',monospace; font-size: .82rem; color: var(--brass);
+            letter-spacing: .05em; padding-top: .35rem;
         }
-        .carousel-btn:disabled {
-            opacity: 0.3;
-            cursor: default;
+        .entry .body { }
+        .entry h3 {
+            font-family:'Fraunces',Georgia,serif; font-weight: 500; font-size: 1.4rem;
+            letter-spacing: -.01em; margin-bottom: .5rem; display: flex; align-items: center; gap: .7rem; flex-wrap: wrap;
         }
-        .carousel-btn.prev { left: -24px; }
-        .carousel-btn.next { right: -24px; }
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
+        .entry h3 .glyph { color: var(--brass); flex-shrink: 0; }
+        .pro-tag {
+            font-family:'IBM Plex Mono',monospace; font-size: .6rem; letter-spacing: .2em;
+            text-transform: uppercase; color: var(--brass);
+            border: 1px solid rgba(230,165,82,.4); border-radius: 2px; padding: .1rem .4rem;
         }
-        .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--border);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-            padding: 0;
+        .entry p { color: var(--muted); font-size: .98rem; max-width: 62ch; }
+        .entry .meta {
+            margin-top: .8rem; display: flex; gap: 1.2rem; flex-wrap: wrap;
+            font-family:'IBM Plex Mono',monospace; font-size: .7rem; letter-spacing: .08em;
+            text-transform: uppercase; color: var(--faint);
         }
-        .carousel-dot.active {
-            background: var(--accent);
-            transform: scale(1.3);
-        }
-        @media (max-width: 768px) {
-            .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; }
-            .carousel-btn.prev { left: 4px; }
-            .carousel-btn.next { right: 4px; }
-        }
+        .entry .meta span::before { content: '+ '; color: var(--brass); }
 
         /* HOW IT WORKS */
-        .how-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; }
+        .step .n {
+            font-family:'Fraunces',Georgia,serif; font-size: 3rem; font-weight: 400;
+            color: var(--brass); line-height: 1; margin-bottom: .6rem;
+            border-bottom: 1px solid var(--line); padding-bottom: .8rem;
         }
-        .how-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            position: relative;
-        }
-        .how-card .step-number {
-            display: inline-flex;
-            width: 36px;
-            height: 36px;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-        .how-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .how-card p {
-            color: var(--text-secondary);
-            font-size: 0.93rem;
-            line-height: 1.6;
-        }
+        .step h3 { font-family:'Fraunces',serif; font-weight: 500; font-size: 1.25rem; margin-bottom: .5rem; }
+        .step p { color: var(--muted); font-size: .95rem; }
 
-        /* PERMISSIONS SECTION */
-        .permissions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+        /* PRIVACY - ruled list */
+        .priv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; }
+        .priv .p {
+            padding: 1.4rem 0; border-bottom: 1px solid var(--line);
+            display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;
         }
-        .permission-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        .permission-card .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: var(--green-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .permission-card h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-        .permission-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.5;
-        }
+        .priv .p .g { color: var(--brass); padding-top: .1rem; }
+        .priv .p h4 { font-family:'Fraunces',serif; font-weight: 500; font-size: 1.08rem; margin-bottom: .3rem; }
+        .priv .p p { color: var(--muted); font-size: .9rem; }
 
         /* FAQ */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
+        .faq { max-width: 800px; border-top: 1px solid var(--line); }
+        .qa { border-bottom: 1px solid var(--line); }
+        .q {
+            display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+            padding: 1.35rem 0; cursor: pointer; user-select: none;
+            font-family:'Fraunces',serif; font-weight: 500; font-size: 1.12rem;
+            transition: color .25s;
         }
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 1.25rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s;
-            user-select: none;
-        }
-        .faq-question:hover { color: var(--accent); }
-        .faq-question .arrow {
-            transition: transform 0.3s;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        .faq-item.open .faq-answer {
-            max-height: 500px;
-        }
-        .faq-answer-inner {
-            padding: 0 1.5rem 1.25rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
+        .q:hover { color: var(--brass); }
+        .q .arw { color: var(--brass); font-family:'IBM Plex Mono',monospace; font-size: .9rem; transition: transform .3s; flex-shrink: 0; }
+        .qa.open .q .arw { transform: rotate(45deg); }
+        .a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+        .qa.open .a { max-height: 460px; }
+        .a-in { padding: 0 0 1.35rem; color: var(--muted); font-size: .96rem; line-height: 1.7; max-width: 68ch; }
+        .a-in strong { color: var(--star); }
 
-        /* LEGAL DISCLAIMER BANNER */
-        .legal-banner {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem 2.5rem;
-            margin-top: 2rem;
-        }
-        .legal-banner h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        .legal-banner p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.7;
-        }
-
-        /* CTA SECTION */
-        .cta-section {
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-        .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        .cta-section p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 550px;
-            margin: 0 auto 2rem;
-        }
+        /* CTA */
+        .cta { text-align: center; padding: 5.5rem 0; }
+        .cta h2 { font-family:'Fraunces',serif; font-weight: 500; font-size: clamp(2rem,4.5vw,3rem); letter-spacing: -.02em; margin-bottom: .9rem; }
+        .cta p { color: var(--muted); max-width: 52ch; margin: 0 auto 2rem; }
 
         /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
+        footer { border-top: 1px solid var(--line); padding: 2.5rem 0; }
+        .foot { display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+        .foot .c { color: var(--faint); font-size: .82rem; line-height: 1.7; }
+        .foot .c b { font-family:'Fraunces',serif; color: var(--muted); font-weight: 500; }
+        .foot ul { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+        .foot a {
+            font-family:'IBM Plex Mono',monospace; font-size: .72rem; letter-spacing: .08em;
+            text-transform: uppercase; color: var(--faint); text-decoration: none; transition: color .25s;
         }
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .footer-copy {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover { color: var(--accent); }
+        .foot a:hover { color: var(--brass); }
+
+        /* fade-in */
+        .fade { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+        .fade.vis { opacity: 1; transform: none; }
+
+        /* lightbox */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(3,6,12,.94); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(8px); }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 8px; border: 1px solid var(--line-strong); box-shadow: 0 20px 60px rgba(0,0,0,.8); }
 
         /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav { padding: 1rem; }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+            .hero { padding-top: 7rem; }
+            .priv { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 720px) {
             .nav-toggle { display: flex; }
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: rgba(10, 14, 26, 0.97);
-                backdrop-filter: blur(20px);
-                padding: 1rem 2rem;
-                gap: 0;
-                border-bottom: 1px solid var(--border);
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                flex-direction: column; gap: 0; align-items: stretch;
+                background: rgba(7,12,22,.97); backdrop-filter: blur(14px);
+                border-bottom: 1px solid var(--line); padding: .5rem 1.75rem;
             }
             .nav-links.open { display: flex; }
-            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links li { padding: .85rem 0; border-bottom: 1px solid var(--line); }
             .nav-links li:last-child { border-bottom: none; }
-            .nav-links a { font-size: 1rem; }
-            .hero { padding: 4.5rem 1.5rem 1.5rem; }
-            .hero-phones { gap: 1rem; }
-            .phone-frame { width: 160px; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .legal-banner { padding: 1.5rem; }
+            .plates { grid-template-columns: 1fr 1fr; }
+            .steps { grid-template-columns: 1fr; gap: 1.6rem; }
+            .entry { grid-template-columns: 1fr; gap: .5rem; }
+            .entry .no { padding-top: 0; }
         }
-        @media (max-width: 480px) {
-            .nav-brand-text { font-size: 0.95rem; }
-            .phone-frame { width: 140px; }
-            .hero-cta-group { flex-direction: column; align-items: center; }
+        @media (max-width: 460px) {
+            .plates { grid-template-columns: 1fr; }
+            .cta-row { flex-direction: column; align-items: stretch; }
+            .btn { justify-content: center; }
         }
-
-        /* Fade-in - only triggers for elements fully below viewport on load */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .fade-in.no-delay {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            cursor: zoom-out;
-            backdrop-filter: blur(10px);
-        }
-        .lightbox.active { display: flex; }
-        .lightbox img {
-            max-height: 90vh;
-            max-width: 90vw;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        @media (prefers-reduced-motion: reduce) {
+            * { scroll-behavior: auto !important; }
+            .fade { transition: none; opacity: 1; transform: none; }
         }
     </style>
 <script type="application/ld+json">
@@ -686,450 +442,338 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://miyarahub.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Almanox",
-      "item": "https://miyarahub.com/almanox/"
-    }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyarahub.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Almanox", "item": "https://miyarahub.com/almanox/" }
   ]
 }
 </script>
 </head>
 <body>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-        <img id="lightbox-img" src="" alt="Screenshot">
+        <img id="lightbox-img" src="" alt="Almanox screenshot enlarged">
     </div>
 
-    <!-- Navigation -->
+    <!-- Nav -->
     <nav>
-        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub Logo" style="height:32px;width:32px;border-radius:6px;"><span class="nav-brand-text">MiyaraHub</span></a>
+        <a href="/" class="nav-brand">
+            <img src="/assets/logo-square.jpg" alt="MiyaraHub logo">
+            <span class="nav-brand-text">MiyaraHub</span>
+        </a>
         <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links" id="nav-menu">
-            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="/" onclick="closeNav()">Home</a></li>
             <li><a href="#features" onclick="closeNav()">Features</a></li>
-            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
-            <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
+            <li><a href="#plates" onclick="closeNav()">Screens</a></li>
+            <li><a href="#how" onclick="closeNav()">Method</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge">🌌 Coming soon to iPhone, iPad &amp; Android</div>
-        <h1>
-            <span class="gradient">Almanox</span>
-        </h1>
-        <p>
-            Is tonight good for the stars? Almanox answers it on one screen - a Tonight
-            verdict score, golden and blue hour, the Milky Way core, dark-sky windows, and
-            a sun and moon shot planner. Beautiful by default, fully offline, one-time purchase.
-        </p>
-        <div class="hero-cta-group">
-            <span class="hero-cta" style="cursor:default;opacity:.9"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store - soon</span>
-            <span class="hero-cta" style="cursor:default;opacity:.9"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13.5 12 3.6 21.7a1.2 1.2 0 0 1-.6-1V3.3c0-.44.24-.82.6-1zM14.7 13l2.6 2.6-9.4 5.3L14.7 13zM14.7 11 7.9 3.1l9.4 5.3L14.7 11zM16.1 12l3-3 2.4 1.35c.66.38.66 1.32 0 1.7L19.1 15l-3-3z"/></svg>Google Play - soon</span>
-            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
-        </div>
+    <header class="hero">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <div class="kicker">Celestial Almanac &middot; Field Edition</div>
+                    <h1><span class="stargl">&#10022;</span>Almanox</h1>
+                    <p class="hero-sub">Is tonight good for the stars?</p>
+                    <p class="hero-lede">
+                        One screen answers it - a Tonight verdict score, the golden and blue hours, the
+                        Milky Way core, dark-sky windows, and a sun and moon shot planner. Computed on
+                        your device. No account, no cloud, no subscription.
+                    </p>
+                    <div class="cta-row">
+                        <span class="btn store" style="cursor:default">
+                            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                            App Store
+                        </span>
+                        <span class="btn store" style="cursor:default">
+                            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M3.6 2.3 13.5 12 3.6 21.7a1.2 1.2 0 0 1-.6-1V3.3c0-.44.24-.82.6-1zM14.7 13l2.6 2.6-9.4 5.3L14.7 13zM14.7 11 7.9 3.1l9.4 5.3L14.7 11zM16.1 12l3-3 2.4 1.35c.66.38.66 1.32 0 1.7L19.1 15l-3-3z"/></svg>
+                            Google Play
+                        </span>
+                        <a href="#plates" class="btn">See the screens</a>
+                    </div>
+                    <div class="coming"><span class="dot">&#9679;</span> Coming soon - iPhone, iPad &amp; Android</div>
+                </div>
 
-        <div class="hero-phones">
-            <div class="phone-frame">
-                <img src="screenshots/01_tonight.jpg" alt="Almanox Tonight verdict - is tonight good for the stars" loading="lazy">
+                <!-- Ephemeris readout: data as decoration -->
+                <aside class="ephem" aria-label="Sample almanac readout">
+                    <div class="ephem-head">
+                        <span class="t">Tonight &middot; Local Ephemeris</span>
+                        <span class="d">33.42&deg;N 96.58&deg;W</span>
+                    </div>
+                    <div class="ephem-body">
+                        <div class="ephem-rows">
+                            <div class="erow"><span class="lbl">Sunset</span><span class="val">20:14</span></div>
+                            <div class="erow"><span class="lbl">Golden hr</span><span class="val"><b>19:31 - 20:14</b></span></div>
+                            <div class="erow"><span class="lbl">Astro dark</span><span class="val">21:44 - 05:02</span></div>
+                            <div class="erow"><span class="lbl">Moon</span><span class="val">New &middot; 2%</span></div>
+                            <div class="erow"><span class="lbl">MW core &#8593;</span><span class="val"><b>22:58</b></span></div>
+                            <div class="erow verdict">
+                                <span class="lbl">Verdict</span>
+                                <span style="text-align:right"><span class="score">87</span><span class="val" style="color:var(--faint)">/100</span><br><span class="grade">EXCELLENT</span></span>
+                            </div>
+                        </div>
+                        <div class="ladder" aria-hidden="true">
+                            <div class="seg day"><span>DAY</span></div>
+                            <div class="seg civil"><span>CIV 20:41</span></div>
+                            <div class="seg nautical"><span>NAU 21:12</span></div>
+                            <div class="seg astro"><span>AST 21:44</span></div>
+                            <div class="seg night"><span>NIGHT</span></div>
+                        </div>
+                    </div>
+                </aside>
             </div>
-            <div class="phone-frame">
-                <img src="screenshots/03_today.jpg" alt="Almanox Today - sun path and golden hour" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/02_milkyway.jpg" alt="Almanox Milky Way and dark-sky window" loading="lazy">
+
+            <!-- Plates -->
+            <div class="plates" id="plates-hero">
+                <figure class="plate">
+                    <div class="frame"><img src="screenshots/01_tonight.jpg" alt="Almanox Tonight verdict - is tonight good for the stars" onclick="openLightbox(this)" loading="lazy"></div>
+                    <figcaption class="cap"><b>Pl. I</b> &middot; Tonight</figcaption>
+                </figure>
+                <figure class="plate">
+                    <div class="frame"><img src="screenshots/03_today.jpg" alt="Almanox Today - sun path, golden hour and moon almanac" onclick="openLightbox(this)" loading="lazy"></div>
+                    <figcaption class="cap"><b>Pl. II</b> &middot; Almanac</figcaption>
+                </figure>
+                <figure class="plate">
+                    <div class="frame"><img src="screenshots/02_milkyway.jpg" alt="Almanox Milky Way core and dark-sky window" onclick="openLightbox(this)" loading="lazy"></div>
+                    <figcaption class="cap"><b>Pl. III</b> &middot; Milky Way</figcaption>
+                </figure>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Features -->
-    <section id="features" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">Features</div>
-            <h2 class="section-title">One Screen. The Whole Sky.</h2>
-            <p class="section-desc">
-                Almanox fuses astronomy, weather, and a planning engine into a single answer -
-                computed entirely on your device, no account, no cloud, no ads.
-            </p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌌</div>
-                    <h3>Tonight's Verdict</h3>
-                    <p>A single 0-100 score that fuses Milky Way height, hours of true darkness, and moon interference into one honest answer: is tonight actually good for the stars?</p>
-                    <span class="tech-tag">Score</span>
-                    <span class="tech-tag">Best Window</span>
-                    <span class="tech-tag">Darkness</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">☀️</div>
-                    <h3>Sun &amp; Moon Almanac</h3>
-                    <p>Sunrise, sunset, the golden and blue hours, and the full twilight ladder from civil to astronomical. Moon phase, illumination, and rise and set - all with a live sun-path arc.</p>
-                    <span class="tech-tag">Golden Hour</span>
-                    <span class="tech-tag">Twilight</span>
-                    <span class="tech-tag">Moon Phase</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌠</div>
-                    <h3>Milky Way &amp; Dark Sky <span style="font-size:.7em;color:var(--accent)">PRO</span></h3>
-                    <p>Galactic-core rise, peak, and set with a Poor-to-Excellent quality grade, plus the moonless dark-sky window forecast so you know the exact hours worth shooting.</p>
-                    <span class="tech-tag">Core Rise/Set</span>
-                    <span class="tech-tag">Dark Window</span>
-                    <span class="tech-tag">Quality Grade</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Shot Planner <span style="font-size:.7em;color:var(--accent)">PRO</span></h3>
-                    <p>Find the exact days the sun or full moon lines up with your chosen direction. Azimuth-crossing and multi-day alignment search for that hero shot - all offline.</p>
-                    <span class="tech-tag">Azimuth Search</span>
-                    <span class="tech-tag">Alignments</span>
-                    <span class="tech-tag">Multi-Day</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌦️</div>
-                    <h3>Live Sky Conditions <span style="font-size:.7em;color:var(--accent)">PRO</span></h3>
-                    <p>Current temperature, cloud cover, and a clear-sky clarity verdict for each saved location, pulled live from Open-Meteo - no API key, no tracking.</p>
-                    <span class="tech-tag">Cloud Cover</span>
-                    <span class="tech-tag">Clarity</span>
-                    <span class="tech-tag">Per Location</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛰️</div>
-                    <h3>ISS Flyovers <span style="font-size:.7em;color:var(--accent)">PRO</span></h3>
-                    <p>The next visible pass of the International Space Station over your location, computed on-device from live orbital data - rise time, direction, and peak elevation.</p>
-                    <span class="tech-tag">Visible Pass</span>
-                    <span class="tech-tag">Direction</span>
-                    <span class="tech-tag">On-Device</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Beautiful, Yours</h3>
-                    <p>Three surfaces - Light, Dark, and true-black AMOLED - and any color you want - a set of curated accents or your own exact custom shade from the picker. The whole interface recolors, not just one highlight.</p>
-                    <span class="tech-tag">Light/Dark/AMOLED</span>
-                    <span class="tech-tag">7 Accents</span>
-                    <span class="tech-tag">Custom Color</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Offline &amp; Private</h3>
-                    <p>The astronomy engine runs entirely on your device. No sign-up, no account, no ads, no location harvesting. Buy it once and own it - no subscription, ever.</p>
-                    <span class="tech-tag">On-Device</span>
-                    <span class="tech-tag">No Account</span>
-                    <span class="tech-tag">One-Time</span>
-                </div>
+    <section id="features" class="sec-band">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">The Register</div>
+                <h2 class="sec-title">One screen, the whole sky</h2>
+                <p class="sec-desc">Astronomy, weather, and a planning engine fused into a single answer - computed entirely on your device. No account, no cloud, no ads.</p>
+            </div>
+            <div class="ledger">
+                <article class="entry">
+                    <div class="no">No. 01</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#9737;</span> Tonight's Verdict</h3>
+                        <p>A single 0-100 score that fuses Milky Way height, hours of true darkness, and moon interference into one honest answer: is tonight actually good for the stars?</p>
+                        <div class="meta"><span>Score</span><span>Best window</span><span>Darkness</span></div>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="no">No. 02</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#9728;</span> Sun &amp; Moon Almanac</h3>
+                        <p>Sunrise, sunset, the golden and blue hours, and the full twilight ladder from civil to astronomical. Moon phase, illumination, and rise and set - all with a live sun-path arc.</p>
+                        <div class="meta"><span>Golden hour</span><span>Twilight</span><span>Moon phase</span></div>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="no">No. 03</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#10022;</span> Milky Way &amp; Dark Sky <span class="pro-tag">Pro</span></h3>
+                        <p>Galactic-core rise, peak, and set with a Poor-to-Excellent quality grade, plus the moonless dark-sky window forecast so you know the exact hours worth shooting.</p>
+                        <div class="meta"><span>Core rise/set</span><span>Dark window</span><span>Quality grade</span></div>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="no">No. 04</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#8982;</span> Shot Planner <span class="pro-tag">Pro</span></h3>
+                        <p>Find the exact days the sun or full moon lines up with your chosen direction. Azimuth-crossing and multi-day alignment search for that hero shot - all offline.</p>
+                        <div class="meta"><span>Azimuth search</span><span>Alignments</span><span>Multi-day</span></div>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="no">No. 05</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#9729;</span> Live Sky Conditions <span class="pro-tag">Pro</span></h3>
+                        <p>Current temperature, cloud cover, and a clear-sky clarity verdict for each saved location, pulled live from Open-Meteo - no API key, no tracking.</p>
+                        <div class="meta"><span>Cloud cover</span><span>Clarity</span><span>Per location</span></div>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="no">No. 06</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#9954;</span> ISS Flyovers <span class="pro-tag">Pro</span></h3>
+                        <p>The next visible pass of the International Space Station over your location, computed on-device from live orbital data - rise time, direction, and peak elevation.</p>
+                        <div class="meta"><span>Visible pass</span><span>Direction</span><span>On-device</span></div>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="no">No. 07</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#9673;</span> Beautiful, and Yours</h3>
+                        <p>Three surfaces - Light, Dark, and true-black AMOLED - and any color you want, from a set of curated accents to your own exact custom shade. The whole interface recolors, not just one highlight.</p>
+                        <div class="meta"><span>Light/Dark/AMOLED</span><span>Any accent</span><span>Custom color</span></div>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="no">No. 08</div>
+                    <div class="body">
+                        <h3><span class="glyph" aria-hidden="true">&#9790;</span> Offline &amp; Private</h3>
+                        <p>The astronomy engine runs entirely on your device. No sign-up, no account, no ads, no location harvesting. Buy it once and own it - no subscription, ever.</p>
+                        <div class="meta"><span>On-device</span><span>No account</span><span>One-time</span></div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-
-    <!-- Screenshots Gallery -->
-    <section id="screenshots">
-        <div class="container fade-in section-center">
-            <div class="section-label">Screenshots</div>
-            <h2 class="section-title">See It in Action</h2>
-            <p class="section-desc">
-                Every screen is computed on your device. Dark, AMOLED, or light, in any accent color
-                you choose. Shown on Android - the same app runs on iPhone and iPad.
-            </p>
-        </div>
-        <div class="container fade-in">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;max-width:1100px;margin:2.5rem auto 0;">
-                <div class="phone-frame"><img src="screenshots/01_tonight.jpg" alt="Almanox - Tonight verdict score" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="phone-frame"><img src="screenshots/02_milkyway.jpg" alt="Almanox - Milky Way and dark-sky window" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="phone-frame"><img src="screenshots/03_today.jpg" alt="Almanox - Today sun and moon almanac" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="phone-frame"><img src="screenshots/04_plan.jpg" alt="Almanox - Shot planner" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="phone-frame"><img src="screenshots/05_locations.jpg" alt="Almanox - Saved dark-sky locations" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="phone-frame"><img src="screenshots/06_theme.jpg" alt="Almanox - Any accent color" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="phone-frame"><img src="screenshots/07_light.jpg" alt="Almanox - Light theme" onclick="openLightbox(this)" loading="lazy"></div>
+    <!-- Plates / Screens -->
+    <section id="plates">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">The Plates</div>
+                <h2 class="sec-title">See it in action</h2>
+                <p class="sec-desc">Every screen is computed on your device - dark, AMOLED, or light, in any accent color you choose. Shown on Android; the same app runs on iPhone and iPad.</p>
+            </div>
+            <div class="plates">
+                <figure class="plate"><div class="frame"><img src="screenshots/01_tonight.jpg" alt="Almanox - Tonight verdict score" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 01</b> &middot; Tonight</figcaption></figure>
+                <figure class="plate"><div class="frame"><img src="screenshots/02_milkyway.jpg" alt="Almanox - Milky Way and dark-sky window" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 02</b> &middot; Milky Way</figcaption></figure>
+                <figure class="plate"><div class="frame"><img src="screenshots/03_today.jpg" alt="Almanox - Today sun and moon almanac" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 03</b> &middot; Almanac</figcaption></figure>
+                <figure class="plate"><div class="frame"><img src="screenshots/04_plan.jpg" alt="Almanox - Shot planner" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 04</b> &middot; Planner</figcaption></figure>
+                <figure class="plate"><div class="frame"><img src="screenshots/05_locations.jpg" alt="Almanox - Saved dark-sky locations" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 05</b> &middot; Locations</figcaption></figure>
+                <figure class="plate"><div class="frame"><img src="screenshots/06_theme.jpg" alt="Almanox - Any accent color" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 06</b> &middot; Any color</figcaption></figure>
+                <figure class="plate"><div class="frame"><img src="screenshots/07_light.jpg" alt="Almanox - Light theme" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 07</b> &middot; Light</figcaption></figure>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">How It Works</div>
-            <h2 class="section-title">Everything On Your Device. Nothing in the Cloud.</h2>
-            <p class="section-desc">
-                Almanox runs a full astronomy engine locally. No account, no sign-up, and it works
-                with the signal off - the sky is the same whether or not you have bars.
-            </p>
-            <div class="how-cards">
-                <div class="how-card">
-                    <div class="step-number">1</div>
-                    <h3>Pick Your Spot</h3>
+    <!-- How / Method -->
+    <section id="how" class="sec-band">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">The Method</div>
+                <h2 class="sec-title">Everything on your device, nothing in the cloud</h2>
+                <p class="sec-desc">Almanox runs a full astronomy engine locally. No account, no sign-up, and it works with the signal off - the sky is the same whether or not you have bars.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="n">1</div>
+                    <h3>Pick your spot</h3>
                     <p>Use your current location or save the places you shoot from. Almanox computes the sun, moon, and sky for exactly where you stand.</p>
                 </div>
-                <div class="how-card">
-                    <div class="step-number">2</div>
-                    <h3>Read Tonight's Verdict</h3>
-                    <p>One score answers the only question that matters - is tonight worth it? See the best dark-sky window, Milky Way core, and how much the moon gets in the way.</p>
+                <div class="step">
+                    <div class="n">2</div>
+                    <h3>Read the verdict</h3>
+                    <p>One score answers the only question that matters - is tonight worth it? See the best dark-sky window, the Milky Way core, and how much the moon gets in the way.</p>
                 </div>
-                <div class="how-card">
-                    <div class="step-number">3</div>
-                    <h3>Plan the Shot</h3>
+                <div class="step">
+                    <div class="n">3</div>
+                    <h3>Plan the shot</h3>
                     <p>Find the exact days the sun or full moon lines up with your direction, catch the golden hour, and get an alert before the sky is ready.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Security & Permissions -->
-    <section id="security">
-        <div class="container fade-in">
-            <div class="section-label">Privacy</div>
-            <h2 class="section-title">Private by Design</h2>
-            <p class="section-desc">
-                Almanox was built to keep to itself. No account, no ads, no location harvesting -
-                just the sky, computed on your device.
-            </p>
-            <div class="permissions-grid">
-                <div class="permission-card">
-                    <div class="icon">&#128246;</div>
-                    <div>
-                        <h4>Works Offline</h4>
-                        <p>The astronomy engine runs entirely on your phone. Sun, moon, twilight, Milky Way, and the shot planner all work with no connection at all.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">&#128100;</div>
-                    <div>
-                        <h4>No Account, Ever</h4>
-                        <p>No sign-up, no email, no MiyaraHub login. Download it, open it, and you are planning - nothing to create, nothing to remember.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">&#128205;</div>
-                    <div>
-                        <h4>Your Location Stays Yours</h4>
-                        <p>Location is used only to compute your sky and is never sold, shared, or tracked. Live weather is fetched anonymously from Open-Meteo without an account or key.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">&#128176;</div>
-                    <div>
-                        <h4>One-Time Purchase</h4>
-                        <p>Buy it once and own it. No subscription, no recurring charge, no paywalled updates - the opposite of how most photo apps are priced.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">&#128737;&#65039;</div>
-                    <div>
-                        <h4>No Ads, No Trackers</h4>
-                        <p>There is no ad SDK and no analytics profile of you. Optional crash reporting only fires when something breaks, and carries no personal data.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">&#127760;</div>
-                    <div>
-                        <h4>One App, Every Device</h4>
-                        <p>A single purchase mindset across iPhone, iPad, and Android - the same beautiful, offline planner wherever you shoot.</p>
-                    </div>
-                </div>
+    <!-- Privacy -->
+    <section id="privacy">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">The Terms</div>
+                <h2 class="sec-title">Private by design</h2>
+                <p class="sec-desc">Almanox was built to keep to itself. No account, no ads, no location harvesting - just the sky, computed on your device.</p>
+            </div>
+            <div class="priv">
+                <div class="p"><span class="g" aria-hidden="true">&#9790;</span><div><h4>Works offline</h4><p>The astronomy engine runs entirely on your phone. Sun, moon, twilight, Milky Way, and the shot planner all work with no connection at all.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9737;</span><div><h4>No account, ever</h4><p>No sign-up, no email, no MiyaraHub login. Download it, open it, and you are planning - nothing to create, nothing to remember.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9738;</span><div><h4>Your location stays yours</h4><p>Location is used only to compute your sky and is never sold, shared, or tracked. Live weather is fetched anonymously from Open-Meteo without an account or key.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9673;</span><div><h4>One-time purchase</h4><p>Buy it once and own it. No subscription, no recurring charge, no paywalled updates - the opposite of how most photo apps are priced.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#10022;</span><div><h4>No ads, no trackers</h4><p>There is no ad SDK and no analytics profile of you. Optional crash reporting only fires when something breaks, and carries no personal data.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9789;</span><div><h4>One app, every device</h4><p>The same beautiful, offline planner across iPhone, iPad, and Android - wherever you shoot.</p></div></div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" style="background: var(--bg-secondary);">
-        <div class="container fade-in section-center">
-            <div class="section-label">FAQ</div>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-desc">Everything you need to know about Almanox.</p>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Is Almanox a subscription?<span class="arrow">&#9660;</span></div>
-                    <div class="faq-answer"><div class="faq-answer-inner"><strong>No.</strong> Almanox is a one-time purchase at $12.99. No subscription, no ads, no paywalled updates. Buy it once and own it on the App Store or Google Play.</div></div>
+    <section id="faq" class="sec-band">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">Marginalia</div>
+                <h2 class="sec-title">Frequently asked</h2>
+                <p class="sec-desc">Everything you need to know about Almanox.</p>
+            </div>
+            <div class="faq">
+                <div class="qa">
+                    <div class="q" onclick="toggleFaq(this)">Is Almanox a subscription?<span class="arw">&#43;</span></div>
+                    <div class="a"><div class="a-in"><strong>No.</strong> Almanox is a one-time purchase at $12.99. No subscription, no ads, no paywalled updates. Buy it once and own it on the App Store or Google Play.</div></div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Does it work without a connection?<span class="arrow">&#9660;</span></div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Yes. The full astronomy engine - sun, moon, twilight, Milky Way, dark-sky windows, and the shot planner - runs entirely on your device. Only live weather needs a connection, and everything else keeps working without one.</div></div>
+                <div class="qa">
+                    <div class="q" onclick="toggleFaq(this)">Does it work without a connection?<span class="arw">&#43;</span></div>
+                    <div class="a"><div class="a-in">Yes. The full astronomy engine - sun, moon, twilight, Milky Way, dark-sky windows, and the shot planner - runs entirely on your device. Only live weather needs a connection, and everything else keeps working without one.</div></div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">What is free, and what is Pro?<span class="arrow">&#9660;</span></div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Free gives you the full sun and moon almanac - sunrise and sunset, the golden and blue hours, the twilight ladder, moon phase - plus the Tonight verdict score, one saved location, and every theme in any color. Pro ($12.99, one time) unlocks the Milky Way and dark-sky windows, live weather and sky conditions, ISS passes, the sun and moon shot planner, golden-hour and dark-sky alerts, unlimited saved locations.</div></div>
+                <div class="qa">
+                    <div class="q" onclick="toggleFaq(this)">What is free, and what is Pro?<span class="arw">&#43;</span></div>
+                    <div class="a"><div class="a-in">Free gives you the full sun and moon almanac - sunrise and sunset, the golden and blue hours, the twilight ladder, moon phase - plus the Tonight verdict score, one saved location, and every theme in any color. Pro ($12.99, one time) unlocks the Milky Way and dark-sky windows, live weather and sky conditions, ISS passes, the sun and moon shot planner, golden-hour and dark-sky alerts, and unlimited saved locations.</div></div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Which devices does it run on?<span class="arrow">&#9660;</span></div>
-                    <div class="faq-answer"><div class="faq-answer-inner">iPhone, iPad, and Android, from one beautifully consistent design. It adapts to light, dark, and true-black AMOLED, in any accent color you want - curated shades or your own custom pick.</div></div>
+                <div class="qa">
+                    <div class="q" onclick="toggleFaq(this)">Which devices does it run on?<span class="arw">&#43;</span></div>
+                    <div class="a"><div class="a-in">iPhone, iPad, and Android, from one beautifully consistent design. It adapts to light, dark, and true-black AMOLED, in any accent color you want - curated shades or your own custom pick.</div></div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Do I need an account?<span class="arrow">&#9660;</span></div>
-                    <div class="faq-answer"><div class="faq-answer-inner">No. There is no sign-up, no email, and no MiyaraHub login. Download the app and start planning. Your location is used only to compute your sky and is never sold, shared, or tracked.</div></div>
+                <div class="qa">
+                    <div class="q" onclick="toggleFaq(this)">Do I need an account?<span class="arw">&#43;</span></div>
+                    <div class="a"><div class="a-in">No. There is no sign-up, no email, and no MiyaraHub login. Download the app and start planning. Your location is used only to compute your sky and is never sold, shared, or tracked.</div></div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">How is the Tonight score calculated?<span class="arrow">&#9660;</span></div>
-                    <div class="faq-answer"><div class="faq-answer-inner">The verdict fuses three things into one 0-100 score: how high the Milky Way core climbs, how many hours of true astronomical darkness you get, and how much the moon interferes. It is a fast, honest read on whether tonight is worth heading out.</div></div>
+                <div class="qa">
+                    <div class="q" onclick="toggleFaq(this)">How is the Tonight score calculated?<span class="arw">&#43;</span></div>
+                    <div class="a"><div class="a-in">The verdict fuses three things into one 0-100 score: how high the Milky Way core climbs, how many hours of true astronomical darkness you get, and how much the moon interferes. It is a fast, honest read on whether tonight is worth heading out.</div></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section" style="background: var(--bg-secondary);">
-        <h2>Plan Your Next Clear Night</h2>
-        <p>Almanox is coming soon to iPhone, iPad, and Android. One-time purchase, no subscription, fully offline.</p>
-        <div class="hero-cta-group">
-            <span class="hero-cta" style="cursor:default;opacity:.9">&#63743; App Store - soon</span>
-            <span class="hero-cta" style="cursor:default;opacity:.9">&#9654; Google Play - soon</span>
+    <section class="cta">
+        <div class="wrap fade">
+            <div class="kicker" style="display:block;margin-bottom:1rem">&#10022; Clear skies ahead</div>
+            <h2>Plan your next clear night</h2>
+            <p>Almanox is coming soon to iPhone, iPad, and Android. One-time purchase, no subscription, fully offline.</p>
+            <div class="cta-row" style="justify-content:center">
+                <span class="btn store" style="cursor:default">App Store &middot; soon</span>
+                <span class="btn store" style="cursor:default">Google Play &middot; soon</span>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-copy">
-                &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.<br>
-                <span style="font-size: 0.75rem; color: var(--text-secondary);">
-                    Almanox - the sun, moon, and Milky Way planner for photographers and stargazers.
-                </span>
+        <div class="wrap foot">
+            <div class="c">
+                &copy; 2026 MiyaraHub Technologies LLC &middot; Van Alstyne, Texas. All rights reserved.<br>
+                <b>Almanox</b> - the sun, moon, and Milky Way planner for photographers and stargazers.
             </div>
-            <ul class="footer-links">
-                <li><a href="/">MiyaraHub Home</a></li>
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+            <ul>
+                <li><a href="/">MiyaraHub</a></li>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
+                <li><a href="mailto:admin@miyarahub.com">Support</a></li>
             </ul>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Fade-in on scroll - instantly show elements already in viewport
-        document.querySelectorAll('.fade-in').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                el.classList.add('no-delay');
-            }
+        document.querySelectorAll('.fade').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('vis');
         });
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade:not(.vis)').forEach(el => io.observe(el));
 
-        // FAQ toggle
-        function toggleFaq(el) {
-            el.parentElement.classList.toggle('open');
-        }
-
-        // Close mobile nav
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
         function closeNav() {
             document.getElementById('nav-menu').classList.remove('open');
             document.getElementById('nav-toggle').classList.remove('open');
         }
-
-        // Lightbox
         function openLightbox(img) {
-            const lb = document.getElementById('lightbox');
             document.getElementById('lightbox-img').src = img.src;
-            lb.classList.add('active');
+            document.getElementById('lightbox').classList.add('active');
         }
-
-        // Parameterized so we can mount the same behavior on multiple
-        // carousels (Android + iPhone) without duplicating code. Returns
-        // { prev, next } handlers for the caller to wire onto window.
-        function setupCarousel({trackId, dotsId, prevBtnId, nextBtnId, maxPerView = 5}) {
-            const track = document.getElementById(trackId);
-            if (!track) return { prev: () => {}, next: () => {} };
-            const slides = track.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.getElementById(dotsId);
-            const prevBtn = document.getElementById(prevBtnId);
-            const nextBtn = document.getElementById(nextBtnId);
-            const totalSlides = slides.length;
-            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
-
-            function calcDimensions() {
-                const vp = track.parentElement.clientWidth;
-                if (vp < 480) slidesPerView = 2;
-                else if (vp < 768) slidesPerView = 3;
-                else if (vp < 1024) slidesPerView = 4;
-                else slidesPerView = 5;
-                slidesPerView = Math.min(slidesPerView, maxPerView, totalSlides);
-                slideWidth = vp / slidesPerView;
-                slides.forEach(s => s.style.width = slideWidth + 'px');
-            }
-            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
-            function buildDots() {
-                dotsContainer.innerHTML = '';
-                for (let i = 0; i <= getMaxIndex(); i++) {
-                    const d = document.createElement('button');
-                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-                    d.onclick = () => goTo(i);
-                    dotsContainer.appendChild(d);
-                }
-            }
-            function updateButtons() { prevBtn.disabled = currentIndex <= 0; nextBtn.disabled = currentIndex >= getMaxIndex(); }
-            function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex)); }
-            function goTo(index) {
-                currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
-                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-                updateButtons(); updateDots();
-            }
-            const prev = () => goTo(currentIndex - 1);
-            const next = () => goTo(currentIndex + 1);
-            function init() { calcDimensions(); if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex(); buildDots(); goTo(currentIndex); }
-            init(); window.addEventListener('resize', init);
-
-            let startX = 0, isDragging = false;
-            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
-            track.addEventListener('touchend', e => {
-                if (!isDragging) return; isDragging = false;
-                const diff = startX - e.changedTouches[0].clientX;
-                if (Math.abs(diff) > 50) { if (diff > 0) next(); else prev(); }
-            }, {passive: true});
-
-            return { prev, next };
-        }
-
-        // One setupCarousel per platform. Portrait phones/tablets show up to
-        // 4 across; landscape desktop cards cap at 2 so they stay legible.
-        const androidCarousel = setupCarousel({
-            trackId: 'carousel-track', dotsId: 'carousel-dots',
-            prevBtnId: 'carousel-prev', nextBtnId: 'carousel-next', maxPerView: 4,
-        });
-        window.carouselPrev = androidCarousel.prev;
-        window.carouselNext = androidCarousel.next;
-
-        const iosCarousel = setupCarousel({
-            trackId: 'carousel-track-ios', dotsId: 'carousel-dots-ios',
-            prevBtnId: 'carousel-prev-ios', nextBtnId: 'carousel-next-ios', maxPerView: 4,
-        });
-        window.carouselIosPrev = iosCarousel.prev;
-        window.carouselIosNext = iosCarousel.next;
-
-        const ipadCarousel = setupCarousel({
-            trackId: 'carousel-track-ipad', dotsId: 'carousel-dots-ipad',
-            prevBtnId: 'carousel-prev-ipad', nextBtnId: 'carousel-next-ipad', maxPerView: 4,
-        });
-        window.carouselIpadPrev = ipadCarousel.prev;
-        window.carouselIpadNext = ipadCarousel.next;
-
-        const winCarousel = setupCarousel({
-            trackId: 'carousel-track-win', dotsId: 'carousel-dots-win',
-            prevBtnId: 'carousel-prev-win', nextBtnId: 'carousel-next-win', maxPerView: 2,
-        });
-        window.carouselWinPrev = winCarousel.prev;
-        window.carouselWinNext = winCarousel.next;
-
-        const macCarousel = setupCarousel({
-            trackId: 'carousel-track-mac', dotsId: 'carousel-dots-mac',
-            prevBtnId: 'carousel-prev-mac', nextBtnId: 'carousel-next-mac', maxPerView: 2,
-        });
-        window.carouselMacPrev = macCarousel.prev;
-        window.carouselMacNext = macCarousel.next;
     </script>
 </body>
 </html>
