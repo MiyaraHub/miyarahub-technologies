@@ -379,6 +379,22 @@
         .a-in { padding: 0 0 1.35rem; color: var(--muted); font-size: .96rem; line-height: 1.7; max-width: 68ch; }
         .a-in strong { color: var(--star); }
 
+        /* GLOSSARY */
+        .gloss { border-top: 1px solid var(--line); }
+        .gloss .row {
+            display: grid; grid-template-columns: 14rem 1fr; gap: 1.6rem;
+            padding: 1.3rem 0; border-bottom: 1px solid var(--line); align-items: baseline;
+        }
+        .gloss .term { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.15rem; color: var(--star); }
+        .gloss .term .tag {
+            display: block; font-family: 'IBM Plex Mono', ui-monospace, monospace;
+            font-size: .6rem; letter-spacing: .18em; text-transform: uppercase;
+            color: var(--brass); margin-bottom: .3rem; font-weight: 400;
+        }
+        .gloss .def { color: var(--muted); font-size: .96rem; max-width: 64ch; }
+        .gloss .def b { color: var(--star); font-weight: 500; }
+        @media (max-width: 720px) { .gloss .row { grid-template-columns: 1fr; gap: .4rem; } }
+
         /* CTA */
         .cta { text-align: center; padding: 5.5rem 0; }
         .cta h2 { font-family:'Fraunces',serif; font-weight: 500; font-size: clamp(2rem,4.5vw,3rem); letter-spacing: -.02em; margin-bottom: .9rem; }
@@ -468,6 +484,7 @@
             <li><a href="#features" onclick="closeNav()">Features</a></li>
             <li><a href="#plates" onclick="closeNav()">Screens</a></li>
             <li><a href="#how" onclick="closeNav()">Method</a></li>
+            <li><a href="#glossary" onclick="closeNav()">Glossary</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
         </ul>
     </nav>
@@ -667,6 +684,29 @@
                     <h3>Plan the shot</h3>
                     <p>Find the exact days the sun or full moon lines up with your direction, catch the golden hour, and get an alert before the sky is ready.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glossary -->
+    <section id="glossary" class="sec-band">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">The Glossary</div>
+                <h2 class="sec-title">A field guide to the sky</h2>
+                <p class="sec-desc">The words the whole app is built around - and why each one is a reason to keep Almanox in your pocket.</p>
+            </div>
+            <div class="gloss">
+                <div class="row"><div class="term"><span class="tag">The Almanac</span>Almanac</div><div class="def">A day-by-day table of the sky - when the sun and moon rise and set, the moon's phase, and how many hours of real darkness you get. Almanox is a <b>living almanac for exactly where you stand</b>, recomputed for your spot, not a generic printed one.</div></div>
+                <div class="row"><div class="term"><span class="tag">Best light</span>Golden hour</div><div class="def">The stretch just after sunrise and before sunset when the sun is low and the light turns warm and soft. It is the light most landscape and portrait photographers wait for - and <b>Almanox gives you the exact start and end</b> for today, wherever you are.</div></div>
+                <div class="row"><div class="term"><span class="tag">Blue light</span>Blue hour</div><div class="def">The short window before sunrise and after sunset when the sun sits below the horizon and the whole sky glows a deep, even blue. Prime time for cityscapes and moody skies - it comes and goes fast, so <b>timing it to the minute matters</b>.</div></div>
+                <div class="row"><div class="term"><span class="tag">Into the dark</span>Twilight ladder</div><div class="def">Darkness arrives in three steps - <b>civil, nautical, then astronomical</b> twilight. When astronomical twilight ends, the sky is finally black and the faint stars appear. That is the moment stargazers and astrophotographers actually start shooting.</div></div>
+                <div class="row"><div class="term"><span class="tag">The galaxy</span>Milky Way core</div><div class="def">The bright galactic center - the glowing, detailed part everyone photographs. It is only above the horizon for part of the year and part of the night. Almanox tells you <b>when the core rises, peaks, and sets</b>, and grades how good it will look.</div></div>
+                <div class="row"><div class="term"><span class="tag">The window</span>Dark-sky window</div><div class="def">The stretch of night with <b>no sun and no moon</b> washing out the sky. It is the only time deep-sky and Milky Way shots really work, and it shifts every night - which is exactly the thing that is tedious to work out by hand.</div></div>
+                <div class="row"><div class="term"><span class="tag">Moonlight</span>Phase &amp; illumination</div><div class="def">How much of the moon is lit, from new to full. A bright moon <b>floods the sky and drowns the Milky Way</b>; a new moon leaves it pitch dark. Knowing tonight's moon is half the battle for any night shoot.</div></div>
+                <div class="row"><div class="term"><span class="tag">The answer</span>Tonight verdict</div><div class="def">Almanox fuses Milky Way height, hours of darkness, and moon interference into <b>one honest 0-100 score</b>. Instead of cross-checking five things, you glance at one number and know whether tonight is worth heading out.</div></div>
+                <div class="row"><div class="term"><span class="tag">The alignment</span>Sun &amp; moon lineup</div><div class="def">The exact days the sun or full moon rises or sets <b>lined up with a landmark or compass direction</b> - the planning behind those hero shots of a full moon behind a bridge or peak. Almanox searches the days ahead for you.</div></div>
+                <div class="row"><div class="term"><span class="tag">Overhead</span>ISS pass</div><div class="def">When the International Space Station flies over bright enough to see with the naked eye - a steady, fast-moving point of light. Almanox gives you the <b>next visible pass, its direction, and how high it climbs</b>.</div></div>
             </div>
         </div>
     </section>
