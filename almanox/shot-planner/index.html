@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shot Planner - Sun and Full Moon Alignments | Almanox</title>
+<meta name="description" content="Find the day the sun or full moon lines up with your foreground. Pick a body, an azimuth, and a window - Almanox lists each crossing with time and altitude.">
+<meta name="keywords" content="sun moon alignment planner, where will the sun rise, moon alignment photography, azimuth planner, sun position planner">
+<link rel="canonical" href="https://miyarahub.com/almanox/shot-planner/">
+<meta property="og:title" content="The Shot Planner - Sun and Full Moon Alignments | Almanox">
+<meta property="og:description" content="Find the day the sun or full moon lines up with your foreground. Pick a body, an azimuth, and a window - Almanox lists each crossing with time and altitude.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://miyarahub.com/almanox/shot-planner/">
+<meta property="og:image" content="https://miyarahub.com/assets/almanox-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/almanox-icon.png">
+<link rel="apple-touch-icon" href="../../assets/almanox-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../manual.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://miyarahub.com/"},{"@type":"ListItem","position":2,"name":"Almanox","item":"https://miyarahub.com/almanox/"},{"@type":"ListItem","position":3,"name":"Guide","item":"https://miyarahub.com/almanox/guide/"},{"@type":"ListItem","position":4,"name":"Shot Planner","item":"https://miyarahub.com/almanox/shot-planner/"}]}
+</script>
+</head>
+<body>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="Almanox screenshot enlarged"></div>
+<nav>
+<a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
+<button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="nav-menu">
+<li><a href="/almanox/">App</a></li>
+<li><a href="/almanox/guide/" class="on">Guide</a></li>
+<li><a href="/almanox/vs-photopills/">vs PhotoPills</a></li>
+<li><a href="/almanox/help/">Help</a></li>
+</ul>
+</nav>
+<div class="wrap">
+<nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li class="sep">/</li><li><a href="/almanox/">Almanox</a></li><li class="sep">/</li><li><a href="/almanox/guide/">Guide</a></li><li class="sep">/</li><li>Shot Planner</li></ol></nav>
+<header class="phead fade">
+    <div class="kicker">Chapter 03</div>
+    <h1>The Shot Planner <span class="pro-tag">Pro</span></h1>
+    <p class="lede">Some photographs are only possible on a handful of days each year. The Shot Planner finds them - the exact dates the sun or the full moon crosses the compass direction of your foreground, each with a time and an altitude, computed on your device for your location.</p>
+</header>
+
+<section class="fade">
+    <div class="sec-head">
+        <div class="kicker">The Alignment</div>
+        <h2 class="sec-title">Line up the sun or moon</h2>
+        <p class="sec-desc">The sunrise behind the arch. The full moon over the ridge. These shots are geometry, and geometry can be searched.</p>
+    </div>
+    <div class="prose">
+        <p>Every alignment photograph is the same problem in disguise: a foreground that never moves, and a body in the sky that never stops moving. The arch sits at a fixed bearing from where you stand. The sun crosses that bearing on some days and misses it on the rest. The full moon crosses it less often still. The question is never <b>whether</b> the alignment happens. It is <b>when</b>.</p>
+        <p>The Shot Planner answers that question directly. You give it a body, a direction, and a stretch of days, and it returns every day in that window when the sun or moon crosses your chosen azimuth - each one with the exact time, the altitude at that moment, and, for the moon, its illumination. If the crossing lands at 6:42 with the sun eight degrees up, that is your shot, and now it has a date on it.</p>
+        <p>The altitude matters as much as the time. A body can cross your bearing high overhead, long after it has cleared anything you meant to frame it against. The planner reports the altitude at each crossing so you can tell a genuine behind-the-arch alignment from a technicality forty degrees up.</p>
+    </div>
+    <div class="shot">
+        <div class="frame"><img src="../screenshots/04_plan.jpg" alt="The Shot Planner in Almanox: sun or moon toggle, compass direction chips with a fine azimuth slider, and a list of alignment days with time, altitude, and moon illumination" onclick="lb(this.src)" loading="lazy"></div>
+        <div class="cap"><b>Plan</b> a shot alignment</div>
+    </div>
+</section>
+
+<section class="sec-band fade">
+    <div class="sec-head">
+        <div class="kicker">The Workflow</div>
+        <h2 class="sec-title">How to use it</h2>
+        <p class="sec-desc">Three inputs, one list of dates. The planner is deliberately small.</p>
+    </div>
+    <div class="prose">
+        <p>Stand where you will shoot from, note the direction of your foreground, and set up the search:</p>
+        <ul>
+            <li><b>Pick the body.</b> Sun or Moon. The sun for sunrise and sunset alignments; the moon when the shot needs a lit disc hanging over the ridge.</li>
+            <li><b>Set the direction.</b> Enter the azimuth as a bearing from 0 to 360 degrees. The eight compass chips - N, NE, E, SE, S, SW, W, NW - get you close in one tap, and the fine slider dials in the exact bearing of your arch, your ridge line, your street.</li>
+            <li><b>Choose the window.</b> Search the next 7, 30, or 90 days. Seven for a trip you are already on; ninety when you are deciding which weekend is worth the drive.</li>
+            <li><b>Read the days.</b> Each result is a day the body crosses your bearing, with the time it happens and the altitude it reaches at that moment. For the moon, the illumination sits alongside - so you can skip the thin crescents and hold out for the night it rises full.</li>
+        </ul>
+    </div>
+    <p class="note">Everything is computed on your device for your location. No account, no server, no signal required - the search works the same at a trailhead as it does at your desk.</p>
+</section>
+
+<section class="fade">
+    <div class="sec-head">
+        <div class="kicker">The Moving Target</div>
+        <h2 class="sec-title">Why alignments drift</h2>
+        <p class="sec-desc">The sun does not rise in the east. It rises somewhere east-ish, and the somewhere changes every day.</p>
+    </div>
+    <div class="prose">
+        <p>The sun's rising point migrates along the horizon through the year - northward toward the June solstice, southward toward December, sweeping an arc that widens the further you are from the equator. A bearing inside that arc gets crossed at sunrise on only a few days a year, usually in two brief passes: once as the rise point travels one way, once as it comes back. Miss the pass and the geometry is gone for months.</p>
+        <p>The pace of the drift changes too. Around the equinoxes the rise point moves fastest, and an alignment can hold for only a day or two before the sun has slid visibly along the horizon. Near the solstices it slows almost to a stop, and the same alignment can survive for a week or more. The planner absorbs all of this - it simply checks each day in your window and tells you which ones work.</p>
+        <p>The moon is faster and messier. Its rising point runs through its whole range in under a month, and its phase follows a separate cycle entirely. A full moon crossing your exact bearing at a low, frameable altitude is a coincidence of two independent rhythms, which is precisely why the results carry an illumination figure: the days when both line up are rare enough to be worth planning around.</p>
+        <p>This is what the Shot Planner is for. You cannot scout an alignment and come back sometime later - come back three weeks on and the sun rises somewhere else. The planner turns that drift into a schedule. It finds the day the sky returns to your foreground, at a time you can be standing in front of it.</p>
+    </div>
+</section>
+
+<div class="cta fade">
+    <h2>Give the shot a date</h2>
+    <p>The Shot Planner is part of Almanox Pro. One purchase, $12.99, no subscription - and every calculation stays on your device.</p>
+    <div class="cta-row"><a class="btn primary" href="/almanox/">See the app</a><a class="btn" href="/almanox/guide/">Back to the guide</a></div>
+</div>
+</div>
+<footer><div class="wrap"><div class="foot"><div class="c"><b>Almanox</b> by MiyaraHub Technologies LLC<br>An independent app. Not affiliated with any third party.</div><ul><li><a href="/almanox/">App</a></li><li><a href="/almanox/guide/">Guide</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/support/">Support</a></li></ul></div></div></footer>
+<script>
+function lb(src){var l=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;l.classList.add('active');}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el);});
+document.querySelectorAll('.qa .q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>

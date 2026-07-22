@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tonight Verdict - Almanox's 0-100 Night Sky Score</title>
+<meta name="description" content="How Almanox builds tonight's 0-100 sky score from darkness, moon interference, Milky Way height and cloud - and what Poor, Fair, Good and Excellent mean in the field.">
+<meta name="keywords" content="tonight verdict, night sky quality score, is tonight good for stargazing, astrophotography forecast, milky way visibility tonight, moon interference astrophotography, astronomical darkness hours, stargazing conditions tonight, Almanox tonight verdict">
+<link rel="canonical" href="https://miyarahub.com/almanox/tonight-verdict/">
+<meta property="og:title" content="The Tonight Verdict - Almanox's 0-100 Night Sky Score">
+<meta property="og:description" content="How Almanox builds tonight's 0-100 sky score from darkness, moon interference, Milky Way height and cloud - and what Poor, Fair, Good and Excellent mean in the field.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://miyarahub.com/almanox/tonight-verdict/">
+<meta property="og:image" content="https://miyarahub.com/assets/almanox-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/almanox-icon.png">
+<link rel="apple-touch-icon" href="../../assets/almanox-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../manual.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://miyarahub.com/"},{"@type":"ListItem","position":2,"name":"Almanox","item":"https://miyarahub.com/almanox/"},{"@type":"ListItem","position":3,"name":"Guide","item":"https://miyarahub.com/almanox/guide/"},{"@type":"ListItem","position":4,"name":"The Tonight Verdict","item":"https://miyarahub.com/almanox/tonight-verdict/"}]}
+</script>
+</head>
+<body>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="Almanox screenshot enlarged"></div>
+<nav>
+<a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
+<button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="nav-menu">
+<li><a href="/almanox/">App</a></li>
+<li><a href="/almanox/guide/" class="on">Guide</a></li>
+<li><a href="/almanox/vs-photopills/">vs PhotoPills</a></li>
+<li><a href="/almanox/help/">Help</a></li>
+</ul>
+</nav>
+<div class="wrap">
+<nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li class="sep">/</li><li><a href="/almanox/">Almanox</a></li><li class="sep">/</li><li><a href="/almanox/guide/">Guide</a></li><li class="sep">/</li><li>The Tonight Verdict</li></ol></nav>
+<header class="phead fade">
+    <div class="kicker">Chapter 01</div>
+    <h1>The Tonight Verdict</h1>
+    <p class="lede">Every clear-sky app makes you do the maths yourself: check the moon here, the darkness there, the clouds somewhere else. Almanox does the arithmetic and hands you the answer - a single 0-100 score for tonight, with a one-word grade and a plain-English reason. This chapter explains where that number comes from and how to act on it.</p>
+</header>
+
+<section class="fade">
+    <div class="sec-head"><div class="kicker">The Headline</div><h2 class="sec-title">One number, four inputs</h2><p class="sec-desc">The ring, the grade, and the reason in plain English - the whole night at a glance.</p></div>
+    <div class="prose">
+        <p>Open the Tonight tab and a ring sweeps up as the score counts to its mark. Beside it sits a one-word grade - <b>Poor</b>, <b>Fair</b>, <b>Good</b> or <b>Excellent</b> - and a headline written the way you would say it yourself: "Bright moon washes out the deep sky". The number tells you how good the night is. The headline tells you what is deciding it. Between the two, you know in three seconds whether to reach for the tripod or the remote.</p>
+        <p>The score is not a vibe. It fuses four independent measurements - the hours of true astronomical darkness, how much the moon intrudes on that darkness, how high the Milky Way core climbs, and the forecast cloud for the dark window itself. Each one is computed for your exact coordinates and the exact date on screen, and the next section takes them apart one by one.</p>
+        <p>Beneath the ring, the <b>Local Ephemeris</b> card shows the raw numbers behind the grade: sunset, golden hour, the start of astronomical dark, the moon's phase and illumination percentage, and the Milky Way core rise time <span class="pro-tag">Pro</span>. Under those runs a twilight ladder that steps through day, civil, nautical, astronomical and night - so you can watch the sky get dark in stages instead of guessing from sunset, which routinely runs an hour and a half ahead of real darkness.</p>
+        <p class="note">Everything on this screen is computed on your device, for your exact location. It works offline, needs no account, and sends nothing anywhere.</p>
+    </div>
+    <div class="shot"><div class="frame"><img src="../screenshots/01_tonight.jpg" alt="Almanox Tonight screen showing the 0-100 verdict ring, the Local Ephemeris card and the twilight ladder" onclick="lb(this.src)" loading="lazy"></div><div class="cap"><b>Tonight</b> the verdict</div></div>
+</section>
+
+<section class="sec-band fade">
+    <div class="sec-head"><div class="kicker">The Recipe</div><h2 class="sec-title">What the score is made of</h2><p class="sec-desc">Four measurements, one honest number. When one of them drags the night down, the headline names it.</p></div>
+    <div class="prose">
+        <p>A single score is only worth trusting if you know what went into it. The verdict weighs four things, and each is measured properly rather than approximated:</p>
+        <ul>
+            <li><b>Astronomical darkness.</b> The hours the sun spends more than 18 degrees below the horizon - the only part of the night when the sky is truly black. A midsummer night at high latitude may have almost none, and the score reflects that before you waste a drive.</li>
+            <li><b>Moon interference.</b> Not just the phase - how much of the dark window the moon is actually above the horizon, and how brightly it is lit while it is up. A 90% moon that sets before dark costs you nothing. A 40% moon parked in the middle of your window costs you plenty.</li>
+            <li><b>Milky Way core height.</b> How high the galactic core climbs from where you stand. The core is the show for deep-sky nights, and if it never clears the murk near the horizon, the score says so honestly.</li>
+            <li><b>Cloud cover.</b> Forecast cloud for the dark window specifically, not a daytime average. Clear at noon and overcast at 2 am is a bad night, and it is scored as one.</li>
+        </ul>
+        <p>Because the inputs stay separate under the hood, the headline can point at the culprit. The same middling score can mean thin cloud over a moonless sky, or a clear sky under a fat gibbous moon - and you would plan those two nights very differently. The verdict tells you which one you are looking at.</p>
+    </div>
+</section>
+
+<section class="fade">
+    <div class="sec-head"><div class="kicker">Field Use</div><h2 class="sec-title">Reading the grade</h2><p class="sec-desc">What Excellent, Good, Fair and Poor mean in practice, and what to do about each.</p></div>
+    <div class="prose">
+        <p>The grade is a field recommendation, not a decree. Here is how to act on it:</p>
+    </div>
+    <table class="ctable">
+        <thead><tr><th>Grade</th><th>Read it as</th><th>What to do</th></tr></thead>
+        <tbody>
+            <tr><td>Excellent</td><td>Long true darkness, little or no moon in the window, clear skies</td><td>Go. Nights like this are rare enough to commit the drive.</td></tr>
+            <tr><td>Good</td><td>A solid dark window with minor interference</td><td>Go. Shoot the darkest stretch of the window and work around the rest.</td></tr>
+            <tr><td>Fair</td><td>Something is dragging the night down, usually the moon</td><td>Maybe. Check the headline and the ephemeris for the culprit before deciding.</td></tr>
+            <tr><td>Poor</td><td>Washed out or clouded over</td><td>Stay in, or turn the lens on the moon itself - it is the one subject that thrives on a Poor night.</td></tr>
+        </tbody>
+    </table>
+    <div class="prose">
+        <p>The verdict is not locked to tonight. Scrub forward to any date and the ring recomputes for that night at your location - which turns a bad forecast into a plan. If tonight is Poor, the next Good night is usually only a few taps away, and you can build the week around it instead of checking the sky every evening and hoping.</p>
+        <p class="note">When a night reads Fair, look at the moon rows in the ephemeris first. The moon is the usual offender, and unlike cloud it is perfectly predictable - a moonset an hour after dark can turn a Fair evening into a Good late night.</p>
+    </div>
+</section>
+
+<div class="cta fade">
+    <h2>Ask the sky before you pack</h2>
+    <p>Almanox is a one-time $12.99 purchase - no subscription, no ads, no account. The verdict, the ephemeris and everything behind them run on your device.</p>
+    <div class="cta-row"><a class="btn primary" href="/almanox/">See the app</a><a class="btn" href="/almanox/guide/">Back to the guide</a></div>
+</div>
+</div>
+<footer><div class="wrap"><div class="foot"><div class="c"><b>Almanox</b> by MiyaraHub Technologies LLC<br>An independent app. Not affiliated with any third party.</div><ul><li><a href="/almanox/">App</a></li><li><a href="/almanox/guide/">Guide</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/support/">Support</a></li></ul></div></div></footer>
+<script>
+function lb(src){var l=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;l.classList.add('active');}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el);});
+document.querySelectorAll('.qa .q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>

@@ -360,6 +360,8 @@
         }
         .priv .p .g { color: var(--brass); padding-top: .1rem; }
         .priv .p h4 { font-family:'Fraunces',serif; font-weight: 500; font-size: 1.08rem; margin-bottom: .3rem; }
+        .priv .p h4 a { color: var(--star); text-decoration: none; transition: color .2s; }
+        .priv .p h4 a:hover { color: var(--brass); }
         .priv .p p { color: var(--muted); font-size: .9rem; }
 
         /* FAQ */
@@ -483,8 +485,10 @@
             <li><a href="/" onclick="closeNav()">Home</a></li>
             <li><a href="#features" onclick="closeNav()">Features</a></li>
             <li><a href="#plates" onclick="closeNav()">Screens</a></li>
+            <li><a href="/almanox/guide/" onclick="closeNav()">Guide</a></li>
             <li><a href="#how" onclick="closeNav()">Method</a></li>
             <li><a href="#glossary" onclick="closeNav()">Glossary</a></li>
+            <li><a href="/almanox/vs-photopills/" onclick="closeNav()">vs PhotoPills</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
         </ul>
     </nav>
@@ -772,6 +776,29 @@
                     <div class="q" onclick="toggleFaq(this)">How is the Tonight score calculated?<span class="arw">&#43;</span></div>
                     <div class="a"><div class="a-in">The verdict fuses three things into one 0-100 score: how high the Milky Way core climbs, how many hours of true astronomical darkness you get, and how much the moon interferes. It is a fast, honest read on whether tonight is worth heading out.</div></div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide -->
+    <section id="guide" class="sec-band">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">The Field Guide</div>
+                <h2 class="sec-title">Learn to read the sky</h2>
+                <p class="sec-desc">A full, illustrated manual - how the Tonight verdict is built, how to plan the Milky Way core, line up a sun or moon shot, run the photo maths, and find truly dark skies.</p>
+            </div>
+            <div class="priv">
+                <div class="p"><span class="g" aria-hidden="true">&#9737;</span><div><h4><a href="/almanox/tonight-verdict/">The Tonight Verdict</a></h4><p>How the 0-100 score fuses darkness, moon, Milky Way height and cloud - and what Good, Fair and Poor really mean.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#10022;</span><div><h4><a href="/almanox/milky-way/">Milky Way &amp; dark-sky windows</a></h4><p>Galactic core rise, peak altitude, and the exact moonless window to shoot it, wherever you stand.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9788;</span><div><h4><a href="/almanox/shot-planner/">The shot planner</a></h4><p>The days the sun or full moon lines up with your direction - the sunrise-behind-the-arch shot, planned to the day.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9673;</span><div><h4><a href="/almanox/photo-calculators/">Photo calculators</a></h4><p>The 500 rule, the stricter NPF rule, and depth of field with the hyperfocal distance, for your exact kit.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9790;</span><div><h4><a href="/almanox/dark-sky-finder/">The dark-sky finder</a></h4><p>The nearest certified International Dark-Sky Places, ranked by distance with a direction and a rough drive.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9789;</span><div><h4><a href="/almanox/vs-photopills/">Almanox vs PhotoPills</a></h4><p>An honest comparison - what is different, and why Almanox is a one-time purchase with no subscription.</p></div></div>
+            </div>
+            <div class="cta-row" style="justify-content:center;margin-top:2.4rem">
+                <a class="btn store" href="/almanox/guide/">Read the full guide</a>
+                <a class="btn" href="/almanox/help/">Help &amp; FAQ</a>
             </div>
         </div>
     </section>
