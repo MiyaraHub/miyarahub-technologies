@@ -197,16 +197,17 @@
         <p><strong>Information Collected Automatically:</strong></p>
         <ul>
             <li><strong>Crash Reports:</strong> We use Firebase Crashlytics to collect anonymous crash reports and diagnostic data to improve app stability. These reports do not contain personal information, credentials, or device-specific data from your network.</li>
+            <li><strong>Usage Analytics:</strong> Some applications (see <a href="#appendix-a">Appendix A</a>) use Firebase Analytics to collect anonymous, aggregate usage data - such as app opens, screen views, and which features are used - to help us understand usage patterns and improve the app. This data is not linked to your identity and is never used for advertising or cross-application tracking.</li>
             <li><strong>Device Information:</strong> Basic device type and operating system version, collected only through crash reports for debugging purposes.</li>
             <li><strong>Local Network Data:</strong> For applications that interact with local network devices (e.g., smart home controllers, NAS systems, UPS devices), device identifiers, IP addresses, and configuration data are collected and stored <strong>only on your device</strong>. This data is never transmitted to our servers.</li>
         </ul>
 
         <p><strong>Information We Do NOT Collect:</strong></p>
         <ul>
-            <li>We do not collect browsing history, location data, or usage analytics</li>
-            <li>We do not track which features you use or how often you use the app</li>
+            <li>We do not collect your browsing history, and no application transmits your device location to our servers</li>
+            <li>For applications not listed with Firebase Analytics in <a href="#appendix-a">Appendix A</a>, we do not track which features you use or how often you use the app</li>
             <li>We do not collect network device credentials, configurations, or monitoring data</li>
-            <li>We do not use advertising trackers, third-party analytics SDKs, or user profiling</li>
+            <li>We do not use advertising trackers, sell your data, or build user profiles for advertising</li>
         </ul>
 
         <h2>3. How We Use Your Information</h2>
@@ -222,7 +223,7 @@
         <p>We do not sell, rent, or trade your personal information. We may share information only in the following limited situations:</p>
         <ul>
             <li><strong>Payment Processors:</strong> Square, PayPal, Apple, and Google process payments according to their own privacy policies.</li>
-            <li><strong>Crash Reporting:</strong> Firebase Crashlytics (Google) receives anonymous crash data to help us fix bugs.</li>
+            <li><strong>Crash Reporting &amp; Analytics:</strong> Firebase (Google) receives anonymous crash data and, for some applications, anonymous usage analytics to help us fix bugs and improve our apps.</li>
             <li><strong>Legal Requirements:</strong> When required by law, subpoena, or other legal process.</li>
             <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets.</li>
         </ul>
@@ -233,7 +234,7 @@
             <li><strong>Supabase:</strong> <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a> (backend for Elan Audio Lab)</li>
             <li><strong>Square:</strong> <a href="https://squareup.com/legal/privacy" target="_blank" rel="noopener">squareup.com/legal/privacy</a> (payment processing)</li>
             <li><strong>PayPal:</strong> <a href="https://www.paypal.com/privacy" target="_blank" rel="noopener">paypal.com/privacy</a> (payment processing)</li>
-            <li><strong>Firebase (Google):</strong> <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a> (crash reporting)</li>
+            <li><strong>Firebase (Google):</strong> <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a> (crash reporting and, for some applications, anonymous usage analytics)</li>
             <li><strong>Apple App Store:</strong> <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></li>
             <li><strong>Google Play:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
         </ul>
@@ -300,7 +301,7 @@
                 <tr style="border-bottom:1px solid var(--border);">
                     <td style="padding:0.75rem;"><strong>Almanox</strong></td>
                     <td style="padding:0.75rem;">On-device (offline)</td>
-                    <td style="padding:0.75rem;">Firebase Crashlytics</td>
+                    <td style="padding:0.75rem;">Firebase Crashlytics, Firebase Analytics</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--border);">
                     <td style="padding:0.75rem;"><strong>Elan Audio Lab</strong></td>
@@ -345,11 +346,11 @@
             </tbody>
         </table>
 
-        <p><strong>Universal Rule for Local-Network Applications:</strong> Applications marked "Local network only" store all device credentials, configuration, and monitoring data exclusively on your device. No device data, network credentials, or usage telemetry is transmitted to MiyaraHub servers. The only cloud communication is anonymous crash reporting via Firebase Crashlytics, which contains no personal information or network-specific data.</p>
+        <p><strong>Universal Rule for Local-Network Applications:</strong> Applications marked "Local network only" store all device credentials, configuration, and monitoring data exclusively on your device. No device data, network credentials, or usage telemetry is transmitted to MiyaraHub servers. Cloud communication is limited to anonymous crash reporting via Firebase Crashlytics and, where noted in the table above, anonymous usage analytics via Firebase Analytics, neither of which contains personal information or network-specific data.</p>
 
         <p><strong>Elan Audio Lab Specific Disclosures:</strong> As an e-commerce platform, Elan Audio Lab collects transaction data (name, email, shipping address) necessary to fulfill purchases. Payment card data is processed entirely by Square and PayPal - we never see or store full card numbers. Product catalog, blog content, and artist data are served via Supabase cloud backend.</p>
 
-        <p><strong>Almanox Specific Disclosures:</strong> Almanox is a standalone sun, moon, and astronomy planning app. If you grant location permission, your device location is used solely on your device to compute sun, moon, and sky data for your position; it is never transmitted to MiyaraHub servers or stored anywhere off your device, and you may deny the permission and enter coordinates manually instead. Saved locations and settings remain on your device. The only cloud communication is anonymous crash reporting via Firebase Crashlytics. The one-time Almanox Pro upgrade is processed by Apple or Google; we never see or store your payment details.</p>
+        <p><strong>Almanox Specific Disclosures:</strong> Almanox is a standalone sun, moon, and astronomy planning app. If you grant location permission, your device location is used solely on your device to compute sun, moon, and sky data for your position; it is never transmitted to MiyaraHub servers or stored anywhere off your device, and you may deny the permission and enter coordinates manually instead. Saved locations and settings remain on your device. Cloud communication is limited to anonymous crash reporting via Firebase Crashlytics and anonymous, aggregate usage analytics via Firebase Analytics; neither contains personally identifying information or your saved locations. The one-time Almanox Pro upgrade is processed by Apple or Google; we never see or store your payment details.</p>
     </div>
 
     <footer>
