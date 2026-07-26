@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiyaraHub Technologies LLC</title>
-    <meta name="description" content="MiyaraHub Technologies LLC builds mobile apps for home automation, AV receiver control, Synology NAS management, UPS monitoring, and HDFury HDMI processors. Based in Dallas, TX.">
-    <meta name="keywords" content="MiyaraHub Technologies, Meir Miyara, home automation apps, AV receiver controller app, Denon receiver app, Marantz receiver app, Synology NAS monitoring app, UPS monitoring app Android, HDFury controller app, SNMP UPS monitor, CyberPower UPS app, APC UPS monitor app, Eaton UPS monitoring, smart home app developer, Flutter app developer Dallas Texas, AV control system, home theater control app, IoT device management, cross-platform mobile development, Unfolded Circle integrations, Unfolded Circle Remote Two, Unfolded Circle Remote 3, smart home integration developer, custom home automation software, network monitoring app, NAS management mobile, UPS battery monitor, power monitoring app, audio equipment e-commerce, tube amplifier shop, HDMI processor controller, home theater automation, AV receiver remote control phone, surround sound controller app, whole home audio app, multi-zone receiver control, projector control app, Epson projector controller">
-    <meta name="author" content="MiyaraHub Technologies LLC">
+    <title>MiyaraHub Technologies - Native control apps for the devices you own</title>
+    <meta name="description" content="MiyaraHub Technologies builds premium native control and monitoring apps for the hardware you already own: Denon and Marantz receivers, Synology NAS, CyberPower and Eaton UPS systems, HDFury HDMI processors, Epson projectors, Unfolded Circle remotes, and Almanox for sun, moon, and Milky Way planning. Fast, native, on-device, no subscription.">
+    <meta name="keywords" content="MiyaraHub, MiyaraHub Technologies, AVR Maestro, Synology Manager, UPSight, FuryPath, Almanox, UC Remote, Network Deck, Projector Pilot, NexusDeck, Elan Audio Lab, native control apps, iOS, Android, macOS, Windows">
     <link rel="canonical" href="https://miyarahub.com/">
-    <meta property="og:title" content="MiyaraHub Technologies - Home Automation & AV Control Apps">
-    <meta property="og:description" content="Mobile apps for Denon/Marantz receivers, Synology NAS, UPS monitoring, HDFury processors, and more. Dallas, TX software studio.">
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="MiyaraHub Technologies - Native control apps for the devices you own">
+    <meta property="og:description" content="Premium native control and monitoring apps for receivers, NAS, UPS, HDMI processors, projectors, and the night sky. On-device, no subscription.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://miyarahub.com">
-    <meta property="og:image" content="https://miyarahub.com/assets/banner.jpg">
-    <meta property="og:site_name" content="MiyaraHub Technologies">
+    <meta property="og:url" content="https://miyarahub.com/">
+    <meta property="og:image" content="https://miyarahub.com/assets/logo-square.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MiyaraHub Technologies - Home Automation & AV Control Apps">
-    <meta name="twitter:description" content="Mobile apps for Denon/Marantz receivers, Synology NAS, UPS monitoring, HDFury processors, and more.">
-    <meta name="twitter:image" content="https://miyarahub.com/assets/banner.jpg">
+    <meta name="twitter:title" content="MiyaraHub Technologies">
+    <meta name="twitter:description" content="Native control and monitoring apps for the devices you own. On-device, no subscription.">
+    <meta name="twitter:image" content="https://miyarahub.com/assets/logo-square.jpg">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -25,1058 +31,243 @@
       "name": "MiyaraHub Technologies LLC",
       "url": "https://miyarahub.com",
       "logo": "https://miyarahub.com/assets/logo-square.jpg",
-      "description": "Software engineering studio specializing in home automation, AV control systems, and cross-platform mobile app development.",
-      "founder": {
-        "@type": "Person",
-        "name": "Meir Miyara",
-        "jobTitle": "Director of Software Development"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Van Alstyne",
-        "addressRegion": "TX",
-        "addressCountry": "US"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "admin@miyarahub.com",
-        "contactType": "technical support"
-      },
-      "sameAs": [
-        "https://github.com/mase1981"
-      ]
+      "description": "Independent software studio building premium native control and monitoring apps for consumer and prosumer hardware.",
+      "sameAs": []
     }
     </script>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <style>
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root {
-            --bg-primary: #0a0c14;
-            --bg-secondary: #0f1219;
-            --bg-card: #151a28;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --accent: #e63946;
-            --accent-bright: #ff1a2e;
-            --accent-glow: rgba(230, 57, 70, 0.12);
-            --accent-hover: #ff4757;
-            --border: rgba(230, 57, 70, 0.1);
-            --border-subtle: rgba(148, 163, 184, 0.08);
-            --gradient-start: #e63946;
-            --gradient-end: #ff6b6b;
-            --neon-red: #ff1a2e;
-            --neon-glow: 0 0 20px rgba(230, 57, 70, 0.4), 0 0 60px rgba(230, 57, 70, 0.15);
-        }
-        html{scroll-behavior:smooth}
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Ambient background - dark with red undertones */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(230, 57, 70, 0.03) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 20%, rgba(255, 107, 107, 0.02) 0%, transparent 50%);
-            z-index: -1;
-            animation: ambientShift 20s ease-in-out infinite alternate;
-        }
-        @keyframes ambientShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-5%, 3%); }
-        }
-
-        /* Neon pulse for accents */
-        @keyframes neonPulse {
-            0%, 100% { box-shadow: var(--neon-glow); }
-            50% { box-shadow: 0 0 30px rgba(230, 57, 70, 0.6), 0 0 80px rgba(230, 57, 70, 0.25); }
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 0.75rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(10, 12, 20, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-        .nav-brand img {
-            height: 36px;
-            width: 36px;
-            border-radius: 8px;
-        }
-        .nav-brand-text {
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-        .nav-brand-text .brand-m {
-            color: var(--accent);
-        }
-        .nav-brand-text .brand-rest {
-            color: var(--text-primary);
-        }
-        .nav-brand-text .brand-tech {
-            display: block;
-            font-size: 0.55rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-top: -2px;
-        }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-toggle {
-            display: none; background: none; border: none; cursor: pointer;
-            padding: 0.5rem; z-index: 101; flex-direction: column; gap: 5px;
-        }
-        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
-        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-toggle.open span:nth-child(2) { opacity: 0; }
-        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* HERO */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 2rem;
-            position: relative;
-        }
-        .hero-logo {
-            display: none;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(230, 57, 70, 0.25);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-        }
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: #fff;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.3);
-        }
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(230, 57, 70, 0.5);
-        }
-        .hero-cta-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            background: transparent;
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 1px solid rgba(230, 57, 70, 0.3);
-            transition: all 0.3s;
-        }
-        .hero-cta-secondary:hover {
-            background: var(--accent-glow);
-            border-color: rgba(230, 57, 70, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* BANNER */
-        .hero-banner {
-            width: 100%;
-            max-width: 900px;
-            margin-top: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(230, 57, 70, 0.25);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), var(--neon-glow);
-            animation: neonPulse 4s ease-in-out infinite;
-        }
-
-        /* SECTIONS */
-        section { padding: 3rem 2rem; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .section-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-        .section-desc {
-            color: var(--text-secondary);
-            max-width: 600px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        /* SERVICES GRID */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(230, 57, 70, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 20px rgba(230, 57, 70, 0.12), 0 0 50px rgba(230, 57, 70, 0.06);
-        }
-        .service-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(230, 57, 70, 0.5);
-            box-shadow: 0 0 30px rgba(230, 57, 70, 0.25), 0 8px 50px rgba(230, 57, 70, 0.15);
-        }
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--accent-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 1.25rem;
-        }
-        .service-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* PORTFOLIO */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-        .portfolio-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(230, 57, 70, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            color: inherit;
-            box-shadow: 0 0 20px rgba(230, 57, 70, 0.12), 0 0 50px rgba(230, 57, 70, 0.06);
-        }
-        .portfolio-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(230, 57, 70, 0.5);
-            box-shadow: 0 0 30px rgba(230, 57, 70, 0.25), 0 8px 50px rgba(230, 57, 70, 0.15);
-        }
-        .portfolio-card .app-icon-row {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .portfolio-card .app-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            object-fit: cover;
-            box-shadow: 0 0 12px rgba(230, 57, 70, 0.15);
-            flex-shrink: 0;
-        }
-        .portfolio-card .app-icon-row h3 {
-            margin-bottom: 0;
-        }
-        .portfolio-card .tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--accent-glow);
-            color: var(--accent);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-        .portfolio-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .portfolio-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.25rem;
-        }
-        .tech-stack span {
-            padding: 0.2rem 0.6rem;
-            background: rgba(148, 163, 184, 0.08);
-            border: 1px solid var(--border-subtle);
-            border-radius: 6px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        /* STORE LINKS */
-        .store-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .store-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.3rem 0.75rem;
-            background: linear-gradient(135deg, rgba(230, 57, 70, 0.12), rgba(255, 107, 107, 0.12));
-            border: 1px solid rgba(230, 57, 70, 0.2);
-            border-radius: 8px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-decoration: none;
-            transition: background 0.3s, border-color 0.3s, transform 0.2s;
-            cursor: pointer;
-        }
-        .store-badge:hover {
-            background: linear-gradient(135deg, rgba(230, 57, 70, 0.25), rgba(255, 107, 107, 0.25));
-            border-color: rgba(230, 57, 70, 0.5);
-            transform: translateY(-1px);
-        }
-
-        /* ABOUT */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            line-height: 1.7;
-        }
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        .stat-item {
-            background: var(--bg-card);
-            border: 1px solid rgba(230, 57, 70, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 20px rgba(230, 57, 70, 0.12), 0 0 50px rgba(230, 57, 70, 0.06);
-        }
-        .stat-item:hover {
-            border-color: rgba(230, 57, 70, 0.5);
-            box-shadow: 0 0 30px rgba(230, 57, 70, 0.25), 0 8px 50px rgba(230, 57, 70, 0.15);
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
-        /* CONTACT */
-        .contact-section {
-            text-align: center;
-        }
-        .contact-section .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .contact-section .section-desc {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .contact-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-        .contact-card {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(230, 57, 70, 0.2);
-            border-radius: 16px;
-            padding: 1.5rem 2.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 20px rgba(230, 57, 70, 0.12), 0 0 50px rgba(230, 57, 70, 0.06);
-        }
-        .contact-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(230, 57, 70, 0.5);
-            box-shadow: 0 0 30px rgba(230, 57, 70, 0.25), 0 8px 50px rgba(230, 57, 70, 0.15);
-        }
-        .contact-card .icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--accent-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-        }
-        .contact-card .info { text-align: left; }
-        .contact-card .info .label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .contact-card .info .value {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .footer-brand img {
-            height: 24px;
-            width: 24px;
-            border-radius: 4px;
-        }
-        .footer-copy {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover { color: var(--accent); }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav { padding: 0.75rem 1rem; }
-            .nav-toggle { display: flex; }
-            .nav-links {
-                display: none; position: absolute; top: 100%; left: 0; right: 0;
-                flex-direction: column; background: rgba(10, 12, 20, 0.97);
-                backdrop-filter: blur(20px); padding: 1rem 2rem; gap: 0;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-links.open { display: flex; }
-            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border-subtle); }
-            .nav-links li:last-child { border-bottom: none; }
-            .nav-links a { font-size: 1rem; }
-            .about-content { grid-template-columns: 1fr; }
-            .hero { padding: 5rem 1.5rem 1.5rem; }
-            .hero-logo { width: 120px; height: 120px; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .contact-cards { flex-direction: column; align-items: center; }
-        }
-        @media (max-width: 480px) {
-            .nav-brand-text { font-size: 0.95rem; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Fade-in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .fade-in.no-delay {
-            opacity: 1;
-            transform: none;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Nav -->
     <nav>
         <a href="/" class="nav-brand">
-            <img src="assets/logo-square.jpg" alt="MiyaraHub Logo">
-            <span class="nav-brand-text">
-                <span><span class="brand-m">M</span><span class="brand-rest">iyaraHub</span></span>
-                <span class="brand-tech">Technologies</span>
-            </span>
+            <img src="/assets/logo-square.jpg" alt="MiyaraHub logo">
+            <span class="nav-brand-text">MiyaraHub</span>
         </a>
         <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links" id="nav-menu">
-            <li><a href="/" onclick="closeNav()">Home</a></li>
-            <li><a href="#services" onclick="closeNav()">Services</a></li>
-            <li><a href="#portfolio" onclick="closeNav()">Portfolio</a></li>
-            <li><a href="#about" onclick="closeNav()">About</a></li>
+            <li><a href="#catalogue" onclick="closeNav()">Catalogue</a></li>
+            <li><a href="/almanox/" onclick="closeNav()">Almanox</a></li>
+            <li><a href="#principles" onclick="closeNav()">Principles</a></li>
             <li><a href="/support/" onclick="closeNav()">Support</a></li>
-            <li><a href="#contact" onclick="closeNav()">Contact</a></li>
-            <li><a href="https://discord.gg/UmVtxE5fXN" target="_blank" rel="noopener" onclick="closeNav()">Community</a></li>
-            <li><a href="/terms.html" onclick="closeNav()">Terms</a></li>
-            <li><a href="/privacy.html" onclick="closeNav()">Privacy</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
-        <img src="assets/logo-square.jpg" alt="MiyaraHub Technologies" class="hero-logo">
-        <div class="hero-badge">⚡ Software Engineering Studio</div>
-        <h1>
-            Building <span class="gradient">Intelligent</span><br>
-            Software Solutions
-        </h1>
-        <p>
-            MiyaraHub Technologies LLC specializes in home automation, 
-            audio integration, and cross-platform app development - turning 
-            complex systems into elegant, reliable experiences.
-        </p>
-        <div class="hero-ctas">
-            <a href="#contact" class="hero-cta">Get in Touch →</a>
-            <a href="https://play.google.com/store/apps/dev?id=5430508146048197775" target="_blank" rel="noopener" class="hero-cta-secondary">▶ Google Play →</a>
-            <a href="https://apps.apple.com/us/developer/miyarahub-technologies-llc/id1883545892" target="_blank" rel="noopener" class="hero-cta-secondary"> App Store →</a>
-            <a href="https://apps.microsoft.com/search/publisher?name=MiyaraHub+Technologies+LLC&amp;hl=en-US&amp;gl=US" target="_blank" rel="noopener" class="hero-cta-secondary">⊞ Microsoft Store →</a>
-        </div>
-        <img src="assets/banner.jpg" alt="MiyaraHub Technologies Banner" class="hero-banner">
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-        <div class="container fade-in">
-            <div class="section-label">What We Do</div>
-            <h2 class="section-title">Services & Expertise</h2>
-            <p class="section-desc">
-                End-to-end software development with deep expertise in connected 
-                devices, smart home ecosystems, and media technologies.
-            </p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Home Automation</h3>
-                    <p>Custom integrations for smart home platforms, IoT device management, and intelligent control systems that work seamlessly together.</p>
+    <header class="hero">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <div class="kicker">MiyaraHub Technologies</div>
+                    <h1>Instruments for the devices you own.<span class="stargl">&#10022;</span></h1>
+                    <p class="hero-sub">Native control and monitoring apps that speak to your gear directly.</p>
+                    <p class="hero-lede">Receivers, NAS units, UPS systems, HDMI processors, projectors - MiyaraHub builds the premium third-party app the manufacturer never shipped. Fast, native, on-device, and yours.</p>
+                    <div class="cta-row">
+                        <a href="#catalogue" class="btn primary">Browse the catalogue</a>
+                        <a href="/almanox/" class="btn">Meet Almanox &rarr;</a>
+                    </div>
+                    <p class="coming"><span class="dot">&#10022;</span> One-time purchase &middot; no subscription &middot; no ads</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🎵</div>
-                    <h3>Audio Integration</h3>
-                    <p>Professional audio product platforms, e-commerce solutions, and digital storefronts for the music and audio technology industry.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Cross-Platform Apps</h3>
-                    <p>Native-quality mobile and web applications built with Flutter, delivering consistent experiences across iOS, Android, and the web.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Systems Management</h3>
-                    <p>Network-attached storage, server monitoring, container orchestration, and infrastructure management tools for power users.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔌</div>
-                    <h3>API & Integration</h3>
-                    <p>RESTful API development, third-party service integration, payment processing, and cloud backend architecture using modern serverless platforms.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>DevOps & CI/CD</h3>
-                    <p>Automated build pipelines, multi-platform deployment workflows, testing frameworks, and infrastructure-as-code for reliable software delivery.</p>
+                <div class="ephem fade">
+                    <div class="ephem-head">
+                        <span class="t">Catalogue</span>
+                        <span class="d">MiyaraHub &middot; 2026</span>
+                    </div>
+                    <div class="ephem-rows">
+                        <div class="erow"><span class="lbl">Shipping</span><span class="val"><b>6 apps</b> in the stores</span></div>
+                        <div class="erow"><span class="lbl">Platforms</span><span class="val">iOS &middot; iPad &middot; Android &middot; Mac &middot; Win</span></div>
+                        <div class="erow"><span class="lbl">On the bench</span><span class="val"><b>3</b> in development</span></div>
+                        <div class="erow"><span class="lbl">Data</span><span class="val">on-device &middot; local network</span></div>
+                        <div class="erow"><span class="lbl">Pricing</span><span class="val">one-time, no subscription</span></div>
+                        <div class="erow verdict">
+                            <span class="lbl">Catalogue</span>
+                            <span class="val"><span class="score">10</span> <span class="grade">&nbsp;&amp; counting</span></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Portfolio -->
-    <section id="portfolio" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">Our Work</div>
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-desc">
-                A selection of production applications and web projects built and maintained by MiyaraHub Technologies.
-            </p>
-            <div class="portfolio-grid">
-                <a href="/almanox/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">Astro • Photography</span>
-                    <div class="app-icon-row">
-                        <img src="assets/almanox-icon.png" alt="Almanox" class="app-icon">
-                        <h3>Almanox</h3>
+    <!-- Catalogue -->
+    <section id="catalogue" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head">
+                <div class="kicker">The Catalogue</div>
+                <h2 class="sec-title">One studio, one obsession: the app your hardware deserved.</h2>
+                <p class="sec-desc">Every app here is native, independent, and built to talk to real hardware over your own network. No web wrappers, no data harvesting.</p>
+            </div>
+
+            <div class="catalogue">
+                <a href="/avr-maestro/" class="prod fade">
+                    <img class="ico" src="/assets/avr-maestro-icon.png" alt="AVR Maestro icon">
+                    <div class="meta">
+                        <h3>AVR Maestro <span class="pill">Featured</span></h3>
+                        <p>The premier controller for Denon and Marantz AV receivers - volume, zones, sound modes, scenes, and room calibration.</p>
                     </div>
-                    <p>The offline sun, moon, and Milky Way planner for photographers and stargazers. A one-screen "is tonight good?" verdict, golden hour, dark-sky windows, a sun and moon shot planner, live weather, and ISS passes. One-time purchase, no subscription.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>On-device astronomy</span>
-                        <span>iOS, iPad &amp; Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge">🌌 Coming Soon</span>
-                    </div>
+                    <div class="plats">iOS &middot; iPad &middot; Android<br>Mac &middot; Windows</div>
                 </a>
-                <a href="/elan-audio-lab/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">E-Commerce • Audio</span>
-                    <div class="app-icon-row">
-                        <img src="assets/elan-audio-lab-icon.png" alt="Elan Audio Lab" class="app-icon">
+                <a href="/synology-manager/" class="prod fade">
+                    <img class="ico" src="/assets/syno-manager-icon.png" alt="Synology Manager icon">
+                    <div class="meta">
+                        <h3>Synology Manager <span class="pill">Featured</span></h3>
+                        <p>Independent monitoring and management for your Synology NAS - storage, system health, tasks, files, and more.</p>
+                    </div>
+                    <div class="plats">iOS &middot; iPad &middot; Android<br>Mac &middot; Windows</div>
+                </a>
+                <a href="/upsight/" class="prod fade">
+                    <img class="ico" src="/assets/upsight-icon.png" alt="UPSight icon">
+                    <div class="meta">
+                        <h3>UPSight <span class="pill">Featured</span></h3>
+                        <p>Real-time UPS monitoring over SNMP and NUT - battery, load, runtime, and power events for CyberPower and Eaton.</p>
+                    </div>
+                    <div class="plats">iOS &middot; iPad &middot; Android<br>Mac &middot; Windows</div>
+                </a>
+                <a href="/fury-path/" class="prod fade">
+                    <img class="ico" src="/assets/furypath-icon.png" alt="FuryPath icon">
+                    <div class="meta">
+                        <h3>FuryPath <span class="pill">Featured</span></h3>
+                        <p>Control HDFury HDMI processors - VRRoom, VERTEX2, and more: EDID, HDR, Dolby Vision, CEC, macros, and OSD.</p>
+                    </div>
+                    <div class="plats">iOS &middot; Android</div>
+                </a>
+                <a href="/elan-audio-lab/" class="prod fade">
+                    <img class="ico" src="/assets/elan-audio-lab-icon.png" alt="Elan Audio Lab icon">
+                    <div class="meta">
                         <h3>Elan Audio Lab</h3>
+                        <p>A full-stack storefront for boutique, hand-soldered tube amplifiers - catalogue, customiser, and checkout.</p>
                     </div>
-                    <p>Full-stack e-commerce platform for premium audio products. Features product catalog, Square &amp; PayPal payment processing, quote system, blog, and artist showcases.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>Supabase</span>
-                        <span>Square SDK</span>
-                        <span>PayPal</span>
-                        <span>Web + Android + iOS</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge">▶ Google Play</span>
-                        <span class="store-badge"> App Store</span>
-                        <span class="store-badge">🌐 elanaudiolab.com</span>
-                    </div>
+                    <div class="plats">iOS &middot; Android<br>Web</div>
                 </a>
-                <a href="/uc-remote/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">Home Automation</span>
-                    <div class="app-icon-row">
-                        <img src="assets/uc-remote-icon.png" alt="UC Remote" class="app-icon">
+                <a href="/uc-remote/" class="prod fade">
+                    <img class="ico" src="/assets/uc-remote-icon.png" alt="UC Remote icon">
+                    <div class="meta">
                         <h3>UC Remote</h3>
+                        <p>A premium native companion for the Unfolded Circle Remote Two and Remote 3.</p>
                     </div>
-                    <p>A premium native Android companion for the Unfolded Circle Remote Two and Remote 3 - run activities, swipe their custom pages, control every entity and media player, live now-playing, home-screen widgets, and multiple remotes. Backed by 45+ custom device integrations.</p>
-                    <div class="tech-stack">
-                        <span>Kotlin</span>
-                        <span>WebSocket + REST</span>
-                        <span>Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://play.google.com/store/apps/details?id=com.ucremote.android', '_blank');">▶ Google Play</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://github.com/stars/mase1981/lists/unfolded-circle-integrations', '_blank');">📦 All Integrations</span>
-                    </div>
+                    <div class="plats">Android</div>
                 </a>
-                <a href="/synology-manager/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">Infrastructure</span>
-                    <div class="app-icon-row">
-                        <img src="assets/syno-manager-icon.png" alt="Synology Manager" class="app-icon">
-                        <h3>Synology Manager</h3>
+            </div>
+
+            <div class="sec-head" style="margin-top:3.5rem">
+                <div class="kicker">On the workbench</div>
+                <h2 class="sec-title" style="font-size:clamp(1.5rem,3vw,2rem)">Coming soon and in development.</h2>
+            </div>
+            <div class="catalogue">
+                <a href="/almanox/" class="prod fade">
+                    <img class="ico" src="/assets/almanox-icon.png" alt="Almanox icon">
+                    <div class="meta">
+                        <h3>Almanox <span class="pill">Coming soon</span></h3>
+                        <p>Is tonight good for the stars? A one-screen verdict for sun, moon, and Milky Way planning - offline, one-time purchase.</p>
                     </div>
-                    <p>Mobile management app for Synology NAS systems. Real-time monitoring of CPU, memory, storage, Docker containers, network, surveillance cameras, and backup tasks.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>Synology DSM API</span>
-                        <span>Docker</span>
-                        <span>iOS + Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://play.google.com/store/apps/details?id=com.synomanager', '_blank');">▶ Google Play</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.apple.com/us/app/syno-manager/id6763011668', '_blank');"> App Store</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.apple.com/us/app/syno-manager/id6763011668', '_blank');">🖥 Mac App Store</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.microsoft.com/detail/9P19N2B54N1R', '_blank');">⊞ Microsoft Store</span>
-                    </div>
+                    <div class="plats">iOS &middot; iPad &middot; Android</div>
                 </a>
-                <a href="/upsight/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">Power Monitoring</span>
-                    <div class="app-icon-row">
-                        <img src="assets/upsight-icon.png" alt="UPSight" class="app-icon">
-                        <h3>UPSight</h3>
+                <a href="/nexus-deck/" class="prod fade">
+                    <img class="ico" src="/assets/nexusdeck-icon.png" alt="NexusDeck icon">
+                    <div class="meta">
+                        <h3>NexusDeck <span class="pill">Pre-release</span></h3>
+                        <p>An Audyssey calibration file manager and curve uploader for Denon and Marantz receivers.</p>
                     </div>
-                    <p>Comprehensive UPS monitoring app. Real-time battery status, power metrics, outlet control, event logging, and smart alerts for CyberPower, APC, Eaton, Tripp Lite, and any SNMP-capable UPS.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>SNMP</span>
-                        <span>NUT Protocol</span>
-                        <span>iOS + Android + Windows + Mac</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://play.google.com/store/apps/details?id=com.miyarahub.upsight', '_blank');">▶ Google Play</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.apple.com/us/app/upsight-for-cyberpower-eaton/id6762854779', '_blank');"> App Store</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.apple.com/us/app/upsight-for-cyberpower-eaton/id6762854779', '_blank');">🖥 Mac App Store</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.microsoft.com/detail/9PCH5VFVQSGH', '_blank');">⊞ Microsoft Store</span>
-                    </div>
+                    <div class="plats">iOS &middot; Android</div>
                 </a>
-                <a href="/fury-path/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">AV Control</span>
-                    <div class="app-icon-row">
-                        <img src="assets/furypath-icon.png" alt="FuryPath" class="app-icon">
-                        <h3>FuryPath</h3>
+                <a href="/network-deck/" class="prod fade">
+                    <img class="ico" src="/assets/network-deck-icon.png" alt="Network Deck icon">
+                    <div class="meta">
+                        <h3>Network Deck <span class="pill">In development</span></h3>
+                        <p>Third-party live dashboards for Ubiquiti UniFi network controllers - clients, WiFi, and throughput.</p>
                     </div>
-                    <p>A single comprehensive mobile controller for HDFury HDMI processors. Full EDID management, HDR/Dolby Vision control, CEC/eARC configuration, JVC Macros, and real-time signal info, all over Wi-Fi.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>HTTP / SSI</span>
-                        <span>HDFury API</span>
-                        <span>iOS + Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://play.google.com/store/apps/details?id=com.miyarahub.furypath', '_blank');">▶ Google Play</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302', '_blank');"> App Store</span>
-                    </div>
+                    <div class="plats">iOS &middot; Android</div>
                 </a>
-                <a href="/avr-maestro/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">AV Control</span>
-                    <div class="app-icon-row">
-                        <img src="assets/avr-maestro-icon.png" alt="AVR Maestro" class="app-icon">
-                        <h3>AVR Maestro</h3>
+                <a href="/projector-pilot/" class="prod fade">
+                    <img class="ico" src="/assets/projector-pilot-icon.png" alt="Projector Pilot icon">
+                    <div class="meta">
+                        <h3>Projector Pilot <span class="pill">In development</span></h3>
+                        <p>Control power, picture, HDR, colour modes, and lens on Epson projectors.</p>
                     </div>
-                    <p>Premium mobile controller for Denon and Marantz AV receivers. Volume, input, surround modes, multi-zone, Audyssey, Dirac Live, IMAX Enhanced, Auro-3D, now playing, and virtual remote.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>HTTP / Telnet / HEOS</span>
-                        <span>iOS, Android, Windows &amp; macOS</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro', '_blank');">▶ Google Play</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.apple.com/us/app/avr-maestro/id6762881597', '_blank');"> App Store</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.apple.com/us/app/avr-maestro/id6762881597', '_blank');">🖥 Mac App Store</span>
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://apps.microsoft.com/detail/9P4M7W4J5106', '_blank');">⊞ Microsoft Store</span>
-                    </div>
-                </a>
-                <a href="/nexus-deck/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">Calibration</span>
-                    <div class="app-icon-row">
-                        <img src="assets/nexusdeck-icon.png" alt="NexusDeck" class="app-icon">
-                        <h3>NexusDeck</h3>
-                    </div>
-                    <p>Calibration file manager and curve uploader for Denon and Marantz AV receivers. Import Audyssey .ady, Dirac .oca, REW .mdat / .frd / PEQ exports. Browse, compare, and upload curves direct to Speaker Preset slots over Wi-Fi. Companion to AVR Maestro.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>Port 1256 Binary Upload</span>
-                        <span>iOS &amp; Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" style="opacity:0.6; cursor: default;">🚧 In Pre-Release</span>
-                    </div>
-                </a>
-                <a href="#" class="portfolio-card" style="text-decoration:none; cursor: default;" onclick="event.preventDefault();">
-                    <span class="tag">AV Control</span>
-                    <div class="app-icon-row">
-                        <img src="assets/avr-maestro-mc-icon.png" alt="AVR Maestro MC" class="app-icon">
-                        <h3>AVR Maestro MC</h3>
-                    </div>
-                    <p>Premium controller for Yamaha MusicCast AV receivers - sibling to AVR Maestro. Volume + zone control, sound programs, Surround:AI, dialogue lift, party mode, speaker patterns, multi-AVR switcher, per-zone volume presets.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>YXC (Yamaha Extended Control)</span>
-                        <span>iOS + Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">🎵 MusicCast 2016+</span>
-                        <span class="store-badge" style="opacity:0.6; cursor: default;">🚧 In Development</span>
-                    </div>
-                </a>
-                <a href="/projector-pilot/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">AV Control</span>
-                    <div class="app-icon-row">
-                        <img src="assets/projector-pilot-icon.png" alt="ProjectorPilot" class="app-icon">
-                        <h3>ProjectorPilot</h3>
-                    </div>
-                    <p>Premium mobile controller for Epson projectors. Power, picture settings, color modes, HDR, lens memory, keystone correction, lamp hours, OSD navigation, and more over Wi-Fi.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>PJLink / Web Control</span>
-                        <span>iOS + Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" style="opacity:0.6; cursor: default;">🚧 In Development</span>
-                    </div>
-                </a>
-                <a href="/network-deck/" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">Network</span>
-                    <div class="app-icon-row">
-                        <img src="assets/network-deck-icon.png" alt="Network Deck" class="app-icon">
-                        <h3>Network Deck</h3>
-                    </div>
-                    <p>UniFi network management, simplified. Clients, WiFi, firewall, ports, VPN, speed test, and multi-site switching - all direct to your UniFi controller over your local network.</p>
-                    <div class="tech-stack">
-                        <span>Flutter</span>
-                        <span>UniFi Controller API</span>
-                        <span>WebSocket</span>
-                        <span>iOS + Android</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge">📱 View Details →</span>
-                        <span class="store-badge" style="opacity:0.6; cursor: default;">🚧 In Development</span>
-                    </div>
-                </a>
-                <a href="https://razchalak.com" target="_blank" rel="noopener" class="portfolio-card" style="text-decoration:none">
-                    <span class="tag">Memorial • Web</span>
-                    <div class="app-icon-row">
-                        <img src="assets/razchalak-icon.png" alt="Raz Chalak Memorial" class="app-icon">
-                        <h3>Raz Chalak Memorial</h3>
-                    </div>
-                    <p>A bilingual (English &amp; Hebrew) memorial honoring the life of Raz Chalak. A life timeline, photo galleries, voice memories, and a guestbook for family and friends to share tributes, all managed through a lightweight admin content system.</p>
-                    <div class="tech-stack">
-                        <span>Static HTML / JS</span>
-                        <span>Cloudflare Workers</span>
-                        <span>Bilingual EN / HE</span>
-                        <span>GitHub-backed CMS</span>
-                    </div>
-                    <div class="store-links">
-                        <span class="store-badge" onclick="event.preventDefault(); window.open('https://razchalak.com', '_blank');">🕯 razchalak.com →</span>
-                    </div>
+                    <div class="plats">Android</div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-        <div class="container fade-in">
-            <div class="section-label">About</div>
-            <h2 class="section-title">Who We Are</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        MiyaraHub Technologies LLC is a Dallas, Texas-based software engineering 
-                        studio founded by <strong>Meir Miyara</strong>, a software engineer and entrepreneur 
-                        specializing in smart home technology, audio integration, and cross-platform 
-                        application development.
-                    </p>
-                    <p>
-                        We build software that bridges the gap between complex hardware ecosystems 
-                        and intuitive user experiences - from IoT device integrations to cross-platform 
-                        mobile applications and cloud-powered backends.
-                    </p>
-                    <p>
-                        Our philosophy is simple: ship reliable software, automate everything possible, 
-                        and never compromise on quality. Every line of code is tested, every deployment 
-                        is validated, and every product is built to last.
-                    </p>
+    <!-- Principles -->
+    <section id="principles">
+        <div class="wrap">
+            <div class="sec-head">
+                <div class="kicker">How we build</div>
+                <h2 class="sec-title">A few things we refuse to compromise on.</h2>
+            </div>
+            <div class="ledger">
+                <div class="entry fade">
+                    <div class="no">No. 01</div>
+                    <div class="body">
+                        <h3><span class="glyph">&#9673;</span> Native, not a web wrapper</h3>
+                        <p>Every app is built natively for its platform and talks to your hardware directly over the local network - fast, responsive, and reliable.</p>
+                        <div class="meta"><span>Flutter</span><span>iOS</span><span>Android</span><span>Desktop</span></div>
+                    </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">45+</div>
-                        <div class="stat-label">Integrations Built</div>
+                <div class="entry fade">
+                    <div class="no">No. 02</div>
+                    <div class="body">
+                        <h3><span class="glyph">&#9635;</span> On-device by default</h3>
+                        <p>Your data stays on your device and your network. We don't route your gear through our servers, and we don't harvest what we don't need.</p>
+                        <div class="meta"><span>Local network</span><span>No tracking</span></div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label">Platforms Shipped</div>
+                </div>
+                <div class="entry fade">
+                    <div class="no">No. 03</div>
+                    <div class="body">
+                        <h3><span class="glyph">&#9670;</span> Buy it once</h3>
+                        <p>Most of what we make is a one-time purchase. No subscriptions for software that runs entirely on hardware you already own.</p>
+                        <div class="meta"><span>One-time</span><span>No ads</span></div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">CI/CD Pipelines</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Monitoring Active</div>
+                </div>
+                <div class="entry fade">
+                    <div class="no">No. 04</div>
+                    <div class="body">
+                        <h3><span class="glyph">&#10022;</span> Independent and third-party</h3>
+                        <p>We build the app the manufacturer never shipped. Not affiliated with or endorsed by the brands whose hardware our apps control - just built to work beautifully with it.</p>
+                        <div class="meta"><span>Independent</span><span>Prosumer</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Support & Contact -->
-    <section id="contact" class="contact-section" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">Support &amp; Contact</div>
-            <h2 class="section-title">Let's Build Something</h2>
-            <p class="section-desc">
-                Have a project in mind? Need a custom integration or app?
-                For technical support with any of our applications, bug reports,
-                or feature requests, reach out to our team.
-            </p>
-            <div class="contact-cards">
-                <a href="mailto:admin@miyarahub.com" class="contact-card">
-                    <div class="icon">✉️</div>
-                    <div class="info">
-                        <div class="label">Technical Support &amp; Inquiries</div>
-                        <div class="value">admin@miyarahub.com</div>
-                    </div>
-                </a>
-                <a href="https://play.google.com/store/apps/dev?id=5430508146048197775" target="_blank" rel="noopener" class="contact-card">
-                    <div class="icon">▶</div>
-                    <div class="info">
-                        <div class="label">Apps on Google Play</div>
-                        <div class="value">MiyaraHub Technologies</div>
-                    </div>
-                </a>
-                <a href="https://apps.apple.com/us/developer/miyarahub-technologies-llc/id1883545892" target="_blank" rel="noopener" class="contact-card">
-                    <div class="icon"></div>
-                    <div class="info">
-                        <div class="label">Apps on App Store</div>
-                        <div class="value">MiyaraHub Technologies LLC</div>
-                    </div>
-                </a>
-                <a href="https://apps.microsoft.com/search/publisher?name=MiyaraHub+Technologies+LLC&amp;hl=en-US&amp;gl=US" target="_blank" rel="noopener" class="contact-card">
-                    <div class="icon">⊞</div>
-                    <div class="info">
-                        <div class="label">Apps on Microsoft Store</div>
-                        <div class="value">MiyaraHub Technologies LLC</div>
-                    </div>
-                </a>
+    <!-- CTA -->
+    <section class="cta sec-band">
+        <div class="wrap">
+            <h2>Find the app for your gear.</h2>
+            <p>Browse the catalogue, or start with Almanox - the one-screen answer to whether tonight is good for the stars.</p>
+            <div class="cta-row" style="justify-content:center">
+                <a href="#catalogue" class="btn primary">Browse the catalogue</a>
+                <a href="/support/" class="btn">Support &rarr;</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <img src="assets/logo-square.jpg" alt="MiyaraHub">
-                <span class="footer-copy">&copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.</span>
+        <div class="wrap">
+            <div class="foot">
+                <div class="c">&copy; 2026 <b>MiyaraHub Technologies LLC</b>. All rights reserved.<br>Independent software. Trademarks belong to their respective owners.</div>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#catalogue">Catalogue</a></li>
+                    <li><a href="/support/">Support</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                </ul>
             </div>
-            <ul class="footer-links">
-                <li><a href="/support/">Support</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="/terms.html">Terms</a></li>
-                <li><a href="/privacy.html">Privacy</a></li>
-            </ul>
         </div>
     </footer>
 
-    <!-- Scroll animation -->
     <script>
-        function closeNav() {
-            document.getElementById('nav-menu').classList.remove('open');
-            document.getElementById('nav-toggle').classList.remove('open');
-        }
-
-        // Show fade-in elements already in viewport instantly
-        document.querySelectorAll('.fade-in').forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('no-delay');
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
+        function closeNav(){ document.getElementById('nav-menu').classList.remove('open'); document.getElementById('nav-toggle').classList.remove('open'); }
+        const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }); }, { threshold:0.08 });
+        document.querySelectorAll('.fade').forEach(el=>{ const r = el.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ el.classList.add('vis'); } else { io.observe(el); } });
     </script>
 </body>
 </html>
