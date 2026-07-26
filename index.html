@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiyaraHub Technologies - Independent software studio</title>
     <meta name="description" content="MiyaraHub Technologies is a small, independent software studio in Dallas, Texas, owned and run by Meir Miyara. We build native apps, full-stack web and e-commerce platforms, systems and monitoring tools, device-protocol integrations, and DevOps pipelines - across iOS, Android, macOS, Windows, and the web. Community-driven, highly rated, native, and on-device.">
-    <meta name="keywords" content="MiyaraHub, MiyaraHub Technologies, Meir Miyara, software studio Dallas, native app development, full-stack web development, e-commerce development, Flutter developer, AV control apps, NAS monitoring, UPS monitoring, device integration, DevOps, CI/CD, AVR Maestro, Synology Manager, UPSight, FuryPath, Almanox, Elan Audio Lab">
+    <meta name="keywords" content="MiyaraHub, MiyaraHub Technologies, Meir Miyara, software studio Dallas, native app development, full-stack web development, e-commerce development, Flutter developer, AV control apps, NAS monitoring, UPS monitoring, device integration, DevOps, CI/CD, AVR Maestro, Synology Manager, UPSight, FuryPath, Almanox, Elan Audio Lab, UC Remote, NexusDeck, Network Deck, Projector Pilot">
     <link rel="canonical" href="https://miyarahub.com/">
     <meta name="author" content="MiyaraHub Technologies LLC">
     <meta property="og:title" content="MiyaraHub Technologies - Independent software studio">
     <meta property="og:description" content="A small, independent studio in Dallas. Native apps, full-stack web and e-commerce, systems tooling, device integrations, and DevOps. Community-driven and highly rated.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://miyarahub.com/">
-    <meta property="og:image" content="https://miyarahub.com/assets/logo-square.jpg">
+    <meta property="og:image" content="https://miyarahub.com/assets/banner.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MiyaraHub Technologies">
     <meta name="twitter:description" content="A small, independent software studio. Native apps, full-stack web, systems tooling, and more.">
-    <meta name="twitter:image" content="https://miyarahub.com/assets/logo-square.jpg">
+    <meta name="twitter:image" content="https://miyarahub.com/assets/banner.jpg">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -27,11 +27,14 @@
     <style>
         /* MiyaraHub brand front - signature red accent (product pages keep their own hue) */
         :root{ --accent:#e63946; --accent-deep:#ff4757; --accent-soft:rgba(230,57,70,.12); --accent-star:rgba(230,57,70,.34); }
+        /* hero brand banner */
+        .hero-banner{border:1px solid var(--line-strong); border-radius:8px; padding:6px; background:rgba(15,26,44,.5); box-shadow:0 24px 70px rgba(0,0,0,.45)}
+        .hero-banner img{width:100%; height:auto; display:block; border-radius:5px; aspect-ratio:16/9; object-fit:cover}
+        @media(max-width:900px){.hero-banner{max-width:520px}}
         /* store strip */
         .stores{padding:2.6rem 0}
         .store-head{display:flex; align-items:baseline; gap:.9rem; flex-wrap:wrap; margin-bottom:1.3rem}
         .store-head .t{font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:1.25rem; letter-spacing:-.01em}
-        .store-head .s{color:var(--faint); font-size:.9rem}
         .store-row{display:flex; gap:.9rem; flex-wrap:wrap}
         .store-row .btn{flex:1; min-width:200px; justify-content:center; padding:.95rem 1.2rem}
         /* disciplines */
@@ -42,6 +45,10 @@
         .disc .row p{color:var(--muted); font-size:.96rem; max-width:60ch}
         .disc .row .tags{font-family:'IBM Plex Mono',monospace; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); text-align:right; white-space:nowrap; padding-top:.4rem}
         @media(max-width:720px){.disc .row{grid-template-columns:1fr; gap:.4rem}.disc .row .no{padding-top:0}.disc .row .tags{text-align:left}}
+        /* per-app rating */
+        .rate{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.04em; color:var(--muted); margin-top:.45rem; display:flex; align-items:center; gap:.4rem}
+        .rate .st{color:var(--accent); letter-spacing:.05em}
+        .rate .ct{color:var(--faint)}
         /* studio story */
         .studio-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:start}
         .studio-lede{font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(1.3rem,2.6vw,1.75rem); line-height:1.35; letter-spacing:-.01em; color:var(--star); margin-bottom:1.3rem; text-wrap:balance}
@@ -52,8 +59,13 @@
         .signal .g{color:var(--accent); font-size:1rem; line-height:1.3; flex-shrink:0}
         .signal h4{font-family:'Fraunces',serif; font-weight:500; font-size:1.02rem; margin-bottom:.1rem}
         .signal p{color:var(--muted); font-size:.86rem}
-        .stars{color:var(--accent); letter-spacing:.15em; font-size:.95rem}
+        .signal .stars{color:var(--accent); letter-spacing:.12em; font-size:.9rem}
         @media(max-width:900px){.studio-grid{grid-template-columns:1fr; gap:2rem}}
+        /* legal */
+        .legal{border:1px solid var(--line); border-radius:5px; background:rgba(11,19,34,.5); padding:1.6rem 1.8rem}
+        .legal h3{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
+        .legal p{color:var(--faint); font-size:.84rem; line-height:1.7; max-width:none}
+        .legal p + p{margin-top:.7rem}
     </style>
     <script type="application/ld+json">
     {
@@ -62,6 +74,7 @@
       "name": "MiyaraHub Technologies LLC",
       "url": "https://miyarahub.com",
       "logo": "https://miyarahub.com/assets/logo-square.jpg",
+      "image": "https://miyarahub.com/assets/banner.jpg",
       "description": "Small, independent software studio building native apps, full-stack web and e-commerce platforms, systems and monitoring tools, device integrations, and DevOps pipelines.",
       "founder": { "@type": "Person", "name": "Meir Miyara" },
       "address": { "@type": "PostalAddress", "addressLocality": "Dallas", "addressRegion": "TX", "addressCountry": "US" },
@@ -104,22 +117,8 @@
                     </div>
                     <p class="coming"><span class="dot">&#10022;</span> Native &middot; on-device &middot; no subscriptions &middot; no ads</p>
                 </div>
-                <div class="ephem fade">
-                    <div class="ephem-head">
-                        <span class="t">Studio</span>
-                        <span class="d">Dallas, TX</span>
-                    </div>
-                    <div class="ephem-rows">
-                        <div class="erow"><span class="lbl">Owner</span><span class="val"><b>Meir Miyara</b></span></div>
-                        <div class="erow"><span class="lbl">Products</span><span class="val"><b>10</b> apps &amp; platforms</span></div>
-                        <div class="erow"><span class="lbl">Disciplines</span><span class="val">6 across the full stack</span></div>
-                        <div class="erow"><span class="lbl">Platforms</span><span class="val">iOS &middot; Android &middot; Mac &middot; Win &middot; Web</span></div>
-                        <div class="erow"><span class="lbl">Approach</span><span class="val">native, on-device, no ads</span></div>
-                        <div class="erow verdict">
-                            <span class="lbl">Community</span>
-                            <span class="val"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="grade">&nbsp;highly rated</span></span>
-                        </div>
-                    </div>
+                <div class="hero-banner fade">
+                    <img src="/assets/banner.jpg" alt="MiyaraHub Technologies - miyarahub.com" width="3072" height="1728">
                 </div>
             </div>
         </div>
@@ -158,36 +157,12 @@
                 <p class="sec-desc">We're not a single-app shop. We design, build, and ship across the full stack - and we own every layer, from device protocol to storefront checkout to the release pipeline.</p>
             </div>
             <div class="disc">
-                <div class="row fade">
-                    <div class="no">No. 01</div>
-                    <div><h3>Native apps</h3><p>Mobile and desktop apps built natively with Flutter - one codebase, a genuinely native feel across iOS, iPad, Android, macOS, and Windows.</p></div>
-                    <div class="tags">iOS &middot; Android<br>Mac &middot; Win</div>
-                </div>
-                <div class="row fade">
-                    <div class="no">No. 02</div>
-                    <div><h3>Full-stack web &amp; commerce</h3><p>End-to-end web platforms and storefronts - product catalogues, Square and PayPal checkout, content, and serverless backends.</p></div>
-                    <div class="tags">Web &middot; Payments<br>Serverless</div>
-                </div>
-                <div class="row fade">
-                    <div class="no">No. 03</div>
-                    <div><h3>Systems &amp; monitoring</h3><p>Dashboards and management tools for the hardware power users run - NAS units, UPS systems, network controllers, and servers.</p></div>
-                    <div class="tags">NAS &middot; UPS<br>Network</div>
-                </div>
-                <div class="row fade">
-                    <div class="no">No. 04</div>
-                    <div><h3>Device integration</h3><p>We reverse-engineer the protocols manufacturers never documented and turn them into clean, reliable control - dozens of device integrations and counting.</p></div>
-                    <div class="tags">Protocols<br>APIs</div>
-                </div>
-                <div class="row fade">
-                    <div class="no">No. 05</div>
-                    <div><h3>DevOps &amp; delivery</h3><p>Automated build pipelines, multi-platform release workflows, deterministic test suites, and infrastructure-as-code that ships reliably.</p></div>
-                    <div class="tags">CI/CD<br>Automation</div>
-                </div>
-                <div class="row fade">
-                    <div class="no">No. 06</div>
-                    <div><h3>Home theater &amp; automation</h3><p>Deep, purpose-built control for AV receivers, projectors, HDMI processors, and the connected home - the app the manufacturer never shipped.</p></div>
-                    <div class="tags">AV &middot; HDMI<br>Smart home</div>
-                </div>
+                <div class="row fade"><div class="no">No. 01</div><div><h3>Native apps</h3><p>Mobile and desktop apps built natively with Flutter - one codebase, a genuinely native feel across iOS, iPad, Android, macOS, and Windows.</p></div><div class="tags">iOS &middot; Android<br>Mac &middot; Win</div></div>
+                <div class="row fade"><div class="no">No. 02</div><div><h3>Full-stack web &amp; commerce</h3><p>End-to-end web platforms and storefronts - product catalogues, Square and PayPal checkout, content, and serverless backends.</p></div><div class="tags">Web &middot; Payments<br>Serverless</div></div>
+                <div class="row fade"><div class="no">No. 03</div><div><h3>Systems &amp; monitoring</h3><p>Dashboards and management tools for the hardware power users run - NAS units, UPS systems, network controllers, and servers.</p></div><div class="tags">NAS &middot; UPS<br>Network</div></div>
+                <div class="row fade"><div class="no">No. 04</div><div><h3>Device integration</h3><p>We reverse-engineer the protocols manufacturers never documented and turn them into clean, reliable control - dozens of device integrations and counting.</p></div><div class="tags">Protocols<br>APIs</div></div>
+                <div class="row fade"><div class="no">No. 05</div><div><h3>DevOps &amp; delivery</h3><p>Automated build pipelines, multi-platform release workflows, deterministic test suites, and infrastructure-as-code that ships reliably.</p></div><div class="tags">CI/CD<br>Automation</div></div>
+                <div class="row fade"><div class="no">No. 06</div><div><h3>Home theater &amp; automation</h3><p>Deep, purpose-built control for AV receivers, projectors, HDMI processors, and the connected home - the app the manufacturer never shipped.</p></div><div class="tags">AV &middot; HDMI<br>Smart home</div></div>
             </div>
         </div>
     </section>
@@ -197,20 +172,22 @@
         <div class="wrap">
             <div class="sec-head">
                 <div class="kicker">Selected work</div>
-                <h2 class="sec-title">Apps and platforms we've shipped.</h2>
-                <p class="sec-desc">A cross-section of the studio - native control and monitoring apps, a full e-commerce build, and more on the workbench.</p>
+                <h2 class="sec-title">Everything we've shipped, and what's next.</h2>
+                <p class="sec-desc">The full catalogue - native control and monitoring apps, a full e-commerce build, a memorial site, and more on the workbench. Star ratings are the real store averages; we don't show one until an app has enough reviews to count.</p>
             </div>
             <div class="catalogue">
-                <a href="/avr-maestro/" class="prod fade"><img class="ico" src="/assets/avr-maestro-icon.png" alt="AVR Maestro icon"><div class="meta"><h3>AVR Maestro</h3><p>The premier controller for Denon and Marantz AV receivers - volume, zones, sound modes, scenes, and room calibration.</p></div><div class="plats">App &middot; 5 platforms</div></a>
-                <a href="/synology-manager/" class="prod fade"><img class="ico" src="/assets/syno-manager-icon.png" alt="Synology Manager icon"><div class="meta"><h3>Synology Manager</h3><p>Independent monitoring and management for Synology NAS - storage, system health, tasks, files, and more.</p></div><div class="plats">App &middot; 5 platforms</div></a>
+                <a href="/avr-maestro/" class="prod fade"><img class="ico" src="/assets/avr-maestro-icon.png" alt="AVR Maestro icon"><div class="meta"><h3>AVR Maestro</h3><p>The premier controller for Denon and Marantz AV receivers - volume, zones, sound modes, scenes, and room calibration.</p><div class="rate"><span class="st">&#9733;</span> 4.9 <span class="ct">&middot; 146 ratings</span></div></div><div class="plats">App &middot; 5 platforms</div></a>
+                <a href="/synology-manager/" class="prod fade"><img class="ico" src="/assets/syno-manager-icon.png" alt="Synology Manager icon"><div class="meta"><h3>Synology Manager</h3><p>Independent monitoring and management for Synology NAS - storage, system health, tasks, files, and more.</p><div class="rate"><span class="st">&#9733;</span> 4.6 <span class="ct">&middot; App Store</span></div></div><div class="plats">App &middot; 5 platforms</div></a>
                 <a href="/upsight/" class="prod fade"><img class="ico" src="/assets/upsight-icon.png" alt="UPSight icon"><div class="meta"><h3>UPSight</h3><p>Real-time UPS monitoring over SNMP and NUT - battery, load, runtime, and power events for CyberPower, Eaton, and more.</p></div><div class="plats">App &middot; 5 platforms</div></a>
                 <a href="/fury-path/" class="prod fade"><img class="ico" src="/assets/furypath-icon.png" alt="FuryPath icon"><div class="meta"><h3>FuryPath</h3><p>Control HDFury HDMI processors - EDID, HDR, Dolby Vision, CEC, JVC macros, and real-time signal info over Wi-Fi.</p></div><div class="plats">App &middot; iOS &middot; Android</div></a>
+                <a href="/uc-remote/" class="prod fade"><img class="ico" src="/assets/uc-remote-icon.png" alt="UC Remote icon"><div class="meta"><h3>UC Remote</h3><p>A premium native companion for the Unfolded Circle Remote Two and Remote 3, backed by 45+ device integrations.</p><div class="rate"><span class="st">&#9733;</span> 5.0 <span class="ct">&middot; 34 ratings</span></div></div><div class="plats">App &middot; Android</div></a>
                 <a href="/elan-audio-lab/" class="prod fade"><img class="ico" src="/assets/elan-audio-lab-icon.png" alt="Elan Audio Lab icon"><div class="meta"><h3>Elan Audio Lab <span class="pill">Web platform</span></h3><p>A full-stack e-commerce build for boutique tube amplifiers - catalogue, Square and PayPal checkout, quotes, blog, and artist showcases.</p></div><div class="plats">Web &middot; iOS &middot; Android</div></a>
-                <a href="/uc-remote/" class="prod fade"><img class="ico" src="/assets/uc-remote-icon.png" alt="UC Remote icon"><div class="meta"><h3>UC Remote</h3><p>A premium native companion for the Unfolded Circle Remote Two and Remote 3, backed by 45+ device integrations.</p></div><div class="plats">App &middot; Android</div></a>
                 <a href="/almanox/" class="prod fade"><img class="ico" src="/assets/almanox-icon.png" alt="Almanox icon"><div class="meta"><h3>Almanox <span class="pill">Coming soon</span></h3><p>Is tonight good for the stars? A one-screen verdict for sun, moon, and Milky Way planning - offline, one-time purchase.</p></div><div class="plats">App &middot; iOS &middot; Android</div></a>
-                <a href="/nexus-deck/" class="prod fade"><img class="ico" src="/assets/nexusdeck-icon.png" alt="NexusDeck icon"><div class="meta"><h3>NexusDeck <span class="pill">Pre-release</span></h3><p>An Audyssey and Dirac calibration file manager and curve uploader for Denon and Marantz receivers.</p></div><div class="plats">App &middot; iOS &middot; Android</div></a>
+                <a href="/nexus-deck/" class="prod fade"><img class="ico" src="/assets/nexusdeck-icon.png" alt="NexusDeck icon"><div class="meta"><h3>NexusDeck <span class="pill">Pre-release</span></h3><p>An Audyssey and Dirac calibration file manager and curve uploader for Denon and Marantz receivers - companion to AVR Maestro.</p></div><div class="plats">App &middot; iOS &middot; Android</div></a>
+                <a href="/avr-maestro/" class="prod fade"><img class="ico" src="/assets/avr-maestro-mc-icon.png" alt="AVR Maestro MC icon"><div class="meta"><h3>AVR Maestro MC <span class="pill">In development</span></h3><p>The sibling to AVR Maestro, for Yamaha MusicCast receivers - zones, sound programs, Surround:AI, party mode, and a multi-AVR switcher.</p></div><div class="plats">App &middot; iOS &middot; Android</div></a>
                 <a href="/network-deck/" class="prod fade"><img class="ico" src="/assets/network-deck-icon.png" alt="Network Deck icon"><div class="meta"><h3>Network Deck <span class="pill">In development</span></h3><p>Third-party live dashboards for Ubiquiti UniFi network controllers - clients, WiFi, and throughput.</p></div><div class="plats">App &middot; iOS &middot; Android</div></a>
                 <a href="/projector-pilot/" class="prod fade"><img class="ico" src="/assets/projector-pilot-icon.png" alt="Projector Pilot icon"><div class="meta"><h3>Projector Pilot <span class="pill">In development</span></h3><p>Control power, picture, HDR, colour modes, and lens on Epson projectors.</p></div><div class="plats">App &middot; Android</div></a>
+                <a href="https://razchalak.com" target="_blank" rel="noopener" class="prod fade"><img class="ico" src="/assets/razchalak-icon.png" alt="Raz Chalak Memorial icon"><div class="meta"><h3>Raz Chalak Memorial <span class="pill">Web &middot; Custom</span></h3><p>A memorial site honoring Raz Chalak - a life timeline, photo galleries, voice memories, and a guestbook, on a lightweight admin system.</p></div><div class="plats">Web &rarr;</div></a>
             </div>
         </div>
     </section>
@@ -230,22 +207,10 @@
                     <p>We won't oversell. Some of our apps are polished and shipping to thousands of people; a few are still on the workbench, and we'll tell you which is which. What we promise is honest effort, <b>native software, on-device by default, and no subscriptions for things that run on hardware you already own.</b></p>
                 </div>
                 <div class="signals fade">
-                    <div class="signal">
-                        <span class="g">&#9733;</span>
-                        <div><h4>Highly rated</h4><p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>Our apps are rated highly by the people who use them every day. Check the stores - the reviews are real, and we read every one.</p></div>
-                    </div>
-                    <div class="signal">
-                        <span class="g">&#9673;</span>
-                        <div><h4>Community-driven</h4><p>Public issue trackers, fast fixes, and features shaped by user requests. We build with the community, not just for it.</p></div>
-                    </div>
-                    <div class="signal">
-                        <span class="g">&#9635;</span>
-                        <div><h4>Independent</h4><p>Owner-run, self-funded, and beholden to the people who use our apps - not investors or advertisers.</p></div>
-                    </div>
-                    <div class="signal">
-                        <span class="g">&#9670;</span>
-                        <div><h4>Fair pricing</h4><p>Mostly one-time purchases. No subscriptions or ads for software that runs entirely on your own devices.</p></div>
-                    </div>
+                    <div class="signal"><span class="g">&#9733;</span><div><h4>Highly rated</h4><p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>Our rated apps sit between 4.6 and 5.0 stars on the stores. The reviews are real and public - we read every one.</p></div></div>
+                    <div class="signal"><span class="g">&#9673;</span><div><h4>Community-driven</h4><p>Public issue trackers, fast fixes, and features shaped by user requests. We build with the community, not just for it.</p></div></div>
+                    <div class="signal"><span class="g">&#9635;</span><div><h4>Independent</h4><p>Owner-run, self-funded, and beholden to the people who use our apps - not investors or advertisers.</p></div></div>
+                    <div class="signal"><span class="g">&#9670;</span><div><h4>Fair pricing</h4><p>Mostly one-time purchases. No subscriptions or ads for software that runs entirely on your own devices.</p></div></div>
                 </div>
             </div>
         </div>
@@ -279,6 +244,18 @@
         </div>
     </section>
 
+    <!-- Legal -->
+    <section id="legal" style="padding:3rem 0">
+        <div class="wrap">
+            <div class="legal">
+                <h3>Legal &amp; trademark notice</h3>
+                <p>MiyaraHub Technologies LLC builds independent, third-party applications. Our apps are not created by, affiliated with, endorsed by, sponsored by, or officially connected with the manufacturers whose hardware they work with.</p>
+                <p>Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX Enhanced, Auro-3D, Yamaha, MusicCast, Synology, CyberPower, Eaton, HDFury, Ubiquiti, UniFi, Epson, Unfolded Circle, Square, PayPal, and all other product names, logos, and brands referenced across this site and in our apps are trademarks or registered trademarks of their respective owners, used for identification purposes only. Their use does not imply any affiliation or endorsement.</p>
+                <p>&copy; 2026 MiyaraHub Technologies LLC. All rights reserved. See our <a href="/privacy.html" style="color:var(--accent)">Privacy Policy</a> and <a href="/terms.html" style="color:var(--accent)">Terms of Service</a>.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="wrap">
@@ -290,6 +267,7 @@
                     <li><a href="/support/">Contact</a></li>
                     <li><a href="/privacy.html">Privacy</a></li>
                     <li><a href="/terms.html">Terms</a></li>
+                    <li><a href="#legal">Legal</a></li>
                 </ul>
             </div>
         </div>
