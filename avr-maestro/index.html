@@ -58,6 +58,13 @@
         .legal{border:1px solid var(--line); border-radius:5px; background:rgba(11,19,34,.5); padding:1.6rem 1.8rem}
         .legal h3{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
         .legal p{color:var(--faint); font-size:.84rem; line-height:1.7} .legal p+p{margin-top:.7rem}
+        .reviews{display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem}
+        .rev{border:1px solid var(--line); border-radius:8px; padding:1.4rem 1.5rem; background:rgba(15,26,44,.4)}
+        .rev .st{color:var(--accent); letter-spacing:.15em; font-size:.9rem}
+        .rev h4{font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:1.08rem; margin:.5rem 0 .4rem}
+        .rev p{color:var(--muted); font-size:.94rem; line-height:1.6}
+        .rev .by{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.06em; color:var(--faint); margin-top:.8rem}
+        @media(max-width:720px){.reviews{grid-template-columns:1fr}}
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"SoftwareApplication","name":"AVR Maestro","operatingSystem":"iOS, iPadOS, Android, macOS, Windows","applicationCategory":"UtilitiesApplication","description":"Premium controller for Denon and Marantz AV receivers - volume, inputs, surround modes, multi-zone, Audyssey, Dirac Live, IMAX Enhanced, per-channel levels, scenes, tuner, and HEOS.","url":"https://miyarahub.com/avr-maestro/","author":{"@type":"Organization","name":"MiyaraHub Technologies LLC","url":"https://miyarahub.com"},"offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"146"}}
@@ -200,6 +207,19 @@
                 <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">How much does AVR Maestro cost? <span class="arw">+</span></div><div class="a"><div class="a-in">AVR Maestro is a one-time purchase at $9.99. No subscription, no ads, no in-app purchases. You buy it once and own it.</div></div></div>
                 <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Can I control my receiver remotely from outside my home? <span class="arw">+</span></div><div class="a"><div class="a-in">AVR Maestro connects to whatever IP address you configure. If your receiver is accessible via VPN or Tailscale, the app will work remotely. We recommend using a VPN or Tailscale rather than exposing your receiver directly to the internet.</div></div></div>
                 <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Which platforms and versions are supported? <span class="arw">+</span></div><div class="a"><div class="a-in">AVR Maestro is available on iPhone (App Store), Android (Google Play), Windows (Microsoft Store) and macOS (Mac App Store). On Android it requires Android 5.0 (API 21) or higher; on iPhone, a recent device on a current iOS release. The full manual lives at <a href="https://avrmaestro.com" target="_blank" rel="noopener" style="color:var(--accent)">avrmaestro.com</a>.</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">What people say</div><h2 class="sec-title">Rated 4.9 by the people who use it.</h2><p class="sec-desc">A few real reviews from the App Store. <a href="https://apps.apple.com/us/app/avr-maestro/id6762881597" target="_blank" rel="noopener" style="color:var(--accent)">Read them all &rarr;</a></p></div>
+            <div class="reviews">
+                <div class="rev fade"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><h4>It keeps getting better&hellip;</h4><p>Outstanding app, it does everything I need and more incredibly well. As far as apps go, this one goes to 11&hellip;</p><div class="by">Mark aka Dr Monk &middot; App Store</div></div>
+                <div class="rev fade"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><h4>Love the Maestro</h4><p>Fantastic app that works so much better than the Denon remote and menus. Greatly appreciated and I highly recommend it.</p><div class="by">skaggz02 &middot; App Store</div></div>
+                <div class="rev fade"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><h4>Fantastic App</h4><p>Best app I have for audio. So easy to use and manage your Denon and Marantz products. Highly recommended. Really it's a no brainer.</p><div class="by">RJS1 Fav App &middot; App Store</div></div>
+                <div class="rev fade"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><h4>Better than Denon UI App</h4><p>Developer is quick to reply, listens to customers, hands on, and friendlier to use than the Denon UI app. Always updating!</p><div class="by">IJ23!!$ &middot; App Store</div></div>
             </div>
         </div>
     </section>

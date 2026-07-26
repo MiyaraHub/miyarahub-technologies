@@ -51,6 +51,11 @@
         .legal{border:1px solid var(--line); border-radius:5px; background:rgba(11,19,34,.5); padding:1.6rem 1.8rem}
         .legal h3{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
         .legal p{color:var(--faint); font-size:.84rem; line-height:1.7} .legal p+p{margin-top:.7rem}
+        .rev{border:1px solid var(--line); border-radius:8px; padding:1.6rem 1.8rem; background:rgba(15,26,44,.4); max-width:640px}
+        .rev .st{color:var(--accent); letter-spacing:.15em; font-size:.95rem}
+        .rev h4{font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:1.15rem; margin:.5rem 0 .4rem}
+        .rev p{color:var(--muted); font-size:.98rem; line-height:1.6}
+        .rev .by{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.06em; color:var(--faint); margin-top:.8rem}
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Syno Manager","operatingSystem":"iOS, iPadOS, Android, macOS, Windows","applicationCategory":"UtilitiesApplication","description":"Independent monitoring and management app for Synology NAS - real-time dashboards, Docker, Surveillance Station, storage and drive health, network monitoring, packages, and widgets.","url":"https://miyarahub.com/synology-manager/","author":{"@type":"Organization","name":"MiyaraHub Technologies LLC","url":"https://miyarahub.com"},"offers":{"@type":"Offer","price":"6.99","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","ratingCount":"20"}}
@@ -183,6 +188,14 @@
                 <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">How much does Syno Manager cost? <span class="arw">+</span></div><div class="a"><div class="a-in">Syno Manager is a one-time purchase at $6.99. No subscription, no ads, no in-app purchases. You buy it once on the App Store or Google Play and you own it.</div></div></div>
                 <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Can I access my NAS remotely (outside my home network)? <span class="arw">+</span></div><div class="a"><div class="a-in">Syno Manager connects to whatever IP/hostname you configure. If your NAS is accessible via VPN, Tailscale, or a forwarded port, the app will work remotely. We recommend using a VPN or Tailscale rather than exposing DSM directly to the internet.</div></div></div>
             </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">What people say</div><h2 class="sec-title">Rated 4.5 on the App Store.</h2><p class="sec-desc">A real review from the App Store. <a href="https://apps.apple.com/us/app/syno-manager/id6763011668" target="_blank" rel="noopener" style="color:var(--accent)">Read them all &rarr;</a></p></div>
+            <div class="rev fade"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><h4>Great, works well for me</h4><p>I have this app and also one called NAS Pro. This one is by far the better app and the more stable one for me.</p><div class="by">Tim Colling &middot; App Store</div></div>
         </div>
     </section>
 
