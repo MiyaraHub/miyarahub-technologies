@@ -7,10 +7,55 @@
     <meta name="description" content="Elan Audio Lab - full-stack e-commerce platform for boutique hand-soldered tube amplifiers. Product catalog, amp customization builder, Square and PayPal payments, artist showcases, blog, and admin dashboard. Built with Flutter, Supabase, and deployed on web, Android, and iOS.">
     <meta name="keywords" content="Elan Audio Lab, tube amplifier shop, boutique tube amplifiers, hand-soldered tube amps, custom tube amplifier, tube amp builder, tube amp e-commerce, handmade amplifier, vacuum tube amplifier, hi-fi tube amp, audiophile tube amplifier, guitar tube amp, tube amp kit, vintage tube amplifier, tube amplifier for sale, buy tube amplifier online, audio equipment store, boutique audio equipment, handcrafted amplifiers, tube amp customization, amp builder custom order, audio lab Dallas Texas, premium audio equipment, hi-fi audio shop, audiophile equipment store, Elan Audio, tube amp artisan, Flutter e-commerce platform, MiyaraHub">
     <link rel="canonical" href="https://miyarahub.com/elan-audio-lab/">
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="Elan Audio Lab - Boutique Tube Amp E-Commerce">
+    <meta property="og:description" content="Full-stack e-commerce platform for boutique hand-soldered tube amplifiers. Built with Flutter, Supabase, Square, and PayPal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miyarahub.com/elan-audio-lab">
+    <meta property="og:image" content="https://miyarahub.com/assets/elan-audio-lab-icon.png">
+    <meta property="og:image:alt" content="App icon">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Elan Audio Lab - Boutique Tube Amp E-Commerce Platform">
     <meta name="twitter:description" content="Full-stack e-commerce for boutique hand-soldered tube amplifiers. Built with Flutter, Supabase, Square, and PayPal.">
     <meta name="twitter:image" content="https://miyarahub.com/assets/elan-audio-lab-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/elan-audio-lab-icon.png">
+    <link rel="apple-touch-icon" href="/assets/elan-audio-lab-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <style>
+        :root{ --accent:#06b6d4; --accent-deep:#22d3ee; --accent-soft:rgba(6,182,212,.12); --accent-star:rgba(6,182,212,.34); }
+        .crumb{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem}
+        .crumb a{color:var(--faint); text-decoration:none} .crumb a:hover{color:var(--accent)}
+        .p-hero{display:grid; grid-template-columns:1.1fr .9fr; gap:3.5rem; align-items:center}
+        .p-hero .ico{width:66px; height:66px; border-radius:16px; border:1px solid var(--line); margin-bottom:1.2rem}
+        .kicker .pill{font-family:'IBM Plex Mono',monospace; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent-star); border-radius:2px; padding:.14rem .5rem; margin-left:.7rem; vertical-align:middle}
+        .tagline{display:inline-flex; align-items:center; gap:.6rem; margin:1.3rem 0 1.5rem; padding:.75rem 1.15rem; border:1px solid var(--line-strong); border-radius:8px; background:var(--accent-soft); font-family:'IBM Plex Mono',monospace; font-size:.74rem; letter-spacing:.03em; color:var(--muted)}
+        .tagline b{color:var(--accent); font-weight:500}
+        .store-row{display:flex; gap:.7rem; flex-wrap:wrap; margin-bottom:0}
+        .store-row .btn svg{fill:var(--accent)}
+        .platforms{display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; margin-top:1.1rem}
+        .platforms .pl-lbl{font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+        .platforms .pl{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.04em; color:var(--muted); border:1px solid var(--line-strong); border-radius:3px; padding:.22rem .6rem}
+        .device .screen{border:1px solid var(--line-strong); border-radius:32px; padding:9px; background:linear-gradient(180deg,#0f1a2c,#0b1322); box-shadow:0 30px 85px rgba(0,0,0,.55); max-width:315px; margin:0 auto}
+        .device .screen img{width:100%; display:block; border-radius:24px; cursor:zoom-in}
+        .device .cap{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-top:.9rem}
+        .statband{display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:2.3rem 0}
+        .statband .st{text-align:center}
+        .statband .st .num{font-family:'Fraunces',Georgia,serif; font-size:clamp(2rem,4vw,2.9rem); font-weight:600; color:var(--accent); line-height:1}
+        .statband .st .lbl{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:.55rem}
+        .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem}
+        .gallery a{display:block; border:1px solid var(--line); border-radius:8px; overflow:hidden; transition:border-color .3s, transform .3s}
+        .gallery a:hover{border-color:var(--accent-star); transform:translateY(-4px)}
+        .gallery img{width:100%; display:block; cursor:zoom-in}
+        @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.p-hero{grid-template-columns:1fr; gap:2.4rem}.device{order:-1}}
+        @media(max-width:620px){.statband{grid-template-columns:repeat(2,1fr); gap:1.7rem}}
+        @media(max-width:460px){.gallery{grid-template-columns:1fr}}
+        .legal{border:1px solid var(--line); border-radius:5px; background:rgba(11,19,34,.5); padding:1.6rem 1.8rem}
+        .legal h3{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
+        .legal p{color:var(--faint); font-size:.84rem; line-height:1.7} .legal p+p{margin-top:.7rem}
+    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -27,723 +72,194 @@
       }
     }
     </script>
-    <meta name="author" content="MiyaraHub Technologies LLC">
-    <meta property="og:title" content="Elan Audio Lab - Boutique Tube Amp E-Commerce">
-    <meta property="og:description" content="Full-stack e-commerce platform for boutique hand-soldered tube amplifiers. Built with Flutter, Supabase, Square, and PayPal.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://miyarahub.com/elan-audio-lab">
-    <meta property="og:image" content="https://miyarahub.com/assets/elan-audio-lab-icon.png">
-    <meta property="og:image:alt" content="App icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/elan-audio-lab-icon.png">
-    <link rel="apple-touch-icon" href="../assets/elan-audio-lab-icon.png">
-    <style>
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root {
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #111827;
-            --bg-card: #1a2035;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --accent: #06b6d4;
-            --accent-glow: rgba(6, 182, 212, 0.15);
-            --border: rgba(148, 163, 184, 0.1);
-            --gradient-start: #06b6d4;
-            --gradient-end: #8b5cf6;
-            --orange: #F5A623;
-            --orange-glow: rgba(245, 166, 35, 0.15);
-        }
-        html{scroll-behavior:smooth}
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(245, 166, 35, 0.03) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            animation: ambientShift 20s ease-in-out infinite alternate;
-        }
-        @keyframes ambientShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-5%, 3%); }
-        }
-
-        /* NAV */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 100; background: rgba(10, 14, 26, 0.85);
-            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
-        }
-        .nav-brand {
-            display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
-        }
-        .nav-brand-text {
-            font-size: 1.15rem; font-weight: 700;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; letter-spacing: -0.02em;
-        }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-toggle {
-            display: none; background: none; border: none; cursor: pointer;
-            padding: 0.5rem; z-index: 101; flex-direction: column; gap: 5px;
-        }
-        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
-        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-toggle.open span:nth-child(2) { opacity: 0; }
-        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* HERO */
-        .hero {
-            display: flex; flex-direction: column; justify-content: center;
-            align-items: center; text-align: center; padding: 5rem 2rem 2rem; position: relative;
-        }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem;
-            background: var(--orange-glow); border: 1px solid rgba(245, 166, 35, 0.25);
-            border-radius: 100px; font-size: 0.8rem; color: var(--orange);
-            margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800;
-            line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem;
-        }
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--orange), #e8593a);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 1.25rem; line-height: 1.6; }
-        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-        .hero-cta {
-            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
-            background: linear-gradient(135deg, var(--orange), #e8593a); color: #fff;
-            text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
-        }
-        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245, 166, 35, 0.4); }
-        .hero-cta-secondary {
-            background: transparent; border: 1px solid var(--border); box-shadow: none; color: var(--text-secondary);
-        }
-        .hero-cta-secondary:hover { border-color: rgba(245, 166, 35, 0.3); color: var(--orange); box-shadow: 0 4px 20px rgba(245, 166, 35, 0.1); }
-
-        .hero-phones {
-            display: flex; gap: 1.25rem; margin-top: 2rem; justify-content: center;
-            flex-wrap: wrap; perspective: 1000px;
-        }
-        .phone-frame {
-            width: 180px; border-radius: 24px; overflow: hidden;
-            border: 2px solid rgba(148, 163, 184, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 166, 35, 0.06);
-            transition: transform 0.4s ease, box-shadow 0.4s ease; flex-shrink: 0;
-        }
-        .phone-frame:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(245, 166, 35, 0.12);
-        }
-        .phone-frame img { width: 100%; display: block; }
-
-        /* SECTIONS */
-        section { padding: 3rem 2rem; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
-        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .section-desc { color: var(--text-secondary); max-width: 600px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
-        .section-center { text-align: center; }
-        .section-center .section-desc { margin-left: auto; margin-right: auto; }
-
-        /* FEATURES GRID */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .feature-card {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
-            padding: 2rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-        .feature-card:hover { transform: translateY(-4px); border-color: rgba(245, 166, 35, 0.3); box-shadow: 0 8px 30px rgba(245, 166, 35, 0.08); }
-        .feature-icon {
-            width: 52px; height: 52px; border-radius: 14px; background: var(--orange-glow);
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;
-        }
-        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
-        .feature-card .tech-tag {
-            display: inline-block; padding: 0.15rem 0.5rem; background: rgba(148, 163, 184, 0.08);
-            border: 1px solid var(--border); border-radius: 6px; font-size: 0.72rem;
-            color: var(--text-secondary); margin-top: 0.75rem; margin-right: 0.3rem;
-        }
-
-        /* STATS BAR */
-        .stats-bar {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem; max-width: 800px; margin: 2rem auto 0;
-        }
-        .stat-item { text-align: center; }
-        .stat-number {
-            font-size: 2rem; font-weight: 800;
-            background: linear-gradient(135deg, var(--orange), #e8593a);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .stat-label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem; }
-
-        /* CAROUSEL */
-        .carousel-container { position: relative; max-width: 1100px; margin: 0 auto; padding: 2rem 0; }
-        .carousel-viewport { overflow: hidden; border-radius: 8px; }
-        .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .carousel-slide { flex: 0 0 auto; padding: 0 0.75rem; text-align: center; }
-        .carousel-slide img {
-            width: 100%; border-radius: 20px; border: 2px solid var(--border);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer;
-        }
-        .carousel-slide img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 166, 35, 0.1);
-            border-color: rgba(245, 166, 35, 0.3);
-        }
-        .carousel-slide .caption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
-        .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card);
-            border: 1px solid var(--border); color: var(--text-primary); font-size: 1.3rem;
-            cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
-            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .carousel-btn:hover { background: rgba(245, 166, 35, 0.15); border-color: rgba(245, 166, 35, 0.4); box-shadow: 0 4px 20px rgba(245, 166, 35, 0.2); }
-        .carousel-btn:disabled { opacity: 0.3; cursor: default; }
-        .carousel-btn.prev { left: -24px; }
-        .carousel-btn.next { right: -24px; }
-        .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
-        .carousel-dot {
-            width: 8px; height: 8px; border-radius: 50%; background: var(--border);
-            border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0;
-        }
-        .carousel-dot.active { background: var(--orange); transform: scale(1.3); }
-
-        /* TECH STACK */
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .tech-item {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-            padding: 1.25rem 1.5rem; display: flex; gap: 0.75rem; align-items: center;
-        }
-        .tech-item .icon {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--orange-glow);
-            display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
-        }
-        .tech-item h4 { font-size: 0.9rem; font-weight: 600; }
-        .tech-item p { font-size: 0.78rem; color: var(--text-secondary); }
-
-        /* ADMIN SECTION */
-        .admin-features {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;
-        }
-        .admin-item {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-            padding: 1.25rem 1.5rem; display: flex; gap: 0.75rem; align-items: flex-start;
-        }
-        .admin-item .icon {
-            width: 36px; height: 36px; border-radius: 8px; background: rgba(139, 92, 246, 0.15);
-            display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
-        }
-        .admin-item h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
-        .admin-item p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
-
-        /* CTA */
-        .cta-section { text-align: center; padding: 4rem 2rem; }
-        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
-        .cta-section p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2rem; }
-
-        /* FOOTER */
-        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
-        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .footer-copy { color: var(--text-secondary); font-size: 0.85rem; }
-        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--accent); }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav { padding: 1rem; }
-            .nav-toggle { display: flex; }
-            .nav-links {
-                display: none; position: absolute; top: 100%; left: 0; right: 0;
-                flex-direction: column; background: rgba(10, 14, 26, 0.97);
-                backdrop-filter: blur(20px); padding: 1rem 2rem; gap: 0;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-links.open { display: flex; }
-            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-            .nav-links li:last-child { border-bottom: none; }
-            .nav-links a { font-size: 1rem; }
-            .hero { padding: 4.5rem 1.5rem 1.5rem; }
-            .hero-phones { gap: 1rem; }
-            .phone-frame { width: 160px; }
-            .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; }
-            .carousel-btn.prev { left: 4px; }
-            .carousel-btn.next { right: 4px; }
-            .footer-content { flex-direction: column; text-align: center; }
-        }
-        @media (max-width: 480px) {
-            .nav-brand-text { font-size: 0.95rem; }
-            .phone-frame { width: 140px; }
-            .hero-cta-group { flex-direction: column; align-items: center; }
-        }
-
-        /* Fade-in */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .fade-in.no-delay { opacity: 1; transform: none; }
-
-        /* Lightbox */
-        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(10px); }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
-    </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+    <script type="application/ld+json">
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://miyarahub.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Elan Audio Lab",
-      "item": "https://miyarahub.com/elan-audio-lab/"
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://miyarahub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Elan Audio Lab",
+          "item": "https://miyarahub.com/elan-audio-lab/"
+        }
+      ]
     }
-  ]
-}
-</script>
+    </script>
 </head>
 <body>
 
-    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-        <img id="lightbox-img" src="" alt="Screenshot">
-    </div>
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="Elan Audio Lab screenshot enlarged"></div>
 
-    <!-- Navigation -->
     <nav>
-        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub Logo" style="height:32px;width:32px;border-radius:6px;"><span class="nav-brand-text">MiyaraHub</span></a>
-        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
+        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul class="nav-links" id="nav-menu">
-            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="/" onclick="closeNav()">Home</a></li>
+            <li><a href="#screens" onclick="closeNav()">Screens</a></li>
             <li><a href="#features" onclick="closeNav()">Features</a></li>
-            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
-            <li><a href="#tech" onclick="closeNav()">Tech Stack</a></li>
-            <li><a href="#admin" onclick="closeNav()">Admin Portal</a></li>
+            <li><a href="#tech" onclick="closeNav()">Tech</a></li>
+            <li><a href="#admin" onclick="closeNav()">Admin</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge">🎵 Boutique E-Commerce Platform</div>
-        <h1><span class="gradient">Elan Audio Lab</span></h1>
-        <p>
-            Full-stack e-commerce platform for a boutique tube amplifier brand with 35+ years of history.
-            Product catalog, custom amp builder, dual payment processing, artist showcases,
-            and a complete 20+ screen admin portal.
-        </p>
-        <div class="hero-cta-group">
-            <a href="https://elanaudiolab.com" target="_blank" rel="noopener" class="hero-cta">🌐 Visit Live Site</a>
-            <a href="https://play.google.com/store/apps/details?id=com.elanaudiolab.app" target="_blank" rel="noopener" class="hero-cta hero-cta-secondary">▶ Google Play</a>
-            <a href="https://apps.apple.com/us/app/elan-audio-lab/id6760269249" target="_blank" rel="noopener" class="hero-cta hero-cta-secondary"> App Store</a>
-            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
+    <header class="hero">
+        <div class="wrap">
+            <div class="crumb"><a href="/">MiyaraHub</a> / Elan Audio Lab</div>
+            <div class="p-hero">
+                <div>
+                    <img class="ico" src="/assets/elan-audio-lab-icon.png" alt="Elan Audio Lab app icon">
+                    <div class="kicker">Elan Audio Lab<span class="pill">Web platform</span></div>
+                    <h1>Boutique tube amps, sold end to end.<span class="stargl">&#10022;</span></h1>
+                    <p class="hero-sub">Full-stack e-commerce platform for a boutique tube amplifier brand with 35+ years of history.</p>
+                    <p class="hero-lede">Product catalog, custom amp builder, dual payment processing, artist showcases, and a complete 20+ screen admin portal.</p>
+                    <div class="tagline"><b>&#9670;</b> Boutique e-commerce platform &middot; 35+ years of amp-building heritage</div>
+                    <div class="store-row">
+                        <a class="btn store" href="https://elanaudiolab.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.7 15.7 0 0 0-1.3-3.4A8 8 0 0 1 18.9 8zM12 4c.8 1.1 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.9 1.9-4zM4.3 14a7.9 7.9 0 0 1 0-4h3.4a17.6 17.6 0 0 0 0 4H4.3zm.8 2h3a15.7 15.7 0 0 0 1.3 3.4A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.3-3.4A15.7 15.7 0 0 0 8.1 8zM12 20c-.8-1.1-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.9-1.9 4zm2.3-6H9.7a15.6 15.6 0 0 1 0-4h4.6a15.6 15.6 0 0 1 0 4zm.6 5.4c.6-1 1-2.1 1.3-3.4h3a8 8 0 0 1-4.3 3.4zm1.7-5.4a17.6 17.6 0 0 0 0-4h3.4a7.9 7.9 0 0 1 0 4h-3.4z"/></svg>Visit the store</a>
+                        <a class="btn store" href="https://play.google.com/store/apps/details?id=com.elanaudiolab.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M3.6 2.3 13.5 12 3.6 21.7a1.2 1.2 0 0 1-.6-1V3.3c0-.44.24-.82.6-1zM14.7 13l2.6 2.6-9.4 5.3L14.7 13zM14.7 11 7.9 3.1l9.4 5.3L14.7 11zM16.1 12l3-3 2.4 1.35c.66.38.66 1.32 0 1.7L19.1 15l-3-3z"/></svg>Google Play</a>
+                        <a class="btn store" href="https://apps.apple.com/us/app/elan-audio-lab/id6760269249" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store</a>
+                    </div>
+                    <div class="platforms">
+                        <span class="pl-lbl">Available on</span>
+                        <span class="pl">iPhone</span><span class="pl">iPad</span><span class="pl">Android</span><span class="pl">Web</span>
+                    </div>
+                </div>
+                <div class="device fade">
+                    <div class="screen"><img src="screenshots/home-page.png" alt="Elan Audio Lab storefront home page" onclick="openLightbox(this)" loading="lazy"></div>
+                    <div class="cap">The storefront home</div>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="hero-phones">
-            <div class="phone-frame">
-                <img src="screenshots/home-page.png" alt="Elan Audio Lab Home" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/catalog.png" alt="Product Catalog" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/customize-your-amp.png" alt="Amp Customization" loading="lazy">
+    <!-- Stats -->
+    <section style="padding:0">
+        <div class="wrap">
+            <div class="statband">
+                <div class="st"><div class="num">3</div><div class="lbl">Platforms (Web, iOS, Android)</div></div>
+                <div class="st"><div class="num">652</div><div class="lbl">Tests Passing</div></div>
+                <div class="st"><div class="num">20+</div><div class="lbl">Admin Screens</div></div>
+                <div class="st"><div class="num">6</div><div class="lbl">CI/CD Pipelines</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <section style="background: var(--bg-secondary); padding: 2rem;">
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Platforms (Web, iOS, Android)</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">652</div>
-                <div class="stat-label">Tests Passing</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Admin Screens</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">6</div>
-                <div class="stat-label">CI/CD Pipelines</div>
+    <!-- Screens -->
+    <section id="screens" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">See it in action</div><h2 class="sec-title">Dark-mode-first, tube-workshop warmth.</h2><p class="sec-desc">Real screens from Elan Audio Lab - catalog, amp builder, bundles, artists, story, and warranty registration. Tap any to zoom.</p></div>
+            <div class="gallery">
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/catalog.png" alt="Elan Audio Lab product catalog with filtering and search" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/customize-your-amp.png" alt="Elan Audio Lab amp customization builder with real-time pricing" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/bundles.png" alt="Elan Audio Lab product bundles with savings calculation" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/artists.png" alt="Elan Audio Lab artists and players wall of fame" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/our-story.png" alt="Elan Audio Lab our story brand history page" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/menu.png" alt="Elan Audio Lab navigation menu" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/register-your-product.png" alt="Elan Audio Lab warranty registration form" loading="lazy"></a>
             </div>
         </div>
     </section>
 
     <!-- Features -->
     <section id="features">
-        <div class="container fade-in">
-            <div class="section-label">Storefront Features</div>
-            <h2 class="section-title">A Complete E-Commerce Experience</h2>
-            <p class="section-desc">
-                Every feature a boutique brand needs - from browsing products to custom amp builds,
-                dual payment processing, and artist community.
-            </p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🛍️</div>
-                    <h3>Product Catalog</h3>
-                    <p>Heads, combos, cabinets, accessories, merch, and parts with filtering, search, product badges (new, sale, limited), and discount pricing.</p>
-                    <span class="tech-tag">Filtering</span>
-                    <span class="tech-tag">Search</span>
-                    <span class="tech-tag">Badges</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Amp Customization Builder</h3>
-                    <p>Configure custom amplifier modifications with real-time pricing. Select add-ons, see running totals, save builds for later, and share configurations.</p>
-                    <span class="tech-tag">Real-time Pricing</span>
-                    <span class="tech-tag">Save Builds</span>
-                    <span class="tech-tag">Share</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
-                    <h3>Dual Payment Processing</h3>
-                    <p>Square Web Payments SDK for credit cards plus PayPal integration. Tax calculation, address verification via USPS, and order tracking.</p>
-                    <span class="tech-tag">Square</span>
-                    <span class="tech-tag">PayPal</span>
-                    <span class="tech-tag">USPS</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎸</div>
-                    <h3>Artist Showcases</h3>
-                    <p>Wall of Fame featuring artists and players who use Elan products. Testimonials, quotes, and YouTube video links for social proof.</p>
-                    <span class="tech-tag">Testimonials</span>
-                    <span class="tech-tag">YouTube</span>
-                    <span class="tech-tag">Social Proof</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3>Product Bundles</h3>
-                    <p>Curated bundle deals with automatic savings calculation. Shows individual vs. bundle pricing, included items, and one-click add to cart.</p>
-                    <span class="tech-tag">Savings Calc</span>
-                    <span class="tech-tag">Bundle Deals</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📖</div>
-                    <h3>Brand Story & Content</h3>
-                    <p>Rich "Our Story" page with the 35+ year history of MetalHead Electronics. Blog with CMS-driven content, media gallery, and newsletter sign-up.</p>
-                    <span class="tech-tag">Blog</span>
-                    <span class="tech-tag">Gallery</span>
-                    <span class="tech-tag">CMS</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Warranty Registration</h3>
-                    <p>Product registration form with serial number lookup, purchase date, and warranty activation. Feeds directly into admin panel for tracking.</p>
-                    <span class="tech-tag">Serial Lookup</span>
-                    <span class="tech-tag">Registration</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Quiz Recommender</h3>
-                    <p>Interactive quiz to help customers find the right amplifier based on their playing style, genre, and needs. Personalized product recommendations.</p>
-                    <span class="tech-tag">Interactive</span>
-                    <span class="tech-tag">Personalized</span>
-                </div>
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Storefront Features</div><h2 class="sec-title">A complete e-commerce experience.</h2><p class="sec-desc">Every feature a boutique brand needs - from browsing products to custom amp builds, dual payment processing, and artist community.</p></div>
+            <div class="ledger">
+                <div class="entry fade"><div class="no">No. 01</div><div class="body"><h3><span class="glyph">&#9635;</span> Product Catalog</h3><p>Heads, combos, cabinets, accessories, merch, and parts with filtering, search, product badges (new, sale, limited), and discount pricing.</p><div class="meta"><span>Filtering</span><span>Search</span><span>Badges</span></div></div></div>
+                <div class="entry fade"><div class="no">No. 02</div><div class="body"><h3><span class="glyph">&#9881;</span> Amp Customization Builder</h3><p>Configure custom amplifier modifications with real-time pricing. Select add-ons, see running totals, save builds for later, and share configurations.</p><div class="meta"><span>Real-time Pricing</span><span>Save Builds</span><span>Share</span></div></div></div>
+                <div class="entry fade"><div class="no">No. 03</div><div class="body"><h3><span class="glyph">&#9673;</span> Dual Payment Processing</h3><p>Square Web Payments SDK for credit cards plus PayPal integration. Tax calculation, address verification via USPS, and order tracking.</p><div class="meta"><span>Square</span><span>PayPal</span><span>USPS</span></div></div></div>
+                <div class="entry fade"><div class="no">No. 04</div><div class="body"><h3><span class="glyph">&#9670;</span> Artist Showcases</h3><p>Wall of Fame featuring artists and players who use Elan products. Testimonials, quotes, and YouTube video links for social proof.</p><div class="meta"><span>Testimonials</span><span>YouTube</span><span>Social Proof</span></div></div></div>
+                <div class="entry fade"><div class="no">No. 05</div><div class="body"><h3><span class="glyph">&#9636;</span> Product Bundles</h3><p>Curated bundle deals with automatic savings calculation. Shows individual vs. bundle pricing, included items, and one-click add to cart.</p><div class="meta"><span>Savings Calc</span><span>Bundle Deals</span></div></div></div>
+                <div class="entry fade"><div class="no">No. 06</div><div class="body"><h3><span class="glyph">&#9678;</span> Brand Story &amp; Content</h3><p>Rich "Our Story" page with the 35+ year history of MetalHead Electronics. Blog with CMS-driven content, media gallery, and newsletter sign-up.</p><div class="meta"><span>Blog</span><span>Gallery</span><span>CMS</span></div></div></div>
+                <div class="entry fade"><div class="no">No. 07</div><div class="body"><h3><span class="glyph">&#9634;</span> Warranty Registration</h3><p>Product registration form with serial number lookup, purchase date, and warranty activation. Feeds directly into admin panel for tracking.</p><div class="meta"><span>Serial Lookup</span><span>Registration</span></div></div></div>
+                <div class="entry fade"><div class="no">No. 08</div><div class="body"><h3><span class="glyph">&#10022;</span> Quiz Recommender</h3><p>Interactive quiz to help customers find the right amplifier based on their playing style, genre, and needs. Personalized product recommendations.</p><div class="meta"><span>Interactive</span><span>Personalized</span></div></div></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Screenshots -->
-    <section id="screenshots" style="background: var(--bg-secondary);">
-        <div class="container fade-in section-center">
-            <div class="section-label">Screenshots</div>
-            <h2 class="section-title">See It in Action</h2>
-            <p class="section-desc">
-                Dark-mode-first design with warm orange accents - built to match the
-                atmosphere of a tube amp workshop.
-            </p>
-        </div>
-        <div class="carousel-container" id="carousel">
-            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
-            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">›</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="screenshots/home-page.png" alt="Home Page" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Home Page</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/catalog.png" alt="Product Catalog" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Product Catalog</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/customize-your-amp.png" alt="Amp Customization" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Amp Customization Builder</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/bundles.png" alt="Product Bundles" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Product Bundles</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/artists.png" alt="Artists & Players" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Artists &amp; Players</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/our-story.png" alt="Our Story" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Our Story</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/menu.png" alt="Navigation Menu" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Navigation Menu</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/register-your-product.png" alt="Warranty Registration" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Warranty Registration</div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots"></div>
         </div>
     </section>
 
     <!-- Tech Stack -->
-    <section id="tech">
-        <div class="container fade-in">
-            <div class="section-label">Tech Stack</div>
-            <h2 class="section-title">Built With Modern Tools</h2>
-            <p class="section-desc">
-                Cross-platform Flutter app backed by Supabase serverless infrastructure,
-                with dual payment SDKs and comprehensive CI/CD.
-            </p>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <div class="icon">📱</div>
-                    <div>
-                        <h4>Flutter + Dart</h4>
-                        <p>Single codebase for Web, iOS, Android</p>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="icon">⚡</div>
-                    <div>
-                        <h4>Supabase</h4>
-                        <p>Auth, database, storage, edge functions</p>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="icon">💳</div>
-                    <div>
-                        <h4>Square SDK</h4>
-                        <p>Credit card processing (Web Payments)</p>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="icon">🅿️</div>
-                    <div>
-                        <h4>PayPal</h4>
-                        <p>Alternative payment method</p>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="icon">🏗️</div>
-                    <div>
-                        <h4>Riverpod + MVVM</h4>
-                        <p>State management &amp; architecture</p>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="icon">🧊</div>
-                    <div>
-                        <h4>Freezed + GoRouter</h4>
-                        <p>Immutable models &amp; path-based navigation</p>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="icon">🔒</div>
-                    <div>
-                        <h4>Row-Level Security</h4>
-                        <p>Database-level access control</p>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="icon">🚀</div>
-                    <div>
-                        <h4>6 CI/CD Pipelines</h4>
-                        <p>Web + Android + iOS x Staging + Prod</p>
-                    </div>
-                </div>
+    <section id="tech" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Tech Stack</div><h2 class="sec-title">Built with modern tools.</h2><p class="sec-desc">Cross-platform Flutter app backed by Supabase serverless infrastructure, with dual payment SDKs and comprehensive CI/CD.</p></div>
+            <div class="priv">
+                <div class="p"><span class="g">&#9673;</span><div><h4>Flutter + Dart</h4><p>Single codebase for Web, iOS, Android</p></div></div>
+                <div class="p"><span class="g">&#9635;</span><div><h4>Supabase</h4><p>Auth, database, storage, edge functions</p></div></div>
+                <div class="p"><span class="g">&#9678;</span><div><h4>Square SDK</h4><p>Credit card processing (Web Payments)</p></div></div>
+                <div class="p"><span class="g">&#9670;</span><div><h4>PayPal</h4><p>Alternative payment method</p></div></div>
+                <div class="p"><span class="g">&#9881;</span><div><h4>Riverpod + MVVM</h4><p>State management &amp; architecture</p></div></div>
+                <div class="p"><span class="g">&#9636;</span><div><h4>Freezed + GoRouter</h4><p>Immutable models &amp; path-based navigation</p></div></div>
+                <div class="p"><span class="g">&#9634;</span><div><h4>Row-Level Security</h4><p>Database-level access control</p></div></div>
+                <div class="p"><span class="g">&#10022;</span><div><h4>6 CI/CD Pipelines</h4><p>Web + Android + iOS x Staging + Prod</p></div></div>
             </div>
         </div>
     </section>
 
     <!-- Admin Portal -->
-    <section id="admin" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">Admin Portal</div>
-            <h2 class="section-title">20+ Management Screens</h2>
-            <p class="section-desc">
-                A complete back-office for managing every aspect of the storefront -
-                products, orders, customers, content, and system settings.
-            </p>
-            <div class="admin-features">
-                <div class="admin-item">
-                    <div class="icon">📊</div>
-                    <div><h4>Dashboard</h4><p>Sales overview, recent orders, activity log</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">📦</div>
-                    <div><h4>Products & Categories</h4><p>Full CRUD with images, pricing, badges</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">🛒</div>
-                    <div><h4>Orders & Customers</h4><p>Order management, customer profiles</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">🔧</div>
-                    <div><h4>Customizations</h4><p>Components, options, pricing rules</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">🎁</div>
-                    <div><h4>Bundles & Badges</h4><p>Bundle deals, product badge management</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">📝</div>
-                    <div><h4>Blog & Gallery</h4><p>CMS content, media management</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">🎯</div>
-                    <div><h4>Quiz & Waitlist</h4><p>Recommender quiz config, waitlist signups</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">✉️</div>
-                    <div><h4>Email & Newsletter</h4><p>Templates, messaging, subscriber management</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">⚙️</div>
-                    <div><h4>Site & System Settings</h4><p>Feature flags, SEO, content pages</p></div>
-                </div>
-                <div class="admin-item">
-                    <div class="icon">👤</div>
-                    <div><h4>User Management</h4><p>Roles, permissions, account settings</p></div>
-                </div>
+    <section id="admin">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Admin Portal</div><h2 class="sec-title">20+ management screens.</h2><p class="sec-desc">A complete back-office for managing every aspect of the storefront - products, orders, customers, content, and system settings.</p></div>
+            <div class="priv">
+                <div class="p"><span class="g">&#9673;</span><div><h4>Dashboard</h4><p>Sales overview, recent orders, activity log</p></div></div>
+                <div class="p"><span class="g">&#9635;</span><div><h4>Products &amp; Categories</h4><p>Full CRUD with images, pricing, badges</p></div></div>
+                <div class="p"><span class="g">&#9678;</span><div><h4>Orders &amp; Customers</h4><p>Order management, customer profiles</p></div></div>
+                <div class="p"><span class="g">&#9881;</span><div><h4>Customizations</h4><p>Components, options, pricing rules</p></div></div>
+                <div class="p"><span class="g">&#9670;</span><div><h4>Bundles &amp; Badges</h4><p>Bundle deals, product badge management</p></div></div>
+                <div class="p"><span class="g">&#9636;</span><div><h4>Blog &amp; Gallery</h4><p>CMS content, media management</p></div></div>
+                <div class="p"><span class="g">&#10022;</span><div><h4>Quiz &amp; Waitlist</h4><p>Recommender quiz config, waitlist signups</p></div></div>
+                <div class="p"><span class="g">&#9634;</span><div><h4>Email &amp; Newsletter</h4><p>Templates, messaging, subscriber management</p></div></div>
+                <div class="p"><span class="g">&#9639;</span><div><h4>Site &amp; System Settings</h4><p>Feature flags, SEO, content pages</p></div></div>
+                <div class="p"><span class="g">&#9671;</span><div><h4>User Management</h4><p>Roles, permissions, account settings</p></div></div>
             </div>
         </div>
     </section>
 
+    <!-- Legal -->
+    <section style="padding:2.5rem 0 1rem">
+        <div class="wrap"><div class="legal">
+            <h3>Legal &amp; trademark notice</h3>
+            <p>Elan Audio Lab is a full-stack e-commerce build developed and published by MiyaraHub Technologies LLC. The storefront, companion app, and admin portal are independent software.</p>
+            <p>"Square" is a trademark of Block, Inc. "PayPal" is a trademark of PayPal Holdings, Inc. "Flutter" and "Dart" are trademarks of Google LLC. "Supabase" is a trademark of Supabase, Inc. All other product names, logos, and brands are the property of their respective owners, used here for identification and compatibility purposes only.</p>
+        </div></div>
+    </section>
+
     <!-- CTA -->
-    <section class="cta-section">
-        <h2>See It Live</h2>
-        <p>Elan Audio Lab is live on the web, Google Play, and the App Store.</p>
-        <div class="hero-cta-group" style="justify-content:center">
-            <a href="https://elanaudiolab.com" target="_blank" rel="noopener" class="hero-cta">🌐 elanaudiolab.com</a>
-            <a href="https://play.google.com/store/apps/details?id=com.elanaudiolab.app" target="_blank" rel="noopener" class="hero-cta hero-cta-secondary">▶ Google Play</a>
-            <a href="https://apps.apple.com/us/app/elan-audio-lab/id6760269249" target="_blank" rel="noopener" class="hero-cta hero-cta-secondary"> App Store</a>
+    <section class="cta">
+        <div class="wrap">
+            <h2>See it live.</h2>
+            <p>Elan Audio Lab is live on the web, Google Play, and the App Store.</p>
+            <div class="store-row" style="justify-content:center">
+                <a class="btn primary" href="https://elanaudiolab.com" target="_blank" rel="noopener">Visit elanaudiolab.com</a>
+                <a class="btn" href="https://play.google.com/store/apps/details?id=com.elanaudiolab.app" target="_blank" rel="noopener">Google Play</a>
+                <a class="btn" href="https://apps.apple.com/us/app/elan-audio-lab/id6760269249" target="_blank" rel="noopener">App Store</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-copy">&copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.</div>
-            <ul class="footer-links">
-                <li><a href="/">MiyaraHub Home</a></li>
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+        <div class="wrap"><div class="foot">
+            <div class="c">&copy; 2026 <b>MiyaraHub Technologies LLC</b> &middot; Dallas, TX. All rights reserved.<br>Independent software. Trademarks belong to their respective owners.</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/support/">Support</a></li>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
             </ul>
-        </div>
+        </div></div>
     </footer>
 
     <script>
-        // Fade-in - instantly show elements already in viewport
-        document.querySelectorAll('.fade-in').forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('no-delay');
-        });
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
-
-        function closeNav() {
-            document.getElementById('nav-menu').classList.remove('open');
-            document.getElementById('nav-toggle').classList.remove('open');
-        }
-
-        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-
-        function openLightbox(img) {
-            document.getElementById('lightbox-img').src = img.src;
-            document.getElementById('lightbox').classList.add('active');
-        }
-
-        // Carousel
-        (function() {
-            const track = document.getElementById('carousel-track');
-            const slides = track.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.getElementById('carousel-dots');
-            const totalSlides = slides.length;
-            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
-
-            function calcDimensions() {
-                const vw = track.parentElement.clientWidth;
-                if (vw < 480) slidesPerView = 2;
-                else if (vw < 768) slidesPerView = 3;
-                else if (vw < 1024) slidesPerView = 4;
-                else slidesPerView = 4;
-                slideWidth = vw / slidesPerView;
-                slides.forEach(s => s.style.width = slideWidth + 'px');
-            }
-            function maxIdx() { return Math.max(0, totalSlides - slidesPerView); }
-            function buildDots() {
-                dotsContainer.innerHTML = '';
-                for (let i = 0; i <= maxIdx(); i++) {
-                    const d = document.createElement('button');
-                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-                    d.onclick = () => goTo(i);
-                    dotsContainer.appendChild(d);
-                }
-            }
-            function goTo(i) {
-                currentIndex = Math.max(0, Math.min(i, maxIdx()));
-                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-                document.getElementById('carousel-prev').disabled = currentIndex <= 0;
-                document.getElementById('carousel-next').disabled = currentIndex >= maxIdx();
-                dotsContainer.querySelectorAll('.carousel-dot').forEach((d, j) => d.classList.toggle('active', j === currentIndex));
-            }
-            window.carouselPrev = () => goTo(currentIndex - 1);
-            window.carouselNext = () => goTo(currentIndex + 1);
-            function init() { calcDimensions(); if (currentIndex > maxIdx()) currentIndex = maxIdx(); buildDots(); goTo(currentIndex); }
-            init();
-            window.addEventListener('resize', init);
-            let startX = 0, drag = false;
-            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; drag = true; }, {passive:true});
-            track.addEventListener('touchend', e => { if (!drag) return; drag = false; const d = startX - e.changedTouches[0].clientX; if (Math.abs(d) > 50) { d > 0 ? carouselNext() : carouselPrev(); }}, {passive:true});
-        })();
+        function closeNav(){ document.getElementById('nav-menu').classList.remove('open'); document.getElementById('nav-toggle').classList.remove('open'); }
+        function openLightbox(img){ var lb=document.getElementById('lightbox'); document.getElementById('lightbox-img').src=img.src; lb.classList.add('active'); }
+        const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }); }, { threshold:0.08 });
+        document.querySelectorAll('.fade').forEach(el=>{ const r = el.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ el.classList.add('vis'); } else { io.observe(el); } });
     </script>
 </body>
 </html>
