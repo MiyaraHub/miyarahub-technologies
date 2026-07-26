@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <style>
-        :root{ --accent:#c15bd6; --accent-deep:#e0a0ee; --accent-soft:rgba(193,91,214,.12); --accent-star:rgba(193,91,214,.34); }
+        :root{ --accent:#ff7a1a; --accent-deep:#ffab5e; --accent-soft:rgba(255,122,26,.13); --accent-star:rgba(255,122,26,.34); }
         .crumb{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem}
         .crumb a{color:var(--faint); text-decoration:none} .crumb a:hover{color:var(--accent)}
         .p-hero{display:grid; grid-template-columns:1.05fr .95fr; gap:3.5rem; align-items:center}
@@ -36,12 +36,17 @@
         .platforms{display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; margin-top:1.1rem}
         .platforms .pl-lbl{font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
         .platforms .pl{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.04em; color:var(--muted); border:1px solid var(--line-strong); border-radius:3px; padding:.22rem .6rem}
-        .plate{border:1px solid var(--line-strong); border-radius:18px; padding:12px; background:linear-gradient(180deg,#1a1024,#120a18); box-shadow:0 30px 85px rgba(0,0,0,.55); max-width:520px; margin:0 auto}
-        .plate img{width:100%; display:block; border-radius:10px}
-        .plate .cap{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-top:.9rem; padding-bottom:.2rem}
-        @media(max-width:900px){.p-hero{grid-template-columns:1fr; gap:2.4rem}.plate{order:-1}}
+        .device .screen{border:1px solid var(--line-strong); border-radius:32px; padding:9px; background:linear-gradient(180deg,#1c1712,#12100c); box-shadow:0 30px 85px rgba(0,0,0,.55); max-width:315px; margin:0 auto}
+        .device .screen img{width:100%; display:block; border-radius:24px; cursor:zoom-in}
+        .device .cap{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-top:.9rem}
+        .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem}
+        .gallery a{display:block; border:1px solid var(--line); border-radius:8px; overflow:hidden; transition:border-color .3s, transform .3s}
+        .gallery a:hover{border-color:var(--accent-star); transform:translateY(-4px)}
+        .gallery img{width:100%; display:block; cursor:zoom-in; aspect-ratio:1080/2340; object-fit:cover; object-position:top}
+        @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.p-hero{grid-template-columns:1fr; gap:2.4rem}.device{order:-1}}
+        @media(max-width:460px){.gallery{grid-template-columns:1fr}}
         .compat{display:grid; grid-template-columns:repeat(2,1fr); gap:1.4rem}
-        .compat .c{border:1px solid var(--line); border-radius:6px; padding:1.4rem 1.6rem; background:rgba(26,16,36,.4)}
+        .compat .c{border:1px solid var(--line); border-radius:6px; padding:1.4rem 1.6rem; background:rgba(30,22,14,.4)}
         .compat .c h4{font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:1.12rem; margin-bottom:.8rem; display:flex; align-items:center; gap:.6rem; color:var(--star)}
         .compat .c h4 .g{color:var(--accent); flex-shrink:0}
         .compat .c ul{list-style:none}
@@ -51,7 +56,7 @@
         .compat-note strong{color:var(--muted)}
         @media(max-width:720px){.compat{grid-template-columns:1fr}}
         .a-in code{font-family:'IBM Plex Mono',monospace; font-size:.86em; color:var(--accent); background:var(--accent-soft); padding:.05rem .32rem; border-radius:3px}
-        .legal{border:1px solid var(--line); border-radius:5px; background:rgba(18,10,24,.5); padding:1.6rem 1.8rem}
+        .legal{border:1px solid var(--line); border-radius:5px; background:rgba(20,16,12,.5); padding:1.6rem 1.8rem}
         .legal h3{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
         .legal p{color:var(--faint); font-size:.84rem; line-height:1.7} .legal p+p{margin-top:.7rem}
         .legal p strong{color:var(--muted)}
@@ -100,11 +105,14 @@
 </head>
 <body>
 
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="AVR Maestro MC screenshot enlarged"></div>
+
     <nav>
         <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
         <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul class="nav-links" id="nav-menu">
             <li><a href="/" onclick="closeNav()">Home</a></li>
+            <li><a href="#screens" onclick="closeNav()">Screens</a></li>
             <li><a href="#features" onclick="closeNav()">Features</a></li>
             <li><a href="#compatibility" onclick="closeNav()">Compatibility</a></li>
             <li><a href="#security" onclick="closeNav()">Privacy</a></li>
@@ -120,7 +128,7 @@
                 <div>
                     <img class="ico" src="/assets/avr-maestro-mc-icon.png" alt="AVR Maestro MC app icon">
                     <div class="kicker">AVR Maestro MC</div>
-                    <h1>The Yamaha MusicCast remote, done right.<span class="stargl">&#10022;</span></h1>
+                    <h1>The premium remote for Yamaha MusicCast.<span class="stargl">&#10022;</span></h1>
                     <p class="hero-sub">Same polish as AVR Maestro - built for Yamaha.</p>
                     <p class="hero-lede">A premium, purpose-built remote for Yamaha MusicCast AV receivers, pre-processors, and sound bars. The sibling to AVR Maestro, rebuilt on Yamaha's MusicCast protocol - power, volume, inputs, Cinema DSP and Surround:AI sound programs, multi-zone control, music browsing, and a YPAO surface, direct to your receiver over Wi-Fi.</p>
                     <div class="price-hero"><span class="dot">&#9679;</span><span>In development - <b>coming soon</b> to the App Store and Google Play</span></div>
@@ -129,13 +137,26 @@
                         <span class="pl">iPhone</span><span class="pl">iPad</span><span class="pl">Android</span>
                     </div>
                 </div>
-                <div class="plate fade">
-                    <img src="/assets/avr-maestro-mc-feature.png" alt="AVR Maestro MC for Yamaha MusicCast receivers">
-                    <div class="cap">In development - launching soon</div>
+                <div class="device fade">
+                    <div class="screen"><img src="screenshots/device.jpg" alt="AVR Maestro MC AV Remote screen - d-pad, menu, and color buttons for a Yamaha receiver" onclick="openLightbox(this)" loading="lazy"></div>
+                    <div class="cap">The AV remote, one thumb</div>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Screens -->
+    <section id="screens" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Screenshots</div><h2 class="sec-title">Real screens, real receiver.</h2><p class="sec-desc">Actual AVR Maestro MC screenshots, captured against a live Yamaha CX-A5200. Dark by default, live device state, and a layout built for one-handed control. Tap any to enlarge.</p></div>
+            <div class="gallery">
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/g1_dashboard.jpg" alt="AVR Maestro MC dashboard - every input and MusicCast source in a grid" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/g2_sound.jpg" alt="AVR Maestro MC sound screen - DSP program, tone control, dialogue level, subwoofer trim" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/g3_zones.jpg" alt="AVR Maestro MC zones - independent power, volume, and input for main, Zone 2, and Zone 3" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/g4_ypao.jpg" alt="AVR Maestro MC YPAO panel - room correction state and YPAO Volume" loading="lazy"></a>
+            </div>
+        </div>
+    </section>
 
     <!-- Features -->
     <section id="features">
@@ -281,6 +302,7 @@
 
     <script>
         function closeNav(){ document.getElementById('nav-menu').classList.remove('open'); document.getElementById('nav-toggle').classList.remove('open'); }
+        function openLightbox(img){ var lb=document.getElementById('lightbox'); document.getElementById('lightbox-img').src=img.src; lb.classList.add('active'); }
         const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }); }, { threshold:0.08 });
         document.querySelectorAll('.fade').forEach(el=>{ const r = el.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ el.classList.add('vis'); } else { io.observe(el); } });
     </script>
