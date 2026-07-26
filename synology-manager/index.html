@@ -7,1443 +7,225 @@
     <meta name="description" content="Syno Manager - the best independent iPhone, iPad, Android, Windows, and Mac app for Synology NAS monitoring and management. Real-time CPU, RAM, disk, and network dashboards. Docker container management, Surveillance Station camera feeds, Download Station tasks, Hyper Backup status, RAID health, SMART disk monitoring, and shared folder management. Works with DS923+, DS1621+, DS1821+, DS220+, DS720+, DS920+, DS1522+, DS224+, RS1221+, DVA1622, and all DSM 7.x models.">
     <meta name="keywords" content="Synology NAS app, Synology manager app, Synology monitoring app, Synology NAS manager Android, Synology Docker app, Synology Docker container manager, Synology Surveillance Station app, Synology Surveillance Station mobile, Synology Download Station app, Synology Download Station mobile, Synology backup monitor app, DSM mobile app alternative, DSM 7 mobile app, DSM 7.2 app, Synology DS923+ app, Synology DS1621+ app, Synology DS1821+ app, Synology DS220+ app, Synology DS720+ app, Synology DS920+ app, Synology DS1522+ app, Synology DS423+ app, Synology RS1221+ app, Synology RS820+ app, Synology DS224+ app, Synology DS124 app, Synology DVA1622 app, NAS monitoring mobile app, NAS dashboard app, NAS CPU monitor, NAS RAM monitor, NAS storage health app, NAS SMART monitor, NAS disk health app, Synology RAID status app, Synology volume status, Synology network traffic monitor, Synology package manager mobile, Synology shared folder manager, Synology user management app, Synology Hyper Backup monitor, Synology Active Backup monitor, Synology resource monitor mobile, Synology system health app, best Synology mobile app, third party Synology app, independent Synology NAS app, Synology NAS remote monitoring, Synology NAS remote access app, Syno Manager, MiyaraHub">
     <link rel="canonical" href="https://miyarahub.com/synology-manager/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Syno Manager - Synology NAS Monitoring App for iPhone, iPad, Android, Windows &amp; Mac">
-    <meta name="twitter:description" content="Monitor and manage your Synology NAS from any device. Docker, cameras, storage, downloads, and more.">
-    <meta name="twitter:image" content="https://miyarahub.com/assets/syno-manager-icon.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Syno Manager",
-      "operatingSystem": "iOS, iPadOS, Android, Windows, macOS",
-      "applicationCategory": "UtilitiesApplication",
-      "description": "Independent mobile app for Synology NAS management. Real-time monitoring, Docker containers, Surveillance Station, Download Station, storage health, and backup tasks.",
-      "url": "https://miyarahub.com/synology-manager/",
-      "author": {
-        "@type": "Organization",
-        "name": "MiyaraHub Technologies LLC",
-        "url": "https://miyarahub.com"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "6.99",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "ratingCount": "4",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    }
-    </script>
     <meta name="author" content="MiyaraHub Technologies LLC">
-    <meta property="og:title" content="Syno Manager - Mobile NAS Management">
-    <meta property="og:description" content="Monitor and manage your Synology NAS from anywhere. Real-time dashboards, Docker containers, surveillance cameras, storage health - all from your phone.">
+    <meta property="og:title" content="Syno Manager - Mobile Synology NAS Management">
+    <meta property="og:description" content="Independent iPhone, iPad, Android, Windows, and Mac app for Synology NAS monitoring and management. Dashboards, Docker, cameras, storage health, and more. Rated 4.5/5.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://miyarahub.com/synology-manager">
+    <meta property="og:url" content="https://miyarahub.com/synology-manager/">
     <meta property="og:image" content="https://miyarahub.com/assets/syno-manager-icon.png">
-    <meta property="og:image:alt" content="App icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/syno-manager-icon.png">
-    <link rel="apple-touch-icon" href="../assets/syno-manager-icon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Syno Manager - Mobile Synology NAS Management">
+    <meta name="twitter:description" content="Independent Synology NAS monitoring and management on iPhone, iPad, Android, Windows, and Mac. Rated 4.5/5.">
+    <meta name="twitter:image" content="https://miyarahub.com/assets/syno-manager-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/syno-manager-icon.png">
+    <link rel="apple-touch-icon" href="/assets/syno-manager-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
     <style>
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root {
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #111827;
-            --bg-card: #1a2035;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --accent: #06b6d4;
-            --accent-glow: rgba(6, 182, 212, 0.15);
-            --accent-hover: #22d3ee;
-            --border: rgba(148, 163, 184, 0.1);
-            --gradient-start: #06b6d4;
-            --gradient-end: #8b5cf6;
-            --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.15);
-        }
-        html{scroll-behavior:smooth}
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            animation: ambientShift 20s ease-in-out infinite alternate;
-        }
-        @keyframes ambientShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-5%, 3%); }
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(10, 14, 26, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
-        .nav-brand-text {
-            font-size: 1.15rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
-        }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 101;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-secondary);
-            border-radius: 2px;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-toggle.open span:nth-child(2) { opacity: 0; }
-        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* HERO */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 5rem 2rem 2rem;
-            position: relative;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-        }
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
-        .hero-cta-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: #fff;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
-        }
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4);
-        }
-        .hero-cta-secondary {
-            background: transparent;
-            border: 1px solid var(--border);
-            box-shadow: none;
-            color: var(--text-secondary);
-        }
-        .hero-cta-secondary:hover {
-            border-color: rgba(6, 182, 212, 0.3);
-            color: var(--accent);
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.1);
-        }
-
-        /* HERO PHONE MOCKUP */
-        .hero-phones {
-            display: flex;
-            gap: 1.25rem;
-            margin-top: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            perspective: 1000px;
-        }
-        .phone-frame {
-            width: 180px;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 2px solid rgba(148, 163, 184, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(6, 182, 212, 0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            flex-shrink: 0;
-        }
-        .phone-frame:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(6, 182, 212, 0.15);
-        }
-        .phone-frame img {
-            width: 100%;
-            display: block;
-        }
-
-        /* SECTIONS */
-        section { padding: 3rem 2rem; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .section-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-        .section-desc {
-            color: var(--text-secondary);
-            max-width: 600px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-        .section-center { text-align: center; }
-        .section-center .section-desc { margin-left: auto; margin-right: auto; }
-
-        /* FEATURES GRID */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(6, 182, 212, 0.3);
-            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.08);
-        }
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: var(--accent-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-        .feature-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        .feature-card .tech-tag {
-            display: inline-block;
-            padding: 0.15rem 0.5rem;
-            background: rgba(148, 163, 184, 0.08);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.72rem;
-            color: var(--text-secondary);
-            margin-top: 0.75rem;
-            margin-right: 0.3rem;
-        }
-
-        /* SCREENSHOT CAROUSEL */
-        .carousel-container {
-            position: relative;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        .carousel-viewport {
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .carousel-slide {
-            flex: 0 0 auto;
-            padding: 0 0.75rem;
-            text-align: center;
-        }
-        .carousel-slide img {
-            width: 100%;
-            border-radius: 20px;
-            border: 2px solid var(--border);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            cursor: pointer;
-        }
-        .carousel-slide img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.1);
-            border-color: rgba(6, 182, 212, 0.3);
-        }
-        .carousel-slide .caption {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .carousel-btn:hover {
-            background: rgba(6, 182, 212, 0.15);
-            border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.2);
-        }
-        .carousel-btn:disabled {
-            opacity: 0.3;
-            cursor: default;
-        }
-        .carousel-btn.prev { left: -24px; }
-        .carousel-btn.next { right: -24px; }
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-        .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--border);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-            padding: 0;
-        }
-        .carousel-dot.active {
-            background: var(--accent);
-            transform: scale(1.3);
-        }
-        @media (max-width: 768px) {
-            .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; }
-            .carousel-btn.prev { left: 4px; }
-            .carousel-btn.next { right: 4px; }
-        }
-
-        /* HOW IT WORKS */
-        .how-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .how-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            position: relative;
-        }
-        .how-card .step-number {
-            display: inline-flex;
-            width: 36px;
-            height: 36px;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-        .how-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .how-card p {
-            color: var(--text-secondary);
-            font-size: 0.93rem;
-            line-height: 1.6;
-        }
-
-        /* PERMISSIONS SECTION */
-        .permissions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .permission-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        .permission-card .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: var(--green-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .permission-card h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-        .permission-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.5;
-        }
-
-        /* FAQ */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 1.25rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s;
-            user-select: none;
-        }
-        .faq-question:hover { color: var(--accent); }
-        .faq-question .arrow {
-            transition: transform 0.3s;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        .faq-item.open .faq-answer {
-            max-height: 500px;
-        }
-        .faq-answer-inner {
-            padding: 0 1.5rem 1.25rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* LEGAL DISCLAIMER BANNER */
-        .legal-banner {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem 2.5rem;
-            margin-top: 2rem;
-        }
-        .legal-banner h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        .legal-banner p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.7;
-        }
-
-        /* CTA SECTION */
-        .cta-section {
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-        .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        .cta-section p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 550px;
-            margin: 0 auto 2rem;
-        }
-
-        /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .footer-copy {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover { color: var(--accent); }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav { padding: 1rem; }
-            .nav-toggle { display: flex; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: rgba(10, 14, 26, 0.97);
-                backdrop-filter: blur(20px);
-                padding: 1rem 2rem;
-                gap: 0;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-links.open { display: flex; }
-            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-            .nav-links li:last-child { border-bottom: none; }
-            .nav-links a { font-size: 1rem; }
-            .hero { padding: 4.5rem 1.5rem 1.5rem; }
-            .hero-phones { gap: 1rem; }
-            .phone-frame { width: 160px; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .legal-banner { padding: 1.5rem; }
-        }
-        @media (max-width: 480px) {
-            .nav-brand-text { font-size: 0.95rem; }
-            .phone-frame { width: 140px; }
-            .hero-cta-group { flex-direction: column; align-items: center; }
-        }
-
-        /* Fade-in - only triggers for elements fully below viewport on load */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .fade-in.no-delay {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            cursor: zoom-out;
-            backdrop-filter: blur(10px);
-        }
-        .lightbox.active { display: flex; }
-        .lightbox img {
-            max-height: 90vh;
-            max-width: 90vw;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-        }
+        :root{ --accent:#06b6d4; --accent-deep:#22d3ee; --accent-soft:rgba(6,182,212,.12); --accent-star:rgba(6,182,212,.34); }
+        .crumb{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem}
+        .crumb a{color:var(--faint); text-decoration:none} .crumb a:hover{color:var(--accent)}
+        .p-hero{display:grid; grid-template-columns:1.1fr .9fr; gap:3.5rem; align-items:center}
+        .p-hero .ico{width:66px; height:66px; border-radius:16px; border:1px solid var(--line); margin-bottom:1.2rem}
+        .rate-hero{display:inline-flex; align-items:center; gap:1rem; margin:1.3rem 0 1.5rem; padding:.85rem 1.2rem; border:1px solid var(--line-strong); border-radius:8px; background:var(--accent-soft)}
+        .rate-hero .big{font-family:'Fraunces',Georgia,serif; font-size:2.4rem; font-weight:600; color:var(--star); line-height:.85}
+        .rate-hero .stars{color:var(--accent); font-size:1.05rem; letter-spacing:.14em}
+        .rate-hero .lbl{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--muted); margin-top:.3rem}
+        .rate-hero .lbl a{color:var(--accent); text-decoration:none} .rate-hero .lbl a:hover{text-decoration:underline}
+        .store-row{display:flex; gap:.7rem; flex-wrap:wrap; margin-bottom:0}
+        .store-row .btn svg{fill:var(--accent)}
+        .platforms{display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; margin-top:1.1rem}
+        .platforms .pl-lbl{font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+        .platforms .pl{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.04em; color:var(--muted); border:1px solid var(--line-strong); border-radius:3px; padding:.22rem .6rem}
+        .device .screen{border:1px solid var(--line-strong); border-radius:32px; padding:9px; background:linear-gradient(180deg,#0f1a2c,#0b1322); box-shadow:0 30px 85px rgba(0,0,0,.55); max-width:315px; margin:0 auto}
+        .device .screen img{width:100%; display:block; border-radius:24px; cursor:zoom-in}
+        .device .cap{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-top:.9rem}
+        .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem}
+        .gallery a{display:block; border:1px solid var(--line); border-radius:8px; overflow:hidden; transition:border-color .3s, transform .3s}
+        .gallery a:hover{border-color:var(--accent-star); transform:translateY(-4px)}
+        .gallery img{width:100%; display:block; cursor:zoom-in}
+        @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.p-hero{grid-template-columns:1fr; gap:2.4rem}.device{order:-1}}
+        @media(max-width:460px){.gallery{grid-template-columns:1fr}}
+        .legal{border:1px solid var(--line); border-radius:5px; background:rgba(11,19,34,.5); padding:1.6rem 1.8rem}
+        .legal h3{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
+        .legal p{color:var(--faint); font-size:.84rem; line-height:1.7} .legal p+p{margin-top:.7rem}
     </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://miyarahub.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Syno Manager",
-      "item": "https://miyarahub.com/synology-manager/"
-    }
-  ]
-}
-</script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Syno Manager","operatingSystem":"iOS, iPadOS, Android, macOS, Windows","applicationCategory":"UtilitiesApplication","description":"Independent monitoring and management app for Synology NAS - real-time dashboards, Docker, Surveillance Station, storage and drive health, network monitoring, packages, and widgets.","url":"https://miyarahub.com/synology-manager/","author":{"@type":"Organization","name":"MiyaraHub Technologies LLC","url":"https://miyarahub.com"},"offers":{"@type":"Offer","price":"6.99","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","ratingCount":"20"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://miyarahub.com/"},{"@type":"ListItem","position":2,"name":"Syno Manager","item":"https://miyarahub.com/synology-manager/"}]}
+    </script>
 </head>
 <body>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-        <img id="lightbox-img" src="" alt="Screenshot">
-    </div>
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="Syno Manager screenshot enlarged"></div>
 
-    <!-- Navigation -->
     <nav>
-        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub Logo" style="height:32px;width:32px;border-radius:6px;"><span class="nav-brand-text">MiyaraHub</span></a>
-        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
+        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul class="nav-links" id="nav-menu">
-            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="/" onclick="closeNav()">Home</a></li>
+            <li><a href="#screens" onclick="closeNav()">Screens</a></li>
             <li><a href="#features" onclick="closeNav()">Features</a></li>
-            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
-            <li><a href="#how-it-works" onclick="closeNav()">How It Works</a></li>
+            <li><a href="#security" onclick="closeNav()">Privacy</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge">🖥️ NAS Management, Reimagined</div>
-        <h1>
-            <span class="gradient">Syno Manager</span>
-        </h1>
-        <p>
-            A powerful, independent mobile app for monitoring and managing your
-            Synology NAS - real-time dashboards, Docker containers, surveillance cameras,
-            storage health, and more. All from your pocket.
-        </p>
-        <div style="display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.25rem;color:var(--text-secondary);font-size:.98rem" aria-label="Average user rating">
-            <span style="color:#ffc23d;letter-spacing:2px;font-size:1.05rem" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <strong class="js-rate-val" style="color:var(--text-primary);font-weight:700">4.5</strong>
-            <span>&middot; rated on the App Store</span>
+    <header class="hero">
+        <div class="wrap">
+            <div class="crumb"><a href="/">MiyaraHub</a> / Syno Manager</div>
+            <div class="p-hero">
+                <div>
+                    <img class="ico" src="/assets/syno-manager-icon.png" alt="Syno Manager app icon">
+                    <div class="kicker">Syno Manager</div>
+                    <h1>Your whole NAS, in hand.<span class="stargl">&#10022;</span></h1>
+                    <p class="hero-sub">Independent monitoring and management for your Synology NAS - storage, system health, Docker, cameras, and more, on every device you own.</p>
+                    <div class="rate-hero">
+                        <div class="big">4.5</div>
+                        <div>
+                            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                            <div class="lbl">out of 5 &middot; <a href="https://apps.apple.com/us/app/syno-manager/id6763011668" target="_blank" rel="noopener">Read the reviews &rarr;</a></div>
+                        </div>
+                    </div>
+                    <div class="store-row">
+                        <a class="btn store" href="https://play.google.com/store/apps/details?id=com.synomanager" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M3.6 2.3 13.5 12 3.6 21.7a1.2 1.2 0 0 1-.6-1V3.3c0-.44.24-.82.6-1zM14.7 13l2.6 2.6-9.4 5.3L14.7 13zM14.7 11 7.9 3.1l9.4 5.3L14.7 11zM16.1 12l3-3 2.4 1.35c.66.38.66 1.32 0 1.7L19.1 15l-3-3z"/></svg>Google Play</a>
+                        <a class="btn store" href="https://apps.apple.com/us/app/syno-manager/id6763011668" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store</a>
+                        <a class="btn store" href="https://apps.apple.com/us/app/syno-manager/id6763011668?platform=mac" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09z"/></svg>Mac App Store</a>
+                        <a class="btn store" href="https://apps.microsoft.com/store/detail/9P19N2B54N1R" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M11.4 3v8.4H3V3h8.4zM11.4 21H3v-8.4h8.4V21zM12.6 3H21v8.4h-8.4V3zM21 21h-8.4v-8.4H21V21z"/></svg>Microsoft Store</a>
+                    </div>
+                    <div class="platforms">
+                        <span class="pl-lbl">Available on</span>
+                        <span class="pl">iPhone</span><span class="pl">iPad</span><span class="pl">Android</span><span class="pl">macOS</span><span class="pl">Windows</span>
+                    </div>
+                </div>
+                <div class="device fade">
+                    <div class="screen"><img src="screenshots/device.jpg" alt="Syno Manager real-time dashboard for a Synology NAS" onclick="openLightbox(this)" loading="lazy"></div>
+                    <div class="cap">The real-time dashboard</div>
+                </div>
+            </div>
         </div>
-        <div class="hero-cta-group">
-            <a href="https://apps.apple.com/us/app/syno-manager/id6763011668" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store</a>
-            <a href="https://apps.apple.com/us/app/syno-manager/id6763011668?platform=mac" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Mac App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=com.synomanager" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13.5 12 3.6 21.7a1.2 1.2 0 0 1-.6-1V3.3c0-.44.24-.82.6-1zM14.7 13l2.6 2.6-9.4 5.3L14.7 13zM14.7 11 7.9 3.1l9.4 5.3L14.7 11zM16.1 12l3-3 2.4 1.35c.66.38.66 1.32 0 1.7L19.1 15l-3-3z"/></svg>Google Play</a>
-            <a href="https://apps.microsoft.com/store/detail/9P19N2B54N1R" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M11.4 3v8.4H3V3h8.4zM11.4 21H3v-8.4h8.4V21zM12.6 3H21v8.4h-8.4V3zM21 21h-8.4v-8.4H21V21z"/></svg>Microsoft Store</a>
-            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
-        </div>
+    </header>
 
-        <div class="hero-phones">
-            <div class="phone-frame">
-                <img src="screenshots/store/android/01_dashboard.jpg" alt="Syno Manager dashboard" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/store/android/03_storage.jpg" alt="Syno Manager storage and drives" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/store/android/08_theme_colors.jpg" alt="Syno Manager themes and accent colors" loading="lazy">
+    <!-- Screens -->
+    <section id="screens" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">See it in action</div><h2 class="sec-title">Your whole NAS, at a glance.</h2><p class="sec-desc">Real screenshots from Syno Manager - dashboard, system monitor, storage, tasks, files, themes, and more. Tap any to zoom.</p></div>
+            <div class="gallery">
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/01_dashboard.jpg" alt="Syno Manager dashboard - your whole NAS, one screen" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/02_system.jpg" alt="Syno Manager system monitor - health and load, live" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/03_storage.jpg" alt="Syno Manager storage - every drive, always watched" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/04_tasks.jpg" alt="Syno Manager task scheduler" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/05_dashboard_dark.jpg" alt="Syno Manager light or dark theme" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/06_files.jpg" alt="Syno Manager file station" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/07_settings.jpg" alt="Syno Manager personalize and settings" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/android/08_theme_colors.jpg" alt="Syno Manager theme and accent colors" loading="lazy"></a>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section id="features" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">Features</div>
-            <h2 class="section-title">Everything You Need at a Glance</h2>
-            <p class="section-desc">
-                Syno Manager connects directly to your Synology DSM API to deliver
-                real-time monitoring and management - no cloud middleman, no account required.
-            </p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Real-Time Dashboard</h3>
-                    <p>Live CPU, RAM, temperature, and uptime at a glance. Customizable cards let you see exactly what matters - system health, storage usage, network throughput, and more.</p>
-                    <span class="tech-tag">CPU</span>
-                    <span class="tech-tag">RAM</span>
-                    <span class="tech-tag">Temperature</span>
-                    <span class="tech-tag">Uptime</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🐳</div>
-                    <h3>Docker Management</h3>
-                    <p>View all running containers with real-time CPU and memory usage. Start, stop, restart containers, and access logs - full Docker control from your phone.</p>
-                    <span class="tech-tag">Containers</span>
-                    <span class="tech-tag">Logs</span>
-                    <span class="tech-tag">Start/Stop</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📹</div>
-                    <h3>Surveillance Cameras</h3>
-                    <p>Live camera feeds in a clean grid layout. Tap to view full-screen, see recording status, and monitor all your Surveillance Station cameras in one place.</p>
-                    <span class="tech-tag">Live View</span>
-                    <span class="tech-tag">ONVIF</span>
-                    <span class="tech-tag">Recording Status</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💾</div>
-                    <h3>Storage &amp; Drive Health</h3>
-                    <p>Volume usage, RAID status, individual drive temperatures, and SMART health data for every disk. Know the state of your storage at all times.</p>
-                    <span class="tech-tag">RAID</span>
-                    <span class="tech-tag">SMART</span>
-                    <span class="tech-tag">Drive Temps</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Network Monitoring</h3>
-                    <p>Live bandwidth graphs for every network interface. Track download/upload speeds, active connections, bonded interfaces, and DNS configuration.</p>
-                    <span class="tech-tag">Live Graphs</span>
-                    <span class="tech-tag">Bonding</span>
-                    <span class="tech-tag">Throughput</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3>Package Management</h3>
-                    <p>See all installed DSM packages and their status. Monitor running services, scheduled tasks, UPS battery status, log entries, and shared folders.</p>
-                    <span class="tech-tag">Packages</span>
-                    <span class="tech-tag">UPS</span>
-                    <span class="tech-tag">Logs</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Fully Customizable</h3>
-                    <p>Configure your dashboard categories, customize the navigation bar, choose your theme, and set polling intervals. Make the app work the way you want.</p>
-                    <span class="tech-tag">Themes</span>
-                    <span class="tech-tag">Navigation</span>
-                    <span class="tech-tag">Categories</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Widgets</h3>
-                    <p>Quick Actions, Storage Overview, and System Status widgets for your home screen. Glance at your NAS health without even opening the app.</p>
-                    <span class="tech-tag">Quick Actions</span>
-                    <span class="tech-tag">Storage</span>
-                    <span class="tech-tag">System Status</span>
-                </div>
+    <section id="features">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Features</div><h2 class="sec-title">Complete NAS control, in your hand.</h2><p class="sec-desc">Everything DSM shows you, made mobile - and it gracefully hides what your account can't see.</p></div>
+            <div class="ledger">
+                <div class="entry fade"><div class="no">No. 01</div><div class="body"><h3><span class="glyph">&#9673;</span> Real-time dashboard</h3><p>Live CPU, RAM, temperature, and uptime at a glance. Customizable cards let you see exactly what matters - system health, storage usage, network throughput, and more.</p></div></div>
+                <div class="entry fade"><div class="no">No. 02</div><div class="body"><h3><span class="glyph">&#9635;</span> Docker management</h3><p>View all running containers with real-time CPU and memory usage. Start, stop, restart containers, and access logs - full Docker control from your phone.</p></div></div>
+                <div class="entry fade"><div class="no">No. 03</div><div class="body"><h3><span class="glyph">&#9678;</span> Surveillance cameras</h3><p>Live camera feeds in a clean grid layout. Tap to view full-screen, see recording status, and monitor all your Surveillance Station cameras in one place.</p></div></div>
+                <div class="entry fade"><div class="no">No. 04</div><div class="body"><h3><span class="glyph">&#9634;</span> Storage &amp; drive health</h3><p>Volume usage, RAID status, individual drive temperatures, and SMART health data for every disk. Know the state of your storage at all times.</p></div></div>
+                <div class="entry fade"><div class="no">No. 05</div><div class="body"><h3><span class="glyph">&#9599;</span> Network monitoring</h3><p>Live bandwidth graphs for every network interface. Track download/upload speeds, active connections, bonded interfaces, and DNS configuration.</p></div></div>
+                <div class="entry fade"><div class="no">No. 06</div><div class="body"><h3><span class="glyph">&#9881;</span> Package management</h3><p>See all installed DSM packages and their status. Monitor running services, scheduled tasks, UPS battery status, log entries, and shared folders.</p></div></div>
+                <div class="entry fade"><div class="no">No. 07</div><div class="body"><h3><span class="glyph">&#9788;</span> Fully customizable</h3><p>Configure your dashboard categories, customize the navigation bar, choose your theme, and set polling intervals. Make the app work the way you want.</p></div></div>
+                <div class="entry fade"><div class="no">No. 08</div><div class="body"><h3><span class="glyph">&#10022;</span> Home-screen widgets</h3><p>Quick Actions, Storage Overview, and System Status widgets for your home screen. Glance at your NAS health without even opening the app.</p></div></div>
             </div>
         </div>
     </section>
 
-
-    <!-- Screenshots Gallery -->
-    <section id="screenshots">
-        <div class="container fade-in section-center">
-            <div class="section-label">Screenshots</div>
-            <h2 class="section-title">See It in Action</h2>
-            <p class="section-desc">
-                A ground-up redesign built for clarity and speed. Real-time data, a customizable
-                dashboard, and two-axis theming - now on iPhone, iPad, Android, Windows, and Mac.
-            </p>
-        </div>
-
-        <!-- On iPhone carousel -->
-        <div class="container fade-in section-center" style="margin-top: 2rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On iPhone</h3>
-        </div>
-        <div class="carousel-container" id="carousel-ios">
-            <button class="carousel-btn prev" onclick="carouselIosPrev()" id="carousel-prev-ios">&#8249;</button>
-            <button class="carousel-btn next" onclick="carouselIosNext()" id="carousel-next-ios">&#8250;</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track-ios">
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/01_dashboard.jpg" alt="Syno Manager on iPhone - Dashboard" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/02_system.jpg" alt="Syno Manager on iPhone - System health" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/03_storage.jpg" alt="Syno Manager on iPhone - Storage and drives" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/04_tasks.jpg" alt="Syno Manager on iPhone - Task scheduler" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/05_dashboard_dark.jpg" alt="Syno Manager on iPhone - Dashboard (dark)" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/06_files.jpg" alt="Syno Manager on iPhone - File Station" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/07_settings.jpg" alt="Syno Manager on iPhone - Settings" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/iphone/08_theme_colors.jpg" alt="Syno Manager on iPhone - Theme and colors" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots-ios"></div>
-        </div>
-
-        <!-- On iPad carousel -->
-        <div class="container fade-in section-center" style="margin-top: 3rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On iPad</h3>
-        </div>
-        <div class="carousel-container" id="carousel-ipad">
-            <button class="carousel-btn prev" onclick="carouselIpadPrev()" id="carousel-prev-ipad">&#8249;</button>
-            <button class="carousel-btn next" onclick="carouselIpadNext()" id="carousel-next-ipad">&#8250;</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track-ipad">
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/01_dashboard.jpg" alt="Syno Manager on iPad - Dashboard" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/02_system.jpg" alt="Syno Manager on iPad - System health" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/03_storage.jpg" alt="Syno Manager on iPad - Storage and drives" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/04_tasks.jpg" alt="Syno Manager on iPad - Task scheduler" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/05_files.jpg" alt="Syno Manager on iPad - File Station" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/06_theme.jpg" alt="Syno Manager on iPad - Theme and colors" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/07_network.jpg" alt="Syno Manager on iPad - Network" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/ipad/08_light.jpg" alt="Syno Manager on iPad - Light theme" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots-ipad"></div>
-        </div>
-
-        <!-- On Android carousel -->
-        <div class="container fade-in section-center" style="margin-top: 3rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On Android</h3>
-        </div>
-        <div class="carousel-container" id="carousel">
-            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">&#8249;</button>
-            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">&#8250;</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/01_dashboard.jpg" alt="Syno Manager on Android - Dashboard" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/02_system.jpg" alt="Syno Manager on Android - System health" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/03_storage.jpg" alt="Syno Manager on Android - Storage and drives" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/04_tasks.jpg" alt="Syno Manager on Android - Task scheduler" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/05_dashboard_dark.jpg" alt="Syno Manager on Android - Dashboard (dark)" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/06_files.jpg" alt="Syno Manager on Android - File Station" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/07_settings.jpg" alt="Syno Manager on Android - Settings" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/android/08_theme_colors.jpg" alt="Syno Manager on Android - Theme and colors" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots"></div>
-        </div>
-
-        <!-- On Windows carousel -->
-        <div class="container fade-in section-center" style="margin-top: 3rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On Windows</h3>
-        </div>
-        <div class="carousel-container carousel-landscape" id="carousel-win">
-            <button class="carousel-btn prev" onclick="carouselWinPrev()" id="carousel-prev-win">&#8249;</button>
-            <button class="carousel-btn next" onclick="carouselWinNext()" id="carousel-next-win">&#8250;</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track-win">
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/01_dashboard.jpg" alt="Syno Manager on Windows - Dashboard" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/02_storage.jpg" alt="Syno Manager on Windows - Storage and drives" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/03_system.jpg" alt="Syno Manager on Windows - System health" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/04_tasks.jpg" alt="Syno Manager on Windows - Task scheduler" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/05_network.jpg" alt="Syno Manager on Windows - Network throughput" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/06_files.jpg" alt="Syno Manager on Windows - File Station" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/07_theme.jpg" alt="Syno Manager on Windows - Theme and colors" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/08_light_dashboard.jpg" alt="Syno Manager on Windows - Light theme" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/windows/09_light_storage.jpg" alt="Syno Manager on Windows - Light theme storage" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots-win"></div>
-        </div>
-
-        <!-- On Mac carousel -->
-        <div class="container fade-in section-center" style="margin-top: 3rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On Mac</h3>
-        </div>
-        <div class="carousel-container carousel-landscape" id="carousel-mac">
-            <button class="carousel-btn prev" onclick="carouselMacPrev()" id="carousel-prev-mac">&#8249;</button>
-            <button class="carousel-btn next" onclick="carouselMacNext()" id="carousel-next-mac">&#8250;</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track-mac">
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/01_dashboard.jpg" alt="Syno Manager on Mac - Dashboard" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/02_storage.jpg" alt="Syno Manager on Mac - Storage and drives" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/03_system.jpg" alt="Syno Manager on Mac - System health" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/04_tasks.jpg" alt="Syno Manager on Mac - Task scheduler" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/05_network.jpg" alt="Syno Manager on Mac - Network throughput" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/06_files.jpg" alt="Syno Manager on Mac - File Station" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/07_theme.jpg" alt="Syno Manager on Mac - Theme and colors" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/store/mac/08_light.jpg" alt="Syno Manager on Mac - Light theme" onclick="openLightbox(this)" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots-mac"></div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">How It Works</div>
-            <h2 class="section-title">Direct API Connection. No Cloud Required.</h2>
-            <p class="section-desc">
-                Syno Manager communicates directly with your Synology NAS using the
-                official DSM API. Your NAS data stays between your device and your NAS.
-            </p>
-            <div class="how-cards">
-                <div class="how-card">
-                    <div class="step-number">1</div>
-                    <h3>Add Your NAS</h3>
-                    <p>Enter your NAS IP address and port. Syno Manager supports local network connections and custom ports - connect to any accessible DSM instance.</p>
-                </div>
-                <div class="how-card">
-                    <div class="step-number">2</div>
-                    <h3>Authenticate with DSM</h3>
-                    <p>Log in with your existing DSM credentials. The app uses the standard Synology authentication API - the same one DSM uses in your browser.</p>
-                </div>
-                <div class="how-card">
-                    <div class="step-number">3</div>
-                    <h3>Monitor &amp; Manage</h3>
-                    <p>Get real-time data streamed directly from your NAS. CPU usage, Docker containers, camera feeds, storage health - all updated live at your chosen polling interval.</p>
-                </div>
+    <!-- How it works -->
+    <section id="how" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">How it works</div><h2 class="sec-title">Direct DSM connection. No cloud.</h2></div>
+            <div class="steps">
+                <div class="step fade"><div class="n">1</div><h3>Add your NAS</h3><p>Enter your NAS IP or hostname and port. No MiyaraHub account, no sign-up.</p></div>
+                <div class="step fade"><div class="n">2</div><h3>Sign in with DSM</h3><p>Authenticate with your existing DSM credentials - sent only to your NAS, using the same mechanism as the DSM web portal.</p></div>
+                <div class="step fade"><div class="n">3</div><h3>Monitor &amp; manage</h3><p>Dashboards, Docker, cameras, storage, network, packages, and tasks - straight from your phone, tablet, or desktop.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Security & Permissions -->
+    <!-- Security & Privacy -->
     <section id="security">
-        <div class="container fade-in">
-            <div class="section-label">Security &amp; Privacy</div>
-            <h2 class="section-title">Your NAS, Your Data, Your Control</h2>
-            <p class="section-desc">
-                Syno Manager is designed with a privacy-first architecture. Minimal data collection,
-                no user tracking, no cloud dependency.
-            </p>
-            <div class="permissions-grid">
-                <div class="permission-card">
-                    <div class="icon">🔒</div>
-                    <div>
-                        <h4>No Cloud Relay</h4>
-                        <p>All communication happens directly between your device and your NAS over your local network. Nothing is routed through external servers.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">🔑</div>
-                    <div>
-                        <h4>Standard DSM Authentication</h4>
-                        <p>Uses the same authentication mechanism as the DSM web interface. Your credentials are sent only to your NAS - never to us.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">📡</div>
-                    <div>
-                        <h4>Minimal Analytics</h4>
-                        <p>We use Firebase Crashlytics to catch bugs and improve stability - no personal data, no usage tracking, no ads. The app never collects NAS data or credentials beyond your device.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">👤</div>
-                    <div>
-                        <h4>DSM Permission Aware</h4>
-                        <p>The app respects DSM user permissions. It can only access what your DSM account has permission to see - no privilege escalation, no admin shortcuts.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">🛡️</div>
-                    <div>
-                        <h4>No Account Required</h4>
-                        <p>No sign-up, no email, no MiyaraHub account needed. Download the app, add your NAS, and you're done.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">📦</div>
-                    <div>
-                        <h4>Read-Only by Default</h4>
-                        <p>Most features are read-only monitoring. Management actions (Docker stop/restart) require explicit user interaction - nothing happens automatically.</p>
-                    </div>
-                </div>
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Security &amp; Privacy</div><h2 class="sec-title">Your NAS, your data, your control.</h2><p class="sec-desc">Syno Manager is designed with a privacy-first architecture. Minimal data collection, no user tracking, no cloud dependency.</p></div>
+            <div class="priv">
+                <div class="p"><span class="g">&#9673;</span><div><h4>No cloud relay</h4><p>All communication happens directly between your device and your NAS over your local network. Nothing is routed through external servers.</p></div></div>
+                <div class="p"><span class="g">&#9635;</span><div><h4>Standard DSM authentication</h4><p>Uses the same authentication mechanism as the DSM web interface. Your credentials are sent only to your NAS - never to us.</p></div></div>
+                <div class="p"><span class="g">&#9678;</span><div><h4>Minimal analytics</h4><p>Firebase Crashlytics to catch bugs and improve stability - no personal data, no usage tracking, no ads. The app never collects NAS data or credentials beyond your device.</p></div></div>
+                <div class="p"><span class="g">&#9670;</span><div><h4>Secure local storage</h4><p>Connection details are stored on-device using platform-secure storage - iOS Keychain and Android Keystore.</p></div></div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" style="background: var(--bg-secondary);">
-        <div class="container fade-in section-center">
-            <div class="section-label">FAQ</div>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-desc">
-                Everything you need to know about Syno Manager.
-            </p>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Is Syno Manager affiliated with Synology Inc.?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <strong>No.</strong> Syno Manager is an independent, third-party application developed by MiyaraHub Technologies LLC.
-                            It is not created, endorsed, sponsored, or affiliated with Synology Inc. in any way.
-                            "Synology" and "DiskStation Manager" (DSM) are registered trademarks of Synology Inc.
-                            Our use of these names is purely for descriptive purposes to indicate compatibility (nominative fair use).
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        How does the app connect to my NAS?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Syno Manager uses the documented Synology DSM API endpoints to communicate with your NAS over your local network.
-                            The app sends requests directly to your NAS - there are no intermediary servers, proxies, or cloud relays involved.
-                            You provide the NAS IP/hostname and port, authenticate with your DSM credentials, and the app communicates directly with DSM.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        What permissions does the app need on my NAS?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            The app operates within whatever permissions your DSM user account has. For full dashboard functionality,
-                            an administrator account is recommended. However, the app will gracefully degrade - if your account doesn't
-                            have Docker permissions, the Docker section simply won't show data. Same for Surveillance Station, shared folders, etc.
-                            No special DSM packages need to be installed.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Does the app store my NAS credentials?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Connection details are stored locally on your device using platform-secure storage
-                            (iOS Keychain / Android Keystore). Credentials are never transmitted to MiyaraHub Technologies
-                            or any third party. They are used exclusively to authenticate with your NAS.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Which Synology models are supported?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Syno Manager works with any Synology NAS running DSM 7.0 or later. This includes all current
-                            DiskStation (DS), RackStation (RS), and FlashStation (FS) models. Older models running DSM 6.x
-                            may have limited functionality due to API differences.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Can I manage Docker containers remotely?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. You can view container status, CPU/memory usage, access logs, and perform stop/restart operations
-                            directly from the app. Container creation and configuration changes are not currently supported -
-                            the focus is on monitoring and quick management actions.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        How much does Syno Manager cost?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Syno Manager is a <strong>one-time purchase at $6.99</strong>. No subscription,
-                            no ads, no in-app purchases. You buy it once on the App Store or Google Play and
-                            you own it.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Can I access my NAS remotely (outside my home network)?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Syno Manager connects to whatever IP/hostname you configure. If your NAS is accessible via
-                            VPN, Tailscale, or a forwarded port, the app will work remotely. We recommend using a VPN
-                            or Tailscale rather than exposing DSM directly to the internet.
-                        </div>
-                    </div>
-                </div>
+    <section id="faq" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">FAQ</div><h2 class="sec-title">Frequently asked questions.</h2></div>
+            <div class="faq">
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">How does the app connect to my NAS? <span class="arw">+</span></div><div class="a"><div class="a-in">Syno Manager uses the documented Synology DSM API endpoints to communicate with your NAS over your local network. The app sends requests directly to your NAS - there are no intermediary servers, proxies, or cloud relays involved. You provide the NAS IP/hostname and port, authenticate with your DSM credentials, and the app communicates directly with DSM.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">What permissions does the app need on my NAS? <span class="arw">+</span></div><div class="a"><div class="a-in">The app operates within whatever permissions your DSM user account has. For full dashboard functionality, an administrator account is recommended. However, the app will gracefully degrade - if your account doesn't have Docker permissions, the Docker section simply won't show data. Same for Surveillance Station, shared folders, etc. No special DSM packages need to be installed.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Does the app store my NAS credentials? <span class="arw">+</span></div><div class="a"><div class="a-in">Connection details are stored locally on your device using platform-secure storage (iOS Keychain / Android Keystore). Credentials are never transmitted to MiyaraHub Technologies or any third party. They are used exclusively to authenticate with your NAS.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Which Synology models are supported? <span class="arw">+</span></div><div class="a"><div class="a-in">Syno Manager works with any Synology NAS running DSM 7.0 or later. This includes all current DiskStation (DS), RackStation (RS), and FlashStation (FS) models. Older models running DSM 6.x may have limited functionality due to API differences.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Can I manage Docker containers remotely? <span class="arw">+</span></div><div class="a"><div class="a-in">Yes. You can view container status, CPU/memory usage, access logs, and perform stop/restart operations directly from the app. Container creation and configuration changes are not currently supported - the focus is on monitoring and quick management actions.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">How much does Syno Manager cost? <span class="arw">+</span></div><div class="a"><div class="a-in">Syno Manager is a one-time purchase at $6.99. No subscription, no ads, no in-app purchases. You buy it once on the App Store or Google Play and you own it.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Can I access my NAS remotely (outside my home network)? <span class="arw">+</span></div><div class="a"><div class="a-in">Syno Manager connects to whatever IP/hostname you configure. If your NAS is accessible via VPN, Tailscale, or a forwarded port, the app will work remotely. We recommend using a VPN or Tailscale rather than exposing DSM directly to the internet.</div></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Legal Disclaimer -->
-    <section id="legal">
-        <div class="container fade-in">
-            <div class="legal-banner">
-                <h3>⚖️ Legal Disclaimer &amp; Trademark Notice</h3>
-                <p>
-                    Syno Manager is an <strong>independent, third-party application</strong> developed and published by
-                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by,
-                    sponsored by, or in any way officially connected with Synology Inc.</strong> or any of its subsidiaries or affiliates.
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    The names "Synology," "DiskStation," "DiskStation Manager," "DSM," "RackStation," "FlashStation,"
-                    and "Surveillance Station" are registered trademarks of <strong>Synology Inc.</strong>, registered in
-                    the United States and other countries. All other trademarks, service marks, and trade names referenced
-                    herein are the property of their respective owners.
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    References to Synology products and trademarks on this page and within the app are made solely for the
-                    purpose of identifying compatibility and describing the app's functionality (nominative fair use).
-                    The trademark holders are not affiliated with MiyaraHub Technologies LLC and do not endorse this product.
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    Syno Manager utilizes the publicly available Synology DSM API. Use of this app is at your own risk.
-                    MiyaraHub Technologies LLC is not responsible for any data loss, unauthorized access, or damages
-                    arising from the use of this application. Always ensure your NAS firmware is up to date and follow
-                    Synology's security best practices.
-                </p>
-            </div>
-        </div>
+    <!-- Legal -->
+    <section style="padding:2.5rem 0 1rem">
+        <div class="wrap"><div class="legal">
+            <h3>Legal &amp; trademark notice</h3>
+            <p>Syno Manager is an independent, third-party application developed and published by MiyaraHub Technologies LLC. It is not created by, affiliated with, endorsed by, sponsored by, or officially connected with Synology Inc. or any of its subsidiaries or affiliates.</p>
+            <p>"Synology," "DiskStation," "RackStation," "FlashStation," "DSM," "Surveillance Station," "Download Station," "Hyper Backup," "Active Backup," and all related product names and logos are trademarks or registered trademarks of Synology Inc., used here for identification and compatibility purposes only.</p>
+        </div></div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section" style="background: var(--bg-secondary);">
-        <h2>Ready to Take Control of Your NAS?</h2>
-        <p>Syno Manager runs on iPhone, iPad, Android, Windows, and Mac. Take control of your NAS today.</p>
-        <div class="hero-cta-group">
-            <a href="https://apps.apple.com/us/app/syno-manager/id6763011668" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store</a>
-            <a href="https://apps.apple.com/us/app/syno-manager/id6763011668?platform=mac" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Mac App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=com.synomanager" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13.5 12 3.6 21.7a1.2 1.2 0 0 1-.6-1V3.3c0-.44.24-.82.6-1zM14.7 13l2.6 2.6-9.4 5.3L14.7 13zM14.7 11 7.9 3.1l9.4 5.3L14.7 11zM16.1 12l3-3 2.4 1.35c.66.38.66 1.32 0 1.7L19.1 15l-3-3z"/></svg>Google Play</a>
-            <a href="https://apps.microsoft.com/store/detail/9P19N2B54N1R" class="hero-cta" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:.45em" fill="currentColor" aria-hidden="true"><path d="M11.4 3v8.4H3V3h8.4zM11.4 21H3v-8.4h8.4V21zM12.6 3H21v8.4h-8.4V3zM21 21h-8.4v-8.4H21V21z"/></svg>Microsoft Store</a>
+    <section class="cta">
+        <div class="wrap">
+            <h2>Ready to take command of your NAS?</h2>
+            <p>Get Syno Manager on your platform of choice - a one-time purchase, no subscription.</p>
+            <div class="store-row" style="justify-content:center">
+                <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.synomanager" target="_blank" rel="noopener">Google Play</a>
+                <a class="btn" href="https://apps.apple.com/us/app/syno-manager/id6763011668" target="_blank" rel="noopener">App Store</a>
+                <a class="btn" href="https://apps.microsoft.com/store/detail/9P19N2B54N1R" target="_blank" rel="noopener">Microsoft Store</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-copy">
-                &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.<br>
-                <span style="font-size: 0.75rem; color: var(--text-secondary);">
-                    "Synology" is a registered trademark of Synology Inc. This product is not affiliated with or endorsed by Synology Inc.
-                </span>
-            </div>
-            <ul class="footer-links">
-                <li><a href="/">MiyaraHub Home</a></li>
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+        <div class="wrap"><div class="foot">
+            <div class="c">&copy; 2026 <b>MiyaraHub Technologies LLC</b> &middot; Dallas, TX. All rights reserved.<br>Independent software. Trademarks belong to their respective owners.</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/support/">Support</a></li>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
             </ul>
-        </div>
+        </div></div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Fade-in on scroll - instantly show elements already in viewport
-        document.querySelectorAll('.fade-in').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                el.classList.add('no-delay');
-            }
-        });
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
-
-        // FAQ toggle
-        function toggleFaq(el) {
-            el.parentElement.classList.toggle('open');
-        }
-
-        // Close mobile nav
-        function closeNav() {
-            document.getElementById('nav-menu').classList.remove('open');
-            document.getElementById('nav-toggle').classList.remove('open');
-        }
-
-        // Lightbox
-        function openLightbox(img) {
-            const lb = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = img.src;
-            lb.classList.add('active');
-        }
-
-        // Parameterized so we can mount the same behavior on multiple
-        // carousels (Android + iPhone) without duplicating code. Returns
-        // { prev, next } handlers for the caller to wire onto window.
-        function setupCarousel({trackId, dotsId, prevBtnId, nextBtnId, maxPerView = 5}) {
-            const track = document.getElementById(trackId);
-            if (!track) return { prev: () => {}, next: () => {} };
-            const slides = track.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.getElementById(dotsId);
-            const prevBtn = document.getElementById(prevBtnId);
-            const nextBtn = document.getElementById(nextBtnId);
-            const totalSlides = slides.length;
-            let currentIndex = 0, slidesPerView = 4, slideWidth = 0;
-
-            function calcDimensions() {
-                const vp = track.parentElement.clientWidth;
-                if (vp < 480) slidesPerView = 2;
-                else if (vp < 768) slidesPerView = 3;
-                else if (vp < 1024) slidesPerView = 4;
-                else slidesPerView = 5;
-                slidesPerView = Math.min(slidesPerView, maxPerView, totalSlides);
-                slideWidth = vp / slidesPerView;
-                slides.forEach(s => s.style.width = slideWidth + 'px');
-            }
-            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
-            function buildDots() {
-                dotsContainer.innerHTML = '';
-                for (let i = 0; i <= getMaxIndex(); i++) {
-                    const d = document.createElement('button');
-                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-                    d.onclick = () => goTo(i);
-                    dotsContainer.appendChild(d);
-                }
-            }
-            function updateButtons() { prevBtn.disabled = currentIndex <= 0; nextBtn.disabled = currentIndex >= getMaxIndex(); }
-            function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex)); }
-            function goTo(index) {
-                currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
-                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-                updateButtons(); updateDots();
-            }
-            const prev = () => goTo(currentIndex - 1);
-            const next = () => goTo(currentIndex + 1);
-            function init() { calcDimensions(); if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex(); buildDots(); goTo(currentIndex); }
-            init(); window.addEventListener('resize', init);
-
-            let startX = 0, isDragging = false;
-            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
-            track.addEventListener('touchend', e => {
-                if (!isDragging) return; isDragging = false;
-                const diff = startX - e.changedTouches[0].clientX;
-                if (Math.abs(diff) > 50) { if (diff > 0) next(); else prev(); }
-            }, {passive: true});
-
-            return { prev, next };
-        }
-
-        // One setupCarousel per platform. Portrait phones/tablets show up to
-        // 4 across; landscape desktop cards cap at 2 so they stay legible.
-        const androidCarousel = setupCarousel({
-            trackId: 'carousel-track', dotsId: 'carousel-dots',
-            prevBtnId: 'carousel-prev', nextBtnId: 'carousel-next', maxPerView: 4,
-        });
-        window.carouselPrev = androidCarousel.prev;
-        window.carouselNext = androidCarousel.next;
-
-        const iosCarousel = setupCarousel({
-            trackId: 'carousel-track-ios', dotsId: 'carousel-dots-ios',
-            prevBtnId: 'carousel-prev-ios', nextBtnId: 'carousel-next-ios', maxPerView: 4,
-        });
-        window.carouselIosPrev = iosCarousel.prev;
-        window.carouselIosNext = iosCarousel.next;
-
-        const ipadCarousel = setupCarousel({
-            trackId: 'carousel-track-ipad', dotsId: 'carousel-dots-ipad',
-            prevBtnId: 'carousel-prev-ipad', nextBtnId: 'carousel-next-ipad', maxPerView: 4,
-        });
-        window.carouselIpadPrev = ipadCarousel.prev;
-        window.carouselIpadNext = ipadCarousel.next;
-
-        const winCarousel = setupCarousel({
-            trackId: 'carousel-track-win', dotsId: 'carousel-dots-win',
-            prevBtnId: 'carousel-prev-win', nextBtnId: 'carousel-next-win', maxPerView: 2,
-        });
-        window.carouselWinPrev = winCarousel.prev;
-        window.carouselWinNext = winCarousel.next;
-
-        const macCarousel = setupCarousel({
-            trackId: 'carousel-track-mac', dotsId: 'carousel-dots-mac',
-            prevBtnId: 'carousel-prev-mac', nextBtnId: 'carousel-next-mac', maxPerView: 2,
-        });
-        window.carouselMacPrev = macCarousel.prev;
-        window.carouselMacNext = macCarousel.next;
+        function closeNav(){ document.getElementById('nav-menu').classList.remove('open'); document.getElementById('nav-toggle').classList.remove('open'); }
+        function openLightbox(img){ var lb=document.getElementById('lightbox'); document.getElementById('lightbox-img').src=img.src; lb.classList.add('active'); }
+        const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }); }, { threshold:0.08 });
+        document.querySelectorAll('.fade').forEach(el=>{ const r = el.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ el.classList.add('vis'); } else { io.observe(el); } });
     </script>
 </body>
 </html>
