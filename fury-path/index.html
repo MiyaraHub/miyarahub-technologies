@@ -7,1425 +7,213 @@
     <meta name="description" content="FuryPath - the best iOS and Android controller for HDFury HDMI processors. Control your VRRoom, VERTEX2, VERTEX, DIVA, Maestro, 4K Integral 2, and Arcana over Wi-Fi. Full EDID management, HDR10/HDR10+/Dolby Vision/LLDV control, CEC/eARC configuration, JVC AutoCal macros, ALLM/VRR settings, and real-time HDMI signal monitoring. The only comprehensive HDFury mobile app.">
     <meta name="keywords" content="HDFury app, HDFury controller app, HDFury iOS app, HDFury iPhone app, HDFury Android app, HDFury mobile controller, HDFury VRRoom app, HDFury VRRoom controller, HDFury VERTEX2 app, HDFury VERTEX2 controller, HDFury VERTEX app, HDFury DIVA app, HDFury DIVA controller, HDFury Maestro app, HDFury Maestro controller, HDFury 4K Integral 2 app, HDFury Arcana app, HDFury VRROOM 8K app, HDMI processor controller app, HDMI matrix controller, EDID manager app, EDID editor mobile, HDR control app, HDR10 controller, HDR10+ controller, Dolby Vision HDFury, Dolby Vision LLDV controller, Dolby Vision passthrough app, 4K HDR HDMI controller, 8K HDMI controller, CEC controller app, eARC controller app, HDMI eARC manager, JVC projector macro controller, JVC AutoCal HDFury, ALLM controller, VRR controller, HDMI signal info app, HDMI signal analyzer app, HDMI input output manager, HDFury WiFi controller, HDFury HTTP API, HDFury SSI controller, HDFury web interface mobile, HDFury firmware update, best HDFury app, HDFury remote control phone, home theater HDMI controller, AV processor controller, FuryPath, MiyaraHub">
     <link rel="canonical" href="https://miyarahub.com/fury-path/">
+    <meta name="author" content="MiyaraHub Technologies LLC">
+    <meta property="og:title" content="FuryPath - HDFury Controller App for iOS &amp; Android">
+    <meta property="og:description" content="Control your HDFury VRRoom, VERTEX2, and more over Wi-Fi. EDID, HDR, Dolby Vision, CEC/eARC, JVC macros, and real-time signal info.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miyarahub.com/fury-path/">
+    <meta property="og:image" content="https://miyarahub.com/assets/furypath-icon.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FuryPath - HDFury Controller App for iOS &amp; Android">
-    <meta name="twitter:description" content="Full control of your HDFury HDMI processor from your phone. EDID, HDR, Dolby Vision, CEC, eARC, and more.">
+    <meta name="twitter:description" content="The comprehensive HDFury controller for iPhone, iPad, and Android. EDID, HDR, Dolby Vision, CEC, JVC macros, and signal info.">
     <meta name="twitter:image" content="https://miyarahub.com/assets/furypath-icon.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "FuryPath",
-      "operatingSystem": "iOS, Android",
-      "applicationCategory": "MultimediaApplication",
-      "description": "Mobile controller for HDFury HDMI processors. EDID management, HDR/Dolby Vision control, CEC/eARC configuration, JVC Macros, and real-time signal info.",
-      "url": "https://miyarahub.com/fury-path/",
-      "author": {
-        "@type": "Organization",
-        "name": "MiyaraHub Technologies LLC",
-        "url": "https://miyarahub.com"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-    <meta name="author" content="MiyaraHub Technologies LLC">
-    <meta property="og:title" content="FuryPath - HDFury Controller App">
-    <meta property="og:description" content="Full control of your HDFury HDMI processor from your phone. EDID management, HDR/Dolby Vision, CEC/eARC, JVC Macros, signal info, all over Wi-Fi.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://miyarahub.com/fury-path">
-    <meta property="og:image" content="https://miyarahub.com/assets/furypath-icon.png">
-    <meta property="og:image:alt" content="App icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/furypath-icon.png">
-    <link rel="apple-touch-icon" href="../assets/furypath-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/furypath-icon.png">
+    <link rel="apple-touch-icon" href="/assets/furypath-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
     <style>
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root {
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #111827;
-            --bg-card: #1a2035;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --accent: #f97316;
-            --accent-glow: rgba(249, 115, 22, 0.15);
-            --accent-hover: #fb923c;
-            --border: rgba(148, 163, 184, 0.1);
-            --gradient-start: #f97316;
-            --gradient-end: #dc2626;
-            --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.15);
-        }
-        html{scroll-behavior:smooth}
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(249, 115, 22, 0.04) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 20%, rgba(220, 38, 38, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            animation: ambientShift 20s ease-in-out infinite alternate;
-        }
-        @keyframes ambientShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-5%, 3%); }
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(10, 14, 26, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
-        .nav-brand-text {
-            font-size: 1.15rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
-        }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 101;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-secondary);
-            border-radius: 2px;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-toggle.open span:nth-child(2) { opacity: 0; }
-        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* HERO */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 5rem 2rem 2rem;
-            position: relative;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-        }
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
-        .hero-cta-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: #fff;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3);
-        }
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.4);
-        }
-        .hero-cta-secondary {
-            background: transparent;
-            border: 1px solid var(--border);
-            box-shadow: none;
-            color: var(--text-secondary);
-        }
-        .hero-cta-secondary:hover {
-            border-color: rgba(249, 115, 22, 0.3);
-            color: var(--accent);
-            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.1);
-        }
-
-        /* HERO PHONE MOCKUP */
-        .hero-phones {
-            display: flex;
-            gap: 1.25rem;
-            margin-top: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            perspective: 1000px;
-        }
-        .phone-frame {
-            width: 180px;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 2px solid rgba(148, 163, 184, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(249, 115, 22, 0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            flex-shrink: 0;
-        }
-        .phone-frame:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(249, 115, 22, 0.15);
-        }
-        .phone-frame img {
-            width: 100%;
-            display: block;
-        }
-
-        /* SECTIONS */
-        section { padding: 3rem 2rem; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .section-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-        .section-desc {
-            color: var(--text-secondary);
-            max-width: 600px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-        .section-center { text-align: center; }
-        .section-center .section-desc { margin-left: auto; margin-right: auto; }
-
-        /* FEATURES GRID */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(249, 115, 22, 0.3);
-            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.08);
-        }
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: var(--accent-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-        .feature-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        .feature-card .tech-tag {
-            display: inline-block;
-            padding: 0.15rem 0.5rem;
-            background: rgba(148, 163, 184, 0.08);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.72rem;
-            color: var(--text-secondary);
-            margin-top: 0.75rem;
-            margin-right: 0.3rem;
-        }
-
-        /* DEVICES TABLE */
-        .devices-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-        }
-        .devices-table th {
-            background: var(--bg-card);
-            color: var(--accent);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 0.85rem 1.25rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .devices-table td {
-            padding: 0.85rem 1.25rem;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-size: 0.93rem;
-        }
-        .devices-table tr:hover td { background: rgba(249, 115, 22, 0.03); }
-        .devices-table td:first-child { color: var(--text-primary); font-weight: 600; }
-        .device-badge {
-            display: inline-block;
-            padding: 0.15rem 0.5rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            border-radius: 6px;
-            font-size: 0.75rem;
-            color: var(--accent);
-        }
-
-        /* SCREENSHOT CAROUSEL */
-        .carousel-container {
-            position: relative;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        .carousel-viewport {
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .carousel-slide {
-            flex: 0 0 auto;
-            padding: 0 0.75rem;
-            text-align: center;
-        }
-        .carousel-slide img {
-            width: 100%;
-            border-radius: 20px;
-            border: 2px solid var(--border);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            cursor: pointer;
-        }
-        .carousel-slide img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(249, 115, 22, 0.1);
-            border-color: rgba(249, 115, 22, 0.3);
-        }
-        .carousel-slide .caption {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .carousel-btn:hover {
-            background: rgba(249, 115, 22, 0.15);
-            border-color: rgba(249, 115, 22, 0.4);
-            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.2);
-        }
-        .carousel-btn:disabled { opacity: 0.3; cursor: default; }
-        .carousel-btn.prev { left: -24px; }
-        .carousel-btn.next { right: -24px; }
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-        .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--border);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-            padding: 0;
-        }
-        .carousel-dot.active {
-            background: var(--accent);
-            transform: scale(1.3);
-        }
-        @media (max-width: 768px) {
-            .carousel-btn { width: 40px; height: 40px; font-size: 1.1rem; }
-            .carousel-btn.prev { left: 4px; }
-            .carousel-btn.next { right: 4px; }
-        }
-
-        /* HOW IT WORKS */
-        .how-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .how-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            position: relative;
-        }
-        .how-card .step-number {
-            display: inline-flex;
-            width: 36px;
-            height: 36px;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-        .how-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .how-card p {
-            color: var(--text-secondary);
-            font-size: 0.93rem;
-            line-height: 1.6;
-        }
-
-        /* PERMISSIONS SECTION */
-        .permissions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .permission-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        .permission-card .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: var(--green-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .permission-card h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-        .permission-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.5;
-        }
-
-        /* FAQ */
-        .faq-list { max-width: 800px; margin: 0 auto; }
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 1.25rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s;
-            user-select: none;
-        }
-        .faq-question:hover { color: var(--accent); }
-        .faq-question .arrow { transition: transform 0.3s; font-size: 0.85rem; color: var(--text-secondary); }
-        .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
-        .faq-item.open .faq-answer { max-height: 500px; }
-        .faq-answer-inner {
-            padding: 0 1.5rem 1.25rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* LEGAL DISCLAIMER BANNER */
-        .legal-banner {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem 2.5rem;
-            margin-top: 2rem;
-        }
-        .legal-banner h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .legal-banner p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
-
-        /* CTA SECTION */
-        .cta-section { text-align: center; padding: 5rem 2rem; }
-        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
-        .cta-section p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2rem; }
-
-        /* FOOTER */
-        footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .footer-copy { color: var(--text-secondary); font-size: 0.85rem; }
-        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--accent); }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav { padding: 1rem; }
-            .nav-toggle { display: flex; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: rgba(10, 14, 26, 0.97);
-                backdrop-filter: blur(20px);
-                padding: 1rem 2rem;
-                gap: 0;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-links.open { display: flex; }
-            .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-            .nav-links li:last-child { border-bottom: none; }
-            .nav-links a { font-size: 1rem; }
-            .hero { padding: 4.5rem 1.5rem 1.5rem; }
-            .hero-phones { gap: 1rem; }
-            .phone-frame { width: 160px; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .legal-banner { padding: 1.5rem; }
-            .devices-table { font-size: 0.85rem; }
-            .devices-table th, .devices-table td { padding: 0.65rem 0.75rem; }
-        }
-        @media (max-width: 480px) {
-            .nav-brand-text { font-size: 0.95rem; }
-            .phone-frame { width: 140px; }
-            .hero-cta-group { flex-direction: column; align-items: center; }
-        }
-
-        /* Fade-in */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .fade-in.no-delay { opacity: 1; transform: none; }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            cursor: zoom-out;
-            backdrop-filter: blur(10px);
-        }
-        .lightbox.active { display: flex; }
-        .lightbox img {
-            max-height: 90vh;
-            max-width: 90vw;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-        }
+        :root{ --accent:#ef4444; --accent-deep:#f87171; --accent-soft:rgba(239,68,68,.12); --accent-star:rgba(239,68,68,.34); }
+        .crumb{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem}
+        .crumb a{color:var(--faint); text-decoration:none} .crumb a:hover{color:var(--accent)}
+        .p-hero{display:grid; grid-template-columns:1.1fr .9fr; gap:3.5rem; align-items:center}
+        .p-hero .ico{width:66px; height:66px; border-radius:16px; border:1px solid var(--line); margin-bottom:1.2rem}
+        .price-hero{display:inline-flex; align-items:baseline; gap:.6rem; margin:1.2rem 0 1.4rem; font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--muted)}
+        .price-hero b{font-family:'Fraunces',serif; font-size:1.5rem; font-weight:600; color:var(--accent)}
+        .store-row{display:flex; gap:.7rem; flex-wrap:wrap; margin-bottom:0}
+        .store-row .btn svg{fill:var(--accent)}
+        .platforms{display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; margin-top:1.1rem}
+        .platforms .pl-lbl{font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+        .platforms .pl{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.04em; color:var(--muted); border:1px solid var(--line-strong); border-radius:3px; padding:.22rem .6rem}
+        .device .screen{border:1px solid var(--line-strong); border-radius:32px; padding:9px; background:linear-gradient(180deg,#0f1a2c,#0b1322); box-shadow:0 30px 85px rgba(0,0,0,.55); max-width:315px; margin:0 auto}
+        .device .screen img{width:100%; display:block; border-radius:24px; cursor:zoom-in}
+        .device .cap{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-top:.9rem}
+        .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem}
+        .gallery a{display:block; border:1px solid var(--line); border-radius:8px; overflow:hidden; transition:border-color .3s, transform .3s}
+        .gallery a:hover{border-color:var(--accent-star); transform:translateY(-4px)}
+        .gallery img{width:100%; display:block; cursor:zoom-in}
+        @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.p-hero{grid-template-columns:1fr; gap:2.4rem}.device{order:-1}}
+        @media(max-width:460px){.gallery{grid-template-columns:1fr}}
+        .legal{border:1px solid var(--line); border-radius:5px; background:rgba(11,19,34,.5); padding:1.6rem 1.8rem}
+        .legal h3{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
+        .legal p{color:var(--faint); font-size:.84rem; line-height:1.7} .legal p+p{margin-top:.7rem}
     </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://miyarahub.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "FuryPath",
-      "item": "https://miyarahub.com/fury-path/"
-    }
-  ]
-}
-</script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FuryPath","operatingSystem":"iOS, iPadOS, Android","applicationCategory":"UtilitiesApplication","description":"The comprehensive HDFury HMDI processor controller - EDID management, HDR and Dolby Vision, CEC and eARC, JVC macros, OSD control, and real-time signal info for VRRoom, VERTEX2, and more.","url":"https://miyarahub.com/fury-path/","author":{"@type":"Organization","name":"MiyaraHub Technologies LLC","url":"https://miyarahub.com"},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://miyarahub.com/"},{"@type":"ListItem","position":2,"name":"FuryPath","item":"https://miyarahub.com/fury-path/"}]}
+    </script>
 </head>
 <body>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-        <img id="lightbox-img" src="" alt="Screenshot">
-    </div>
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="FuryPath screenshot enlarged"></div>
 
-    <!-- Navigation -->
     <nav>
-        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub Logo" style="height:32px;width:32px;border-radius:6px;"><span class="nav-brand-text">MiyaraHub</span></a>
-        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
+        <a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
+        <button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul class="nav-links" id="nav-menu">
-            <li><a href="/" onclick="closeNav()">← Home</a></li>
+            <li><a href="/" onclick="closeNav()">Home</a></li>
+            <li><a href="#screens" onclick="closeNav()">Screens</a></li>
             <li><a href="#features" onclick="closeNav()">Features</a></li>
-            <li><a href="#screenshots" onclick="closeNav()">Screenshots</a></li>
-            <li><a href="#devices" onclick="closeNav()">Devices</a></li>
+            <li><a href="#security" onclick="closeNav()">Privacy</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge">⚡ HDFury Control, Unleashed</div>
-        <h1>
-            <span class="gradient">FuryPath</span>
-        </h1>
-        <p>
-            A single comprehensive mobile controller for HDFury HDMI processors. Connect your VRRooM, VERTEX2,
-            DIVA, Maestro, and more over Wi-Fi. Full EDID management, HDR/Dolby Vision control, CEC/eARC configuration, JVC Macros, and real-time signal info from your pocket.
-        </p>
-        <div class="hero-cta-group">
-            <a href="https://play.google.com/store/apps/details?id=com.miyarahub.furypath" class="hero-cta" target="_blank">Get it on Google Play</a>
-            <a href="https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302" class="hero-cta" target="_blank">Download on App Store</a>
-            <a href="#screenshots" class="hero-cta hero-cta-secondary">See Screenshots ↓</a>
+    <header class="hero">
+        <div class="wrap">
+            <div class="crumb"><a href="/">MiyaraHub</a> / FuryPath</div>
+            <div class="p-hero">
+                <div>
+                    <img class="ico" src="/assets/furypath-icon.png" alt="FuryPath app icon">
+                    <div class="kicker">FuryPath</div>
+                    <h1>Master every HDMI signal.<span class="stargl">&#10022;</span></h1>
+                    <p class="hero-sub">The comprehensive controller for HDFury HDMI processors - EDID, HDR, Dolby Vision, CEC, JVC macros, and real-time signal info, over Wi-Fi.</p>
+                    <div class="price-hero"><b>$4.99</b> <span>one-time &middot; no subscription, no ads</span></div>
+                    <div class="store-row">
+                        <a class="btn store" href="https://play.google.com/store/apps/details?id=com.miyarahub.furypath" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M3.6 2.3 13.5 12 3.6 21.7a1.2 1.2 0 0 1-.6-1V3.3c0-.44.24-.82.6-1zM14.7 13l2.6 2.6-9.4 5.3L14.7 13zM14.7 11 7.9 3.1l9.4 5.3L14.7 11zM16.1 12l3-3 2.4 1.35c.66.38.66 1.32 0 1.7L19.1 15l-3-3z"/></svg>Google Play</a>
+                        <a class="btn store" href="https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store</a>
+                    </div>
+                    <div class="platforms">
+                        <span class="pl-lbl">Available on</span>
+                        <span class="pl">iPhone</span><span class="pl">iPad</span><span class="pl">Android</span>
+                    </div>
+                </div>
+                <div class="device fade">
+                    <div class="screen"><img src="screenshots/device.jpg" alt="FuryPath real-time signal info for an HDFury VRRoom" onclick="openLightbox(this)" loading="lazy"></div>
+                    <div class="cap">Real-time signal info</div>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="hero-phones">
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260327-072803.png" alt="FuryPath Dashboard" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260327-072808.png" alt="Device Info" loading="lazy">
-            </div>
-            <div class="phone-frame">
-                <img src="screenshots/Screenshot_20260327-072820.png" alt="EDID Management" loading="lazy">
+    <!-- Screens -->
+    <section id="screens" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">See it in action</div><h2 class="sec-title">Every HDFury control, one tap away.</h2><p class="sec-desc">Real screenshots from FuryPath connected to a live VRRoom - EDID, HDR, Dolby Vision, CEC/eARC, macros, OSD, and config. Tap any to zoom.</p></div>
+            <div class="gallery">
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p1_edid.jpg" alt="FuryPath EDID management" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p2_video.jpg" alt="FuryPath video and HDR control" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p3_hdr.jpg" alt="FuryPath HDR and AVI control" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p4_dv.jpg" alt="FuryPath Dolby Vision control" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p5_macros.jpg" alt="FuryPath JVC macros" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p6_osd.jpg" alt="FuryPath OSD and OLED display control" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p7_config.jpg" alt="FuryPath full device configuration" loading="lazy"></a>
+                <a onclick="openLightbox(this.querySelector('img'))"><img src="screenshots/store/p8_settings.jpg" alt="FuryPath app settings and themes" loading="lazy"></a>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section id="features" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">Features</div>
-            <h2 class="section-title">Everything Your HDFury Can Do, Right In Your Hand</h2>
-            <p class="section-desc">
-                FuryPath gives you complete control over your HDFury device without
-                opening a browser or booting a laptop. Pure Wi-Fi, pure control.
-            </p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📡</div>
-                    <h3>Real-Time Signal Info</h3>
-                    <p>Live overview of input signals, video/audio outputs, sink EDID details, eARC status, and operating mode, all in one scrollable view, updated in real time.</p>
-                    <span class="tech-tag">Resolution</span>
-                    <span class="tech-tag">HDR Format</span>
-                    <span class="tech-tag">Color Space</span>
-                    <span class="tech-tag">Audio Codec</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎛️</div>
-                    <h3>EDID Management</h3>
-                    <p>Choose EDID mode, configure Automix settings, and fine-tune video capabilities including FRL rate, VRR, ALLM, and HDR injection. Deep control over every EDID parameter.</p>
-                    <span class="tech-tag">EDID Mode</span>
-                    <span class="tech-tag">Automix</span>
-                    <span class="tech-tag">FRL</span>
-                    <span class="tech-tag">VRR / ALLM</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌅</div>
-                    <h3>HDR / Dolby Vision</h3>
-                    <p>Inject or strip custom HDR metadata per format (HDR10, HLG, LLDV). Enable DV flag injection, select DV mode profiles, and toggle Low-Latency Dolby Vision passthrough.</p>
-                    <span class="tech-tag">HDR10</span>
-                    <span class="tech-tag">HLG</span>
-                    <span class="tech-tag">LLDV</span>
-                    <span class="tech-tag">Infoframe</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔊</div>
-                    <h3>CEC / eARC / Audio</h3>
-                    <p>Configure HDMI-CEC communication, set eARC/ARC mode, adjust RS232 baud rate, and mute individual audio outputs. Full audio codec passthrough control including TrueHD, DTS-HDMA, DD+.</p>
-                    <span class="tech-tag">CEC</span>
-                    <span class="tech-tag">eARC / ARC</span>
-                    <span class="tech-tag">TrueHD</span>
-                    <span class="tech-tag">DTS-HDMA</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎬</div>
-                    <h3>JVC Macro System</h3>
-                    <p>Configure automatic JVC projector commands triggered by HDR metadata changes. Set macro enable, sync-on-event, and adjustable delay timing for seamless VRRooM integration.</p>
-                    <span class="tech-tag">JVC Macros</span>
-                    <span class="tech-tag">Auto-Trigger</span>
-                    <span class="tech-tag">VRRooM</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚙️</div>
-                    <h3>Full Device Configuration</h3>
-                    <p>Set input auto-switching, HDCP mode, HTPC low-latency mode per input, analog audio volume/bass/treble, IR remote settings, TX +5V force, and network/TCP configuration.</p>
-                    <span class="tech-tag">HDCP</span>
-                    <span class="tech-tag">HTPC Mode</span>
-                    <span class="tech-tag">Network</span>
-                    <span class="tech-tag">IR</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📺</div>
-                    <h3>OSD / OLED Display</h3>
-                    <p>Control the device's built-in OLED display: enable/disable, select info pages, set auto-fade timeout, and adjust advanced options like rotation and color inversion.</p>
-                    <span class="tech-tag">OLED</span>
-                    <span class="tech-tag">Page Select</span>
-                    <span class="tech-tag">Auto-Fade</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⭐</div>
-                    <h3>Favorite Tabs &amp; Multi-Device</h3>
-                    <p>Pin up to 5 tabs per device to a quick-access bottom bar. Manage multiple HDFury devices from one app, each with their own settings, favorites, and connection state.</p>
-                    <span class="tech-tag">Quick Access</span>
-                    <span class="tech-tag">Multi-Device</span>
-                    <span class="tech-tag">Themes</span>
-                </div>
+    <section id="features">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Features</div><h2 class="sec-title">The whole HDFury web interface, in your hand.</h2><p class="sec-desc">The app auto-detects your device and activates the feature set for your model.</p></div>
+            <div class="ledger">
+                <div class="entry fade"><div class="no">No. 01</div><div class="body"><h3><span class="glyph">&#9673;</span> Real-time signal info</h3><p>Live overview of input signals, video/audio outputs, sink EDID details, eARC status, and operating mode, all in one scrollable view, updated in real time.</p></div></div>
+                <div class="entry fade"><div class="no">No. 02</div><div class="body"><h3><span class="glyph">&#9635;</span> EDID management</h3><p>Choose EDID mode, configure Automix settings, and fine-tune video capabilities including FRL rate, VRR, ALLM, and HDR injection. Deep control over every EDID parameter.</p></div></div>
+                <div class="entry fade"><div class="no">No. 03</div><div class="body"><h3><span class="glyph">&#9678;</span> HDR / Dolby Vision</h3><p>Inject or strip custom HDR metadata per format (HDR10, HLG, LLDV). Enable DV flag injection, select DV mode profiles, and toggle Low-Latency Dolby Vision passthrough.</p></div></div>
+                <div class="entry fade"><div class="no">No. 04</div><div class="body"><h3><span class="glyph">&#9634;</span> CEC / eARC / audio</h3><p>Configure HDMI-CEC communication, set eARC/ARC mode, adjust RS232 baud rate, and mute individual audio outputs. Full audio codec passthrough control including TrueHD, DTS-HDMA, DD+.</p></div></div>
+                <div class="entry fade"><div class="no">No. 05</div><div class="body"><h3><span class="glyph">&#9670;</span> JVC macro system <span class="pro-tag">VRRoom</span></h3><p>Configure automatic JVC projector commands triggered by HDR metadata changes. Set macro enable, sync-on-event, and adjustable delay timing for seamless VRRoom integration.</p></div></div>
+                <div class="entry fade"><div class="no">No. 06</div><div class="body"><h3><span class="glyph">&#9881;</span> Full device configuration</h3><p>Set input auto-switching, HDCP mode, HTPC low-latency mode per input, analog audio volume/bass/treble, IR remote settings, TX +5V force, and network/TCP configuration.</p></div></div>
+                <div class="entry fade"><div class="no">No. 07</div><div class="body"><h3><span class="glyph">&#9788;</span> OSD / OLED display</h3><p>Control the device's built-in OLED display: enable/disable, select info pages, set auto-fade timeout, and adjust advanced options like rotation and color inversion.</p></div></div>
+                <div class="entry fade"><div class="no">No. 08</div><div class="body"><h3><span class="glyph">&#10022;</span> Favorite tabs &amp; multi-device</h3><p>Pin up to 5 tabs per device to a quick-access bottom bar. Manage multiple HDFury devices from one app, each with their own settings, favorites, and connection state.</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Promo Video -->
-    <section id="promo">
-        <div class="container fade-in section-center">
-            <div class="section-label">Preview</div>
-            <h2 class="section-title">Watch It in Action</h2>
-            <p class="section-desc">See FuryPath controlling a real HDFury VRRooM: signal info, EDID management, HDR/DV control, and JVC Macros, all from the phone.</p>
-            <div style="max-width:400px;margin:2rem auto 0;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4);border:1px solid var(--border)">
-                <video autoplay muted loop playsinline controls style="width:100%;display:block;background:#000">
-                    <source src="promo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </section>
-
-    <!-- Screenshots Gallery -->
-    <section id="screenshots" style="background: var(--bg-secondary);">
-        <div class="container fade-in section-center">
-            <div class="section-label">Screenshots</div>
-            <h2 class="section-title">See It in Action</h2>
-            <p class="section-desc">
-                Every screen designed for clarity and speed. Dark theme, real-time data,
-                intuitive navigation built for AV enthusiasts - now on both iPhone and Android.
-            </p>
-        </div>
-
-        <!-- iPhone carousel -->
-        <div class="container fade-in section-center" style="margin-top: 2rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On iPhone</h3>
-        </div>
-        <div class="carousel-container" id="carousel-ios">
-            <button class="carousel-btn prev" onclick="carouselIosPrev()" id="carousel-prev-ios">‹</button>
-            <button class="carousel-btn next" onclick="carouselIosNext()" id="carousel-next-ios">›</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track-ios">
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/01_dashboard.png" alt="FuryPath on iPhone - Dashboard" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dashboard: All Devices</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/02_device_info.png" alt="FuryPath on iPhone - Device Info" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Device Info: Signal Overview</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/03_device_edid.png" alt="FuryPath on iPhone - EDID Management" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">EDID Management</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/04_device_hdr_avi.png" alt="FuryPath on iPhone - HDR / AVI Infoframe" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">HDR / AVI Infoframe</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/05_device_dv.png" alt="FuryPath on iPhone - Dolby Vision" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dolby Vision Control</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/06_device_cec_earc.png" alt="FuryPath on iPhone - CEC / eARC / Audio" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">CEC / eARC / Audio</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/07_device_macros.png" alt="FuryPath on iPhone - JVC Macro System" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">JVC Macro System</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/08_device_osd.png" alt="FuryPath on iPhone - OSD / OLED Display" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">OSD / OLED Display</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/09_customize_nav.png" alt="FuryPath on iPhone - Customize Navigation" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Customize Navigation</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/apple/10_settings_light.png" alt="FuryPath on iPhone - Settings (Light)" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Settings (Light)</div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots-ios"></div>
-        </div>
-
-        <!-- Android carousel -->
-        <div class="container fade-in section-center" style="margin-top: 3rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">On Android</h3>
-        </div>
-        <div class="carousel-container" id="carousel">
-            <button class="carousel-btn prev" onclick="carouselPrev()" id="carousel-prev">‹</button>
-            <button class="carousel-btn next" onclick="carouselNext()" id="carousel-next">›</button>
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072803.png" alt="Dashboard: All Devices" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dashboard: All Devices</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072808.png" alt="Device Info" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Device Info: Signal Overview</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072820.png" alt="EDID Management" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">EDID Management</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072825.png" alt="EDID Video and Audio Codecs" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">EDID: Video and Audio Codecs</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072829.png" alt="HDR / AVI Infoframe" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">HDR / AVI Infoframe</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072838.png" alt="Dolby Vision" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Dolby Vision Control</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072842.png" alt="CEC / eARC / Audio" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">CEC / eARC / Audio</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072848.png" alt="JVC Macro System" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">JVC Macro System</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072851.png" alt="OSD / OLED Display" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">OSD / OLED Display</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072855.png" alt="Device Configuration" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Device Configuration</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072903.png" alt="Audio &amp; IR Configuration" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Audio &amp; IR Settings</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072908.png" alt="Network &amp; System Configuration" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Network &amp; System Config</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072915.png" alt="Favorite Tabs" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Favorite Tabs Selector</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072958.png" alt="App Settings" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">App Settings &amp; Themes</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="screenshots/Screenshot_20260327-072758.png" alt="Add Device" onclick="openLightbox(this)" loading="lazy">
-                        <div class="caption">Add Device</div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots" id="carousel-dots"></div>
-        </div>
-    </section>
-
-    <!-- Supported Devices -->
-    <section id="devices">
-        <div class="container fade-in">
-            <div class="section-label">Compatibility</div>
-            <h2 class="section-title">Supported HDFury Devices</h2>
-            <p class="section-desc">
-                FuryPath auto-detects your device on connection and unlocks the features relevant to your model.
-                All communication happens over HTTP on your local Wi-Fi network.
-            </p>
-            <div style="overflow-x:auto; border-radius:16px; border: 1px solid var(--border);">
-                <table class="devices-table">
-                    <thead>
-                        <tr>
-                            <th>Model</th>
-                            <th>TCP Port</th>
-                            <th>Key Features</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>VRRooM <span class="device-badge">Full</span></td>
-                            <td>2222</td>
-                            <td>Full feature set, matrix mode, JVC macros</td>
-                        </tr>
-                        <tr>
-                            <td>VERTEX2 <span class="device-badge">Full</span></td>
-                            <td>2220</td>
-                            <td>Matrix mode, full EDID, eARC</td>
-                        </tr>
-                        <tr>
-                            <td>VERTEX</td>
-                            <td>2220</td>
-                            <td>2-input, HDR, scaling</td>
-                        </tr>
-                        <tr>
-                            <td>DIVA</td>
-                            <td>2210</td>
-                            <td>Audio extractor, LED modes</td>
-                        </tr>
-                        <tr>
-                            <td>Maestro</td>
-                            <td>2200</td>
-                            <td>Full feature set</td>
-                        </tr>
-                        <tr>
-                            <td>ARCANA2</td>
-                            <td>2222</td>
-                            <td>eARC extractor</td>
-                        </tr>
-                        <tr>
-                            <td>Arcana</td>
-                            <td>2222</td>
-                            <td>ARC/eARC audio extractor</td>
-                        </tr>
-                        <tr>
-                            <td>Dr.HDMI 8K</td>
-                            <td>2201</td>
-                            <td>EDID doctor, 8K support</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" style="background: var(--bg-secondary);">
-        <div class="container fade-in">
-            <div class="section-label">How It Works</div>
-            <h2 class="section-title">Direct Wi-Fi Connection. No Cloud Required.</h2>
-            <p class="section-desc">
-                FuryPath communicates directly with your HDFury device over HTTP on your local network.
-                Your device data never touches an external server.
-            </p>
-            <div class="how-cards">
-                <div class="how-card">
-                    <div class="step-number">1</div>
-                    <h3>Add Your Device</h3>
-                    <p>Enter the IP address of your HDFury device and select the model. FuryPath auto-detects the device on connection and configures the correct TCP port and feature set for your model.</p>
-                </div>
-                <div class="how-card">
-                    <div class="step-number">2</div>
-                    <h3>Connect Over Wi-Fi</h3>
-                    <p>FuryPath communicates via HTTP GET requests directly to your HDFury device on your local network, using the same protocol HDFury uses for its built-in web interface.</p>
-                </div>
-                <div class="how-card">
-                    <div class="step-number">3</div>
-                    <h3>Control Everything</h3>
-                    <p>Monitor signal info in real time, manage EDID profiles, control HDR and Dolby Vision injection, configure CEC/eARC, set up JVC Macros, and tweak every device setting, all from your phone.</p>
-                </div>
+    <!-- How it works -->
+    <section id="how" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">How it works</div><h2 class="sec-title">Direct Wi-Fi connection. No cloud.</h2></div>
+            <div class="steps">
+                <div class="step fade"><div class="n">1</div><h3>Add your device</h3><p>Enter your HDFury device's IP address. No account, no sign-up.</p></div>
+                <div class="step fade"><div class="n">2</div><h3>Connect over Wi-Fi</h3><p>FuryPath sends HTTP commands directly to your device using the same protocol as its built-in web interface - nothing leaves your network.</p></div>
+                <div class="step fade"><div class="n">3</div><h3>Take full control</h3><p>EDID, HDR, Dolby Vision, CEC, macros, OSD, and configuration - all from your phone or tablet.</p></div>
             </div>
         </div>
     </section>
 
     <!-- Security & Privacy -->
     <section id="security">
-        <div class="container fade-in">
-            <div class="section-label">Security &amp; Privacy</div>
-            <h2 class="section-title">Local Only. No Account. No Cloud.</h2>
-            <p class="section-desc">
-                FuryPath is designed with a privacy-first, local-only architecture.
-                No cloud dependency, no user account, no data collection beyond crash reporting.
-            </p>
-            <div class="permissions-grid">
-                <div class="permission-card">
-                    <div class="icon">🔒</div>
-                    <div>
-                        <h4>No Cloud Relay</h4>
-                        <p>All commands and status polling happen directly between your phone and your HDFury device over your local Wi-Fi. Nothing leaves your network.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">👤</div>
-                    <div>
-                        <h4>No Account Required</h4>
-                        <p>No sign-up, no email, no MiyaraHub account needed. Open the app, add your device IP, and you're in control.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">📡</div>
-                    <div>
-                        <h4>Minimal Analytics</h4>
-                        <p>We use Firebase Crashlytics to catch bugs and improve stability. No personal data, no usage tracking, no ads. Your device settings and HDFury data never leave your phone.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">💾</div>
-                    <div>
-                        <h4>Local Storage Only</h4>
-                        <p>Device IP addresses and app preferences are stored locally on your device using SharedPreferences. Nothing is synced to a server.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">🛡️</div>
-                    <div>
-                        <h4>Read + Write Control</h4>
-                        <p>The app sends commands directly to your HDFury device on your explicit action. Nothing happens automatically or in the background without your knowledge.</p>
-                    </div>
-                </div>
-                <div class="permission-card">
-                    <div class="icon">📶</div>
-                    <div>
-                        <h4>Network Permission Only</h4>
-                        <p>The only device permission FuryPath requires is internet/network access, used exclusively to connect to your HDFury device on your local Wi-Fi network.</p>
-                    </div>
-                </div>
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">Security &amp; Privacy</div><h2 class="sec-title">Local only. No account. No cloud.</h2><p class="sec-desc">FuryPath is designed with a privacy-first, local-only architecture. No cloud dependency, no user account, no data collection beyond crash reporting.</p></div>
+            <div class="priv">
+                <div class="p"><span class="g">&#9673;</span><div><h4>No cloud relay</h4><p>All commands and status polling happen directly between your phone and your HDFury device over your local Wi-Fi. Nothing leaves your network.</p></div></div>
+                <div class="p"><span class="g">&#9635;</span><div><h4>No account required</h4><p>No sign-up, no email, no MiyaraHub account needed. Open the app, add your device IP, and you're in control.</p></div></div>
+                <div class="p"><span class="g">&#9678;</span><div><h4>Minimal analytics</h4><p>Firebase Crashlytics for bug reports only. No personal data, no usage tracking, no ads.</p></div></div>
+                <div class="p"><span class="g">&#9670;</span><div><h4>Buy once, own it</h4><p>A one-time purchase. No subscriptions, no in-app purchases.</p></div></div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" style="background: var(--bg-secondary);">
-        <div class="container fade-in section-center">
-            <div class="section-label">FAQ</div>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-desc">Everything you need to know about FuryPath.</p>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Is FuryPath affiliated with HDFury?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <strong>No.</strong> FuryPath is an independent, third-party application developed by MiyaraHub Technologies LLC.
-                            It is not created, endorsed, sponsored, or affiliated with HDFury or its parent company in any way.
-                            "HDFury," "VRRooM," "VERTEX2," and all related product names are trademarks of their respective owners.
-                            Our use of these names is purely to describe compatibility.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        How does FuryPath communicate with my HDFury device?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            FuryPath sends HTTP GET requests directly to your HDFury device on your local Wi-Fi network, using the same protocol used by HDFury's built-in web interface. Commands go to
-                            <code>GET /cmd?key=value</code> and status polling reads from <code>GET /ssi/*.ssi</code> endpoints.
-                            No external servers are involved. Your device must be on the same Wi-Fi network as your phone.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Which iOS and Android versions are supported?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            FuryPath is available on both iOS (iPhone and iPad) and Android.
-                            iOS requires iOS 16.0 or later. Android requires Android 5.0 (API 21) or higher.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Can I control my HDFury device remotely from outside my home?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            FuryPath connects to whatever IP address you configure. If your HDFury device is accessible
-                            via VPN or Tailscale, the app will work remotely. We recommend using a VPN or Tailscale
-                            rather than exposing your device directly to the internet.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Does it support all HDFury models?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            FuryPath supports VRRooM, VERTEX2, VERTEX, DIVA, Maestro, ARCANA2, Arcana, and Dr.HDMI 8K.
-                            The app auto-detects your device on connection and activates the feature set relevant to your model.
-                            Not all models support all features. JVC Macros, for example, are VRRooM-specific.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        How much does FuryPath cost?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            FuryPath is a <strong>one-time purchase at $4.99</strong>. No subscription, no ads, no in-app purchases.
-                            You buy it once and own it. Pricing may change before launch.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Can I manage multiple HDFury devices?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. FuryPath supports multiple devices, each with its own settings, favorite tabs, and
-                            connection state. Switch between devices from the main dashboard with a single tap.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        What is the Favorite Tabs feature?
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Each device has 8 feature tabs (INFO, EDID, HDR/AVI, DV, CEC/eARC, MACROS, OSD, CONFIG).
-                            You can pin up to 5 of them to the bottom navigation bar per device, so your most-used controls
-                            are always one tap away. Each device remembers its own favorites independently.
-                        </div>
-                    </div>
-                </div>
+    <section id="faq" class="sec-band">
+        <div class="wrap">
+            <div class="sec-head"><div class="kicker">FAQ</div><h2 class="sec-title">Frequently asked questions.</h2></div>
+            <div class="faq">
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">How does FuryPath communicate with my HDFury device? <span class="arw">+</span></div><div class="a"><div class="a-in">FuryPath sends HTTP GET requests directly to your HDFury device on your local Wi-Fi network, using the same protocol used by HDFury's built-in web interface. Commands go to GET /cmd?key=value and status polling reads from GET /ssi/*.ssi endpoints. No external servers are involved. Your device must be on the same Wi-Fi network as your phone.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Which iOS and Android versions are supported? <span class="arw">+</span></div><div class="a"><div class="a-in">FuryPath is available on both iOS (iPhone and iPad) and Android. iOS requires iOS 16.0 or later. Android requires Android 5.0 (API 21) or higher.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Can I control my HDFury device remotely from outside my home? <span class="arw">+</span></div><div class="a"><div class="a-in">FuryPath connects to whatever IP address you configure. If your HDFury device is accessible via VPN or Tailscale, the app will work remotely. We recommend using a VPN or Tailscale rather than exposing your device directly to the internet.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Does it support all HDFury models? <span class="arw">+</span></div><div class="a"><div class="a-in">FuryPath supports VRRooM, VERTEX2, VERTEX, DIVA, Maestro, ARCANA2, Arcana, and Dr.HDMI 8K. The app auto-detects your device on connection and activates the feature set relevant to your model. Not all models support all features. JVC Macros, for example, are VRRooM-specific.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">How much does FuryPath cost? <span class="arw">+</span></div><div class="a"><div class="a-in">FuryPath is a one-time purchase at $4.99. No subscription, no ads, no in-app purchases. You buy it once and own it.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">Can I manage multiple HDFury devices? <span class="arw">+</span></div><div class="a"><div class="a-in">Yes. FuryPath supports multiple devices, each with its own settings, favorite tabs, and connection state. Switch between devices from the main dashboard with a single tap.</div></div></div>
+                <div class="qa"><div class="q" onclick="this.parentElement.classList.toggle('open')">What is the Favorite Tabs feature? <span class="arw">+</span></div><div class="a"><div class="a-in">Each device has 8 feature tabs (INFO, EDID, HDR/AVI, DV, CEC/eARC, MACROS, OSD, CONFIG). You can pin up to 5 of them to the bottom navigation bar per device, so your most-used controls are always one tap away. Each device remembers its own favorites independently.</div></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Legal Disclaimer -->
-    <section id="legal">
-        <div class="container fade-in">
-            <div class="legal-banner">
-                <h3>⚖️ Legal Disclaimer &amp; Trademark Notice</h3>
-                <p>
-                    FuryPath is an <strong>independent, third-party application</strong> developed and published by
-                    <strong>MiyaraHub Technologies LLC</strong>. It is <strong>not created by, affiliated with, endorsed by,
-                    sponsored by, or in any way officially connected with HDFury</strong> or any of its parent companies,
-                    subsidiaries, or affiliates.
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    "HDFury," "VRRooM," "VERTEX," "VERTEX2," "DIVA," "Maestro," "ARCANA," "Dr.HDMI," and all related
-                    product names and logos are trademarks of their respective owners. All other trademarks, service marks,
-                    and trade names referenced herein are the property of their respective owners.
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    References to HDFury products on this page and within the app are made solely for the purpose of
-                    identifying compatibility and describing the app's functionality (nominative fair use).
-                    The trademark holders are not affiliated with MiyaraHub Technologies LLC and do not endorse this product.
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    FuryPath communicates with HDFury devices using their publicly accessible HTTP interface.
-                    Use of this app is at your own risk. MiyaraHub Technologies LLC is not responsible for any
-                    misconfiguration, signal loss, device damage, or other issues arising from the use of this application.
-                    Always verify settings before applying changes to your HDFury device.
-                </p>
-            </div>
-        </div>
+    <!-- Legal -->
+    <section style="padding:2.5rem 0 1rem">
+        <div class="wrap"><div class="legal">
+            <h3>Legal &amp; trademark notice</h3>
+            <p>FuryPath is an independent, third-party application developed and published by MiyaraHub Technologies LLC. It is not created by, affiliated with, endorsed by, sponsored by, or officially connected with HDFury (Legend Sky Trade HK Ltd), JVC, or any other manufacturer.</p>
+            <p>"HDFury," "VRRoom," "VERTEX2," "VERTEX," "DIVA," "Maestro," "Arcana," "Dr.HDMI," "Dolby Vision," "JVC," and all related product names and logos are trademarks or registered trademarks of their respective owners, used here for identification and compatibility purposes only.</p>
+        </div></div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section" style="background: var(--bg-secondary);">
-        <h2>Ready to Take Control of Your HDFury?</h2>
-        <p>FuryPath is live on the App Store and Google Play. Take control of your HDFury today.</p>
-        <div class="hero-cta-group">
-            <a href="https://play.google.com/store/apps/details?id=com.miyarahub.furypath" class="hero-cta" target="_blank">
-                Download on Google Play →
-            </a>
-            <a href="https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302" class="hero-cta" target="_blank">
-                Download on App Store →
-            </a>
+    <section class="cta">
+        <div class="wrap">
+            <h2>Ready to take control of your HDFury?</h2>
+            <p>Get FuryPath on iPhone, iPad, or Android - a one-time $4.99 purchase, no subscription.</p>
+            <div class="store-row" style="justify-content:center">
+                <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.miyarahub.furypath" target="_blank" rel="noopener">Google Play</a>
+                <a class="btn" href="https://apps.apple.com/us/app/furypath-for-hdfury-devices/id6763290302" target="_blank" rel="noopener">App Store</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-copy">
-                &copy; 2026 MiyaraHub Technologies LLC. Van Alstyne, Texas. All rights reserved.<br>
-                <span style="font-size: 0.75rem; color: var(--text-secondary);">
-                    "HDFury" and related product names are trademarks of their respective owners. This product is not affiliated with or endorsed by HDFury.
-                </span>
-            </div>
-            <ul class="footer-links">
-                <li><a href="/">MiyaraHub Home</a></li>
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="mailto:admin@miyarahub.com">Support &amp; Contact</a></li>
+        <div class="wrap"><div class="foot">
+            <div class="c">&copy; 2026 <b>MiyaraHub Technologies LLC</b> &middot; Dallas, TX. All rights reserved.<br>Independent software. Trademarks belong to their respective owners.</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/support/">Support</a></li>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
             </ul>
-        </div>
+        </div></div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Fade-in on scroll
-        document.querySelectorAll('.fade-in').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) el.classList.add('no-delay');
-        });
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in:not(.no-delay)').forEach(el => observer.observe(el));
-
-        // FAQ toggle
-        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-
-        // Close mobile nav
-        function closeNav() {
-            document.getElementById('nav-menu').classList.remove('open');
-            document.getElementById('nav-toggle').classList.remove('open');
-        }
-
-        // Lightbox
-        function openLightbox(img) {
-            const lb = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = img.src;
-            lb.classList.add('active');
-        }
-
-        // Carousel factory — instantiated once per carousel section so
-        // the iPhone and Android galleries don't collide on currentIndex.
-        function setupCarousel({ trackId, dotsId, prevBtnId, nextBtnId }) {
-            const track = document.getElementById(trackId);
-            const slides = track.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.getElementById(dotsId);
-            const prevBtn = document.getElementById(prevBtnId);
-            const nextBtn = document.getElementById(nextBtnId);
-            const totalSlides = slides.length;
-            let currentIndex = 0;
-            let slidesPerView = 4;
-            let slideWidth = 0;
-
-            function calcDimensions() {
-                const viewport = track.parentElement.clientWidth;
-                if (viewport < 480) slidesPerView = 2;
-                else if (viewport < 768) slidesPerView = 3;
-                else if (viewport < 1024) slidesPerView = 4;
-                else slidesPerView = 5;
-                slideWidth = viewport / slidesPerView;
-                slides.forEach(s => s.style.width = slideWidth + 'px');
-            }
-
-            function getMaxIndex() { return Math.max(0, totalSlides - slidesPerView); }
-
-            function buildDots() {
-                dotsContainer.innerHTML = '';
-                const pages = getMaxIndex() + 1;
-                for (let i = 0; i < pages; i++) {
-                    const dot = document.createElement('button');
-                    dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-                    dot.onclick = () => goTo(i);
-                    dotsContainer.appendChild(dot);
-                }
-            }
-
-            function updateButtons() {
-                prevBtn.disabled = currentIndex <= 0;
-                nextBtn.disabled = currentIndex >= getMaxIndex();
-            }
-
-            function updateDots() {
-                dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
-                    d.classList.toggle('active', i === currentIndex);
-                });
-            }
-
-            function goTo(index) {
-                currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
-                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-                updateButtons();
-                updateDots();
-            }
-
-            const prev = () => goTo(currentIndex - 1);
-            const next = () => goTo(currentIndex + 1);
-
-            function init() {
-                calcDimensions();
-                if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex();
-                buildDots();
-                goTo(currentIndex);
-            }
-
-            init();
-            window.addEventListener('resize', init);
-
-            // Touch/swipe
-            let startX = 0, isDragging = false;
-            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
-            track.addEventListener('touchend', e => {
-                if (!isDragging) return;
-                isDragging = false;
-                const diff = startX - e.changedTouches[0].clientX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) next();
-                    else prev();
-                }
-            }, {passive: true});
-
-            return { prev, next };
-        }
-
-        // Android carousel (primary gallery — keeps the stock element IDs)
-        const androidCarousel = setupCarousel({
-            trackId: 'carousel-track',
-            dotsId: 'carousel-dots',
-            prevBtnId: 'carousel-prev',
-            nextBtnId: 'carousel-next',
-        });
-        window.carouselPrev = androidCarousel.prev;
-        window.carouselNext = androidCarousel.next;
-
-        // iPhone carousel (added 2026-04-23 after App Store approval)
-        const iosCarousel = setupCarousel({
-            trackId: 'carousel-track-ios',
-            dotsId: 'carousel-dots-ios',
-            prevBtnId: 'carousel-prev-ios',
-            nextBtnId: 'carousel-next-ios',
-        });
-        window.carouselIosPrev = iosCarousel.prev;
-        window.carouselIosNext = iosCarousel.next;
+        function closeNav(){ document.getElementById('nav-menu').classList.remove('open'); document.getElementById('nav-toggle').classList.remove('open'); }
+        function openLightbox(img){ var lb=document.getElementById('lightbox'); document.getElementById('lightbox-img').src=img.src; lb.classList.add('active'); }
+        const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }); }, { threshold:0.08 });
+        document.querySelectorAll('.fade').forEach(el=>{ const r = el.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ el.classList.add('vis'); } else { io.observe(el); } });
     </script>
 </body>
 </html>
