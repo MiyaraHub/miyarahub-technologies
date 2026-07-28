@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Today Tab - Almanox's Sun &amp; Moon Almanac</title>
+<meta name="description" content="How to read Almanox's Today tab: the sun-path arc, the twilight ladder from astronomical dawn to dusk, day length, the moon card with phase and moonrise/set, and live sun and moon positions - all for your exact location.">
+<meta name="keywords" content="sun path app, twilight times app, golden hour blue hour app, moonrise moonset app, moon phase today, sun position altitude azimuth, astronomical twilight, Almanox Today tab, sun arc app">
+<link rel="canonical" href="https://miyarahub.com/almanox/today/">
+<meta property="og:title" content="The Today Tab - Almanox's Sun &amp; Moon Almanac">
+<meta property="og:description" content="The sun-path arc, the twilight ladder, day length, the moon card and live positions - your almanac for any day, at your exact location.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://miyarahub.com/almanox/today/">
+<meta property="og:image" content="https://miyarahub.com/assets/almanox-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/almanox-icon.png">
+<link rel="apple-touch-icon" href="../../assets/almanox-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../manual.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://miyarahub.com/"},{"@type":"ListItem","position":2,"name":"Almanox","item":"https://miyarahub.com/almanox/"},{"@type":"ListItem","position":3,"name":"Guide","item":"https://miyarahub.com/almanox/guide/"},{"@type":"ListItem","position":4,"name":"The Today Tab","item":"https://miyarahub.com/almanox/today/"}]}
+</script>
+</head>
+<body>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="Almanox screenshot enlarged"></div>
+<nav>
+<a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
+<button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="nav-menu">
+<li><a href="/almanox/">App</a></li>
+<li><a href="/almanox/guide/" class="on">Guide</a></li>
+<li><a href="/almanox/vs-photopills/">vs PhotoPills</a></li>
+<li><a href="/almanox/help/">Help</a></li>
+</ul>
+</nav>
+<div class="wrap">
+<nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li class="sep">/</li><li><a href="/almanox/">Almanox</a></li><li class="sep">/</li><li><a href="/almanox/guide/">Guide</a></li><li class="sep">/</li><li>The Today Tab</li></ol></nav>
+<header class="phead fade">
+    <div class="kicker">The Screens</div>
+    <h1>The Today Tab</h1>
+    <p class="lede">Today is your almanac for the day you are looking at - every sun and moon event, in order, with the sun's arc drawn overhead and both bodies' live positions ticking as time passes. It answers "where is the light right now, and what happens next" without a single calculation on your part.</p>
+</header>
+
+<section class="fade">
+    <div class="sec-head"><div class="kicker">Overhead</div><h2 class="sec-title">The sun-path arc</h2><p class="sec-desc">The day drawn as a curve, with a marker riding the sun's real position.</p></div>
+    <div class="prose">
+        <p>The big card at the top draws the sun's path for the day as a curve - sunrise on the left, sunset on the right - and a glowing marker travels along it to show roughly where the sun is right now. Before sunrise or after sunset, the marker sits below the horizon line instead, so a glance tells you whether the sun is up at all.</p>
+        <p>The card's background is not decoration: its gradient shifts with the sun's actual altitude, so the panel itself tells you what kind of light you are standing in.</p>
+        <ul>
+            <li><b>Day sky</b> - the sun is higher than 8 degrees.</li>
+            <li><b>Golden sky</b> - the sun sits between 8 degrees and the horizon, the warm low-angle band photographers chase.</li>
+            <li><b>Dawn / dusk sky</b> - the sun is between the horizon and -6 degrees, deeper twilight.</li>
+            <li><b>Night sky</b> - the sun is below -6 degrees.</li>
+        </ul>
+        <p>Above the arc, a status line says what is happening this minute: "Golden hour - right now," "Blue hour - right now," a countdown to the next event ("Sunset in 1h 42m"), or simply "Daylight" or "Night" with the clock. Tap the date in the header to jump to any day, or step a day at a time with the arrows; when you are off today, a <b>Back to today</b> button appears.</p>
+        <p class="note">Every reading is computed on your device for your exact coordinates and the exact date on screen. It works offline and sends nothing anywhere.</p>
+    </div>
+    <div class="shot"><div class="frame"><img src="../screenshots/03_today.jpg" alt="Almanox Today screen with the sun-path arc, the twilight ladder and the moon card" onclick="lb(this.src)" loading="lazy"></div><div class="cap"><b>Today</b> the day's almanac</div></div>
+</section>
+
+<section class="sec-band fade">
+    <div class="sec-head"><div class="kicker">In Order</div><h2 class="sec-title">The twilight ladder</h2><p class="sec-desc">Every event of the day, top to bottom, with its clock time - so darkness arrives in stages you can see.</p></div>
+    <div class="prose">
+        <p>Below the arc, the Sun card lists the day's events in chronological order, each with its time. Sunset routinely runs an hour and a half ahead of real darkness, and this ladder is why you stop guessing:</p>
+        <ol>
+            <li><b>Astronomical dawn</b> - the first imperceptible lightening; the sun is 18 degrees down.</li>
+            <li><b>Nautical dawn</b> - the horizon becomes visible at sea; sun at -12 degrees.</li>
+            <li><b>Civil dawn</b> - bright enough to see outdoor detail without a light; sun at -6 degrees.</li>
+            <li><b>Sunrise</b> - the sun's upper edge breaks the horizon.</li>
+            <li><b>Golden hour end</b> - the morning's warm window closes as the sun climbs past +6 degrees.</li>
+            <li><b>Solar noon</b> - the sun's highest point, which drifts off 12:00 with your longitude and the season.</li>
+            <li><b>Golden hour</b> - the evening's warm window opens as the sun drops back through +6 degrees.</li>
+            <li><b>Sunset</b> - the upper edge slips below the horizon.</li>
+            <li><b>Civil dusk</b> - sun at -6 degrees.</li>
+            <li><b>Nautical dusk</b> - sun at -12 degrees.</li>
+            <li><b>Astronomical dusk</b> - sun at -18 degrees; true darkness begins.</li>
+        </ol>
+        <p>When an event does not happen that day - common at high latitudes in midsummer or midwinter - its row shows a dash instead of a time, and near the poles a banner explains that the sun is up, or down, all day. The card header also carries the <b>day length</b>, the span from sunrise to sunset in hours and minutes.</p>
+    </div>
+</section>
+
+<section class="fade">
+    <div class="sec-head"><div class="kicker">The Moon</div><h2 class="sec-title">The moon card and live positions</h2><p class="sec-desc">Phase, illumination and moon times, plus where the sun and moon actually are right now.</p></div>
+    <div class="prose">
+        <p>The moon card paints a disc matching the current phase and illumination, beside the phase name (from New Moon through Waning Crescent), the percent lit, and the day's moonrise and moonset - or "Up all day" / "Down all day" at latitudes where the moon does not cross the horizon. An <b>UP NOW</b> or <b>BELOW HORIZON</b> pill tells you its state this minute, which matters more than the phase when you are deciding whether the moon will be in your frame.</p>
+        <p>Under it, the Positions card gives the sun and moon's live <b>azimuth</b> - the compass direction as both a point and a degree, like "SE 132" - and their <b>altitude</b> in degrees above or below the horizon, marked "(below)" when they have set. It refreshes about every 30 seconds while the app is open, so it stays honest as the night moves.</p>
+        <p class="note">The full Today almanac - events, twilight ladder, live positions and the moon card - is free. No account, no signal required.</p>
+    </div>
+</section>
+
+<div class="cta fade">
+    <h2>Know the day before it starts</h2>
+    <p>Almanox is a one-time $12.99 purchase - no subscription, no ads, no account. The almanac and everything behind it run on your device.</p>
+    <div class="cta-row"><a class="btn primary" href="/almanox/">See the app</a><a class="btn" href="/almanox/guide/">Back to the guide</a></div>
+</div>
+</div>
+<footer><div class="wrap"><div class="foot"><div class="c"><b>Almanox</b> by MiyaraHub Technologies LLC<br>An independent app. Not affiliated with any third party.</div><ul><li><a href="/almanox/">App</a></li><li><a href="/almanox/guide/">Guide</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/support/">Support</a></li></ul></div></div></footer>
+<script>
+function lb(src){var l=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;l.classList.add('active');}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el);});
+</script>
+  <script defer src="/almanox/search.js"></script>
+</body>
+</html>
