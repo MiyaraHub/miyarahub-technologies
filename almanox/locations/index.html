@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saved Locations - Plan Any Place in Almanox</title>
+<meta name="description" content="How Almanox handles locations: use your GPS, search a city, or type exact coordinates, save the places you shoot, switch between them, and let every reading - sun, moon, verdict, Milky Way - recompute for wherever you stand.">
+<meta name="keywords" content="astrophotography location planning, save shooting locations app, plan by coordinates, city search astronomy app, GPS sun moon app, multiple locations planner, Almanox locations">
+<link rel="canonical" href="https://miyarahub.com/almanox/locations/">
+<meta property="og:title" content="Saved Locations - Plan Any Place in Almanox">
+<meta property="og:description" content="Use your GPS, search a city, or type coordinates. Save the places you shoot and every reading recomputes for exactly where you stand.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://miyarahub.com/almanox/locations/">
+<meta property="og:image" content="https://miyarahub.com/assets/almanox-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/almanox-icon.png">
+<link rel="apple-touch-icon" href="../../assets/almanox-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../manual.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://miyarahub.com/"},{"@type":"ListItem","position":2,"name":"Almanox","item":"https://miyarahub.com/almanox/"},{"@type":"ListItem","position":3,"name":"Guide","item":"https://miyarahub.com/almanox/guide/"},{"@type":"ListItem","position":4,"name":"Saved Locations","item":"https://miyarahub.com/almanox/locations/"}]}
+</script>
+</head>
+<body>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="Almanox screenshot enlarged"></div>
+<nav>
+<a href="/" class="nav-brand"><img src="/assets/logo-square.jpg" alt="MiyaraHub logo"><span class="nav-brand-text">MiyaraHub</span></a>
+<button class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('open'); this.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="nav-menu">
+<li><a href="/almanox/">App</a></li>
+<li><a href="/almanox/guide/" class="on">Guide</a></li>
+<li><a href="/almanox/vs-photopills/">vs PhotoPills</a></li>
+<li><a href="/almanox/help/">Help</a></li>
+</ul>
+</nav>
+<div class="wrap">
+<nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li class="sep">/</li><li><a href="/almanox/">Almanox</a></li><li class="sep">/</li><li><a href="/almanox/guide/">Guide</a></li><li class="sep">/</li><li>Saved Locations</li></ol></nav>
+<header class="phead fade">
+    <div class="kicker">The Screens</div>
+    <h1>Saved Locations</h1>
+    <p class="lede">Every number in Almanox - the sun events, the verdict, the Milky Way core, the moon times - is computed for one point on Earth. Locations is where you choose that point: your GPS, a city by name, or exact coordinates, saved so you can flip between the spots you actually shoot.</p>
+</header>
+
+<section class="fade">
+    <div class="sec-head"><div class="kicker">Getting There</div><h2 class="sec-title">Where the sky is computed for</h2><p class="sec-desc">Open Locations by tapping the place name at the top of Today or Tonight.</p></div>
+    <div class="prose">
+        <p>The location name sits at the top of both the Today and Tonight screens. Tap it and the Locations screen opens, listing every place you have saved with the active one marked. Switching is one tap - pick a tile and the whole app recomputes for that spot, and Almanox remembers your choice for next time.</p>
+        <p>There are three ways to set where you are planning for:</p>
+        <ul>
+            <li><b>Use current location</b> - re-requests your GPS position. A "Finding your location" dialog shows while it works. If it cannot get a fix - permission denied, location services off, or any error - Almanox tells you location is unavailable and falls back to its built-in New York location rather than showing you nothing.</li>
+            <li><b>Search city</b> - type a place name and search; nearby matches list with their coordinates, and tapping one saves it. It takes the name you typed, or its coordinates if you left the box blank.</li>
+            <li><b>Coordinates</b> - type a latitude and longitude directly, validated to the real ranges (-90 to 90, -180 to 180), with an optional custom name. Leave the name blank and Almanox reverse-geocodes the coordinates into a place name for you.</li>
+        </ul>
+    </div>
+    <div class="shot"><div class="frame"><img src="../screenshots/05_locations.jpg" alt="Almanox Locations screen listing saved places with the active one marked" onclick="lb(this.src)" loading="lazy"></div><div class="cap"><b>Locations</b> the places you shoot</div></div>
+</section>
+
+<section class="sec-band fade">
+    <div class="sec-head"><div class="kicker">Housekeeping</div><h2 class="sec-title">Switching, deleting and the default</h2><p class="sec-desc">Your list is yours to curate - with one guard rail so you are never left with nowhere.</p></div>
+    <div class="prose">
+        <ul>
+            <li><b>Switching</b> - tap any saved tile to make it active. The active place drives every screen until you change it.</li>
+            <li><b>Deleting</b> - swipe a tile left to remove it. You cannot delete your only remaining location; there always has to be at least one, so the app never ends up with nowhere to compute for.</li>
+            <li><b>The DEFAULT pill</b> - marks the built-in New York fallback whenever it is one of your saved entries, so you always know which one is the safety net.</li>
+        </ul>
+        <p>Free includes three saved locations, which covers home, a nearby dark site and a travel spot. <span class="pro-tag">Pro</span> lifts the cap to unlimited, for anyone who plans across many places.</p>
+        <p class="note">City search and reverse-geocoding need a connection; once a place is saved, all of its sun, moon and star-chart readings compute on-device with no signal.</p>
+    </div>
+</section>
+
+<div class="cta fade">
+    <h2>Plan the place, not just the night</h2>
+    <p>Almanox is a one-time $12.99 purchase - no subscription, no ads, no account. Save your spots and the whole almanac follows you to each one.</p>
+    <div class="cta-row"><a class="btn primary" href="/almanox/">See the app</a><a class="btn" href="/almanox/guide/">Back to the guide</a></div>
+</div>
+</div>
+<footer><div class="wrap"><div class="foot"><div class="c"><b>Almanox</b> by MiyaraHub Technologies LLC<br>An independent app. Not affiliated with any third party.</div><ul><li><a href="/almanox/">App</a></li><li><a href="/almanox/guide/">Guide</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/support/">Support</a></li></ul></div></div></footer>
+<script>
+function lb(src){var l=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;l.classList.add('active');}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el);});
+</script>
+  <script defer src="/almanox/search.js"></script>
+</body>
+</html>

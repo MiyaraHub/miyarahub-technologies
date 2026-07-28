@@ -63,6 +63,17 @@
             </div>
         </section>
 
+        <section class="fade">
+            <div class="sec-head"><div class="kicker">The Screens</div><h2 class="sec-title">Every screen, one by one</h2><p class="sec-desc">A page per tab - what each readout means and how to use it.</p></div>
+            <div class="cards">
+                <a class="card" href="/almanox/today/"><div class="no">&#9788;</div><h3>The Today Tab</h3><p>The sun-path arc, the twilight ladder from astronomical dawn to dusk, day length, the moon card and live sun/moon positions.</p><span class="arw">Read &rarr;</span></a>
+                <a class="card" href="/almanox/tonight-verdict/"><div class="no">&#9790;</div><h3>The Tonight Tab</h3><p>The 0-100 verdict, the ephemeris and the twilight ladder - the flagship "is tonight worth it" screen.</p><span class="arw">Read &rarr;</span></a>
+                <a class="card" href="/almanox/shot-planner/"><div class="no">&#9678;</div><h3>The Plan Tab <span class="pro-tag">Pro</span></h3><p>The sun/moon alignment planner and the photo calculators - line up the shot and get the settings.</p><span class="arw">Read &rarr;</span></a>
+                <a class="card" href="/almanox/locations/"><div class="no">&#9906;</div><h3>Saved Locations</h3><p>GPS, city search or exact coordinates - save the places you shoot and switch between them in a tap.</p><span class="arw">Read &rarr;</span></a>
+                <a class="card" href="/almanox/settings/"><div class="no">&#9881;</div><h3>Settings, Themes &amp; Alerts</h3><p>Light, Dark and AMOLED, seven accents, reorderable tabs and cards, backup, and golden-hour/dark-sky/aurora alerts.</p><span class="arw">Read &rarr;</span></a>
+            </div>
+        </section>
+
         <section class="sec-band fade">
             <div class="sec-head"><div class="kicker">Chapters</div><h2 class="sec-title">Every feature, in depth</h2><p class="sec-desc">Each chapter is a deep dive with the exact readouts, what they mean, and how to act on them.</p></div>
             <div class="cards">
@@ -100,5 +111,6 @@
     document.querySelectorAll('.fade').forEach(function(el){io.observe(el);});
     document.querySelectorAll('.qa .q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open');});});
     </script>
+  <script defer src="/almanox/search.js"></script>
 </body>
 </html>
