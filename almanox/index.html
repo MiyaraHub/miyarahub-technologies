@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almanox - Sun, Moon &amp; Milky Way Planner | MiyaraHub Technologies</title>
     <meta name="description" content="Almanox - the beautiful, offline sun, moon, and astrophotography planning app for iPhone, iPad, and Android. One-screen answer to is tonight good for the stars: a Tonight verdict score, golden and blue hour times, twilight ladder, Milky Way core rise and set, dark-sky windows, moon interference, shot planner for sun and moon alignments, an offline map planner, solar and lunar eclipse forecasts, live weather and cloud cover, an aurora forecast, next visible ISS pass, and home-screen widgets. One-time purchase, no subscription, no ads, fully on-device.">
-    <meta name="keywords" content="astrophotography planner app, Milky Way planner, night sky planner, golden hour app, blue hour app, sun position app, moon phase app, moonrise moonset app, dark sky forecast app, stargazing app, astronomy planner, PhotoPills alternative, Sun Surveyor alternative, twilight calculator app, Milky Way core app, galactic core tracker, ISS pass app, ISS tracker, shot planner sun moon alignment, offline astronomy app, one-time purchase astronomy app, sun moon almanac app, night photography planner, offline map planner, eclipse forecast app, aurora forecast app, Kp index app, planets tonight app, home screen widgets, MiyaraHub, Almanox">
+    <meta name="keywords" content="astrophotography planner app, Milky Way planner, night sky planner, golden hour app, blue hour app, sun position app, moon phase app, moonrise moonset app, dark sky forecast app, stargazing app, astronomy planner, twilight calculator app, Milky Way core app, galactic core tracker, ISS pass app, ISS tracker, shot planner sun moon alignment, offline astronomy app, one-time purchase astronomy app, sun moon almanac app, night photography planner, offline map planner, eclipse forecast app, aurora forecast app, Kp index app, planets tonight app, home screen widgets, MiyaraHub, Almanox">
     <link rel="canonical" href="https://miyarahub.com/almanox/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Almanox - Sun, Moon &amp; Milky Way Planner for iPhone, iPad &amp; Android">
@@ -421,6 +421,7 @@
         .foot { display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
         .foot .c { color: var(--faint); font-size: .82rem; line-height: 1.7; }
         .foot .c b { font-family:'Fraunces',serif; color: var(--muted); font-weight: 500; }
+        .foot .c .legal { display:block; margin-top:.7rem; font-size:.72rem; line-height:1.6; color: var(--faint); opacity:.85; max-width: 62ch; }
         .foot ul { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
         .foot a {
             font-family:'IBM Plex Mono',monospace; font-size: .72rem; letter-spacing: .08em;
@@ -502,7 +503,6 @@
             <li><a href="/almanox/guide/" onclick="closeNav()">Guide</a></li>
             <li><a href="#how" onclick="closeNav()">Method</a></li>
             <li><a href="#glossary" onclick="closeNav()">Glossary</a></li>
-            <li><a href="/almanox/vs-photopills/" onclick="closeNav()">vs PhotoPills</a></li>
             <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
         </ul>
     </nav>
@@ -721,6 +721,7 @@
                 <figure class="plate"><div class="frame"><img src="screenshots/04_plan.jpg" alt="Almanox - Shot planner" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 04</b> &middot; Planner</figcaption></figure>
                 <figure class="plate"><div class="frame"><img src="screenshots/05_locations.jpg" alt="Almanox - Saved dark-sky locations" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 05</b> &middot; Locations</figcaption></figure>
                 <figure class="plate"><div class="frame"><img src="screenshots/06_theme.jpg" alt="Almanox - Any accent color" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 06</b> &middot; Any color</figcaption></figure>
+                <figure class="plate"><div class="frame"><img src="screenshots/07_features.jpg" alt="Almanox - free star chart, planets tonight and ISS passes" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 07</b> &middot; Free extras</figcaption></figure>
                 <figure class="plate"><div class="frame"><img src="screenshots/07_light.jpg" alt="Almanox - Light theme" onclick="openLightbox(this)" loading="lazy"></div><figcaption class="cap"><b>Pl. 07</b> &middot; Light</figcaption></figure>
             </div>
         </div>
@@ -834,6 +835,59 @@
         </div>
     </section>
 
+    <!-- Free vs Pro -->
+    <section id="pricing">
+        <div class="wrap fade">
+            <div class="sec-head">
+                <div class="kicker">Free &amp; Pro</div>
+                <h2 class="sec-title">A generous free app, with one honest upgrade</h2>
+                <p class="sec-desc">Everything you need to answer "is tonight worth it" is free. Pro ($12.99, one time - no subscription) adds the deep planning tools. Every locked feature shows a real sample first.</p>
+            </div>
+            <div class="cmp-wrap">
+                <table class="cmp">
+                    <thead>
+                        <tr><th scope="col">Feature</th><th scope="col">Free</th><th scope="col">Pro</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Sun &amp; moon almanac (golden/blue hour, twilight, phase)</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Tonight verdict score (Milky Way, stargazing, moon, aurora)</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Live cloud &amp; light-pollution awareness</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Dark-sky window &amp; best window tonight</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Aurora forecast &amp; planets tonight</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>ISS flyover passes</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Constellation star chart (88 figures)</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Meteor-shower &amp; eclipse calendar</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Good-night dark-sky alerts</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Every theme &amp; accent, no ads, no sign-in</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Milky Way core forecast &amp; deep-sky targets</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Sun &amp; moon shot planner</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Photo calculators (500 / NPF / depth of field)</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Drive-out map planner &amp; dark-sky site finder</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Detailed hourly forecast</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>AR sky finder</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Home-screen widgets</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Golden-hour &amp; custom alerts</td><td class="n">&mdash;</td><td class="y">&#10003;</td></tr>
+                        <tr><td>Best nights ahead</td><td>7 nights</td><td class="y">60 nights</td></tr>
+                        <tr><td>Saved locations</td><td>3</td><td class="y">Unlimited</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <style>
+        #pricing .cmp-wrap { overflow-x: auto; margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 14px; }
+        #pricing table.cmp { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 460px; }
+        #pricing .cmp th, #pricing .cmp td { text-align: left; padding: .85rem 1.1rem; border-bottom: 1px solid var(--line); }
+        #pricing .cmp thead th { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); background: var(--ink-2); }
+        #pricing .cmp thead th:nth-child(2), #pricing .cmp thead th:nth-child(3),
+        #pricing .cmp tbody td:nth-child(2), #pricing .cmp tbody td:nth-child(3) { text-align: center; width: 5.5rem; }
+        #pricing .cmp thead th:nth-child(3) { color: var(--brass); }
+        #pricing .cmp tbody tr:last-child td { border-bottom: none; }
+        #pricing .cmp td.y { color: var(--brass); font-weight: 600; }
+        #pricing .cmp td.n { color: var(--faint); }
+        #pricing .cmp tbody td:first-child { color: var(--star); }
+    </style>
+
     <!-- Guide -->
     <section id="guide" class="sec-band">
         <div class="wrap fade">
@@ -848,7 +902,7 @@
                 <div class="p"><span class="g" aria-hidden="true">&#9788;</span><div><h4><a href="/almanox/shot-planner/">The shot planner</a></h4><p>The days the sun or full moon lines up with your direction - the sunrise-behind-the-arch shot, planned to the day.</p></div></div>
                 <div class="p"><span class="g" aria-hidden="true">&#9673;</span><div><h4><a href="/almanox/photo-calculators/">Photo calculators</a></h4><p>The 500 rule, the stricter NPF rule, and depth of field with the hyperfocal distance, for your exact kit.</p></div></div>
                 <div class="p"><span class="g" aria-hidden="true">&#9790;</span><div><h4><a href="/almanox/dark-sky-finder/">The dark-sky finder</a></h4><p>The nearest certified International Dark-Sky Places, ranked by distance with a direction and a rough drive.</p></div></div>
-                <div class="p"><span class="g" aria-hidden="true">&#9789;</span><div><h4><a href="/almanox/vs-photopills/">Almanox vs PhotoPills</a></h4><p>An honest comparison - what is different, and why Almanox is a one-time purchase with no subscription.</p></div></div>
+                <div class="p"><span class="g" aria-hidden="true">&#9673;</span><div><h4><a href="/almanox/settings/">Settings, themes &amp; alerts</a></h4><p>Light, Dark and true-black AMOLED, any accent color, reorderable cards, one-file backup, and alerts before the light happens.</p></div></div>
             </div>
             <div class="cta-row" style="justify-content:center;margin-top:2.4rem">
                 <a class="btn store" href="/almanox/guide/">Read the full guide</a>
@@ -875,7 +929,8 @@
         <div class="wrap foot">
             <div class="c">
                 &copy; 2026 MiyaraHub Technologies LLC &middot; Van Alstyne, Texas. All rights reserved.<br>
-                <b>Almanox</b> - the sun, moon, and Milky Way planner for photographers and stargazers.
+                <b>Almanox</b> - the sun, moon, and Milky Way planner for photographers and stargazers.<br>
+                <span class="legal">Almanox is an independent app by MiyaraHub Technologies LLC and is not affiliated with, endorsed by, or sponsored by any third party. Live weather is provided by Open-Meteo and place lookups by OpenStreetMap contributors; dark-sky guidance derives from public light-pollution datasets. All product names mentioned are trademarks of their respective owners.</span>
             </div>
             <ul>
                 <li><a href="/">MiyaraHub</a></li>
